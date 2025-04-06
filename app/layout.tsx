@@ -1,6 +1,7 @@
-import { inter } from "./_ui/fonts";
-import "./globals.css";
 import type { Metadata } from "next";
+import "@/app/_ui/styles/global.css";
+import { inter } from "@/app/_ui/fonts";
+import { Header } from "@/app/_ui/components";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -13,8 +14,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="pt-br">
+      <body className={inter.className}>
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }
