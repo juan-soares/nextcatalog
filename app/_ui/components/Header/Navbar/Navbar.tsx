@@ -1,5 +1,5 @@
 import { ICategory } from "@/app/_lib/interfaces";
-import { getCategories } from "@/app/_lib/db/categories";
+import { getCategories } from "@/app/_lib/db";
 import Link from "next/link";
 
 export async function Navbar() {
