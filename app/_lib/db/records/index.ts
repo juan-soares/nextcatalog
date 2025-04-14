@@ -1,18 +1,14 @@
-import { ICategory, IDatabase, IRecord } from "../../interfaces";
+import { IDatabase, IRecord } from "../../interfaces";
 import connectToDatabase from "../connection";
 
-export async function getAllRecords(): Promise<IRecord[]> {
-  try {
-    const db: IDatabase | null = await connectToDatabase();
+export async function getRecordsByCategoryCollection(
+  collectionToSearch: string,
+  limit: 15
+): Promise<IRecord[]> {
+  const db: IDatabase | null = await connectToDatabase();
+  if (!db) throw new Error("Erro");
 
-    if (!db) throw new Error("Erro");
+  const records = db[collectionToSearch];
 
-    let allRecords = [];
-
-    console.log(allRecords);
-
-    return allRecords;
-  } catch (error) {
-    return [];
-  }
+  return records.slice(0, limit);
 }

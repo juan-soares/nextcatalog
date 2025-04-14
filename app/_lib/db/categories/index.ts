@@ -14,3 +14,19 @@ export async function getCategories(): Promise<ICategory[]> {
     return [];
   }
 }
+
+export async function getCategoriesBySlug(
+  slugToSearch: string
+): Promise<ICategory> {
+  try {
+    const categories = await getCategories();
+    const category = categories.find(({ slug }) => slug === slugToSearch);
+
+    if (!category) throw new Error(`Categoria ${slugToSearch} não encontrada.`);
+
+    return category;
+  } catch (error) {
+    console.log(error);
+    throw new Error("Falha ao encontrar a categoria pelo slug.");
+  }
+}
