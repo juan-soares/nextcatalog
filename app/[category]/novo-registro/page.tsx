@@ -49,8 +49,8 @@ export default async function NovoRegistroPage({ params }: IProps) {
             <option>1</option>
           </select>
 
-          <label htmlFor="chronologicSequel">Sequência Cronológica</label>
-          <select id="chronologicSequel" name="chronologicSequel">
+          <label htmlFor="chronologicalSequel">Sequência Cronológica</label>
+          <select id="chronologicalSequel" name="chronologicalSequel">
             <option hidden>Selecione...</option>
             <option>1</option>
           </select>
