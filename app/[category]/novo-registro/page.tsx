@@ -27,6 +27,19 @@ export default async function NovoRegistroPage({ params }: IProps) {
         <label htmlFor="cover">Capa</label>
         <input type="file" id="cover" name="cover" required />
 
+        <label htmlFor="trailer">Trailer</label>
+        <input type="file" id="trailer" name="trailer" required />
+
+        <label>Gêneros</label>
+        <input type="checkbox" id="genero1" name="genres" value="" />
+        <label htmlFor="genero1">Genero 1</label>
+
+        <label>Franquia</label>
+        <input type="checkbox" id="genero1" name="franchise" value="" />
+        <label htmlFor="genero1">
+          <img src="/eraumavez" alt="Logotipo da franquia." />
+        </label>
+
         <label>Adquirido</label>
         <input type="radio" id="yes" name="aquired" />
         <label htmlFor="yes">Sim</label>
