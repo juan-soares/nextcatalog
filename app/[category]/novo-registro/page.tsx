@@ -12,57 +12,81 @@ export default async function NovoRegistroPage({ params }: IProps) {
     <main>
       <h1>Adicionar novo registro em {categoryInfo.title}</h1>
       <form>
-        <label htmlFor="title">Título</label>
-        <input type="text" id="title" name="title" required />
+        <fieldset>
+          <legend>Ficha Técnica</legend>
+          <label htmlFor="title">Título</label>
+          <input type="text" id="title" name="title" required />
 
-        <label htmlFor="translatedTitle">Título Traduzido</label>
-        <input type="text" id="translatedTitle" name="translatedTitle" />
+          <label htmlFor="translatedTitle">Título Traduzido</label>
+          <input type="text" id="translatedTitle" name="translatedTitle" />
 
-        <label htmlFor="release">Data de Lançamento</label>
-        <input type="date" id="release" name="release" required />
+          <label htmlFor="subcategory">Subcategoria</label>
+          <select id="subcategory" name="subcategory">
+            <option hidden>Selecione...</option>
+            <option>1</option>
+          </select>
 
-        <label htmlFor="synopsis">Sinopse</label>
-        <textarea id="synopsis" name="synopsis" required />
+          <label htmlFor="release">Data de Lançamento</label>
+          <input type="date" id="release" name="release" required />
 
-        <label htmlFor="cover">Capa</label>
-        <input type="file" id="cover" name="cover" required />
+          <label htmlFor="synopsis">Sinopse</label>
+          <textarea id="synopsis" name="synopsis" required />
 
-        <label htmlFor="trailer">Trailer</label>
-        <input type="file" id="trailer" name="trailer" required />
+          <label htmlFor="cover">Capa</label>
+          <input type="file" id="cover" name="cover" required />
 
-        <label htmlFor="directSequel">Sequencia Direta</label>
-        <select id="directSequel" name="directSequel">
-          <option hidden>Selecione...</option>
-          <option>1</option>
-        </select>
+          <label htmlFor="trailer">Trailer</label>
+          <input type="file" id="trailer" name="trailer" required />
+        </fieldset>
 
-        <label htmlFor="chronologicSequel">Sequencia Cronológica</label>
-        <select id="chronologicSequel" name="chronologicSequel">
-          <option hidden>Selecione...</option>
-          <option>1</option>
-        </select>
+        <fieldset>
+          <legend>Sequências</legend>
+          <label htmlFor="directSequel">Sequência Direta</label>
+          <select id="directSequel" name="directSequel">
+            <option hidden>Selecione...</option>
+            <option>1</option>
+          </select>
 
-        <label>Temáticas</label>
-        <input type="checkbox" id="theme1" name="themes" value="" />
-        <label htmlFor="theme1">Temática 1</label>
+          <label htmlFor="chronologicSequel">Sequência Cronológica</label>
+          <select id="chronologicSequel" name="chronologicSequel">
+            <option hidden>Selecione...</option>
+            <option>1</option>
+          </select>
 
-        <label htmlFor="franchises">Franquias</label>
-        <select id="franchises" name="franchises" required>
-          <option hidden>Selecione...</option>
-          <option>1</option>
-        </select>
+          <label htmlFor="arc">Arco</label>
+          <select id="arc" name="arc">
+            <option hidden>Selecione...</option>
+            <option>1</option>
+          </select>
+        </fieldset>
 
-        <label>Adquirido</label>
-        <input type="radio" id="yes" name="aquired" />
-        <label htmlFor="yes">Sim</label>
-        <input type="radio" id="no" name="aquired" defaultChecked />
-        <label htmlFor="no">Não</label>
+        <fieldset>
+          <legend>Tags</legend>
+          <label>Temáticas</label>
+          <input type="checkbox" id="theme1" name="themes" value="" />
+          <label htmlFor="theme1">Temática 1</label>
 
-        <label>Finalizado</label>
-        <input type="radio" id="yes" name="complete" />
-        <label htmlFor="yes">Sim</label>
-        <input type="radio" id="no" name="complete" defaultChecked />
-        <label htmlFor="no">Não</label>
+          <label htmlFor="franchises">Franquias</label>
+          <select id="franchises" name="franchises" required>
+            <option hidden>Selecione...</option>
+            <option>1</option>
+          </select>
+        </fieldset>
+
+        <fieldset>
+          <legend>Status</legend>
+          <label>Adquirido</label>
+          <input type="radio" id="yes" name="aquired" />
+          <label htmlFor="yes">Sim</label>
+          <input type="radio" id="no" name="aquired" defaultChecked />
+          <label htmlFor="no">Não</label>
+
+          <label>Finalizado</label>
+          <input type="radio" id="yes" name="complete" />
+          <label htmlFor="yes">Sim</label>
+          <input type="radio" id="no" name="complete" defaultChecked />
+          <label htmlFor="no">Não</label>
+        </fieldset>
 
         <button type="submit">Enviar</button>
       </form>
