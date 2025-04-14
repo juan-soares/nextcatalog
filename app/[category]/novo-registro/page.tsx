@@ -21,8 +21,10 @@ export default async function NovoRegistroPage({ params }: IProps) {
           <input type="text" id="translatedTitle" name="translatedTitle" />
 
           <label htmlFor="subcategory">Subcategoria</label>
-          <select id="subcategory" name="subcategory">
-            <option hidden>Selecione...</option>
+          <select id="subcategory" name="subcategory" required>
+            <option value="" hidden>
+              Selecione...
+            </option>
             <option>1</option>
           </select>
 
@@ -63,12 +65,14 @@ export default async function NovoRegistroPage({ params }: IProps) {
         <fieldset>
           <legend>Tags</legend>
           <label>Temáticas</label>
-          <input type="checkbox" id="theme1" name="themes" value="" />
+          <input type="checkbox" id="theme1" name="themes" required />
           <label htmlFor="theme1">Temática 1</label>
 
           <label htmlFor="franchises">Franquias</label>
           <select id="franchises" name="franchises" required>
-            <option hidden>Selecione...</option>
+            <option value="" hidden>
+              Selecione...
+            </option>
             <option>1</option>
           </select>
         </fieldset>
