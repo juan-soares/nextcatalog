@@ -20,7 +20,7 @@ export async function getCategoriesBySlug(
 ): Promise<ICategory> {
   try {
     const categories = await getCategories();
-    const category = categories.find(({ slug }) => slug === slugToSearch);
+    const category = categories.find(({ slug }) => slug === "/" + slugToSearch);
 
     if (!category) throw new Error(`Categoria ${slugToSearch} não encontrada.`);
 

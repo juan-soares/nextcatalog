@@ -12,7 +12,7 @@ export default async function CategoryPage({ params }: IProps) {
   return (
     <div>
       <h1>{categoryInfo.title}</h1>
-      <Filters />
+      <Filters categorySlug={categoryInfo.slug} />
       <RecordsList categoryCollection={categoryInfo.collection} />
     </div>
   );

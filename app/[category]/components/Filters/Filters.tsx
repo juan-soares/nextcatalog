@@ -1,12 +1,16 @@
 import Link from "next/link";
 
-export function Filters() {
+interface IProps {
+  categorySlug: string;
+}
+
+export function Filters({ categorySlug }: IProps) {
   return (
     <aside>
       <div>
         <input type="search" />
         <button>0-</button>
-        <Link href={`/animes/novo-registro`}>
+        <Link href={`${categorySlug}/novo-registro`}>
           <button>+</button>
         </Link>
       </div>

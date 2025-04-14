@@ -9,7 +9,8 @@ interface IProps {
 
 export async function RecordsList({ categoryCollection }: IProps) {
   const results: IRecord[] = await getRecordsByCategoryCollection(
-    categoryCollection
+    categoryCollection,
+    15
   );
 
   if (!results.length) return <p> Sem itens na lista.</p>;

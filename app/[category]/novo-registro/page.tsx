@@ -30,15 +30,27 @@ export default async function NovoRegistroPage({ params }: IProps) {
         <label htmlFor="trailer">Trailer</label>
         <input type="file" id="trailer" name="trailer" required />
 
-        <label>Gêneros</label>
-        <input type="checkbox" id="genero1" name="genres" value="" />
-        <label htmlFor="genero1">Genero 1</label>
+        <label htmlFor="directSequel">Sequencia Direta</label>
+        <select id="directSequel" name="directSequel">
+          <option hidden>Selecione...</option>
+          <option>1</option>
+        </select>
 
-        <label>Franquia</label>
-        <input type="checkbox" id="genero1" name="franchise" value="" />
-        <label htmlFor="genero1">
-          <img src="/eraumavez" alt="Logotipo da franquia." />
-        </label>
+        <label htmlFor="chronologicSequel">Sequencia Cronológica</label>
+        <select id="chronologicSequel" name="chronologicSequel">
+          <option hidden>Selecione...</option>
+          <option>1</option>
+        </select>
+
+        <label>Temáticas</label>
+        <input type="checkbox" id="theme1" name="themes" value="" />
+        <label htmlFor="theme1">Temática 1</label>
+
+        <label htmlFor="franchises">Franquias</label>
+        <select id="franchises" name="franchises" required>
+          <option hidden>Selecione...</option>
+          <option>1</option>
+        </select>
 
         <label>Adquirido</label>
         <input type="radio" id="yes" name="aquired" />
