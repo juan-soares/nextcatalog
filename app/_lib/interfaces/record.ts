@@ -13,6 +13,8 @@ export interface IRecord {
   arc: string;
   themes: string[];
   franchises: string[];
+  files: string[];
+  images: string[];
   aquired: boolean;
   complete: boolean;
 }
