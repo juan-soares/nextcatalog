@@ -1,4 +1,5 @@
 import { getCategoriesBySlug } from "@/app/_lib/db";
+import { FormFieldsByCategory } from "./components";
 
 interface IProps {
   params: Promise<{ category: string }>;
@@ -101,38 +102,7 @@ export default async function NovoRegistroPage({ params }: IProps) {
           <label htmlFor="no">Não</label>
         </fieldset>
 
-        <fieldset>
-          <legend>Temporadas</legend>
-          <label htmlFor="number">Número</label>
-          <input type="number" id="number" name="number" required />
-
-          <label htmlFor="title">Título</label>
-          <input type="text" id="title" name="title" />
-
-          <label htmlFor="release">Lançamento</label>
-          <input type="date" id="release" name="release" required />
-
-          <fieldset>
-            <legend>Episódios</legend>
-            <label htmlFor="number">Número</label>
-            <input type="number" id="number" name="number" required />
-
-            <label htmlFor="title">Título</label>
-            <input type="text" id="title" name="title" />
-
-            <label>Adquirido</label>
-            <input type="radio" id="yes" name="aquired" />
-            <label htmlFor="yes">Sim</label>
-            <input type="radio" id="no" name="aquired" defaultChecked />
-            <label htmlFor="no">Não</label>
-
-            <label>Finalizado</label>
-            <input type="radio" id="yes" name="complete" />
-            <label htmlFor="yes">Sim</label>
-            <input type="radio" id="no" name="complete" defaultChecked />
-            <label htmlFor="no">Não</label>
-          </fieldset>
-        </fieldset>
+        <FormFieldsByCategory category={category} />
 
         <button type="submit">Enviar</button>
       </form>

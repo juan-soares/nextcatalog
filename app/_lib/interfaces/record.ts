@@ -5,6 +5,7 @@ export interface IRecord {
   title: string;
   release: string;
   translatedTitle: string;
+  category: string;
   subcategory: string;
   synopse: string;
   trailer: string;
@@ -17,4 +18,5 @@ export interface IRecord {
   images: string[];
   aquired: boolean;
   complete: boolean;
+  hasSeason: true;
 }
