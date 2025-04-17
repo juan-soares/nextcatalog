@@ -20,3 +20,8 @@ export interface IRecord {
   complete: boolean;
   hasSeason: true;
 }
+
+export interface IRecentRecordByCategory {
+  categoryTitle: string;
+  records: IRecord[];
+}
