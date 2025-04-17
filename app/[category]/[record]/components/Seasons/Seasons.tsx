@@ -1,23 +1,11 @@
-import { ISeason } from "@/app/_lib/interfaces";
+import { getSeasonsByTitle } from "@/app/_lib/db/seasons";
 
-export function Seasons() {
-  const seasons: ISeason[] = [
-    {
-      id: "aa",
-      number: 1,
-      title: "Shippuden",
-      release: "2024-01-01",
-      episodes: [
-        {
-          id: "aa",
-          number: 1,
-          title: "Guerreiros Secretos.",
-          aquired: false,
-          complete: true,
-        },
-      ],
-    },
-  ];
+interface IProps {
+  titleID: string;
+}
+
+export async function Seasons({ titleID }: IProps) {
+  const seasons = await getSeasonsByTitle(titleID);
 
   return (
     <section>

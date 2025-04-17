@@ -94,7 +94,7 @@ export default function RecordPage() {
         <input type="checkbox" checked={complete} readOnly />
       </section>
 
-      {hasSeason && <Seasons />}
+      {hasSeason && <Seasons titleID={id} />}
     </main>
   );
 }

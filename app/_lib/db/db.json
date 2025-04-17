@@ -7,5 +7,22 @@
       "collection": "animes"
     }
   ],
-  "animes": []
+  "animes": [],
+  "seasons": [
+    {
+      "id": "aa",
+      "number": 1,
+      "title": "1",
+      "release": "2024-01-01",
+      "episodes": [
+        {
+          "id": "aa",
+          "number": 1,
+          "title": "Guerreiros Secretos.",
+          "aquired": false,
+          "complete": true
+        }
+      ]
+    }
+  ]
 }
