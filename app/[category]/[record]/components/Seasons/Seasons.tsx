@@ -7,7 +7,15 @@ export function Seasons() {
       number: 1,
       title: "Shippuden",
       release: "2024-01-01",
-      episodes: [{ id: "aa", number: 1, title: "Guerreiros Secretos." }],
+      episodes: [
+        {
+          id: "aa",
+          number: 1,
+          title: "Guerreiros Secretos.",
+          aquired: false,
+          complete: true,
+        },
+      ],
     },
   ];
 
@@ -21,11 +29,15 @@ export function Seasons() {
 
           <h4>Episódios</h4>
           <ul>
-            {episodes.map(({ id, number: episodeNumber, title }) => (
-              <li key={id}>
-                <p>{`${seasonNumber}x${episodeNumber} - ${title}`}</p>
-              </li>
-            ))}
+            {episodes.map(
+              ({ id, number: episodeNumber, title, aquired, complete }) => (
+                <li key={id}>
+                  <p>{`${seasonNumber}x${episodeNumber} - ${title}`}</p>
+                  {aquired && <span>Adquirido</span>}
+                  {complete && <span>Completo</span>}
+                </li>
+              )
+            )}
           </ul>
         </div>
       ))}

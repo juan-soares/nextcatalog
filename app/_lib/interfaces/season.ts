@@ -10,4 +10,6 @@ export interface IEpisode {
   id: string;
   number: number;
   title: string;
+  aquired: boolean;
+  complete: boolean;
 }
