@@ -1,9 +1,10 @@
 import { IDatabase } from "../../interfaces";
 import fs from "fs";
 
+const filePath = "./app/_lib/db/db.json";
+
 export default async function connectToDatabase(): Promise<IDatabase | null> {
   try {
-    const filePath = "./app/_lib/db/db.json";
     const db: IDatabase = JSON.parse(fs.readFileSync(filePath, "utf-8"));
 
     if (!db) throw new Error("Banco de dados indisponível.");
@@ -12,4 +13,22 @@ export default async function connectToDatabase(): Promise<IDatabase | null> {
   } catch (error) {
     return null;
   }
+}
+
+export async function updateDatabase(newRecord: any, collection: string) {
+  const db = await connectToDatabase();
+  if (!db) throw new Error("Conexao falhou");
+
+  const updatedCollection = db[collection].push({
+    id: db[collection].length++,
+    ...newRecord,
+  });
+
+  console.log(updatedCollection);
+
+  fs.writeFileSync(
+    filePath,
+    JSON.stringify(updatedCollection, null, 2), // identação bonita
+    "utf8"
+  );
 }
