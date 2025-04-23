@@ -21,5 +21,4 @@ export async function createFranchise(formData: FormData) {
     slug: slugify(""),
   };
 
-  createFranchise(formValues);
 }

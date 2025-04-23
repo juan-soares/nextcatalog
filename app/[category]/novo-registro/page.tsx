@@ -1,5 +1,7 @@
+
 import { getCategoriesBySlug } from "@/app/_lib/db";
 import { FormFieldsByCategory } from "./components";
+
 
 interface IProps {
   params: Promise<{ category: string }>;
@@ -7,6 +9,9 @@ interface IProps {
 
 export default async function NovoRegistroPage({ params }: IProps) {
   const { category } = await params;
+
+  if(category === "franquias") return (<FormFieldsByCategory category="franquias"/>)
+
   const categoryInfo = await getCategoriesBySlug(category);
 
   return (

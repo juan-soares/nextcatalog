@@ -1,6 +1,6 @@
-import { createFranchise } from "../_lib/actions";
+import { createFranchise } from "../../../../../_lib/actions";
 
-export default function NovaFranquia() {
+export  function FranchiseFormFields() {
   return (
     <main>
       <h1>Nova Franquia</h1>
