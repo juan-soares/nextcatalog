@@ -1,13 +1,12 @@
-import { Logo } from "@/app/_ui/components";
-import { Navbar, Searchbar, UserInfo } from "./components";
+import { Logo } from "../Logo";
+import { GlobalSearch, Navbar } from "./";
 
-export function Header() {
-  return (
-    <header>
-      <Logo />
-      <Searchbar />
-      <UserInfo />
-      <Navbar />
-    </header>
-  );
+export function Header(){
+    return(
+        <header>
+            <Logo/>
+            <GlobalSearch/>
+            <Navbar/>
+        </header>
+    )
 }
