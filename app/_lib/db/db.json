@@ -1,3 +1,10 @@
 {
-    "categories":[]
+    "categories":[],
+    "franchises":[],
+    "users":[{
+        "email":"a@a",
+        "password":"a",
+        "avatar":"icon.png",
+        "nickname":"admin"
+    }]
 }

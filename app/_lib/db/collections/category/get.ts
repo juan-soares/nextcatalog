@@ -1,5 +1,6 @@
-import { ICategory } from "../../interfaces";
-import connectToDatabase from "../connection";
+import { ICategory } from "@/app/_lib/interfaces";
+import connectToDatabase from "../../connection";
+
 
 export async function getAllCategories():Promise<ICategory[]>{
     try{

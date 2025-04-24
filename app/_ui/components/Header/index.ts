@@ -1,3 +1,4 @@
 export * from "./Header"
-export * from "./Global-Search";
+export * from "./GlobalSearch";
 export * from "./Navbar"
+export * from "./UserInfo"
