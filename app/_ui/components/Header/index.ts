@@ -1,4 +1,4 @@
-export * from "./Header"
+export * from "./Header";
 export * from "./GlobalSearch";
-export * from "./Navbar"
-export * from "./UserInfo"
+export * from "./Navbar";
+export * from "./UserInfo";

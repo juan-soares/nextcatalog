@@ -1,14 +1,12 @@
 import { ICategory } from "@/app/_lib/interfaces";
 import connectToDatabase from "../../connection";
 
+export async function getAllCategories(): Promise<ICategory[]> {
+  try {
+    const db = await connectToDatabase();
 
-export async function getAllCategories():Promise<ICategory[]>{
-    try{
-        const db = await connectToDatabase();
-
-        return db["categories"];
-    }
-catch(error) {
-return []
-}    
+    return db["categories"];
+  } catch (error) {
+    return [];
+  }
 }

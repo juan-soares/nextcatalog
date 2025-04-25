@@ -1,10 +1,20 @@
 {
-    "categories":[],
-    "franchises":[],
-    "users":[{
-        "email":"a@a",
-        "password":"a",
-        "avatar":"icon.png",
-        "nickname":"admin"
-    }]
+  "categories": [
+    { "id": "1", "title": "Animes", "slug": "/animes", "collection": "animes" },
+    {
+      "id": "2",
+      "title": "Franquias",
+      "slug": "/franchises",
+      "collection": "franchises"
+    }
+  ],
+  "franchises": [],
+  "users": [
+    {
+      "email": "a@a",
+      "password": "a",
+      "avatar": "icon.png",
+      "nickname": "admin"
+    }
+  ]
 }

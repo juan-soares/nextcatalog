@@ -1,5 +1,6 @@
 export interface ICategory {
-    id:string;
-    slug:string;
-    title:string;
+  id: string;
+  slug: string;
+  title: string;
+  collection: string;
 }

@@ -1,11 +1,10 @@
-import { IDatabase } from "../../interfaces";
 import fs from "fs";
 
 const filePath = "./app/_lib/db/db.json";
 
-export default async function connectToDatabase(): Promise<IDatabase | null> {
+export default async function connectToDatabase() {
   try {
-    const db: IDatabase = JSON.parse(fs.readFileSync(filePath, "utf-8"));
+    const db = JSON.parse(fs.readFileSync(filePath, "utf-8"));
 
     if (!db) throw new Error("Banco de dados indisponível.");
 
