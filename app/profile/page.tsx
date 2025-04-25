@@ -1,30 +1,17 @@
-import { getAllCategories } from "../_lib/db/collections";
+import { FranchiseForm, FormType } from "./Forms";
 
-export default async function ProfilePage() {
-  const categories = await getAllCategories();
+interface IProps {
+  searchParams: Promise<{ formtype: string }>;
+}
 
-  return (
-    <main>
-      <h1>Painel de Usuário</h1>
-      <p>Selecione uma opção para adicionar um novo registro.</p>
+export default async function ProfilePage({ searchParams }: IProps) {
+  const { formtype } = await searchParams;
 
-      <form>
-        <ul>
-          {categories.map(({ id, collection, title }) => (
-            <li key={id}>
-              <input
-                type="radio"
-                name="formtype"
-                id={collection}
-                value={collection}
-                required
-              />
-              <label htmlFor={collection}>{title}</label>
-            </li>
-          ))}
-        </ul>
-        <button type="submit">Avançar</button>
-      </form>
-    </main>
-  );
+  switch (formtype) {
+    case "franchises":
+      return <FranchiseForm />;
+
+    default:
+      return <FormType />;
+  }
 }
