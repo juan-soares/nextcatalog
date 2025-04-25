@@ -1,8 +1,9 @@
+import { createFranchise } from "@/app/_lib/db/collections";
 import Link from "next/link";
 
 export function FranchiseForm() {
   return (
-    <form>
+    <form action={createFranchise}>
       <h1>Nova Franquia</h1>
       <label htmlFor="title">Título</label>
       <input type="text" id="title" name="title" required />
