@@ -1,7 +1,8 @@
-import { getAllCategories } from "@/app/_lib/db/collections";
+import { getFormTypes } from "@/app/_lib/db/collections";
+import { IFormType } from "@/app/_lib/interfaces/formType";
 
 export async function FormType() {
-  const categories = await getAllCategories();
+  const formTypes: IFormType[] = await getFormTypes();
 
   return (
     <main>
@@ -10,7 +11,7 @@ export async function FormType() {
 
       <form>
         <ul>
-          {categories.map(({ id, collection, title }) => (
+          {formTypes.map(({ id, collection, title }) => (
             <li key={id}>
               <input
                 type="radio"

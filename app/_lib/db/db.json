@@ -9,6 +9,15 @@
     }
   ],
   "franchises": [],
+  "formTypes": [
+    {
+      "id": "1",
+      "title": "Franquias",
+      "slug": "/novo-registro/franquias",
+      "collection": "franchises"
+    }
+  ],
+
   "users": [
     {
       "email": "a@a",
