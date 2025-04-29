@@ -1,9 +1,9 @@
 import Link from "next/link";
-import { ICategory } from "@/app/_lib/interfaces";
-import { getAllCategories } from "@/app/_lib/db/collections";
+import { ICollectionInfo } from "@/app/_lib/interfaces";
+import { getCategories } from "@/app/_lib/db/collections";
 
 export async function Navbar() {
-  const categories: ICategory[] = await getAllCategories();
+  const categories: ICollectionInfo[] = await getCategories();
 
   return (
     <nav>

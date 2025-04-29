@@ -1,17 +1,10 @@
-import { FranchiseForm, FormType } from "./Forms";
+import { CollectionOptions } from "./CollectionOptions";
 
-interface IProps {
-  searchParams: Promise<{ formtype: string }>;
-}
-
-export default async function ProfilePage({ searchParams }: IProps) {
-  const { formtype } = await searchParams;
-
-  switch (formtype) {
-    case "franchises":
-      return <FranchiseForm />;
-
-    default:
-      return <FormType />;
-  }
+export default async function ProfilePage() {
+  return (
+    <div>
+      <h1>Painel de Usuário</h1>
+      <CollectionOptions />
+    </div>
+  );
 }

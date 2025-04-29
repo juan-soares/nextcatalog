@@ -1,22 +1,21 @@
 {
-  "categories": [
-    { "id": "1", "title": "Animes", "slug": "/animes", "collection": "animes" },
+  "collectionsInfo": [
+    {
+      "id": "1",
+      "title": "Animes",
+      "slug": "/animes",
+      "collection": "animes",
+      "isCategory": true
+    },
     {
       "id": "2",
       "title": "Franquias",
       "slug": "/franquias",
-      "collection": "franchises"
+      "collection": "franchises",
+      "isCategory": false
     }
   ],
   "franchises": [],
-  "formTypes": [
-    {
-      "id": "1",
-      "title": "Franquias",
-      "slug": "/novo-registro/franquias",
-      "collection": "franchises"
-    }
-  ],
 
   "users": [
     {
