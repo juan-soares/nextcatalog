@@ -1,20 +1,22 @@
 {
+  "users": [
+    {
+      "id": "1",
+      "email": "a@a.com",
+      "password": "aaaa",
+      "nickname": "admin",
+      "avatar": "/"
+    }
+  ],
   "collectionsInfo": [
     {
-      "id": "2",
+      "id": "1",
       "title": "Franquias",
-      "slug": "/franquias",
+      "slug": "/franchises",
       "collection": "franchises",
       "isCategory": false
     }
   ],
-  "franchises": [],
-  "users": [
-    {
-      "email": "a@a",
-      "password": "a",
-      "avatar": "icon.png",
-      "nickname": "admin"
-    }
-  ]
+
+  "franchises": []
 }

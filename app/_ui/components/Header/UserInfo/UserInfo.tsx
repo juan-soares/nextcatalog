@@ -2,7 +2,10 @@ import { getUserByCredentials } from "@/app/_lib/db/collections";
 import Link from "next/link";
 
 export async function UserInfo() {
-  const user = await getUserByCredentials({ email: "a@a", password: "a" });
+  const user = await getUserByCredentials({
+    email: "a@a.com",
+    password: "aaaa",
+  });
 
   if (!user)
     return (

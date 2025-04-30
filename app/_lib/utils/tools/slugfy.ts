@@ -1,5 +1,4 @@
 export function slugfy(text: string): string {
-  console.log(text);
   return text
     .toString()
     .normalize("NFD") // Remove acentos
