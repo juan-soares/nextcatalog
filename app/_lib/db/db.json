@@ -1,13 +1,6 @@
 {
   "collectionsInfo": [
     {
-      "id": "1",
-      "title": "Animes",
-      "slug": "/animes",
-      "collection": "animes",
-      "isCategory": true
-    },
-    {
       "id": "2",
       "title": "Franquias",
       "slug": "/franquias",
@@ -16,7 +9,6 @@
     }
   ],
   "franchises": [],
-
   "users": [
     {
       "email": "a@a",

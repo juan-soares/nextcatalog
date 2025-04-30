@@ -2,12 +2,13 @@
 
 import { slugfy } from "@/app/_lib/utils";
 
-export async function createFranchise(formFields: FormData) {
-  const newFranchise = {
-    title: formFields.get("title")?.toString() || "",
-    slug: slugfy(formFields.get("title")?.toString() || ""),
-    logo: "",
-  };
+export async function createFranchise(formData: FormData) {
+  const formTitle = formData.get("title")?.toString();
 
-  console.log(newFranchise);
+  if (!formTitle) return console.log("Dados faltando.");
+
+  const newFranchise = {
+    title: formTitle,
+    slug: slugfy(formTitle),
+  };
 }

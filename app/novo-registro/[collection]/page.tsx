@@ -1,4 +1,5 @@
 import { getCollectionInfoBySlug } from "@/app/_lib/db/collections";
+import { FranchiseForm } from "./_ui/components";
 
 interface IProps {
   params: Promise<{ collection: string }>;
@@ -6,9 +7,18 @@ interface IProps {
 
 export default async function NovoRegistroPage({ params }: IProps) {
   const getParams = await params;
-  const { collection } = getParams;
-  const collectionInfo = await getCollectionInfoBySlug(collection);
-  const { title } = collectionInfo;
+  const { collection: collectionParam } = getParams;
+  const collectionInfo = await getCollectionInfoBySlug(collectionParam);
+  const { title, collection } = collectionInfo;
 
-  return <h1>Adicionar {title}</h1>;
+  const formType: { [key: string]: JSX.Element } = {
+    franchises: <FranchiseForm />,
+  };
+
+  return (
+    <main>
+      <h1>Adicionar {title}</h1>
+      {formType[collection]}
+    </main>
+  );
 }
