@@ -24,10 +24,4 @@ export async function updateDatabase(newRecord: any, collection: string) {
   });
 
   console.log(updatedCollection);
-
-  fs.writeFileSync(
-    filePath,
-    JSON.stringify(updatedCollection, null, 2), // identação bonita
-    "utf8"
-  );
 }
