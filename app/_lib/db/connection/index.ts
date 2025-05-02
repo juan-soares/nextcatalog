@@ -10,18 +10,25 @@ export default async function connectToDatabase() {
 
     return db;
   } catch (error) {
+    console.log(error);
     return null;
   }
 }
 
 export async function updateDatabase(newRecord: any, collection: string) {
-  const db = await connectToDatabase();
-  if (!db) throw new Error("Conexao falhou");
+  try {
+    const db = await connectToDatabase();
+    if (!db) throw new Error("Conexao falhou");
 
-  const updatedCollection = db[collection].push({
-    id: db[collection].length++,
-    ...newRecord,
-  });
+    const newRecordWithId = {
+      id: Date.now().toString(),
+      ...newRecord,
+    };
 
-  console.log(updatedCollection);
+    db[collection].push(newRecordWithId);
+
+    fs.writeFileSync(filePath, JSON.stringify(db, null, 2));
+  } catch (error) {
+    console.log(error);
+  }
 }

@@ -10,7 +10,12 @@ export async function FranchisesList() {
     <ul>
       {franchises.map(({ id, slug, logo, title }) => (
         <Link key={id} href={slug}>
-          <img src={logo} alt={`Logotipo da franquia ${title}.`} />
+          <img
+            src={logo}
+            alt={`Logotipo da franquia ${title}.`}
+            width={100}
+            height={50}
+          />
         </Link>
       ))}
     </ul>

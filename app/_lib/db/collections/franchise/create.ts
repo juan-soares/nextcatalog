@@ -11,8 +11,8 @@ export async function createFranchise(formData: FormData) {
 
   const newFranchise = {
     title: formTitle,
-    slug: slugfy(formTitle),
-    logo: "",
+    slug: `/franquias${slugfy(formTitle)}`,
+    logo: `/data/franchises${slugfy(formTitle)}-logo.png`,
   };
 
   try {

@@ -17,6 +17,12 @@
       "isCategory": false
     }
   ],
-
-  "franchises": []
+  "franchises": [
+    {
+      "id": "1746152136797",
+      "title": "Yu-Gi-Oh!",
+      "slug": "/franquias/yu-gi-oh",
+      "logo": "/data/franchises/yu-gi-oh-logo.png"
+    }
+  ]
 }
