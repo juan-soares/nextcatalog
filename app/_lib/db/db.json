@@ -12,9 +12,16 @@
     {
       "id": "1",
       "title": "Franquias",
-      "slug": "/franchises",
+      "slug": "/franquias",
       "collection": "franchises",
       "isCategory": false
+    },
+    {
+      "id": "2",
+      "title": "Animes",
+      "slug": "/animes",
+      "collection": "animes",
+      "isCategory": true
     }
   ],
   "franchises": [
@@ -24,5 +31,6 @@
       "slug": "/franquias/yu-gi-oh",
       "logo": "/data/franchises/yu-gi-oh-logo.png"
     }
-  ]
+  ],
+  "animes": []
 }

@@ -4,12 +4,12 @@ import { writeFile } from "node:fs/promises";
 
 export async function uploadImage(
   imgFile: File,
-  collection: string,
+  imgPath: string,
   imgName: string
 ) {
   const bytes = await imgFile.arrayBuffer();
   const buffer = Buffer.from(bytes);
-  const path = `public/data/${collection}/${imgName}`;
+  const path = `public/data/${imgPath}/${imgName}`;
 
   try {
     await writeFile(path, buffer);

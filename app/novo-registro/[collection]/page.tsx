@@ -1,5 +1,5 @@
 import { getCollectionInfoBySlug } from "@/app/_lib/db/collections";
-import { FranchiseForm } from "./_ui/components";
+import { AnimeForm, FranchiseForm } from "./_ui/components";
 
 interface IProps {
   params: Promise<{ collection: string }>;
@@ -13,6 +13,7 @@ export default async function NovoRegistroPage({ params }: IProps) {
 
   const formType: { [key: string]: JSX.Element } = {
     franchises: <FranchiseForm />,
+    animes: <AnimeForm />,
   };
 
   return (
