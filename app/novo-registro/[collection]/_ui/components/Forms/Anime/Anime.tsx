@@ -34,7 +34,9 @@ export async function AnimeForm() {
             </option>
           ))}
         </select>
-        <Link href="/novo-registro/subcategorias">Novo</Link>
+        <Link href="/novo-registro/subcategorias">
+          <button type="button">+</button>
+        </Link>
       </fieldset>
 
       <fieldset>

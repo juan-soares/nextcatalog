@@ -13,7 +13,8 @@ export async function getSubcategoriesByCategoryCollection(
     );
 
     return db["subcategories"].filter(
-      ({ category }: { category: string }) => category === categoryIdToFind
+      ({ categories }: { categories: string[] }) =>
+        categories.includes(categoryIdToFind)
     );
   } catch (error) {
     return [];
