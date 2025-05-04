@@ -18,10 +18,25 @@
     },
     {
       "id": "2",
+      "title": "Subcategorias",
+      "slug": "/subcategorias",
+      "collection": "subcategories",
+      "isCategory": false
+    },
+    {
+      "id": "3",
       "title": "Animes",
       "slug": "/animes",
       "collection": "animes",
       "isCategory": true
+    }
+  ],
+  "subcategories": [
+    {
+      "id": "1746374167457",
+      "title": "Temporada",
+      "slug": "/subcategorias/temporada",
+      "categories": ["3"]
     }
   ],
   "franchises": [

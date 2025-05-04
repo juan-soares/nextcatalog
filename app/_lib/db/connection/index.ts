@@ -28,6 +28,7 @@ export async function updateDatabase(newRecord: any, collection: string) {
     db[collection].push(newRecordWithId);
 
     fs.writeFileSync(filePath, JSON.stringify(db, null, 2));
+    console.log("Novo registro salvo com sucesso!");
   } catch (error) {
     console.log(error);
   }

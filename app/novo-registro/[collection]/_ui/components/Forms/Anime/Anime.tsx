@@ -1,9 +1,14 @@
-import { getAllFranchises } from "@/app/_lib/db/collections";
-import { createAnime } from "@/app/_lib/db/collections/anime";
 import { Fragment } from "react";
+import { getAllFranchises } from "@/app/_lib/db/collections";
+import { getSubcategoriesByCategoryCollection } from "@/app/_lib/db/collections";
+import { createAnime } from "@/app/_lib/db/collections/anime";
+import Link from "next/link";
 
 export async function AnimeForm() {
   const franchisesOption = await getAllFranchises();
+  const subcategoriesOption = await getSubcategoriesByCategoryCollection(
+    "animes"
+  );
 
   return (
     <form action={createAnime}>
@@ -23,8 +28,13 @@ export async function AnimeForm() {
           <option hidden value="">
             Selecione...
           </option>
-          <option value="1">1...</option>
+          {subcategoriesOption.map(({ id, title }) => (
+            <option key={id} value={id}>
+              {title}
+            </option>
+          ))}
         </select>
+        <Link href="/novo-registro/subcategorias">Novo</Link>
       </fieldset>
 
       <fieldset>

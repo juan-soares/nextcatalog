@@ -1,2 +1,3 @@
 export * from "./Anime";
 export * from "./Franchise";
+export * from "./Subcategory";

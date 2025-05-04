@@ -1,5 +1,5 @@
 import { getCollectionInfoBySlug } from "@/app/_lib/db/collections";
-import { AnimeForm, FranchiseForm } from "./_ui/components";
+import { AnimeForm, FranchiseForm, SubcategoryForm } from "./_ui/components";
 
 interface IProps {
   params: Promise<{ collection: string }>;
@@ -12,8 +12,9 @@ export default async function NovoRegistroPage({ params }: IProps) {
   const { title, collection } = collectionInfo;
 
   const formType: { [key: string]: JSX.Element } = {
-    franchises: <FranchiseForm />,
     animes: <AnimeForm />,
+    franchises: <FranchiseForm />,
+    subcategories: <SubcategoryForm />,
   };
 
   return (
