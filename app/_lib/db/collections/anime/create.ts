@@ -37,8 +37,8 @@ export async function createAnime(formData: FormData) {
   console.log(newAnime);
 
   try {
-    //await updateDatabase(newanime, "animes");
-    //await uploadImage(formImg, `animes${slugfy(formTitle)}/img`, "logo");
+    // await updateDatabase(newAnime, "animes");
+    //uploadImage(formImg, `animes${slugfy(formTitle)}/img`, "logo");
     redirect("/");
   } catch (error) {
     return console.log("Deu errado! " + error);

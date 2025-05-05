@@ -1,5 +1,8 @@
 import { Fragment } from "react";
-import { getAllFranchises } from "@/app/_lib/db/collections";
+import {
+  getAllCategoriesRecords,
+  getAllFranchises,
+} from "@/app/_lib/db/collections";
 import { getSubcategoriesByCategoryCollection } from "@/app/_lib/db/collections";
 import { createAnime } from "@/app/_lib/db/collections/anime";
 import Link from "next/link";
@@ -9,6 +12,7 @@ export async function AnimeForm() {
   const subcategoriesOption = await getSubcategoriesByCategoryCollection(
     "animes"
   );
+  const allRecordsOption = await getAllCategoriesRecords();
 
   return (
     <form action={createAnime}>
@@ -52,6 +56,11 @@ export async function AnimeForm() {
           <option hidden value="">
             Selecione...
           </option>
+          {allRecordsOption.map(({ id, title }) => (
+            <option key={id} value={id}>
+              {title}
+            </option>
+          ))}
         </select>
 
         <label htmlFor="chronologicalSequel">Sequência Cronológica:</label>
@@ -59,6 +68,11 @@ export async function AnimeForm() {
           <option hidden value="">
             Selecione...
           </option>
+          {allRecordsOption.map(({ id, title }) => (
+            <option key={id} value={id}>
+              {title}
+            </option>
+          ))}
         </select>
       </fieldset>
 

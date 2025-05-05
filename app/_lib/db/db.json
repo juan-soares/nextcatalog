@@ -37,6 +37,12 @@
       "title": "Temporada",
       "slug": "/subcategorias/temporada",
       "categories": ["3"]
+    },
+    {
+      "id": "1746405359733",
+      "title": "OVA",
+      "slug": "/subcategorias/ova",
+      "categories": ["3"]
     }
   ],
   "franchises": [

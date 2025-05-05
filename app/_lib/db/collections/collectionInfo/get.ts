@@ -1,4 +1,4 @@
-import { ICollectionInfo } from "@/app/_lib/interfaces";
+import { ICategoryRecord, ICollectionInfo } from "@/app/_lib/interfaces";
 import connectToDatabase from "../../connection";
 
 export async function getAllCollectionsInfo(): Promise<ICollectionInfo[]> {
@@ -36,6 +36,26 @@ export async function getCategories(): Promise<ICollectionInfo[]> {
       .sort((a: ICollectionInfo, b: ICollectionInfo) =>
         a.title.localeCompare(b.title)
       );
+  } catch (error) {
+    return [];
+  }
+}
+
+export async function getAllCategoriesRecords(): Promise<ICategoryRecord[]> {
+  try {
+    const db = await connectToDatabase();
+
+    const categories = await getCategories();
+
+    const allCategoriesRecords = categories
+      .map(({ collection }) => db[collection])
+      .flat()
+      .sort((a: ICollectionInfo, b: ICollectionInfo) =>
+        a.title.localeCompare(b.title)
+      );
+
+    console.log(allCategoriesRecords);
+    return allCategoriesRecords;
   } catch (error) {
     return [];
   }
