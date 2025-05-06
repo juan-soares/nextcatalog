@@ -19,7 +19,7 @@ export async function createFranchise(formData: FormData) {
 
   try {
     await updateDatabase(newFranchise, "franchises");
-    await uploadImage(formImg, "franchises", slugfy(formTitle));
+    await uploadImage(formImg, "franchises", slugfy(formTitle) + "-logo");
     redirect("/");
   } catch (error) {
     return console.log("Deu errado! " + error);

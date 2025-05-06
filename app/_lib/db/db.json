@@ -51,7 +51,14 @@
       "title": "Yu-Gi-Oh!",
       "slug": "/franquias/yu-gi-oh",
       "logo": "/data/franchises/yu-gi-oh-logo.png"
+    },
+    {
+      "id": "1746531953932",
+      "title": "Onimusha",
+      "slug": "/franquias/onimusha",
+      "logo": "/data/franchises/onimusha-logo.png"
     }
   ],
+  "themes": [],
   "animes": []
 }
