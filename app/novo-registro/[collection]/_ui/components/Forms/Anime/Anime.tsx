@@ -1,12 +1,13 @@
 import { Fragment } from "react";
 import {
-  getAllCategoriesRecords,
   getAllFranchises,
+  getSubcategoriesByCategoryCollection,
+  getAllCategoriesRecords,
+  getAllThemes,
+  createAnime,
 } from "@/app/_lib/db/collections";
-import { getSubcategoriesByCategoryCollection } from "@/app/_lib/db/collections";
-import { createAnime } from "@/app/_lib/db/collections/anime";
+
 import Link from "next/link";
-import { getAllThemes } from "@/app/_lib/db/collections/theme";
 
 export async function AnimeForm() {
   const franchisesOption = await getAllFranchises();
@@ -82,6 +83,18 @@ export async function AnimeForm() {
         <legend>Tags</legend>
         <div>
           <label>Temáticas</label>
+          {allThemes.map(({ id, title }) => (
+            <Fragment key={id}>
+              <input
+                type="checkbox"
+                id={id}
+                name="themes"
+                value={id}
+                required
+              />
+              <label htmlFor={id}>{title}</label>
+            </Fragment>
+          ))}
           <Link href="/novo-registro/tematicas">+</Link>
         </div>
 
@@ -89,14 +102,8 @@ export async function AnimeForm() {
           <label>Franquias</label>
           {franchisesOption.map(({ id, title }) => (
             <Fragment key={id}>
-              <input
-                type="checkbox"
-                id={id}
-                name="franchises"
-                value={id}
-                required
-              />
-              <label htmlFor="franquia">{title}</label>
+              <input type="checkbox" id={id} name="franchises" value={id} />
+              <label htmlFor={id}>{title}</label>
             </Fragment>
           ))}
           <Link href="/novo-registro/franquias">+</Link>
