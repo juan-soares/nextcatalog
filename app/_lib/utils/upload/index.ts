@@ -2,14 +2,10 @@
 
 import { writeFile } from "node:fs/promises";
 
-export async function uploadImage(
-  imgFile: File,
-  imgPath: string,
-  imgName: string
-) {
+export async function uploadImage(imgFile: File, imgTitle: string) {
   const bytes = await imgFile.arrayBuffer();
   const buffer = Buffer.from(bytes);
-  const path = `public/data/${imgPath}/${imgName}`;
+  const path = `public/data/${imgTitle}.png`;
 
   try {
     await writeFile(path, buffer);

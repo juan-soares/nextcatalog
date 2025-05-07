@@ -1,9 +1,9 @@
 "use server";
 
-import { slugfy } from "@/app/_lib/utils";
 import { redirect } from "next/navigation";
 import { updateDatabase } from "../../connection";
 import { uploadImage } from "@/app/_lib/utils/upload";
+import { slugfy } from "@/app/_lib/utils";
 
 export async function createAnime(formData: FormData) {
   const formTitle = formData.get("title")?.toString();
@@ -30,15 +30,13 @@ export async function createAnime(formData: FormData) {
     chronologicalSequel: formChronologicalSequel,
     themes: formThemes,
     franchises: formFranchises,
-    slug: `/animes${slugfy(formTitle)}`,
-    logo: `/data/animes${slugfy(formTitle)}/img/logo.png`,
+    slug: `/animes/${slugfy(formTitle)}`,
+    logo: `/data/animes-${slugfy(formTitle)}-logo.png`,
   };
 
-  console.log(newAnime);
-
   try {
-    // await updateDatabase(newAnime, "animes");
-    //uploadImage(formImg, `animes${slugfy(formTitle)}/img`, "logo");
+    uploadImage(formImg, `animes-${slugfy(formTitle)}-logo`);
+    await updateDatabase(newAnime, "animes");
     redirect("/");
   } catch (error) {
     return console.log("Deu errado! " + error);

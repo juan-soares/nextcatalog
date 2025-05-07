@@ -43,17 +43,13 @@
       "id": "1746374167457",
       "title": "Temporada",
       "slug": "/subcategorias/temporada",
-      "categories": [
-        "3"
-      ]
+      "categories": ["3"]
     },
     {
       "id": "1746405359733",
       "title": "OVA",
       "slug": "/subcategorias/ova",
-      "categories": [
-        "3"
-      ]
+      "categories": ["3"]
     }
   ],
   "franchises": [
@@ -61,13 +57,13 @@
       "id": "1746152136797",
       "title": "Yu-Gi-Oh!",
       "slug": "/franquias/yu-gi-oh",
-      "logo": "/data/franchises/yu-gi-oh-logo.png"
+      "logo": "/data/franchises-yu-gi-oh-logo.png"
     },
     {
       "id": "1746531953932",
       "title": "Onimusha",
       "slug": "/franquias/onimusha",
-      "logo": "/data/franchises/onimusha-logo.png"
+      "logo": "/data/franchises-onimusha-logo.png"
     }
   ],
   "themes": [
@@ -76,5 +72,19 @@
       "title": "Card Battle"
     }
   ],
-  "animes": []
+  "animes": [
+    {
+      "id": "1746618768231",
+      "title": "Yu-Gi-Oh!",
+      "translatedTitle": "",
+      "release": "1998-04-04",
+      "subcategory": "1746374167457",
+      "directSequel": "",
+      "chronologicalSequel": "",
+      "themes": ["1746579019582"],
+      "franchises": ["1746152136797"],
+      "slug": "/animes/yu-gi-oh",
+      "logo": "/data/animes-yu-gi-oh-logo.png"
+    }
+  ]
 }
