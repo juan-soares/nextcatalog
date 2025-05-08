@@ -1,5 +1,6 @@
 import { ICategoryRecord, ICollectionInfo } from "@/app/_lib/interfaces";
 import connectToDatabase from "../../connection";
+import { getAnimesByPage } from "../anime";
 
 export async function getAllCollectionsInfo(): Promise<ICollectionInfo[]> {
   try {
@@ -59,4 +60,16 @@ export async function getAllCategoriesRecords(): Promise<ICategoryRecord[]> {
   } catch (error) {
     return [];
   }
+}
+
+export async function getAllRecordsByCategoryCollection(
+  categoryCollection: string,
+  page: number,
+  limit: number
+): Promise<ICategoryRecord[]> {
+  const recordsToSend: { [key: string]: ICategoryRecord[] } = {
+    animes: await getAnimesByPage(page, limit),
+  };
+
+  return recordsToSend[categoryCollection];
 }
