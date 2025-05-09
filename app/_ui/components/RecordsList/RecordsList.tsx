@@ -3,11 +3,10 @@ import { ICategoryRecord } from "@/app/_lib/interfaces";
 import { getAllRecordsByCategoryCollection } from "@/app/_lib/db/collections";
 
 interface IProps {
-  collection: string;
   categorySlug: string;
 }
 
-export async function RecordsList({ collection, categorySlug }: IProps) {
+export async function RecordsList({ categorySlug }: IProps) {
   const categoryRecords: ICategoryRecord[] =
     await getAllRecordsByCategoryCollection("animes", 1, 15);
 

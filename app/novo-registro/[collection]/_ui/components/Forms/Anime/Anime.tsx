@@ -48,8 +48,8 @@ export async function AnimeForm() {
 
       <fieldset>
         <legend>Mídia</legend>
-        <label htmlFor="logo">Logo:</label>
-        <input type="file" id="logo" name="logo" required />
+        <label htmlFor="cover">Capa:</label>
+        <input type="file" id="cover" name="cover" required />
       </fieldset>
 
       <fieldset>

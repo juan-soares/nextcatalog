@@ -19,7 +19,7 @@ export async function createSubcategory(formData: FormData) {
   try {
     await updateDatabase(newSubcategory, "subcategories");
 
-    redirect("/");
+    redirect("/profile");
   } catch (error) {
     return console.log("Deu errado! " + error);
   }

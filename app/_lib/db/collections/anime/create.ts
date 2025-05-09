@@ -9,6 +9,7 @@ export async function createAnime(formData: FormData) {
   const formTitle = formData.get("title")?.toString();
   const formTranslatedTitle = formData.get("translatedTitle")?.toString();
   const formRelease = formData.get("release")?.toString();
+  const formSynopsis = formData.get("synopsis")?.toString();
   const formSubcategory = formData.get("subcategory")?.toString();
   const formDirectSequel = formData.get("directSequel")?.toString();
   const formChronologicalSequel = formData
@@ -26,18 +27,19 @@ export async function createAnime(formData: FormData) {
     translatedTitle: formTranslatedTitle,
     release: formRelease,
     subcategory: formSubcategory,
+    synopsis: formSynopsis,
     directSequel: formDirectSequel,
     chronologicalSequel: formChronologicalSequel,
     themes: formThemes,
     franchises: formFranchises,
     slug: `/animes/${slugfy(formTitle)}`,
-    logo: `/data/animes-${slugfy(formTitle)}-logo.png`,
+    cover: `/data/animes-${slugfy(formTitle)}-cover.png`,
   };
 
   try {
     uploadImage(formImg, `animes-${slugfy(formTitle)}-logo`);
     await updateDatabase(newAnime, "animes");
-    redirect("/");
+    redirect("/profile");
   } catch (error) {
     return console.log("Deu errado! " + error);
   }

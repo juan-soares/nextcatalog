@@ -1,6 +1,6 @@
 import { getCollectionInfoBySlug } from "../_lib/db/collections";
-import { RecordsList } from "../_ui/components/RecordsList";
-import { Filters } from "./_ul/components";
+import { RecordsList } from "../_ui/components";
+import { Filters } from "./_ui/components";
 
 interface IProps {
   params: Promise<{ category: string }>;
@@ -8,15 +8,13 @@ interface IProps {
 
 export default async function CategoryPage({ params }: IProps) {
   const { category: categorySlug } = await params;
-  const { title, collection, slug } = await getCollectionInfoBySlug(
-    categorySlug
-  );
+  const { title, slug } = await getCollectionInfoBySlug(categorySlug);
 
   return (
     <div>
       <h1>{title}</h1>
       <Filters />
-      <RecordsList collection={collection} categorySlug={slug} />
+      <RecordsList categorySlug={slug} />
     </div>
   );
 }

@@ -78,13 +78,14 @@
       "title": "Yu-Gi-Oh!",
       "translatedTitle": "",
       "release": "1998-04-04",
+      "synopsis": "loreem leorem leorermeahjs hashasa.",
       "subcategory": "1746374167457",
       "directSequel": "",
       "chronologicalSequel": "",
       "themes": ["1746579019582"],
       "franchises": ["1746152136797"],
       "slug": "/animes/yu-gi-oh",
-      "logo": "/data/animes-yu-gi-oh-logo.png"
+      "cover": "/data/animes-yu-gi-oh-cover.png"
     }
   ]
 }

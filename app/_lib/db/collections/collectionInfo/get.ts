@@ -73,3 +73,18 @@ export async function getAllRecordsByCategoryCollection(
 
   return recordsToSend[categoryCollection];
 }
+
+export async function getRecordByRecordSlug(
+  categorySlug: string,
+  recordSlug: string
+): Promise<ICategoryRecord> {
+  const db = await connectToDatabase();
+
+  const categoryInfo = await getCollectionInfoBySlug(categorySlug);
+
+  const recordInfo = db[categoryInfo.collection].find(
+    ({ slug }: { slug: string }) => slug === `/${categorySlug}/${recordSlug}`
+  );
+
+  return recordInfo;
+}

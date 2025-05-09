@@ -15,7 +15,7 @@ export async function createTheme(formData: FormData) {
   try {
     await updateDatabase(newTheme, "themes");
 
-    redirect("/");
+    redirect("/profile");
   } catch (error) {
     return console.log("Deu errado! " + error);
   }
