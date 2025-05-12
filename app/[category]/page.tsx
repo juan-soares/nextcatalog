@@ -1,6 +1,6 @@
 import { getCollectionInfoBySlug } from "../_lib/db/collections";
 import { RecordsList } from "../_ui/components";
-import { Filters } from "./_ui/components";
+import { Filters } from "./_ul/components";
 
 interface IProps {
   params: Promise<{ category: string }>;
