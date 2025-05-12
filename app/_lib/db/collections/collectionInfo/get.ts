@@ -1,4 +1,8 @@
-import { ICategoryRecord, ICollectionInfo } from "@/app/_lib/interfaces";
+import {
+  ICategoryRecord,
+  ICollectionInfo,
+  IFranchise,
+} from "@/app/_lib/interfaces";
 import connectToDatabase from "../../connection";
 import { getAnimesByPage } from "../anime";
 
@@ -74,7 +78,7 @@ export async function getAllRecordsByCategoryCollection(
   return recordsToSend[categoryCollection];
 }
 
-export async function getRecordByRecordSlug(
+export async function getCompleteRecordInfoByRecordSlug(
   categorySlug: string,
   recordSlug: string
 ): Promise<ICategoryRecord> {
@@ -82,9 +86,44 @@ export async function getRecordByRecordSlug(
 
   const categoryInfo = await getCollectionInfoBySlug(categorySlug);
 
-  const recordInfo = db[categoryInfo.collection].find(
+  const recordInfo: ICategoryRecord = db[categoryInfo.collection].find(
     ({ slug }: { slug: string }) => slug === `/${categorySlug}/${recordSlug}`
   );
+
+  const { title: subcategoryTitle } = db["subcategories"].find(
+    ({ id }: { id: string }) => id === recordInfo.subcategory
+  );
+
+  const populatedThemes = recordInfo.themes.map((themeID: string) =>
+    db["themes"].find(({ id }: { id: string }) => themeID === id)
+  );
+
+  const populatedFranchises = recordInfo.franchises.map((themeID: string) =>
+    db["franchises"].find(({ id }: { id: string }) => themeID === id)
+  );
+
+  const populateField = (fieldValue: string | string[], collection: string) => {
+    if (typeof fieldValue === "string") {
+      const populatedInfo = db[collection].find(
+        (id: string) => id === fieldValue
+      );
+      return { field: populatedInfo };
+    } else {
+      const populatedInfo = fieldValue.map((fieldId: string) =>
+        db[collection].find(({ id }: { id: string }) => id === fieldId)
+      );
+      return { field: populatedInfo };
+    }
+  };
+
+  const populatedRecord = {
+    ...recordInfo,
+    populateField(recordInfo.subcate),
+    themes: populatedThemes,
+    franchises: populatedFranchises,
+  };
+
+  console.log(populatedRecord);
 
   return recordInfo;
 }

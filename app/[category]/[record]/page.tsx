@@ -1,4 +1,4 @@
-import { getRecordByRecordSlug } from "@/app/_lib/db/collections";
+import { getCompleteRecordInfoByRecordSlug } from "@/app/_lib/db/collections";
 
 export interface IProps {
   params: Promise<{ category: string; record: string }>;
@@ -6,7 +6,10 @@ export interface IProps {
 
 export default async function RecordPage({ params }: IProps) {
   const { category: categorySlug, record: recordSlug } = await params;
-  const recordInfo = await getRecordByRecordSlug(categorySlug, recordSlug);
+  const recordInfo = await getCompleteRecordInfoByRecordSlug(
+    categorySlug,
+    recordSlug
+  );
   const { title, translatedTitle, release, synopsis } = recordInfo;
 
   return (
@@ -21,6 +24,7 @@ export default async function RecordPage({ params }: IProps) {
       </header>
 
       <dl>
+        <h2>Ficha Técnica</h2>
         <dt>Título:</dt>
         <dd>{title}</dd>
 
@@ -29,6 +33,15 @@ export default async function RecordPage({ params }: IProps) {
 
         <dt>Lançamento:</dt>
         <dd>{release}</dd>
+      </dl>
+
+      <dl>
+        <h2>Cronologia</h2>
+        <dt>Sequência Direta:</dt>
+        <dd>{title}</dd>
+
+        <dt>Sequência Cronológica:</dt>
+        <dd>{title}</dd>
       </dl>
     </main>
   );
