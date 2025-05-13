@@ -5,6 +5,10 @@ import {
 } from "@/app/_lib/interfaces";
 import connectToDatabase from "../../connection";
 import { getAnimesByPage } from "../anime";
+import {
+  populateField,
+  populateFields,
+} from "@/app/_lib/utils/tools/populateField";
 
 export async function getAllCollectionsInfo(): Promise<ICollectionInfo[]> {
   try {
@@ -90,40 +94,18 @@ export async function getCompleteRecordInfoByRecordSlug(
     ({ slug }: { slug: string }) => slug === `/${categorySlug}/${recordSlug}`
   );
 
-  const { title: subcategoryTitle } = db["subcategories"].find(
-    ({ id }: { id: string }) => id === recordInfo.subcategory
-  );
+  const [subcategory, themes, franchises] = await Promise.all([
+    populateField(recordInfo.subcategory, "subcategories"),
+    populateFields(recordInfo.themes, "themes"),
+    populateFields(recordInfo.franchises, "franchises"),
+  ]);
 
-  const populatedThemes = recordInfo.themes.map((themeID: string) =>
-    db["themes"].find(({ id }: { id: string }) => themeID === id)
-  );
-
-  const populatedFranchises = recordInfo.franchises.map((themeID: string) =>
-    db["franchises"].find(({ id }: { id: string }) => themeID === id)
-  );
-
-  const populateField = (fieldValue: string | string[], collection: string) => {
-    if (typeof fieldValue === "string") {
-      const populatedInfo = db[collection].find(
-        (id: string) => id === fieldValue
-      );
-      return { field: populatedInfo };
-    } else {
-      const populatedInfo = fieldValue.map((fieldId: string) =>
-        db[collection].find(({ id }: { id: string }) => id === fieldId)
-      );
-      return { field: populatedInfo };
-    }
-  };
-
-  const populatedRecord = {
+  const recordInfoWithPopulatedFields = {
     ...recordInfo,
-    populateField(recordInfo.subcate),
-    themes: populatedThemes,
-    franchises: populatedFranchises,
+    subcategory,
+    themes,
+    franchises,
   };
 
-  console.log(populatedRecord);
-
-  return recordInfo;
+  return recordInfoWithPopulatedFields;
 }
