@@ -1,8 +1,4 @@
-import {
-  ICategoryRecord,
-  ICollectionInfo,
-  IFranchise,
-} from "@/app/_lib/interfaces";
+import { ICategoryRecord, ICollectionInfo } from "@/app/_lib/interfaces";
 import connectToDatabase from "../../connection";
 import { getAnimesByPage } from "../anime";
 import {
