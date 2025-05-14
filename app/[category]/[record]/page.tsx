@@ -11,6 +11,7 @@ export default async function RecordPage({ params }: IProps) {
     categorySlug,
     recordSlug
   );
+
   const {
     title,
     translatedTitle,
@@ -101,39 +102,6 @@ export default async function RecordPage({ params }: IProps) {
         </dl>
       </section>
 
-      <dl>
-        <dd>
-          {directSequel && (
-            <Link href={directSequel.slug}>
-              <img
-                src={directSequel.cover}
-                alt={`Capa do título ${directSequel.title}.`}
-                width={80}
-                height={90}
-              />
-              <h2>{directSequel.title}</h2>
-              <span>{`(${directSequel.release.slice(0, 4)})`}</span>
-            </Link>
-          )}
-        </dd>
-
-        <dt>Sequência Cronológica:</dt>
-        <dd>
-          {chronologicalSequel && (
-            <Link href={chronologicalSequel.slug}>
-              <img
-                src={chronologicalSequel.cover}
-                alt={`Capa do título ${chronologicalSequel.title}.`}
-                width={80}
-                height={90}
-              />
-              <h2>{chronologicalSequel.title}</h2>
-              <span>{`(${chronologicalSequel.release.slice(0, 4)})`}</span>
-            </Link>
-          )}
-        </dd>
-      </dl>
-
       <section>
         <h2>Temáticas</h2>
         <ul>
@@ -149,12 +117,14 @@ export default async function RecordPage({ params }: IProps) {
           {franchises.map(({ id, title, slug, logo }) => (
             <li key={id}>
               <Link href={slug}>
-                <img
-                  src={logo}
-                  alt={`Logotipo da franquia ${title}.`}
-                  height={60}
-                  width={100}
-                />
+                <figure>
+                  <img
+                    src={logo}
+                    alt={`Logotipo da franquia ${title}.`}
+                    height={60}
+                    width={100}
+                  />
+                </figure>
               </Link>
             </li>
           ))}
