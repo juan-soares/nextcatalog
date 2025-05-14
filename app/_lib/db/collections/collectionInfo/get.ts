@@ -1,10 +1,11 @@
-import { ICategoryRecord, ICollectionInfo } from "@/app/_lib/interfaces";
+import {
+  ICategoryRecord,
+  ICategoryRecordPopulated,
+  ICollectionInfo,
+} from "@/app/_lib/interfaces";
 import connectToDatabase from "../../connection";
 import { getAnimesByPage } from "../anime";
-import {
-  populateField,
-  populateFields,
-} from "@/app/_lib/utils/tools/populateField";
+import { populate } from "@/app/_lib/utils/tools/populate";
 
 export async function getAllCollectionsInfo(): Promise<ICollectionInfo[]> {
   try {
@@ -81,7 +82,7 @@ export async function getAllRecordsByCategoryCollection(
 export async function getCompleteRecordInfoByRecordSlug(
   categorySlug: string,
   recordSlug: string
-): Promise<ICategoryRecord> {
+): Promise<ICategoryRecordPopulated> {
   const db = await connectToDatabase();
 
   const categoryInfo = await getCollectionInfoBySlug(categorySlug);
@@ -90,15 +91,20 @@ export async function getCompleteRecordInfoByRecordSlug(
     ({ slug }: { slug: string }) => slug === `/${categorySlug}/${recordSlug}`
   );
 
-  const [subcategory, themes, franchises] = await Promise.all([
-    populateField(recordInfo.subcategory, "subcategories"),
-    populateFields(recordInfo.themes, "themes"),
-    populateFields(recordInfo.franchises, "franchises"),
-  ]);
+  const [subcategory, directSequel, chronologicalSequel, themes, franchises] =
+    await Promise.all([
+      populate.field(recordInfo.subcategory, "subcategories"),
+      populate.field(recordInfo.directSequel, "all"),
+      populate.field(recordInfo.chronologicalSequel, "all"),
+      populate.fields(recordInfo.themes, "themes"),
+      populate.fields(recordInfo.franchises, "franchises"),
+    ]);
 
-  const recordInfoWithPopulatedFields = {
+  const recordInfoWithPopulatedFields: ICategoryRecordPopulated = {
     ...recordInfo,
     subcategory,
+    directSequel,
+    chronologicalSequel,
     themes,
     franchises,
   };
