@@ -1,6 +1,6 @@
 export * from "./anime";
 export * from "./categoryRecord";
 export * from "./collectionInfo";
-export * from "./theme";
+export * from "./season";
 export * from "./franchise";
 export * from "./user";

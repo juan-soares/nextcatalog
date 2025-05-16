@@ -1,4 +1,8 @@
-import { getCompleteRecordInfoByRecordSlug } from "@/app/_lib/db/collections";
+import {
+  getCompleteRecordInfoByRecordSlug,
+  getSeasons,
+} from "@/app/_lib/db/collections";
+import { ICategoryRecordPopulated, ISeason } from "@/app/_lib/interfaces";
 import Link from "next/link";
 
 export interface IProps {
@@ -7,12 +11,11 @@ export interface IProps {
 
 export default async function RecordPage({ params }: IProps) {
   const { category: categorySlug, record: recordSlug } = await params;
-  const recordInfo = await getCompleteRecordInfoByRecordSlug(
-    categorySlug,
-    recordSlug
-  );
+  const recordInfo: ICategoryRecordPopulated =
+    await getCompleteRecordInfoByRecordSlug(categorySlug, recordSlug);
 
   const {
+    id,
     title,
     translatedTitle,
     release,
@@ -23,6 +26,8 @@ export default async function RecordPage({ params }: IProps) {
     themes,
     franchises,
   } = recordInfo;
+
+  const seasons: ISeason[] = await getSeasons(id);
 
   return (
     <main>
@@ -130,6 +135,45 @@ export default async function RecordPage({ params }: IProps) {
           ))}
         </ul>
       </section>
+
+      {subcategory.title === "Temporada" && (
+        <section>
+          <h2>Temporadas</h2>
+          <Link href="/novo-registro/temporada">
+            <button>+</button>
+          </Link>
+          {seasons.map(
+            ({ id, number: seasonNumber, title, release, episodes }) => (
+              <li key={id}>
+                <h3>{`(${release.slice(
+                  0,
+                  4
+                )}) ${seasonNumber}º Temporada: ${title}`}</h3>
+                <Link href="/novo-registro/episodio">
+                  <button>+</button>
+                </Link>
+                <ul>
+                  {episodes.map(
+                    ({
+                      id,
+                      number: episodeNumber,
+                      title,
+                      complete,
+                      aquired,
+                    }) => (
+                      <li>
+                        {`${seasonNumber}x${episodeNumber}: ${title}`}{" "}
+                        <input type="checkbox" readOnly checked={aquired} />
+                        <input type="checkbox" readOnly checked={complete} />
+                      </li>
+                    )
+                  )}
+                </ul>
+              </li>
+            )
+          )}
+        </section>
+      )}
     </main>
   );
 }

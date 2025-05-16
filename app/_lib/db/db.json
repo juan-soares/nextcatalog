@@ -72,6 +72,16 @@
       "title": "Card Battle"
     }
   ],
+  "seasons": [
+    {
+      "id": "1",
+      "recordID": "1746618768231",
+      "title": "",
+      "number": 1,
+      "release": "1998-04-04",
+      "episodes": []
+    }
+  ],
   "animes": [
     {
       "id": "1746618768231",
