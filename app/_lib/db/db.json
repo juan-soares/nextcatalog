@@ -79,7 +79,17 @@
       "title": "",
       "number": 1,
       "release": "1998-04-04",
-      "episodes": []
+      "episodes": ["1"]
+    }
+  ],
+  "episodes": [
+    {
+      "id": "1",
+      "seasonID": "1",
+      "number": 1,
+      "title": "Titulo 1",
+      "complete": false,
+      "aquired": false
     }
   ],
   "animes": [

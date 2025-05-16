@@ -2,7 +2,11 @@ import {
   getCompleteRecordInfoByRecordSlug,
   getSeasons,
 } from "@/app/_lib/db/collections";
-import { ICategoryRecordPopulated, ISeason } from "@/app/_lib/interfaces";
+import {
+  ICategoryRecordPopulated,
+  ISeason,
+  ISeasonWithEpisodes,
+} from "@/app/_lib/interfaces";
 import Link from "next/link";
 
 export interface IProps {
@@ -27,7 +31,7 @@ export default async function RecordPage({ params }: IProps) {
     franchises,
   } = recordInfo;
 
-  const seasons: ISeason[] = await getSeasons(id);
+  const seasons: ISeasonWithEpisodes[] = await getSeasons(id);
 
   return (
     <main>
@@ -152,6 +156,7 @@ export default async function RecordPage({ params }: IProps) {
                 <Link href="/novo-registro/episodio">
                   <button>+</button>
                 </Link>
+
                 <ul>
                   {episodes.map(
                     ({
@@ -161,7 +166,7 @@ export default async function RecordPage({ params }: IProps) {
                       complete,
                       aquired,
                     }) => (
-                      <li>
+                      <li key={id}>
                         {`${seasonNumber}x${episodeNumber}: ${title}`}{" "}
                         <input type="checkbox" readOnly checked={aquired} />
                         <input type="checkbox" readOnly checked={complete} />

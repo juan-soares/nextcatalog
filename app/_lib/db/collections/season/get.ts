@@ -1,5 +1,6 @@
-import { ISeason } from "@/app/_lib/interfaces";
+import { IEpisode, ISeason } from "@/app/_lib/interfaces";
 import connectToDatabase from "../../connection";
+import { populate } from "@/app/_lib/utils/tools/populate";
 
 export async function getSeasons(recordIDToFind: string): Promise<ISeason[]> {
   const db = await connectToDatabase();
@@ -8,7 +9,10 @@ export async function getSeasons(recordIDToFind: string): Promise<ISeason[]> {
     ({ recordID }: { recordID: string }) => recordID === recordIDToFind
   );
 
-  console.log(seasons);
+  const seasonsPopulated = seasons.map((season) => ({
+    ...season,
+    episodes: populate.fields(season.episodes, "episodes"),
+  }));
 
   return seasons;
 }

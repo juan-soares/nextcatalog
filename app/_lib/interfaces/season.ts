@@ -12,5 +12,14 @@ export interface ISeason {
   number: number;
   title: string;
   release: string;
+  episodes: string[];
+}
+
+export interface ISeasonWithEpisodes {
+  id: string;
+  recordID: string;
+  number: number;
+  title: string;
+  release: string;
   episodes: IEpisode[];
 }
