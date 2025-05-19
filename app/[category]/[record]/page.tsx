@@ -1,10 +1,9 @@
 import {
   getCompleteRecordInfoByRecordSlug,
-  getSeasons,
+  getSeasonsWithEpisodes,
 } from "@/app/_lib/db/collections";
 import {
   ICategoryRecordPopulated,
-  ISeason,
   ISeasonWithEpisodes,
 } from "@/app/_lib/interfaces";
 import Link from "next/link";
@@ -31,7 +30,7 @@ export default async function RecordPage({ params }: IProps) {
     franchises,
   } = recordInfo;
 
-  const seasons: ISeasonWithEpisodes[] = await getSeasons(id);
+  const seasons: ISeasonWithEpisodes[] = await getSeasonsWithEpisodes(id);
 
   return (
     <main>

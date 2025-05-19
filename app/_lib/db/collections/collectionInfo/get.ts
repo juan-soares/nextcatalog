@@ -60,7 +60,6 @@ export async function getAllCategoriesRecords(): Promise<ICategoryRecord[]> {
         a.title.localeCompare(b.title)
       );
 
-    console.log(allCategoriesRecords);
     return allCategoriesRecords;
   } catch (error) {
     return [];
