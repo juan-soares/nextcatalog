@@ -36,6 +36,13 @@
       "slug": "/tematicas",
       "collection": "themes",
       "isCategory": false
+    },
+    {
+      "id": "5",
+      "title": "Temporadas",
+      "slug": "/temporadas",
+      "collection": "seasons",
+      "isCategory": false
     }
   ],
   "subcategories": [

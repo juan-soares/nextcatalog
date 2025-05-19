@@ -142,7 +142,7 @@ export default async function RecordPage({ params }: IProps) {
       {subcategory.title === "Temporada" && (
         <section>
           <h2>Temporadas</h2>
-          <Link href="/novo-registro/temporada">
+          <Link href="/novo-registro/temporadas">
             <button>+</button>
           </Link>
           {seasons.map(

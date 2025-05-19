@@ -2,6 +2,7 @@ import { getCollectionInfoBySlug } from "@/app/_lib/db/collections";
 import {
   AnimeForm,
   FranchiseForm,
+  SeasonForm,
   SubcategoryForm,
   ThemeForm,
 } from "./_ui/components";
@@ -18,6 +19,7 @@ export default async function NovoRegistroPage({ params }: IProps) {
 
   const formType: { [key: string]: JSX.Element } = {
     animes: <AnimeForm />,
+    seasons: <SeasonForm />,
     franchises: <FranchiseForm />,
     subcategories: <SubcategoryForm />,
     themes: <ThemeForm />,
