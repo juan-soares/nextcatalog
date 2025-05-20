@@ -44,12 +44,18 @@ export async function AnimeForm() {
         <Link href="/novo-registro/subcategorias">
           <button type="button">+</button>
         </Link>
+
+        <label htmlFor="synopsis">Sinopse:</label>
+        <textarea id="synopsis" name="synopsis" required />
       </fieldset>
 
       <fieldset>
         <legend>Mídia</legend>
         <label htmlFor="cover">Capa:</label>
         <input type="file" id="cover" name="cover" required />
+
+        <label htmlFor="trailer">Trailer:</label>
+        <input type="file" id="trailer" name="trailer" required />
       </fieldset>
 
       <fieldset>
@@ -108,6 +114,11 @@ export async function AnimeForm() {
           ))}
           <Link href="/novo-registro/franquias">+</Link>
         </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Anexos</legend>
+        <input type="file" id="files" name="files" multiple />
       </fieldset>
 
       <button>Enviar</button>

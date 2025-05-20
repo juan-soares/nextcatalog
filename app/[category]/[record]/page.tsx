@@ -4,8 +4,10 @@ import {
 } from "@/app/_lib/db/collections";
 import {
   ICategoryRecordPopulated,
+  IFile,
   ISeasonWithEpisodes,
 } from "@/app/_lib/interfaces";
+import { populate } from "@/app/_lib/utils/tools/populate";
 import Link from "next/link";
 
 export interface IProps {
@@ -28,6 +30,7 @@ export default async function RecordPage({ params }: IProps) {
     chronologicalSequel,
     themes,
     franchises,
+    files,
   } = recordInfo;
 
   const seasons: ISeasonWithEpisodes[] = await getSeasonsWithEpisodes(id);
@@ -139,12 +142,20 @@ export default async function RecordPage({ params }: IProps) {
         </ul>
       </section>
 
+      <section>
+        <h2>Anexos</h2>
+        <ul>
+          {files.map(({ id, title, path }) => (
+            <li key={id}>
+              <Link href={path}>{title}</Link>
+            </li>
+          ))}
+        </ul>
+      </section>
+
       {subcategory.title === "Temporada" && (
         <section>
           <h2>Temporadas</h2>
-          <Link href="/novo-registro/temporadas">
-            <button>+</button>
-          </Link>
           {seasons.map(
             ({ id, number: seasonNumber, title, release, episodes }) => (
               <li key={id}>
@@ -152,9 +163,6 @@ export default async function RecordPage({ params }: IProps) {
                   0,
                   4
                 )}) ${seasonNumber}º Temporada: ${title}`}</h3>
-                <Link href="/novo-registro/episodio">
-                  <button>+</button>
-                </Link>
 
                 <ul>
                   {episodes.map(

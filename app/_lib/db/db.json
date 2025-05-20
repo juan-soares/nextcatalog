@@ -43,6 +43,13 @@
       "slug": "/temporadas",
       "collection": "seasons",
       "isCategory": false
+    },
+    {
+      "id": "6",
+      "title": "Arquivos",
+      "slug": "/arquivos",
+      "collection": "files",
+      "isCategory": false
     }
   ],
   "subcategories": [
@@ -59,6 +66,7 @@
       "categories": ["3"]
     }
   ],
+  "files": [],
   "franchises": [
     {
       "id": "1746152136797",
@@ -112,7 +120,8 @@
       "themes": ["1746579019582"],
       "franchises": ["1746152136797"],
       "slug": "/animes/yu-gi-oh",
-      "cover": "/data/animes-yu-gi-oh-cover.png"
+      "cover": "/data/animes-yu-gi-oh-cover.png",
+      "files": []
     }
   ]
 }

@@ -1,6 +1,7 @@
 import { getCollectionInfoBySlug } from "@/app/_lib/db/collections";
 import {
   AnimeForm,
+  FileForm,
   FranchiseForm,
   SeasonForm,
   SubcategoryForm,
@@ -21,6 +22,7 @@ export default async function NovoRegistroPage({ params }: IProps) {
     animes: <AnimeForm />,
     seasons: <SeasonForm />,
     franchises: <FranchiseForm />,
+    files: <FileForm />,
     subcategories: <SubcategoryForm />,
     themes: <ThemeForm />,
   };

@@ -1,3 +1,4 @@
+import { IFile } from "./file";
 import { IFranchise } from "./franchise";
 import { ISubcategory } from "./subcategory";
 import { ITheme } from "./theme";
@@ -15,8 +16,11 @@ export interface ICategoryRecord {
   subcategory: string;
   directSequel: string;
   chronologicalSequel: string;
+
   themes: string[];
   franchises: string[];
+
+  files: string[];
 }
 
 export interface ICategoryRecordPopulated {
@@ -32,6 +36,9 @@ export interface ICategoryRecordPopulated {
   subcategory: ISubcategory;
   directSequel: ICategoryRecord | null;
   chronologicalSequel: ICategoryRecord | null;
+
   themes: ITheme[];
   franchises: IFranchise[];
+
+  files: IFile[];
 }

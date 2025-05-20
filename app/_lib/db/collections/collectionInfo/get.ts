@@ -90,14 +90,21 @@ export async function getCompleteRecordInfoByRecordSlug(
     ({ slug }: { slug: string }) => slug === `/${categorySlug}/${recordSlug}`
   );
 
-  const [subcategory, directSequel, chronologicalSequel, themes, franchises] =
-    await Promise.all([
-      populate.field(recordInfo.subcategory, "subcategories"),
-      populate.field(recordInfo.directSequel, "all"),
-      populate.field(recordInfo.chronologicalSequel, "all"),
-      populate.fields(recordInfo.themes, "themes"),
-      populate.fields(recordInfo.franchises, "franchises"),
-    ]);
+  const [
+    subcategory,
+    directSequel,
+    chronologicalSequel,
+    themes,
+    franchises,
+    files,
+  ] = await Promise.all([
+    populate.field(recordInfo.subcategory, "subcategories"),
+    populate.field(recordInfo.directSequel, "all"),
+    populate.field(recordInfo.chronologicalSequel, "all"),
+    populate.fields(recordInfo.themes, "themes"),
+    populate.fields(recordInfo.franchises, "franchises"),
+    populate.fields(recordInfo.files, "files"),
+  ]);
 
   const recordInfoWithPopulatedFields: ICategoryRecordPopulated = {
     ...recordInfo,
@@ -106,6 +113,7 @@ export async function getCompleteRecordInfoByRecordSlug(
     chronologicalSequel,
     themes,
     franchises,
+    files,
   };
 
   return recordInfoWithPopulatedFields;
