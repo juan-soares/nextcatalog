@@ -31,6 +31,13 @@
       "isCategory": true
     },
     {
+      "id": "3a",
+      "title": "Desenhos Animados",
+      "slug": "/desenhos-animados",
+      "collection": "cartoons",
+      "isCategory": true
+    },
+    {
       "id": "4",
       "title": "Temáticas",
       "slug": "/tematicas",
@@ -57,13 +64,17 @@
       "id": "1746374167457",
       "title": "Temporada",
       "slug": "/subcategorias/temporada",
-      "categories": ["3"]
+      "categories": [
+        "3"
+      ]
     },
     {
       "id": "1746405359733",
       "title": "OVA",
       "slug": "/subcategorias/ova",
-      "categories": ["3"]
+      "categories": [
+        "3"
+      ]
     }
   ],
   "files": [],
@@ -79,12 +90,22 @@
       "title": "Onimusha",
       "slug": "/franquias/onimusha",
       "logo": "/data/franchises-onimusha-logo.png"
+    },
+    {
+      "id": "1747791978334",
+      "title": "Wacky Races",
+      "slug": "/franquias/wacky-races",
+      "logo": "/data/franchises-wacky-races-logo.png"
     }
   ],
   "themes": [
     {
       "id": "1746579019582",
       "title": "Card Battle"
+    },
+    {
+      "id": "1747791859648",
+      "title": "Corrida"
     }
   ],
   "seasons": [
@@ -94,7 +115,9 @@
       "title": "",
       "number": 1,
       "release": "1998-04-04",
-      "episodes": ["1"]
+      "episodes": [
+        "1"
+      ]
     }
   ],
   "episodes": [
@@ -107,6 +130,27 @@
       "aquired": false
     }
   ],
+  "cartoons": [
+    {
+      "id": "1746611318231",
+      "title": "Wacky Races",
+      "translatedTitle": "Corrida Maluca",
+      "release": "1968-09-14",
+      "synopsis": "A Corrida Maluca foi um desenho animado produzido pela Hanna-Barbera e lançado pela CBS onde onze carros competiam pelo título mundial de 'Corredor Mais Louco do Mundo' em um rally pela América do Norte.",
+      "subcategory": "1746374167457",
+      "directSequel": "",
+      "chronologicalSequel": "",
+      "themes": [
+        "1747791859648"
+      ],
+      "franchises": [
+        "1747791978334"
+      ],
+      "slug": "/desenhos-animados/wacky-races",
+      "cover": "/data/cartoons-wacky-races-cover.png",
+      "files": []
+    }
+  ],
   "animes": [
     {
       "id": "1746618768231",
@@ -117,8 +161,12 @@
       "subcategory": "1746374167457",
       "directSequel": "",
       "chronologicalSequel": "",
-      "themes": ["1746579019582"],
-      "franchises": ["1746152136797"],
+      "themes": [
+        "1746579019582"
+      ],
+      "franchises": [
+        "1746152136797"
+      ],
       "slug": "/animes/yu-gi-oh",
       "cover": "/data/animes-yu-gi-oh-cover.png",
       "files": []
