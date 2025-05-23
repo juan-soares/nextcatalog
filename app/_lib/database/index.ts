@@ -9,29 +9,38 @@ async function readDatabase(): Promise<IDatabase> {
     const dbFile = await fs.readFile(filePath, "utf-8");
     const db: IDatabase = JSON.parse(dbFile);
 
-    if (!db) throw new Error("Banco de Dados não disponível.");
-
     return db;
   } catch (error) {
-    console.error("Erro ao ler o Banco de Dados:", error);
-    throw new Error("Banco de dados não disponível.");
+    console.error("[readDatabase] Erro ao ler o Banco de Dados:", error);
+    throw new Error(
+      "Falha ao acessar os dados do(a) Banco de Dados. Por favor, tente novamente mais tarde."
+    );
   }
 }
 
-async function getCollectionRecords(
-  collection: CollectionsTitleMap
-): Promise<IDatabase[CollectionsTitleMap]> {
+async function getCollectionRecords<C extends CollectionsTitleMap>(
+  collection: C
+): Promise<IDatabase[C]> {
   try {
     const db = await readDatabase();
 
-    if (!db[collection])
-      throw new Error(`Collection "${collection}" não encontrada.`);
+    const records = db[collection];
 
-    console.log("Banco de Dados lido com sucesso!");
-    return db[collection];
+    if (!records) {
+      throw new Error(
+        `Collection "${collection}" inexistente no Banco de Dados.`
+      );
+    }
+
+    return records;
   } catch (error) {
-    console.error(`Erro ao ler a collection ${collection}:`, error);
-    throw new Error("Collection não disponível.");
+    console.error(
+      `[getCollectionRecords] Erro ao buscar a Collection "${collection}":`,
+      error
+    );
+    throw new Error(
+      "Falha ao acessar os dados do(a) Collection. Por favor, tente novamente mais tarde."
+    );
   }
 }
 
@@ -43,14 +52,14 @@ async function addToDatabase<C extends CollectionsTitleMap>(
     const db = await readDatabase();
 
     if (!db[collection])
-      throw new Error(`Collection "${collection}" não encontrada.`);
+      throw new Error(
+        `Collection "${collection}" inexistente no Banco de Dados.`
+      );
 
     const newRecordWithID = {
       id: Date.now().toString(),
       ...newRecord,
     };
-
-    if (!db[collection]) db[collection] = [];
 
     db[collection].push(newRecordWithID);
 
@@ -60,8 +69,14 @@ async function addToDatabase<C extends CollectionsTitleMap>(
       `Novo registro adicionado à coleção "${collection}" com sucesso!`
     );
   } catch (error) {
-    console.error(`Erro ao adicionar na collection ${collection}:`, error);
-    throw new Error("Falha ao criar novo registro.");
+    console.error(
+      `[addToDatabase] Erro ao adicionar na collection "${collection}":`,
+      error
+    );
+
+    throw new Error(
+      "Falha ao adicionar os dados no(a) Collection. Por favor, tente novamente mais tarde."
+    );
   }
 }
 
