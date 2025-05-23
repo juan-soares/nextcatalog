@@ -1,0 +1,12 @@
+import database from "../../database";
+import { IFranchise } from "../../database/database.interface";
+
+export async function getAllFranchises(): Promise<IFranchise[]> {
+  try {
+    const franchises = await database.getCollectionRecords("franchises");
+
+    return franchises;
+  } catch (error) {
+    return [];
+  }
+}
