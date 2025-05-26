@@ -1,10 +1,9 @@
+import Link from "next/link";
 import styles from "@/app/home.module.css";
 import { getAllFranchises } from "./_lib/services";
-import Link from "next/link";
-import { title } from "process";
 
 export default async function Home() {
-  const franchises = await getAllFranchises();
+  const franchises = await getAllFranchises(null);
 
   return (
     <div className={styles.home}>
@@ -13,7 +12,7 @@ export default async function Home() {
           <ul>
             {franchises.map(({ id, slug, logo }) => (
               <Link key={id} href={slug}>
-                <img src={logo} alt={`Logotipo da franquia ${title}.`} />
+                <img src={logo} alt={`Logotipo da franquia.`} />
               </Link>
             ))}
           </ul>
