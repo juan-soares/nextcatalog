@@ -3,7 +3,7 @@ import styles from "@/app/home.module.css";
 import { getAllFranchises } from "./_lib/services";
 
 export default async function Home() {
-  const franchises = await getAllFranchises(null);
+  const franchises = await getAllFranchises(null, "alph");
 
   return (
     <div className={styles.home}>
