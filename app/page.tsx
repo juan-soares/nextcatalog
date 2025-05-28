@@ -12,7 +12,7 @@ export default async function Home() {
           <ul>
             {franchises.map(({ id, slug, logo }) => (
               <Link key={id} href={slug}>
-                <img src={logo} alt={`Logotipo da franquia.`} />
+                <img src={logo} alt={`Logotipo da franquia..`} />
               </Link>
             ))}
           </ul>
