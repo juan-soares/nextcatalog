@@ -46,18 +46,19 @@ async function getCollectionRecords<C extends CollectionsTitleMap>(
 
 async function addToDatabase<C extends CollectionsTitleMap>(
   collection: C,
-  newRecord: Omit<IDatabase[C][number], "id">
+  newRecord: Omit<IDatabase[C][number], "id" | "createdAt">
 ) {
   try {
-    const db = await readDatabase();
+    const db: IDatabase = await readDatabase();
 
     if (!db[collection])
       throw new Error(
         `Collection "${collection}" inexistente no Banco de Dados.`
       );
 
-    const newRecordWithID = {
+    const newRecordWithID: any = {
       id: Date.now().toString(),
+      createdAt: Date.now().toString(),
       ...newRecord,
     };
 

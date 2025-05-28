@@ -3,7 +3,7 @@ import styles from "@/app/home.module.css";
 import { getAllFranchises } from "./_lib/services";
 
 export default async function Home() {
-  const franchises = await getAllFranchises(null, "alph");
+  const franchises = await getAllFranchises();
 
   return (
     <div className={styles.home}>
@@ -12,7 +12,7 @@ export default async function Home() {
           <ul>
             {franchises.map(({ id, slug, logo }) => (
               <Link key={id} href={slug}>
-                <img src={logo} alt={`Logotipo da franquia..`} />
+                <img src={logo} alt={`Logotipo da franquia.`} />
               </Link>
             ))}
           </ul>
