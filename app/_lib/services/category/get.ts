@@ -1,13 +1,14 @@
 import database from "../../database";
 import { ICategory } from "../../database/database.interface";
-import { SortTypeMap } from "../../utils";
+import { SortTypeByColletion } from "../../utils";
 
 export async function getCategories(
-  sortType: SortTypeMap
+  sortType: SortTypeByColletion["categories"]
 ): Promise<ICategory[]> {
   try {
     const categories: ICategory[] = await database.getCollectionRecords(
-      "categories"
+      "categories",
+      sortType
     );
     return categories;
   } catch (error) {

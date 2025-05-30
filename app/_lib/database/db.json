@@ -8,5 +8,14 @@
       "slug": "/animes",
       "collection": "animes"
     }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "email": "a@a.com",
+      "password": "aaaa",
+      "nickname": "admin",
+      "avatar": "/"
+    }
   ]
 }

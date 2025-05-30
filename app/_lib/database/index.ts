@@ -1,6 +1,7 @@
 import fs from "fs/promises";
 import path from "path";
 import { CollectionsTitleMap, IDatabase } from "./database.interface";
+import { SortTypeByColletion, sortBy } from "../utils";
 
 const filePath = path.resolve(process.cwd(), "app/_lib/database/db.json");
 
@@ -19,7 +20,8 @@ async function readDatabase(): Promise<IDatabase> {
 }
 
 async function getCollectionRecords<C extends CollectionsTitleMap>(
-  collection: C
+  collection: C,
+  sortType: SortTypeByColletion[C]
 ): Promise<IDatabase[C]> {
   try {
     const db = await readDatabase();
@@ -32,7 +34,7 @@ async function getCollectionRecords<C extends CollectionsTitleMap>(
       );
     }
 
-    return records;
+    return sortBy(records, sortType);
   } catch (error) {
     console.error(
       `[getCollectionRecords] Erro ao buscar a Collection "${collection}":`,
