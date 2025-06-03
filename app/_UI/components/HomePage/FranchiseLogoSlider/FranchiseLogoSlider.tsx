@@ -6,7 +6,12 @@ import { EmptyList } from "../../shared";
 export async function FranchiseLogoSlider() {
   const franchises: IFranchise[] = await getAllFranchises();
 
-  if (!franchises.length) return <EmptyList slug="franquias" />;
+  if (!franchises.length)
+    return (
+      <div>
+        <EmptyList slug="franquias" />
+      </div>
+    );
 
   return (
     <div>
