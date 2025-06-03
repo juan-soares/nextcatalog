@@ -1,4 +1,4 @@
-import { login } from "@/app/_lib/services/auth";
+import { login } from "@/app/_lib/actions";
 
 export async function LoginForm() {
   return (

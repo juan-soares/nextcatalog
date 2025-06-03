@@ -1,7 +1,7 @@
 "use server";
 
 import { redirect } from "next/navigation";
-import { getUserByCredentials } from "../user";
+import { getUserByCredentials } from "../../services/user";
 
 export async function login(formData: FormData): Promise<void> {
   try {
@@ -20,4 +20,8 @@ export async function login(formData: FormData): Promise<void> {
   } catch (error) {
     console.log("Ops! Não foi possível fazer o login: " + error);
   }
+}
+
+export async function logout() {
+  redirect("/");
 }
