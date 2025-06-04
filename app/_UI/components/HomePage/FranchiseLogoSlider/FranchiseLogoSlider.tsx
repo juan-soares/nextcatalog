@@ -1,17 +1,11 @@
 import Link from "next/link";
 import { IFranchise } from "@/app/_lib/database/database.interface";
 import { getAllFranchises } from "@/app/_lib/services";
-import { EmptyList } from "../../shared";
 
 export async function FranchiseLogoSlider() {
   const franchises: IFranchise[] = await getAllFranchises();
 
-  if (!franchises.length)
-    return (
-      <div>
-        <EmptyList slug="franquias" />
-      </div>
-    );
+  if (!franchises.length) return;
 
   return (
     <div>
