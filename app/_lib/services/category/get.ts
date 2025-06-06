@@ -1,5 +1,8 @@
 import database from "../../database";
-import { ICategory } from "../../database/database.interface";
+import {
+  CategoriesTitleMap,
+  ICategory,
+} from "../../database/database.interface";
 import { SortTypeByColletion } from "../../utils";
 
 export async function getCategories(
@@ -14,6 +17,17 @@ export async function getCategories(
   } catch (error) {
     console.error("Ops! Não foi possível acessar categorias");
 
+    return [];
+  }
+}
+
+export async function getCategoryRecordsByCollection<
+  C extends CategoriesTitleMap
+>(collection: C) {
+  try {
+    return await database.getCollectionRecords(collection, "alph");
+  } catch (error) {
+    console.error("Ops! Ocorreu um erro.");
     return [];
   }
 }

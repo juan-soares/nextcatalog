@@ -1,6 +1,7 @@
 import { CollectionsTitleMap, IDatabase } from "../database/database.interface";
 
 export type SortTypeByColletion = {
+  animes: "alph" | "recent" | "release";
   franchises: "alph" | "recent";
   categories: "alph" | "recent";
 };
