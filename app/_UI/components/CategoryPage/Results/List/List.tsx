@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { EmptyList } from "../../../shared";
 
-export function List() {
+export async function List({ categorySlug }: { categorySlug: string }) {
   const records = [];
 
-  if (!records.length) return <EmptyList slug="" />;
+  if (!records.length) return <EmptyList slug={categorySlug} />;
 
   return (
     <ul>

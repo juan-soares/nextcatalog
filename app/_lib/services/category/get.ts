@@ -21,6 +21,23 @@ export async function getCategories(
   }
 }
 
+export async function getCategoryBySlug(
+  slugToSearch: string
+): Promise<ICategory | null> {
+  try {
+    const category: ICategory | undefined = (
+      await database.getCollectionRecords("categories", "alph")
+    ).find(({ slug }) => slug === slugToSearch);
+
+    if (!category) throw new Error("Categoria não encontrada.");
+
+    return category;
+  } catch (error) {
+    console.error("Ops! Ocorreu um erro:" + error);
+    return null;
+  }
+}
+
 export async function getCategoryRecordsByCollection<
   C extends CategoriesTitleMap
 >(collection: C) {

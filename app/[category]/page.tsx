@@ -1,11 +1,24 @@
+import { getCategoryBySlug } from "../_lib/services";
 import { Filters, Results } from "../_UI/components/CategoryPage";
 
-export default function CategoryPage() {
+interface IProps {
+  params: Promise<{ category: string }>;
+}
+
+export default async function CategoryPage({ params }: IProps) {
+  const { category: categoryParam } = await params;
+  const categorySlug = `/${categoryParam}`;
+  const categoryInfo = await getCategoryBySlug(categorySlug);
+
+  if (!categoryInfo) return <p>Ops! Algo deu errado.</p>;
+
+  const { title } = categoryInfo;
+
   return (
     <div>
-      <h1>Categoria</h1>
+      <h1>{title}</h1>
       <Filters />
-      <Results />
+      <Results categorySlug={categorySlug} />
     </div>
   );
 }
