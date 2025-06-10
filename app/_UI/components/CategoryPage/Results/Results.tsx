@@ -1,8 +1,9 @@
-import { Sortbar, List, MoreResults } from ".";
+import { CategoriesTitleMap } from "@/app/_lib/database/database.interface";
+import { Sortbar, List } from ".";
 
 interface IProps {
   categorySlug: string;
-  categoryCollection: string;
+  categoryCollection: CategoriesTitleMap;
 }
 
 export function Results({ categorySlug, categoryCollection }: IProps) {
@@ -13,7 +14,6 @@ export function Results({ categorySlug, categoryCollection }: IProps) {
         categorySlug={categorySlug}
         categoryCollection={categoryCollection}
       />
-      <MoreResults />
     </div>
   );
 }
