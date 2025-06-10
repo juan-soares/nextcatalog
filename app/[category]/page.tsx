@@ -12,13 +12,13 @@ export default async function CategoryPage({ params }: IProps) {
 
   if (!categoryInfo) return <p>Ops! Algo deu errado.</p>;
 
-  const { title } = categoryInfo;
+  const { title, collection } = categoryInfo;
 
   return (
     <div>
       <h1>{title}</h1>
       <Filters />
-      <Results categorySlug={categorySlug} />
+      <Results categorySlug={categorySlug} categoryCollection={collection} />
     </div>
   );
 }

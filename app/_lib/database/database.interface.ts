@@ -13,6 +13,8 @@ export interface IDatabaseRecord {
   title: string;
   slug: string;
   createdAt: string;
+  cover: string;
+  release: string;
 }
 
 export type CollectionsTitleMap = keyof IDatabase;

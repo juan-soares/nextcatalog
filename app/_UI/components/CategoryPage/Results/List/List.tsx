@@ -1,8 +1,15 @@
 import Link from "next/link";
+import { CategoriesTitleMap } from "@/app/_lib/database/database.interface";
+import { getCategoryRecordsByCollection } from "@/app/_lib/services";
 import { EmptyList } from "../../../shared";
 
-export async function List({ categorySlug }: { categorySlug: string }) {
-  const records = [];
+interface IProps {
+  categorySlug: string;
+  categoryCollection: CategoriesTitleMap;
+}
+
+export async function List({ categorySlug, categoryCollection }: IProps) {
+  const records = await getCategoryRecordsByCollection(categoryCollection);
 
   if (!records.length) return <EmptyList slug={categorySlug} />;
 

@@ -2,6 +2,7 @@ import database from "../../database";
 import {
   CategoriesTitleMap,
   ICategory,
+  IDatabase,
 } from "../../database/database.interface";
 import { SortTypeByColletion } from "../../utils";
 
@@ -40,7 +41,7 @@ export async function getCategoryBySlug(
 
 export async function getCategoryRecordsByCollection<
   C extends CategoriesTitleMap
->(collection: C) {
+>(collection: C): Promise<IDatabase[CategoriesTitleMap]> {
   try {
     return await database.getCollectionRecords(collection, "alph");
   } catch (error) {
