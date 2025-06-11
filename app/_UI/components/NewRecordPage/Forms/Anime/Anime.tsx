@@ -51,6 +51,10 @@ export function AnimeForm() {
         <input type="file" multiple id="attachments" name="attachments" />
       </fieldset>
 
+      <fieldset>
+        <legend></legend>
+      </fieldset>
+
       <button>Enviar</button>
     </form>
   );
