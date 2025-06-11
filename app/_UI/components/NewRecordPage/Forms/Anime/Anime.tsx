@@ -50,6 +50,7 @@ export function AnimeForm() {
         <label htmlFor="attachments">Anexos:</label>
         <input type="file" multiple id="attachments" name="attachments" />
       </fieldset>
+
       <button>Enviar</button>
     </form>
   );
