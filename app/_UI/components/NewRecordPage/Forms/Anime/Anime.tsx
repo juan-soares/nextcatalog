@@ -1,14 +1,14 @@
 export function AnimeForm() {
   return (
     <form>
-      <h1>Adicionar Anime</h1>
+      <h1>Adicionar A</h1>
 
       <fieldset>
         <legend>Ficha Técnica</legend>
         <label htmlFor="title">Título:</label>
         <input type="text" required id="title" name="title" />
 
-        <label htmlFor="title">Título Traduzido:</label>
+        <label htmlFor="translatedTitle">Título Traduzido:</label>
         <input
           type="text"
           required
@@ -21,6 +21,19 @@ export function AnimeForm() {
 
         <label htmlFor="synopsis">Sinopse:</label>
         <textarea required id="synopsis" name="synopsis" />
+      </fieldset>
+
+      <fieldset>
+        <legend>Cronologia</legend>
+        <label htmlFor="directSequel">Sequencia Direta:</label>
+        <select id="directSequel">
+          <option value="" hidden>Selecione...</option>
+        </select>
+
+        <label htmlFor="chronologicalSequel">Sequencia Cronológica:</label>
+        <select id="chronologicalSequel">
+          <option value="" hidden>Selecione...</option>
+        </select>
       </fieldset>
 
       <fieldset>
