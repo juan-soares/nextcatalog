@@ -1,4 +1,9 @@
+import { ITheme } from "@/app/_lib/database/database.interface";
+import { SubcategoryForm } from "./Subcategory";
+
 export function AnimeForm() {
+  const themes: ITheme[] = [];
+
   return (
     <form>
       <h1>Adicionar A</h1>
@@ -26,13 +31,17 @@ export function AnimeForm() {
       <fieldset>
         <legend>Cronologia</legend>
         <label htmlFor="directSequel">Sequencia Direta:</label>
-        <select id="directSequel">
-          <option value="" hidden>Selecione...</option>
+        <select id="directSequel" name="directSequel">
+          <option defaultValue="" hidden>
+            Selecione...
+          </option>
         </select>
 
         <label htmlFor="chronologicalSequel">Sequencia Cronológica:</label>
-        <select id="chronologicalSequel">
-          <option value="" hidden>Selecione...</option>
+        <select id="chronologicalSequel" name="chronologicalSequel">
+          <option defaultValue="" hidden>
+            Selecione...
+          </option>
         </select>
       </fieldset>
 
@@ -52,8 +61,26 @@ export function AnimeForm() {
       </fieldset>
 
       <fieldset>
-        <legend></legend>
+        <legend>Tags</legend>
+        <label htmlFor="franchise">Franquia</label>
+        <select id="franchise" name="franchise">
+          <option defaultValue="" hidden>
+            Selecione...
+          </option>
+        </select>
+
+        <label htmlFor="themes">Temáticas</label>
+        <ul>
+          {themes.map(({ id, title }) => (
+            <li key={id}>
+              <label htmlFor={id}>{title}</label>
+              <input type="checkbox" id={id} name="themes" value={id} />
+            </li>
+          ))}
+        </ul>
       </fieldset>
+
+      <SubcategoryForm />
 
       <button>Enviar</button>
     </form>
