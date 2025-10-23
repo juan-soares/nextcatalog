@@ -1,13 +1,12 @@
+import styles from "./Header.module.css";
 import { Logo } from "../Logo";
-import { Navbar, Searchbar, UserInfo } from "./";
+import { Searchbar } from "./Searchbar";
 
-export function Header() {
+export async function Header() {
   return (
-    <header>
+    <header className={styles.header}>
       <Logo />
       <Searchbar />
-      <UserInfo />
-      <Navbar />
     </header>
   );
 }
