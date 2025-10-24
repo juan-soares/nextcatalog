@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { useSearchParams, usePathname, useRouter } from "next/navigation";
 import styles from "./Searchbar.module.css";
+import { ResultList } from "./ResultsList";
 
 export function Searchbar() {
   const [term, setTerm] = useState("");
@@ -21,6 +21,7 @@ export function Searchbar() {
           0-
         </button>
       </Link>
+      {term && <ResultList />}
     </div>
   );
 }
