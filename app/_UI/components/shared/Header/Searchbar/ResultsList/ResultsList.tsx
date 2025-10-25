@@ -1,7 +1,9 @@
 import styles from "./ResultsList.module.css";
+import { IResultItem } from "./ResultsList.interface";
+import Link from "next/link";
 
 export function ResultList() {
-  const results: any = [];
+  const results: IResultItem[] = [];
 
   if (!results.length)
     return <div className={styles.resultsList}>Sem resultados.</div>;
@@ -9,15 +11,25 @@ export function ResultList() {
   return (
     <ul>
       {results.map(
-        ({ id, cover, title, translatedTitle, release, categoryTitle }) => (
+        ({
+          id,
+          slug,
+          cover,
+          title,
+          translatedTitle,
+          release,
+          categoryTitle,
+        }) => (
           <li key={id}>
-            <div>
-              <img src={cover} />
-              <span>{title}</span>
-              <span>{translatedTitle}</span>
-              <span>{release}</span>
-              <span>{categoryTitle}</span>
-            </div>
+            <Link href={slug}>
+              <div>
+                <img src={cover} />
+                <span>{title}</span>
+                <span>{translatedTitle}</span>
+                <span>{release}</span>
+                <span>{categoryTitle}</span>
+              </div>
+            </Link>
           </li>
         )
       )}
