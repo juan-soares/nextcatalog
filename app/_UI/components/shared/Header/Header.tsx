@@ -1,6 +1,6 @@
 import styles from "./Header.module.css";
 import { Logo } from "../Logo";
-import { Searchbar, Loginbar, Navbar } from "./";
+import { Searchbar, Loginbar, Navbar, FranchisesCarousel } from "./";
 
 export async function Header() {
   return (
@@ -9,6 +9,7 @@ export async function Header() {
       <Searchbar />
       <Loginbar />
       <Navbar />
+      <FranchisesCarousel />
     </header>
   );
 }
