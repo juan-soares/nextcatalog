@@ -20,6 +20,9 @@ export function Loginbar() {
     <div className={styles.loginbar}>
       <img src={avatar} />
       <span>{nickname}</span>
+      <Link href="/novo">
+        <button>+</button>
+      </Link>
       <button>Sair</button>
     </div>
   );

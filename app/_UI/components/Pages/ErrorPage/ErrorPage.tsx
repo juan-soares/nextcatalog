@@ -3,7 +3,7 @@ import styles from "./ErrorPage.module.css";
 
 export function ErrorPage() {
   return (
-    <div className={styles.errorPage}>
+    <main className={styles.errorPage}>
       <img
         width={50}
         height={50}
@@ -14,6 +14,6 @@ export function ErrorPage() {
         <strong>Ops!</strong> A página que está procurando não existe, ou não
         está disponível. Que tal <Link href="/">voltar</Link>?
       </p>
-    </div>
+    </main>
   );
 }
