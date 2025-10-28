@@ -1,0 +1,28 @@
+{
+  "categories": [
+    {
+      "id": "films-animations",
+      "collection": "films-animations",
+      "translated_title": "Filmes: Animações",
+      "slug": "/filmes-animados"
+    },
+    {
+      "id": "board-games",
+      "collection": "board-games",
+      "translated_title": "Jogos de Tabuleiro",
+      "slug": "/jogos-de-tabuleiro"
+    },
+    {
+      "id": "video-games",
+      "collection": "video-games",
+      "translated_title": "Jogos Eletrônicos",
+      "slug": "/jogos-eletronicos"
+    },
+    {
+      "id": "cartoons",
+      "collection": "cartoons",
+      "translated_title": "Desenhos Animados",
+      "slug": "/desenhos-animados"
+    }
+  ]
+}

@@ -1,5 +1,15 @@
+import { ICategoryInfo } from "./HomePage.interface";
 import styles from "./HomePage.module.css";
+import { CategorySection } from "./CategorySection";
 
 export async function HomePage() {
-  return <div className={styles.home}></div>;
+  const categories: ICategoryInfo[] = [];
+
+  return (
+    <div className={styles.home}>
+      {categories.map((categoryInfo) => (
+        <CategorySection {...categoryInfo} />
+      ))}
+    </div>
+  );
 }
