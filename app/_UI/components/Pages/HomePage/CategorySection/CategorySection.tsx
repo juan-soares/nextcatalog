@@ -1,9 +1,10 @@
 import Link from "next/link";
 import styles from "./CategorySection.module.css";
+import { ICategoryRecord } from "../HomePage.interface";
 
 interface IProps {
   title: string;
-  records: [];
+  records: ICategoryRecord[];
   slug: string;
 }
 
