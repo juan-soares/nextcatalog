@@ -7,6 +7,30 @@
       "slug": "/filmes-animados"
     },
     {
+      "id": "films-live-action",
+      "collection": "films-live-action",
+      "translated_title": "Filmes: Live-Action",
+      "slug": "/filmes-live-action"
+    },
+    {
+      "id": "tv-show",
+      "collection": "tv-show",
+      "translated_title": "Séries",
+      "slug": "/series"
+    },
+    {
+      "id": "music",
+      "collection": "music",
+      "translated_title": "Músicas",
+      "slug": "/musicas"
+    },
+    {
+      "id": "books",
+      "collection": "books",
+      "translated_title": "Livros",
+      "slug": "/livros"
+    },
+    {
       "id": "board-games",
       "collection": "board-games",
       "translated_title": "Jogos de Tabuleiro",

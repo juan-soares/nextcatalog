@@ -1,17 +1,16 @@
 import Link from "next/link";
 import styles from "./Navbar.module.css";
-import { ICategory } from "./Navbar.interface";
-import { getAllCategories } from "@/app/_lib/actions/category";
+import { getAllCategories } from "@/app/_lib/services";
 
 export async function Navbar() {
-  const categories: ICategory[] = await getAllCategories();
+  const categories = await getAllCategories("alph");
 
   return (
     <nav className={styles.navbar}>
       <ul>
-        {categories.map(({ id, slug, title }) => (
+        {categories.map(({ id, slug, translated_title }) => (
           <li key={id}>
-            <Link href={slug}>{title}</Link>
+            <Link href={slug}>{translated_title}</Link>
           </li>
         ))}
       </ul>
