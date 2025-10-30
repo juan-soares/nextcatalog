@@ -72,3 +72,4 @@ export async function deleteItem(
   db[collectionName] = collection.filter((item: any) => item.id !== id);
   await writeDatabase(db);
 }
+
