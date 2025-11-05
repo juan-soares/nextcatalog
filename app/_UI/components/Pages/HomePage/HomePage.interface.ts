@@ -10,5 +10,5 @@ export interface ICategoryRecord {
   title: string;
   slug: string;
   cover: string;
-  releaseYear: number;
+  releaseYear: string;
 }
