@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "@/app/_UI/styles/global.css";
 import "@/app/_UI/styles/reset.css";
 import { inter } from "@/app/_UI/fonts";
-import { Header } from "./features";
+import { Header } from "@/app/_features/Header";
 
 export const metadata: Metadata = {
   title: "Create Next App",
