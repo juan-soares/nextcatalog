@@ -1,6 +1,6 @@
 import fs from "fs/promises";
 import path from "path";
-import { IDB } from "./data.types";
+import { IDB, IRecord } from "./data.types";
 
 const DB_PATH = path.join(process.cwd(), "app", "_data", "database.json");
 
@@ -35,4 +35,26 @@ export async function getCollection<C extends keyof IDB>(
   }
 
   return collectionData as IDB[C];
+}
+
+export async function getSearch(
+  term: string,
+  limit: number
+): Promise<IRecord[]> {
+  if (!term || term.trim().length < 2) return [];
+
+  try {
+    const categories = await getCollection("categories");
+    const resultsPromise = categories.map(({ collection }) =>
+      getCollection(collection, { query: term })
+    );
+
+    const results: IRecord[] = (await Promise.all(resultsPromise))
+      .flat()
+      .slice(0, limit);
+    return results;
+  } catch (error) {
+    console.error("Erro ao buscar registros:", error);
+    return [];
+  }
 }

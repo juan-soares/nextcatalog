@@ -1,5 +1,7 @@
 export interface IDB {
   categories: ICategory[];
+  animes: [];
+  boardGames: [];
 }
 
 interface IDBCollection {
@@ -10,4 +12,19 @@ interface IDBCollection {
 
 export interface ICategory extends IDBCollection {
   title: string;
+  collection: keyof ICategoryCollectionMap;
+}
+
+export interface ICategoryCollectionMap {
+  animes: "animes";
+  boardGames: "boardGames";
+}
+
+export interface IRecord {
+  id: string;
+  cover: string;
+  title: string;
+  translatedTitle: string;
+  releaseYear: string;
+  categoryTitle: string;
 }
