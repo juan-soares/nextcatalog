@@ -1,52 +1,76 @@
 {
   "categories": [
     {
-      "id": "films-animations",
-      "collection": "films-animations",
-      "translated_title": "Filmes: Animações",
-      "slug": "/filmes-animados"
+      "id": "1",
+      "slug": "animes",
+      "collection": "animes",
+      "title": "Animes",
+      "createdAt": "2025-11-09T00:00:00Z",
+      "lastModified": "2025-11-09T00:00:00Z"
     },
     {
-      "id": "films-live-action",
-      "collection": "films-live-action",
-      "translated_title": "Filmes: Live-Action",
-      "slug": "/filmes-live-action"
-    },
-    {
-      "id": "tv-show",
-      "collection": "tv-show",
-      "translated_title": "Séries",
-      "slug": "/series"
-    },
-    {
-      "id": "music",
-      "collection": "music",
-      "translated_title": "Músicas",
-      "slug": "/musicas"
-    },
-    {
-      "id": "books",
-      "collection": "books",
-      "translated_title": "Livros",
-      "slug": "/livros"
-    },
-    {
-      "id": "board-games",
-      "collection": "board-games",
-      "translated_title": "Jogos de Tabuleiro",
-      "slug": "/jogos-de-tabuleiro"
-    },
-    {
-      "id": "video-games",
+      "id": "2",
+      "slug": "jogos-eletronicos",
       "collection": "video-games",
-      "translated_title": "Jogos Eletrônicos",
-      "slug": "/jogos-eletronicos"
+      "title": "Jogos Eletrônicos",
+      "createdAt": "2025-11-09T00:00:00Z",
+      "lastModified": "2025-11-09T00:00:00Z"
     },
     {
-      "id": "cartoons",
-      "collection": "cartoons",
-      "translated_title": "Desenhos Animados",
-      "slug": "/desenhos-animados"
+      "id": "3",
+      "slug": "series",
+      "collection": "series",
+      "title": "Séries",
+      "createdAt": "2025-11-09T00:00:00Z",
+      "lastModified": "2025-11-09T00:00:00Z"
+    },
+    {
+      "id": "4",
+      "slug": "filmes-animados",
+      "collection": "animated-movies",
+      "title": "Filmes Animados",
+      "createdAt": "2025-11-09T00:00:00Z",
+      "lastModified": "2025-11-09T00:00:00Z"
+    },
+    {
+      "id": "5",
+      "slug": "filmes-live-action",
+      "collection": "live-action-movies",
+      "title": "Filmes Live-Action",
+      "createdAt": "2025-11-09T00:00:00Z",
+      "lastModified": "2025-11-09T00:00:00Z"
+    },
+    {
+      "id": "6",
+      "slug": "musicas",
+      "collection": "music",
+      "title": "Músicas",
+      "createdAt": "2025-11-09T00:00:00Z",
+      "lastModified": "2025-11-09T00:00:00Z"
+    },
+    {
+      "id": "7",
+      "slug": "livros",
+      "collection": "books",
+      "title": "Livros",
+      "createdAt": "2025-11-09T00:00:00Z",
+      "lastModified": "2025-11-09T00:00:00Z"
+    },
+    {
+      "id": "8",
+      "slug": "hqs",
+      "collection": "comics",
+      "title": "HQs",
+      "createdAt": "2025-11-09T00:00:00Z",
+      "lastModified": "2025-11-09T00:00:00Z"
+    },
+    {
+      "id": "9",
+      "slug": "jogos-de-tabuleiro",
+      "collection": "board-games",
+      "title": "Jogos de Tabuleiro",
+      "createdAt": "2025-11-09T00:00:00Z",
+      "lastModified": "2025-11-09T00:00:00Z"
     }
   ],
   "board-games": [

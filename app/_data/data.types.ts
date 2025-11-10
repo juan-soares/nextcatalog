@@ -11,6 +11,8 @@ interface IDBCollection {
 }
 
 export interface ICategory extends IDBCollection {
+  id: string;
+  slug: string;
   title: string;
   collection: keyof ICategoryCollectionMap;
 }
