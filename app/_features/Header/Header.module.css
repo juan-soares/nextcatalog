@@ -1,10 +1,28 @@
 .header {
   background-color: var(--color-background);
-  border-bottom: 1px solid #e5e7eb;
   padding: 1rem 0;
+}
+
+.header__top {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr auto 1fr;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  gap: 1rem;
+}
+
+.header__top > :first-child {
+  justify-self: start;
+}
+
+.header__top > :last-child {
+  justify-self: end;
+}
+
+.header__top > :nth-child(2) {
+  justify-self: center;
+  width: 100%;
+  max-width: 500px;
 }
