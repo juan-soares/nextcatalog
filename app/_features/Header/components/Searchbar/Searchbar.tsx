@@ -1,16 +1,24 @@
 "use client";
 
-import { ResultsList } from "./components";
 import styles from "./Searchar.module.css";
 import { useSearch } from "./Searchbar.hooks";
+import { ResultsList } from "./components";
 
 export function Searchbar() {
-  const { showResultList } = useSearch();
+  const { query, setQuery } = useSearch();
 
   return (
     <div className={styles.searchbar}>
-      <input placeholder="Pesquisar..." type="search" />
-      {showResultList && <ResultsList />}
+      <input
+        placeholder="Pesquisar..."
+        type="search"
+        value={query}
+        onChange={(e) => {
+          setQuery(e.target.value);
+        }}
+      />
+
+      {query && <ResultsList query={query} />}
     </div>
   );
 }

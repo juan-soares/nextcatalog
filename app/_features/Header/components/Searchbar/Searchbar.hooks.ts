@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 export function useSearch() {
-  const [showResultList, setResultList] = useState<boolean>(false);
+  const [query, setQuery] = useState<string>("");
 
-  return { showResultList };
+  return { query, setQuery };
 }
