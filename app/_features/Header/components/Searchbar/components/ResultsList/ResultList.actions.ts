@@ -20,7 +20,7 @@ export async function getSearchResults(query: string): Promise<IResultItem[]> {
     const filtered = results.filter(
       ({ title, translatedTitle }) =>
         title.toLowerCase().includes(lowerQuery) ||
-        translatedTitle.toLowerCase().includes(lowerQuery)
+        translatedTitle?.toLowerCase().includes(lowerQuery)
     );
 
     const sorted: IResultItem[] = filtered.sort((a, b) =>
