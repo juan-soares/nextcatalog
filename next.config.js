@@ -1,4 +1,16 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+  experimental: {
+    serverActions: {
+      allowedOrigins: [
+        "jubilant-system-9g6xqjj9p492jr9-3000.app.github.dev",
+
+        "*.app.github.dev",
+
+        "localhost:3000",
+      ],
+    },
+  },
+};
 
 module.exports = nextConfig;
