@@ -3,5 +3,8 @@ import { useState } from "react";
 export function useSearch() {
   const [query, setQuery] = useState<string>("");
 
-  return { query, setQuery };
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>
+    setQuery(e.target.value);
+
+  return { query, handleChange };
 }
