@@ -17,7 +17,7 @@ export function Input({ term, handleChange }: IProps) {
         onChange={handleChange}
       />
       <Link href={`/pesquisar?q=${term}`}>
-        <button>0-</button>
+        <button disabled={!term}>0-</button>
       </Link>
     </div>
   );

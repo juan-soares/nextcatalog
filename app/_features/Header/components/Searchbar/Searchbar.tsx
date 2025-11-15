@@ -1,16 +1,16 @@
 "use client";
 
-import Link from "next/link";
 import styles from "./Searchar.module.css";
 import { useSearch } from "./Searchbar.hooks";
-import { Input, ResultsList } from "./components";
+import { Input, ResultList } from "./components";
 
 export function Searchbar() {
-  const { query, handleChange } = useSearch();
+  const { query, handleChange, loading, results } = useSearch();
 
   return (
-    <div>
+    <div className={styles.searchBar}>
       <Input term={query} handleChange={handleChange} />
+      {query && <ResultList loading={loading} results={results} />}
     </div>
   );
 }
