@@ -23,19 +23,26 @@ async function writeDB(data: IDatabase) {
   }
 }
 
-export async function getCollection<T>(collectionTitle: string) {
+export function getCollection<C extends keyof IDatabase>(collectionTitle: C) {
   const find = async ({
     query,
     limit,
     sortBy,
-  }: IFindOptions<T>): Promise<T[]> => {
+  }: IFindOptions<C>): Promise<C[]> => {
     try {
-      const db = await readDB();
-      const collectionRecords: T[] = db[collectionTitle] || [];
-      
-      return collectionRecords;
+      const db: IDatabase = await readDB();
+      let collectionDocs: IDatabase[C] = db[collectionTitle] || [];
+
+      if (Object.keys(query).length > 0) {
+      }
+
+      if (limit) {
+        collectionDocs = collectionDocs.slice(0, limit);
+      }
+
+      return collectionDocs;
     } catch (error) {
-      console.error(error);
+      console.error("Erro ao consultar collection." + error);
       return [];
     }
   };
