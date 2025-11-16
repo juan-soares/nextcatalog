@@ -9,8 +9,8 @@ export async function Navbar() {
   return (
     <nav className={styles.navbar}>
       <ul>
-        {categories.map(({ id, slug, title }) => (
-          <li key={id}>
+        {categories.map(({ _id, slug, title }) => (
+          <li key={_id}>
             <Link href={`/${slug}`}>{title}</Link>
           </li>
         ))}

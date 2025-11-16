@@ -1,20 +1,20 @@
 import fs from "fs/promises";
 import path from "path";
-import { IDB, IRecord } from "./data.types";
+import { IDatabase, IFindOptions } from "./data.types";
 
 const DB_PATH = path.join(process.cwd(), "app", "_data", "database.json");
 
-async function readDB(): Promise<IDB> {
+async function readDB(): Promise<IDatabase> {
   try {
     const data = await fs.readFile(DB_PATH, "utf-8");
-    return JSON.parse(data) as IDB;
+    return JSON.parse(data) as IDatabase;
   } catch (error) {
     console.error("Erro ao ler o banco JSON:", error);
     throw error;
   }
 }
 
-async function writeDB(data: IDB) {
+async function writeDB(data: IDatabase) {
   try {
     await fs.writeFile(DB_PATH, JSON.stringify(data, null, 2), "utf-8");
   } catch (error) {
@@ -23,38 +23,22 @@ async function writeDB(data: IDB) {
   }
 }
 
-export async function getCollection<C extends keyof IDB>(
-  collection: C,
-  options?: { query?: string; limit?: number }
-): Promise<IDB[C]> {
-  const db: IDB = await readDB();
-  let collectionData = db[collection] as any;
+export async function getCollection<T>(collectionTitle: string) {
+  const find = async ({
+    query,
+    limit,
+    sortBy,
+  }: IFindOptions<T>): Promise<T[]> => {
+    try {
+      const db = await readDB();
+      const collectionRecords: T[] = db[collectionTitle] || [];
+      
+      return collectionRecords;
+    } catch (error) {
+      console.error(error);
+      return [];
+    }
+  };
 
-  if (options?.limit) {
-    collectionData = collectionData.slice(0, options.limit);
-  }
-
-  return collectionData as IDB[C];
-}
-
-export async function getSearch(
-  term: string,
-  limit: number
-): Promise<IRecord[]> {
-  if (!term || term.trim().length < 2) return [];
-
-  try {
-    const categories = await getCollection("categories");
-    const resultsPromise = categories.map(({ collection }) =>
-      getCollection(collection, { query: term })
-    );
-
-    const results: IRecord[] = (await Promise.all(resultsPromise))
-      .flat()
-      .slice(0, limit);
-    return results;
-  } catch (error) {
-    console.error("Erro ao buscar registros:", error);
-    return [];
-  }
+  return { find };
 }

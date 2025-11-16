@@ -1,32 +1,24 @@
-export interface IDB {
+export interface IFindOptions<T> {
+  query?: Partial<T>;
+  limit?: number;
+  sortBy?: ISortByMap;
+}
+
+export interface ISortByMap {
+  alph: "alph";
+  recent: "recent";
+  release: "release";
+}
+
+export interface IDatabase {
   categories: ICategory[];
-  animes: [];
-  boardGames: [];
-}
-
-interface IDBCollection {
-  id: string;
-  created_at: string;
-  last_modified: string;
-}
-
-export interface ICategory extends IDBCollection {
-  id: string;
-  slug: string;
-  title: string;
-  collection: keyof ICategoryCollectionMap;
-}
-
-export interface ICategoryCollectionMap {
-  animes: "animes";
-  boardGames: "boardGames";
 }
 
 export interface IRecord {
-  id: string;
-  cover: string;
+  _id: string;
   title: string;
-  translatedTitle: string;
-  releaseYear: string;
-  categoryTitle: string;
+  createdAt: string;
+  updatedAt: string;
 }
+
+export interface ICategory extends IRecord {}

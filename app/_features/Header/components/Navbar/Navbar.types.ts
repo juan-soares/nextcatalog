@@ -1,5 +1,5 @@
 export type ICategoryLink = {
-  id: string;
+  _id: string;
   slug: string;
   collection: string;
   title: string;
