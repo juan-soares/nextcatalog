@@ -1,5 +1,4 @@
-import { getCollection } from "@/app/_data/connection";
-import { ICategory, IDatabase, IRecord } from "@/app/_data/data.types";
+import { db } from "@/app/_data/db";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(req: NextRequest) {
@@ -8,22 +7,17 @@ export async function GET(req: NextRequest) {
   const limit = searchParams.get("limit") || null;
   const sortBy = searchParams.get("sortBy") || "recent";
 
-  try {
-    const categories: ICategory[] = await getCollection<ICategory>(
-      "categories"
-    ).find({
-      query: {},
-    });
+  const categories = await db.collection("categories").find({});
 
-    const promises = categories.map(({ collection }) =>
-      getCollection(collection).find({ query: {} })
-    );
+  const docsPromises = categories.map(({ collection }) =>
+    db.collection(collection).find({
+      query: {
+        fieldsToSearch: ["title", "translatedTitle"],
+        termsToSearch: [query],
+      },
+    })
+  );
+  const docs = (await Promise.all(docsPromises)).flat();
 
-    const results = (await Promise.all(promises)).flat();
-
-    return NextResponse.json(results);
-  } catch (error) {
-    console.error(error);
-    return NextResponse.json([], { status: 500 });
-  }
+  return NextResponse.json(docs);
 }

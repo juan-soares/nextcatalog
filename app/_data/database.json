@@ -7,70 +7,7 @@
       "collection": "animes",
       "createdAt": "2025-11-13T12:00:00Z",
       "updatedAt": "2025-11-13T12:00:00Z"
-    },
-    {
-      "_id": "cat002",
-      "title": "Filmes Animados",
-      "slug": "filmes-animados",
-      "collection": "animatedMovies",
-      "createdAt": "2025-11-13T12:00:00Z",
-      "updatedAt": "2025-11-13T12:00:00Z"
-    },
-    {
-      "_id": "cat003",
-      "title": "Filmes Live-Action",
-      "slug": "filmes-live-action",
-      "collection": "liveActionMovies",
-      "createdAt": "2025-11-13T12:00:00Z",
-      "updatedAt": "2025-11-13T12:00:00Z"
-    },
-    {
-      "_id": "cat004",
-      "title": "HQs",
-      "slug": "hqs",
-      "collection": "comics",
-      "createdAt": "2025-11-13T12:00:00Z",
-      "updatedAt": "2025-11-13T12:00:00Z"
-    },
-    {
-      "_id": "cat005",
-      "title": "Jogos de Tabuleiro",
-      "slug": "jogos-de-tabuleiro",
-      "collection": "boardGames",
-      "createdAt": "2025-11-13T12:00:00Z",
-      "updatedAt": "2025-11-13T12:00:00Z"
-    },
-    {
-      "_id": "cat006",
-      "title": "Jogos Eletrônicos",
-      "slug": "jogos-eletronicos",
-      "collection": "videoGames",
-      "createdAt": "2025-11-13T12:00:00Z",
-      "updatedAt": "2025-11-13T12:00:00Z"
-    },
-    {
-      "_id": "cat007",
-      "title": "Livros",
-      "slug": "livros",
-      "collection": "books",
-      "createdAt": "2025-11-13T12:00:00Z",
-      "updatedAt": "2025-11-13T12:00:00Z"
-    },
-    {
-      "_id": "cat008",
-      "title": "Músicas",
-      "slug": "musicas",
-      "collection": "music",
-      "createdAt": "2025-11-13T12:00:00Z",
-      "updatedAt": "2025-11-13T12:00:00Z"
-    },
-    {
-      "_id": "cat009",
-      "title": "Séries",
-      "slug": "series",
-      "collection": "series",
-      "createdAt": "2025-11-13T12:00:00Z",
-      "updatedAt": "2025-11-13T12:00:00Z"
     }
-  ]
+  ],
+  "animes": []
 }

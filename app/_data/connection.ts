@@ -1,13 +1,15 @@
 import fs from "fs/promises";
 import path from "path";
-import { IDatabase, IFindOptions } from "./data.types";
+import { IDatabase } from "./data.types";
 
 const DB_PATH = path.join(process.cwd(), "app", "_data", "database.json");
 
-async function readDB(): Promise<IDatabase> {
+export async function readDB(): Promise<IDatabase> {
   try {
     const data = await fs.readFile(DB_PATH, "utf-8");
-    return JSON.parse(data) as IDatabase;
+    const databaseParsed: IDatabase = JSON.parse(data);
+
+    return databaseParsed;
   } catch (error) {
     console.error("Erro ao ler o banco JSON:", error);
     throw error;
@@ -21,31 +23,4 @@ async function writeDB(data: IDatabase) {
     console.error("Erro ao salvar no banco JSON:", error);
     throw error;
   }
-}
-
-export function getCollection<C extends keyof IDatabase>(collectionTitle: C) {
-  const find = async ({
-    query,
-    limit,
-    sortBy,
-  }: IFindOptions<C>): Promise<C[]> => {
-    try {
-      const db: IDatabase = await readDB();
-      let collectionDocs: IDatabase[C] = db[collectionTitle] || [];
-
-      if (Object.keys(query).length > 0) {
-      }
-
-      if (limit) {
-        collectionDocs = collectionDocs.slice(0, limit);
-      }
-
-      return collectionDocs;
-    } catch (error) {
-      console.error("Erro ao consultar collection." + error);
-      return [];
-    }
-  };
-
-  return { find };
 }

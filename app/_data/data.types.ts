@@ -1,5 +1,16 @@
 export interface IDatabase {
   categories: ICategory[];
+  animes: IAnime[];
+}
+
+export interface ICategory extends IRecord {
+  slug: string;
+  collection: keyof IDatabase;
+}
+
+export interface IAnime extends IRecord {
+  slug: string;
+  collection: keyof IDatabase;
 }
 
 export interface IRecord {
@@ -9,12 +20,8 @@ export interface IRecord {
   updatedAt: string;
 }
 
-export interface ICategory extends IRecord {
-  collection: string;
-}
-
-export interface IFindOptions<T> {
-  query: Partial<T>;
+export interface IFindParameters {
+  query?: { fieldsToSearch: string[]; termsToSearch: string[] };
   limit?: number;
-  sortBy?: "alph" | "release" | "recent";
+  sortBy?: "alph" | "recent" | "release";
 }
