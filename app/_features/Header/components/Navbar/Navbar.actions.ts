@@ -1,16 +1,21 @@
 "use server";
 
-import { getCollection } from "@/app/_data/connection";
 import { ICategoryLink } from "./Navbar.types";
+import { db } from "@/app/_data/db";
 
 export async function getCategories(): Promise<ICategoryLink[]> {
   try {
-    const categories = await getCollection("categories");
-    categories.sort((a, b) =>
-      a.title.localeCompare(b.title, "pt", { sensitivity: "base" })
+    const categories = await db
+      .collection("categories")
+      .find({ sortBy: "alph" });
+
+    const categoriesLinks: ICategoryLink[] = categories.map(
+      ({ _id, slug, title }) => ({ _id, slug, title })
     );
-    return categories;
+
+    return categoriesLinks;
   } catch (error) {
+    console.error("Erro em getCategories:" + error);
     return [];
   }
 }

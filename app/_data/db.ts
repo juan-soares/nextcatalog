@@ -29,8 +29,8 @@ function collection<T extends keyof IDatabase>(collectionTitle: T) {
       }
 
       if (sortBy === "alph") {
-        collectionDocs = collectionDocs.sort(
-          (a: any, b: any) => a.title - b.title
+        collectionDocs = collectionDocs.sort((a: any, b: any) =>
+          a.title.localeCompare(b.title, "pt", { sensitivity: "base" })
         );
       } else if (sortBy === "recent") {
         collectionDocs = collectionDocs.sort(

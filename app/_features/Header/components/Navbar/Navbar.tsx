@@ -4,12 +4,12 @@ import { ICategoryLink } from "./Navbar.types";
 import { getCategories } from "./Navbar.actions";
 
 export async function Navbar() {
-  const categories: ICategoryLink[] = await getCategories();
+  const categoriesLink: ICategoryLink[] = await getCategories();
 
   return (
     <nav className={styles.navbar}>
       <ul>
-        {categories.map(({ _id, slug, title }) => (
+        {categoriesLink.map(({ _id, slug, title }) => (
           <li key={_id}>
             <Link href={`/${slug}`}>{title}</Link>
           </li>

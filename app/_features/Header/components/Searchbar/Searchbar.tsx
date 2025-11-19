@@ -5,12 +5,31 @@ import { useSearch } from "./Searchbar.hooks";
 import { Input, ResultList } from "./components";
 
 export function Searchbar() {
-  const { query, handleChange, loading, results } = useSearch();
+  const {
+    query,
+    handleChange,
+    loading,
+    results,
+    showResults,
+    setShowResults,
+    empty,
+  } = useSearch();
 
   return (
     <div className={styles.searchBar}>
-      <Input term={query} handleChange={handleChange} />
-      {query && <ResultList loading={loading} results={results} />}
+      <Input
+        term={query}
+        handleChange={handleChange}
+        setShowResults={setShowResults}
+      />
+      {showResults && (
+        <ResultList
+          loading={loading}
+          results={results}
+          empty={empty}
+          term={query}
+        />
+      )}
     </div>
   );
 }

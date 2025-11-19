@@ -1,50 +1,59 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useTransition } from "react";
 import { IResultItem } from "./Searchbar.types";
+import { getSearchResults } from "./Searchbar.actions";
 
 export function useSearch() {
-  const [query, setQuery] = useState<string>("");
-  const [loading, setIsLoading] = useState<boolean>(false);
+  const [query, setQuery] = useState("");
   const [results, setResults] = useState<IResultItem[]>([]);
+  const [isPending, startTransition] = useTransition();
+  const [showResults, setShowResults] = useState(false);
+  const [isSearching, setIsSearching] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>
     setQuery(e.target.value);
 
   useEffect(() => {
-    if (query.trim() === "") {
+    if (!query) {
+      setShowResults(false);
       setResults([]);
-      setIsLoading(false);
+      setIsSearching(false);
       return;
     }
 
-    let shouldUpdate = true;
+    setShowResults(true);
+    setIsSearching(true);
 
-    const handleSearch = async (): Promise<void> => {
-      setIsLoading(true);
-      try {
-        const res = await fetch(`/api/search?q=${encodeURIComponent(query)}`);
-        const data: IResultItem[] = await res.json();
-        if (shouldUpdate) {
+    const debounceTime = 300;
+
+    const handler = setTimeout(() => {
+      startTransition(async () => {
+        try {
+          const res = await fetch(`/api/search?q=${encodeURIComponent(query)}`);
+          const data: IResultItem[] = await res.json();
           setResults(data);
-        }
-      } catch (error) {
-        if (shouldUpdate) {
+        } catch (error) {
           console.error(error);
           setResults([]);
+        } finally {
+          setIsSearching(false);
         }
-      } finally {
-        if (shouldUpdate) {
-          setIsLoading(false);
-        }
-      }
-    };
+      });
+    }, debounceTime);
 
-    const debounce = setTimeout(handleSearch, 300);
-
-    return () => {
-      shouldUpdate = false;
-      clearTimeout(debounce);
-    };
+    return () => clearTimeout(handler);
   }, [query]);
 
-  return { query, handleChange, loading, results };
+  const loading = isPending && query.length > 0;
+  const empty =
+    !loading && !isSearching && results.length === 0 && query.length > 0;
+
+  return {
+    query,
+    handleChange,
+    results,
+    showResults,
+    setShowResults,
+    loading,
+    empty,
+  };
 }
