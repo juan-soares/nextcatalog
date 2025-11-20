@@ -1,6 +1,6 @@
-import { db } from "@/app/_data/db";
+import { db } from "@/src/_data/db";
 import { IUserInfo } from "./LoginForm.types";
-import { IUser } from "@/app/_data/data.types";
+import { IUser } from "@/src/_data/data.types";
 
 export function useAuth() {
   const authUser = async (

@@ -1,7 +1,7 @@
 "use server";
 
 import { ICategoryLink } from "./Navbar.types";
-import { db } from "@/app/_data/db";
+import { db } from "@/src/_data/db";
 
 export async function getCategories(): Promise<ICategoryLink[]> {
   try {

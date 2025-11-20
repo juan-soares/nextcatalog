@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { currentUser, logout } from "@/app/_lib/utils/cookiesUser";
+import { currentUser, logout } from "@/src/_lib/utils/cookiesUser";
 import { IUserInfo } from "./Userbar.types";
 
 export async function Userbar() {

@@ -1,5 +1,5 @@
 import styles from "./Header.module.css";
-import { BottomHeader, TopHeader } from "./";
+import { BottomHeader, TopHeader } from ".";
 
 export function Header() {
   return (

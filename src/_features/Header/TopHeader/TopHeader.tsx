@@ -1,5 +1,5 @@
-import { Logo } from "@/app/_UI/components";
-import { Searchbar, Userbar } from "./";
+import { Logo } from "@/src/_UI/components";
+import { Searchbar, Userbar } from ".";
 
 export function TopHeader() {
   return (
