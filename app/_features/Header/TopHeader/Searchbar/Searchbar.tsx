@@ -2,7 +2,7 @@
 
 import styles from "./Searchar.module.css";
 import { useSearch } from "./Searchbar.hooks";
-import { Input, ResultList } from "./components";
+import { Input, ResultList } from ".";
 
 export function Searchbar() {
   const {
@@ -11,7 +11,7 @@ export function Searchbar() {
     loading,
     results,
     showResults,
-    setShowResults,
+    toggleShowResults,
     empty,
   } = useSearch();
 
@@ -20,7 +20,7 @@ export function Searchbar() {
       <Input
         term={query}
         handleChange={handleChange}
-        setShowResults={setShowResults}
+        toggleShowResults={toggleShowResults}
       />
       {showResults && (
         <ResultList

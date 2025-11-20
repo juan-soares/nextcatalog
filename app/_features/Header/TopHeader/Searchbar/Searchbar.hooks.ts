@@ -1,6 +1,5 @@
 import { useEffect, useState, useTransition } from "react";
 import { IResultItem } from "./Searchbar.types";
-import { getSearchResults } from "./Searchbar.actions";
 
 export function useSearch() {
   const [query, setQuery] = useState("");
@@ -11,6 +10,14 @@ export function useSearch() {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>
     setQuery(e.target.value);
+
+  const toggleShowResults = (term?: string) => {
+    if (term) {
+      setShowResults(true);
+    } else {
+      setTimeout(() => setShowResults(false), 150);
+    }
+  };
 
   useEffect(() => {
     if (!query) {
@@ -55,5 +62,6 @@ export function useSearch() {
     setShowResults,
     loading,
     empty,
+    toggleShowResults,
   };
 }

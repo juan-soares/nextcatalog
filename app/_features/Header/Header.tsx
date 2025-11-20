@@ -1,15 +1,11 @@
 import styles from "./Header.module.css";
-import { Logo } from "@/app/_UI/components";
-import { Navbar, Searchbar } from "./components";
+import { BottomHeader, TopHeader } from "./";
 
 export function Header() {
   return (
     <header className={styles.header}>
-      <div className={styles.header__top}>
-        <Logo />
-        <Searchbar />
-      </div>
-      <Navbar />
+      <TopHeader />
+      <BottomHeader />
     </header>
   );
 }

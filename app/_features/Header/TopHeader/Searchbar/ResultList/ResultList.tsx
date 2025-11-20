@@ -1,6 +1,6 @@
 import Link from "next/link";
 import styles from "./ResultList.module.css";
-import { IResultItem } from "../../Searchbar.types";
+import { IResultItem } from "../Searchbar.types";
 
 interface IProps {
   loading: boolean;
