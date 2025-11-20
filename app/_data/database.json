@@ -1,4 +1,15 @@
 {
+  "users": [
+    {
+      "_id": "use001",
+      "avatar": "/avatar.png",
+      "nickname": "Admin",
+      "password": "123",
+      "email": "a@a.com",
+      "createdAt": "2025-11-13T12:00:00Z",
+      "updatedAt": "2025-11-13T12:00:00Z"
+    }
+  ],
   "categories": [
     {
       "_id": "cat001",

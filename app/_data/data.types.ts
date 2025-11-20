@@ -5,6 +5,7 @@ export interface IFindParameters {
 }
 
 export interface IDatabase {
+  users: IUser[];
   categories: ICategory[];
   animes: IAnime[];
 }
@@ -18,6 +19,13 @@ export interface IDoc {
 
 export interface IRecord extends IDoc {
   translatedTitle: string;
+}
+
+export interface IUser extends IRecord {
+  avatar: string;
+  nickname: string;
+  password: string;
+  email: string;
 }
 
 export interface ICategory extends IRecord {
