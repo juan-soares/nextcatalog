@@ -1,8 +1,9 @@
 import Link from "next/link";
-import { useLogin } from "./Userbar.hooks";
+import { currentUser, logout } from "@/app/_lib/utils/cookiesUser";
+import { IUserInfo } from "./Userbar.types";
 
-export function Userbar() {
-  const { userInfo } = useLogin();
+export async function Userbar() {
+  const userInfo: IUserInfo | null = await currentUser();
 
   if (!userInfo)
     return (
@@ -18,7 +19,9 @@ export function Userbar() {
       <Link href="/profile">
         <img src={avatar} alt={`Avatar do usuário ${nickname}.`} />
         <span>{nickname}</span>
-        <button>Sair</button>
+        <form action={logout}>
+          <button>Sair</button>
+        </form>
       </Link>
     </div>
   );
