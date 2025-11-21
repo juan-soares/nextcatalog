@@ -20,10 +20,10 @@ export async function Userbar() {
       <Link href="/profile">
         <img src={avatar} alt={`Avatar do usuário ${nickname}.`} />
         <span>{nickname}</span>
-        <form action={logout}>
-          <button type="submit">Sair</button>
-        </form>
       </Link>
+      <form action={logout}>
+        <button type="submit">Sair</button>
+      </form>
     </div>
   );
 }

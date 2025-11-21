@@ -2,7 +2,6 @@
 
 import { revalidatePath } from "next/cache";
 import { cookies } from "next/headers";
-import { redirect } from "next/navigation";
 
 export interface IUser {
   nickname: string;
@@ -33,5 +32,4 @@ export async function deleteCurrentUser() {
   });
 
   revalidatePath("/");
-  redirect("/");
 }
