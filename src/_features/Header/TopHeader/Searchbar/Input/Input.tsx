@@ -4,10 +4,9 @@ import styles from "./Input.module.css";
 interface IProps {
   term: string;
   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  toggleShowResults: (term?: string) => void;
 }
 
-export function Input({ term, handleChange, toggleShowResults }: IProps) {
+export function Input({ term, handleChange }: IProps) {
   return (
     <div>
       <input
@@ -16,8 +15,6 @@ export function Input({ term, handleChange, toggleShowResults }: IProps) {
         placeholder="Pesquisar..."
         value={term}
         onChange={handleChange}
-        onFocus={() => toggleShowResults(term)}
-        onBlur={() => toggleShowResults()}
       />
       <Link href={`/pesquisar?q=${term}`}>
         <button disabled={!term}>0-</button>

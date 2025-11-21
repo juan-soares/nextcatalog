@@ -1,10 +1,12 @@
 import fs from "fs/promises";
-import path from "path";
 import { IDatabase } from "./data.types";
 
-const DB_PATH = path.join(process.cwd(), "app", "_data", "database.json");
+const DB_PATH = process.env.DATABASE_URL;
 
 export async function readDB(): Promise<IDatabase> {
+  if (!DB_PATH) {
+    throw new Error("Caminho definido em .env incorreto.");
+  }
   try {
     const data = await fs.readFile(DB_PATH, "utf-8");
     const databaseParsed: IDatabase = JSON.parse(data);
@@ -17,6 +19,9 @@ export async function readDB(): Promise<IDatabase> {
 }
 
 async function writeDB(data: IDatabase) {
+  if (!DB_PATH) {
+    throw new Error("Caminho definido em .env incorreto.");
+  }
   try {
     await fs.writeFile(DB_PATH, JSON.stringify(data, null, 2), "utf-8");
   } catch (error) {

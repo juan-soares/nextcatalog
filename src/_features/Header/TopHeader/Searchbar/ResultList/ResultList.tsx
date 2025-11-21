@@ -3,19 +3,18 @@ import styles from "./ResultList.module.css";
 import { IResultItem } from "../Searchbar.types";
 
 interface IProps {
-  loading: boolean;
+  isLoading: boolean;
   results: IResultItem[];
-  empty: boolean;
   term: string;
 }
 
-export function ResultList({ loading, results, empty, term }: IProps) {
+export function ResultList({ isLoading, results, term }: IProps) {
   if (!term) return null;
 
   return (
     <div>
-      {loading && <p>Pesquisando...</p>}
-      {!loading && results.length > 0 && (
+      {isLoading && <p>Pesquisando...</p>}
+      {!isLoading && results.length > 0 && (
         <ul className={styles.resultList}>
           {results.map(
             ({
@@ -41,7 +40,7 @@ export function ResultList({ loading, results, empty, term }: IProps) {
           )}
         </ul>
       )}
-      {empty && <p>Nada encontrado.</p>}
+      {!isLoading && results.length === 0 && <p>Nada encontrado.</p>}
     </div>
   );
 }

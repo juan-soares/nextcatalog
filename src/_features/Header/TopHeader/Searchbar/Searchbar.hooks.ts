@@ -4,64 +4,38 @@ import { IResultItem } from "./Searchbar.types";
 export function useSearch() {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState<IResultItem[]>([]);
-  const [isPending, startTransition] = useTransition();
-  const [showResults, setShowResults] = useState(false);
-  const [isSearching, setIsSearching] = useState(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isShowingResults, setIsShowingResults] = useState<boolean>(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>
     setQuery(e.target.value);
 
-  const toggleShowResults = (term?: string) => {
-    if (term) {
-      setShowResults(true);
-    } else {
-      setTimeout(() => setShowResults(false), 150);
-    }
-  };
-
   useEffect(() => {
     if (!query) {
-      setShowResults(false);
       setResults([]);
-      setIsSearching(false);
+      setIsShowingResults(false);
+      setIsLoading(false);
       return;
     }
 
-    setShowResults(true);
-    setIsSearching(true);
+    setIsShowingResults(true);
+    setIsLoading(true);
 
-    const debounceTime = 300;
+    const delayQuery = setTimeout(async () => {
+      const res = await fetch(`/api/search?q=${encodeURIComponent(query)}`);
+      const data: IResultItem[] = await res.json();
+      setResults(data);
+      setIsLoading(false);
+    }, 300);
 
-    const handler = setTimeout(() => {
-      startTransition(async () => {
-        try {
-          const res = await fetch(`/api/search?q=${encodeURIComponent(query)}`);
-          const data: IResultItem[] = await res.json();
-          setResults(data);
-        } catch (error) {
-          console.error(error);
-          setResults([]);
-        } finally {
-          setIsSearching(false);
-        }
-      });
-    }, debounceTime);
-
-    return () => clearTimeout(handler);
+    return () => clearTimeout(delayQuery);
   }, [query]);
-
-  const loading = isPending && query.length > 0;
-  const empty =
-    !loading && !isSearching && results.length === 0 && query.length > 0;
 
   return {
     query,
     handleChange,
     results,
-    showResults,
-    setShowResults,
-    loading,
-    empty,
-    toggleShowResults,
+    isLoading,
+    isShowingResults,
   };
 }
