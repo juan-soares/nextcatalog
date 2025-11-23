@@ -1,0 +1,206 @@
+# Projeto Next.js – CONTEXTO
+
+## 1. Arquitetura Geral
+
+- **Next.js 14+**
+- **Server Components + Server Actions**
+- **FSD / Feature-Sliced Design**
+- **MongoDB com Mongoose**
+- **Estilos:** CSS Modules
+- **Organização:** Barrel files por feature/componente
+- **Componentes de UI isolados**, lógica reutilizável nas features.
+
+---
+
+## 2. Estrutura de pastas
+
+features/
+auth/
+server/
+getSession.ts
+getUser.ts
+login.ts
+logout.ts
+index.ts
+layout/
+components/
+Header/
+Header.tsx
+Header.module.css
+index.ts
+Logo/
+Logo.tsx
+Logo.module.css
+index.ts
+Navigation/
+Navigation.tsx
+Navigation.module.css
+index.ts
+Search/
+Search.tsx
+Search.module.css
+index.ts
+UserSection/
+UserSection.tsx
+UserSection.module.css
+index.ts
+LogoutButton/
+LogoutButton.tsx
+LogoutButton.module.css
+index.ts
+
+markdown
+Copiar código
+
+---
+
+## 3. Feature `auth`
+
+- **Server Actions / utilitários** de autenticação
+- Não possui UI própria
+
+### getSession.ts
+- Lê cookie `"session"` e retorna `userId` ou `null`.
+
+### getUser.ts
+- Chama `getSession()`  
+- Consulta MongoDB (`users` collection) com `userId`  
+- Retorna dados do usuário (`nickname`, `avatarUrl`, `email`) ou `null`.
+
+### login.ts
+- Valida email e senha (hash com bcrypt)  
+- Se válido, salva `userId` no cookie HTTP-only  
+- Revalida layout (`revalidatePath("/", "layout")`)
+
+### logout.ts
+- Deleta cookie `"session"`  
+- Revalida layout
+
+### index.ts (barrel)
+```ts
+export * from "./server/getUser";
+export * from "./server/getSession";
+export * from "./server/login";
+export * from "./server/logout";
+4. Feature layout/components
+Header.tsx
+Topo:
+
+Logo (link para home)
+
+Search (input + resultados via Server Action)
+
+UserSection (avatar/nickname se logado, botão login se deslogado)
+
+Bottom:
+
+Navigation (links para categorias, carregados do DB)
+
+UserSection.tsx
+Server Component
+
+Chama getUser() da feature auth
+
+Renderiza:
+
+Logado: avatar + nickname + LogoutButton
+
+Deslogado: botão Login (/login)
+
+LogoutButton.tsx
+Server Component
+
+<form action={handleLogout}>
+
+handleLogout chama Server Action logout()
+
+Atualiza layout automaticamente
+
+Search.tsx
+Server Component
+
+Input de pesquisa
+
+Server Action faz query em coleções específicas de cada categoria
+
+Mostra estados:
+
+“Buscando”
+
+“Sem resultados”
+
+Resultados com link para página específica
+
+5. Fluxo de autenticação
+Login
+
+Usuário envia email e senha
+
+Server Action login() valida e salva cookie
+
+Header/UserSection atualiza automaticamente
+
+Verificação de usuário logado
+
+Componentes chamam getUser()
+
+getUser() chama getSession() → consulta DB → retorna dados
+
+Logout
+
+Botão Logout chama Server Action wrapper handleLogout()
+
+logout() deleta cookie, revalida Header
+
+6. Observações importantes
+Server Components reduzem JS no client e aumentam segurança
+
+Server Actions permitem manipular sessão sem expor dados sensíveis
+
+Separação de responsabilidades:
+
+auth/ → lógica de sessão/autenticação
+
+layout/components/ → UI
+
+Reuso e escalabilidade
+
+getUser() pode ser chamado por qualquer componente ou server action
+
+Mudanças no sistema de login (cookies, JWT, NextAuth) afetam apenas auth/
+
+Otimizações futuras
+
+Cache de getUser() com cache() ou unstable_cache()
+
+Dropdowns para UserSection
+
+Client-side hooks (useUser()) se necessário
+
+7. Próximos passos sugeridos
+Integrar LoginForm como Server Component (feito)
+
+Integrar UserSection + LogoutButton com layout completo (feito)
+
+Continuar implementação de Search/Navigation
+
+Middleware para rotas privadas
+
+Página de perfil do usuário /perfil
+
+Melhorias de UI/UX e temas
+
+yaml
+Copiar código
+
+---
+
+Se você salvar esse `CONTEXT.md`, basta colar o conteúdo em uma nova conversa comigo e escrever:
+
+**“Aqui está meu CONTEXT.md, vamos continuar o projeto de onde paramos.”**
+
+Eu conseguirei reconstruir **todo o contexto do projeto** imediatamente, sem precisar refazer nada.  
+
+Se você quiser, posso também **gerar um arquivo `CONTEXT.md` já com todos os snippets de código de cada componente**, pronto para copiar e colar direto no seu projeto.  
+
+Quer que eu faça isso?
