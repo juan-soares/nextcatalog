@@ -1,10 +1,9 @@
 import Link from "next/link";
-import { IUserInfo } from "./Userbar.types";
-import { getCurrentUser } from "@/src/_lib/session/user";
-import { logout } from "./Userbar.actions";
+import { getUserInfo } from "../Auth.actions";
+import { handleLogout } from "./Userbar.actions";
 
 export async function Userbar() {
-  const userInfo: IUserInfo | null = await getCurrentUser();
+  const userInfo = await getUserInfo();
 
   if (!userInfo)
     return (
@@ -21,7 +20,7 @@ export async function Userbar() {
         <img src={avatar} alt={`Avatar do usuário ${nickname}.`} />
         <span>{nickname}</span>
       </Link>
-      <form action={logout}>
+      <form action={handleLogout}>
         <button type="submit">Sair</button>
       </form>
     </div>

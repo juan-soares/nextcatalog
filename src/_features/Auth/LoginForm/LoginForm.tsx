@@ -1,10 +1,10 @@
-import { postCredentials } from "./LoginForm.actions";
+import { login } from "./LoginForm.actions";
 
 export async function LoginForm() {
   return (
     <main>
       <h1>Login</h1>
-      <form action={postCredentials}>
+      <form action={login}>
         <label htmlFor="email">Usuário:</label>
         <input id="email" name="email" type="email" required />
         <label htmlFor="password">Senha:</label>

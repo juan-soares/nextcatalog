@@ -1,12 +1,11 @@
 import { Logo } from "@/src/_UI/components";
-import { Searchbar, Userbar } from ".";
+import { Searchbar } from ".";
 
 export function TopHeader() {
   return (
     <div>
       <Logo />
       <Searchbar />
-      <Userbar />
     </div>
   );
 }
