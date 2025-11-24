@@ -1,9 +1,10 @@
-import { Navbar } from "./Navbar";
+import { CategoriesNav, FranchisesNav } from ".";
 
 export function BottomHeader() {
   return (
     <div>
-      <Navbar />
+      <CategoriesNav />
+      <FranchisesNav/>
     </div>
   );
 }

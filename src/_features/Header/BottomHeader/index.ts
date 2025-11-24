@@ -1,2 +1,3 @@
 export * from "./BottomHeader";
-export * from "./Navbar";
+export * from "./CategoriesNav";
+export * from "./FranchisesNav";

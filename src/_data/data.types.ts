@@ -8,6 +8,7 @@ export interface IDatabase {
   users: IUser[];
   categories: ICategory[];
   animes: IAnime[];
+  franchises: IFranchise[];
 }
 
 export interface IDoc {
@@ -26,6 +27,11 @@ export interface IUser extends IRecord {
   nickname: string;
   password: string;
   email: string;
+}
+
+export interface IFranchise extends IDoc {
+  logo: string;
+  slug: string;
 }
 
 export interface ICategory extends IRecord {

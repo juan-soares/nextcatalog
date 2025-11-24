@@ -1,9 +1,9 @@
 import Link from "next/link";
-import styles from "./Navbar.module.css";
-import { ICategoryLink } from "./Navbar.types";
-import { getCategories } from "./Navbar.actions";
+import styles from "./CategoriesNav.module.css";
+import { ICategoryLink } from "./CategoriesNav.types";
+import { getCategories } from "./CategoriesNav.actions";
 
-export async function Navbar() {
+export async function CategoriesNav() {
   const categoriesLink: ICategoryLink[] = await getCategories();
 
   return (
