@@ -6,6 +6,7 @@ export interface IFindParameters {
 
 export interface IDatabase {
   users: IUser[];
+  sessions: ISession[];
   categories: ICategory[];
   animes: IAnime[];
   franchises: IFranchise[];
@@ -16,6 +17,10 @@ export interface IDoc {
   title: string;
   createdAt: string;
   updatedAt: string;
+}
+
+export interface ISession extends IDoc {
+  slug: string;
 }
 
 export interface IRecord extends IDoc {
