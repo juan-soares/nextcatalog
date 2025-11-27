@@ -3,12 +3,13 @@
 import { useState, useEffect } from "react";
 import styles from "./Searchbar.module.css";
 import { SearchResults } from "..";
+import { ISearchItem } from "../../types";
 
 export function SearchBar() {
-  const [query, setQuery] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [results, setResults] = useState([]);
-  const [showDropdown, setShowDropdown] = useState(false);
+  const [query, setQuery] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
+  const [results, setResults] = useState<ISearchItem[]>([]);
+  const [showDropdown, setShowDropdown] = useState<boolean>(false);
 
   useEffect(() => {
     if (!query.trim()) {
@@ -26,7 +27,7 @@ export function SearchBar() {
       });
 
       const data = await res.json();
-      setResults(data.items);
+      setResults(data);
       setLoading(false);
       setShowDropdown(true);
     }, 400);
