@@ -1,0 +1,61 @@
+.dropdown {
+  position: absolute;
+  top: 42px;
+  left: 0;
+  width: 100%;
+  background: white;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  z-index: 20;
+  padding: 8px 0;
+}
+
+.message {
+  padding: 12px;
+  color: #666;
+  font-size: 14px;
+}
+
+.item {
+  display: flex;
+  gap: 10px;
+  padding: 10px 12px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.item:hover {
+  background: #f5f5f5;
+}
+
+.cover {
+  border-radius: 4px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.year {
+  color: #999;
+}
+
+.translated {
+  font-size: 12px;
+  color: #666;
+}
+
+.category {
+  margin-top: 2px;
+  font-size: 11px;
+  padding: 2px 6px;
+  background: #eee;
+  border-radius: 4px;
+}

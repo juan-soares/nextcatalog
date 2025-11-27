@@ -4,8 +4,7 @@ import "@/src/_UI/styles/global.css";
 
 import { inter } from "@/src/_UI/fonts";
 import { siteConfig } from "@/src/_lib/config/const";
-
-import { Header } from "@/src/_features/Header";
+import { Header } from "@/src/_features/header/components";
 
 export const metadata = {
   title: siteConfig.name,

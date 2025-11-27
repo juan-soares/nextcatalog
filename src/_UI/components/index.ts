@@ -1,1 +1,1 @@
-export * from "./shared/Logo";
+export * from "./Logo";
