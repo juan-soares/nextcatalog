@@ -48,3 +48,66 @@
 .loginButton:hover {
   background: #005ad1;
 }
+
+.popupOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+/* Caixa do popup */
+.popup {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 260px;
+  text-align: center;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+}
+
+.popup p {
+  margin-bottom: 18px;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* Layout dos botões */
+.popupButtons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.cancel {
+  flex: 1;
+  padding: 8px 0;
+  border-radius: 6px;
+  border: 1px solid #999;
+  background: #f1f1f1;
+  cursor: pointer;
+}
+
+.cancel:hover {
+  background: #e2e2e2;
+}
+
+.confirmLogout {
+  flex: 1;
+  padding: 8px 0;
+  border-radius: 6px;
+  border: none;
+  background: #e74c3c;
+  color: white;
+  cursor: pointer;
+}
+
+.confirmLogout:hover {
+  background: #c0392b;
+}

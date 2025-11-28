@@ -1,11 +1,11 @@
-"use client";
-
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./UserSection.module.css";
+import { getUserSection } from "@/src/_features/auth/actions";
+import { LogoutButton } from ".";
 
-export function UserSection() {
-  const user = null;
+export async function UserSection() {
+  const user = await getUserSection();
 
   if (!user) {
     return (
@@ -30,9 +30,7 @@ export function UserSection() {
         <span className={styles.nickname}>{nickname}</span>
       </div>
 
-      <form action="/api/logout" method="POST">
-        <button className={styles.logout}>Sair</button>
-      </form>
+      <LogoutButton />
     </div>
   );
 }
