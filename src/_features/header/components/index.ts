@@ -1,4 +1,4 @@
 export * from "./Header";
-export * from "./HeaderTop";
-export * from "./Searchbar";
-export * from "./SearchResults";
+export * from "./Header/HeaderTop";
+export * from "./Header/HeaderTop/Searchbar";
+export * from "./Header/HeaderTop/Searchbar/SearchResults";

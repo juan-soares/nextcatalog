@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./SearchResults.module.css";
-import { ISearchItem } from "../../types";
+import { ISearchItem } from "../../../../../types";
 
 interface IProps {
   query: string;
@@ -52,9 +52,7 @@ export function SearchResults({ query, loading, results, onClose }: IProps) {
                   )}
                 </div>
 
-                {translatedTitle && (
-                  <div className={styles.translated}>{translatedTitle}</div>
-                )}
+                <div className={styles.translated}>{translatedTitle}</div>
 
                 <span className={styles.category}>{categoryTitle}</span>
               </div>

@@ -2,8 +2,8 @@
 
 import { useState, useEffect } from "react";
 import styles from "./Searchbar.module.css";
-import { SearchResults } from "..";
-import { ISearchItem } from "../../types";
+import { ISearchItem } from "../../../../types";
+import { SearchResults, SearchInput } from "../../..";
 
 export function SearchBar() {
   const [query, setQuery] = useState<string>("");
@@ -37,11 +37,9 @@ export function SearchBar() {
 
   return (
     <div className={styles.wrapper}>
-      <input
-        className={styles.input}
-        placeholder="Buscar..."
+      <SearchInput
         value={query}
-        onChange={(e) => setQuery(e.target.value)}
+        onChange={setQuery}
         onFocus={() => query && setShowDropdown(true)}
       />
 

@@ -1,6 +1,6 @@
-import { SearchBar } from "../Searchbar";
 import styles from "./HeaderTop.module.css";
 import { Logo } from "@/src/_UI/components";
+import { SearchBar, UserSection } from ".";
 
 export function HeaderTop() {
   return (
@@ -13,7 +13,9 @@ export function HeaderTop() {
         <SearchBar />
       </div>
 
-      <div className={styles.right}></div>
+      <div className={styles.right}>
+        <UserSection />
+      </div>
     </header>
   );
 }
