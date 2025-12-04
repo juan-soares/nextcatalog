@@ -1,10 +1,10 @@
-import "@/src/_UI/styles/variables.css";
-import "@/src/_UI/styles/reset.css";
-import "@/src/_UI/styles/global.css";
+import "@/app/_UI/styles/variables.css";
+import "@/app/_UI/styles/reset.css";
+import "@/app/_UI/styles/global.css";
 
-import { inter } from "@/src/_UI/fonts";
-import { siteConfig } from "@/src/_lib/config/const";
-import { Header } from "@/src/_features/header/components";
+import { inter } from "@/app/_UI/fonts";
+import { siteConfig } from "@/app/_lib/config/const";
+import { Header } from "@/app/_features/header/components";
 
 export const metadata = {
   title: siteConfig.name,

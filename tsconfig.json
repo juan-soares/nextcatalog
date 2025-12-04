@@ -27,7 +27,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "src/_lib/db/collections/formType"
+    "app/_lib/db/collections/formType"
   ],
   "exclude": ["node_modules"]
 }

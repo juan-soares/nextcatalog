@@ -1,5 +1,5 @@
 import styles from "./HeaderTop.module.css";
-import { Logo } from "@/src/_UI/components";
+import { Logo } from "@/app/_UI/components";
 import { SearchBar, UserSection } from ".";
 
 export function HeaderTop() {

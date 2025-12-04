@@ -1,9 +1,6 @@
 import { cookies } from "next/headers";
 import { IUserInfo } from "../types";
-
-async function getUserInfo(): Promise<IUserInfo | null> {
-  return null;
-}
+import { getUserByID } from ".";
 
 export async function getUserSection(): Promise<IUserInfo | null> {
   const cookieStore = cookies();
@@ -13,7 +10,6 @@ export async function getUserSection(): Promise<IUserInfo | null> {
     return null;
   }
 
-  const userInfo = await getUserInfo();
-
+  const userInfo = await getUserByID(sessionToken);
   return userInfo;
 }

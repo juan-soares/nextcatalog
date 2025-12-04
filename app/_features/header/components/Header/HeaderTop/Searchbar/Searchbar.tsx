@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import styles from "./Searchbar.module.css";
 import { ISearchItem } from "../../../../types";
-import { SearchResults, SearchInput } from "../../..";
+import { SearchInput, SearchResults } from ".";
 
 export function SearchBar() {
   const [query, setQuery] = useState<string>("");

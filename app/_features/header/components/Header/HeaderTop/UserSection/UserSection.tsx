@@ -1,18 +1,14 @@
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./UserSection.module.css";
-import { getUserSection } from "@/src/_features/auth/actions";
-import { LogoutButton } from ".";
+import { getUserSection } from "@/app/_features/auth/actions";
+import { LogoutButton } from "./LogoutButton";
 
 export async function UserSection() {
   const user = await getUserSection();
 
   if (!user) {
-    return (
-      <Link href="/login" className={styles.loginButton}>
-        Entrar
-      </Link>
-    );
+    return <Link href="/login">Entrar</Link>;
   }
 
   const { avatar, nickname } = user;
@@ -28,9 +24,8 @@ export async function UserSection() {
           className={styles.avatar}
         />
         <span className={styles.nickname}>{nickname}</span>
+        <LogoutButton />
       </div>
-
-      <LogoutButton />
     </div>
   );
 }
