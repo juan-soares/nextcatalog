@@ -2,10 +2,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 72px;
-  padding: 0 24px;
-  background: var(--header-background, #ffffff);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 12px 24px;
+  gap: 16px;
 }
 
 .left,

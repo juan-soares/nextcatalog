@@ -1,113 +1,35 @@
 .wrapper {
   display: flex;
   align-items: center;
-  gap: 16px;
 }
 
 .userInfo {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-  gap: 4px;
+  gap: 12px;
+  padding: 6px 10px;
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
 }
 
 .avatar {
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
+  object-fit: cover;
 }
 
 .nickname {
-  font-size: 13px;
-  font-weight: 500;
-  text-align: center;
-}
-
-.logout {
-  background: #e74c3c;
-  border: none;
-  color: white;
-  cursor: pointer;
-  font-size: 13px;
-  border-radius: 6px;
-  padding: 6px 12px;
-}
-
-.logout:hover {
-  background: #c0392b;
-}
-
-.loginButton {
-  padding: 8px 16px;
-  background: #0070f3;
-  color: white;
-  border-radius: 6px;
-  text-decoration: none;
   font-size: 14px;
-}
-
-.loginButton:hover {
-  background: #005ad1;
-}
-
-.popupOverlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.45);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 2000;
-}
-
-/* Caixa do popup */
-.popup {
-  background: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  width: 260px;
-  text-align: center;
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
-}
-
-.popup p {
-  margin-bottom: 18px;
-  font-size: 15px;
   font-weight: 500;
+  color: var(--text);
 }
 
-/* Layout dos botões */
-.popupButtons {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-}
-
-.cancel {
-  flex: 1;
-  padding: 8px 0;
-  border-radius: 6px;
-  border: 1px solid #999;
-  background: #f1f1f1;
-  cursor: pointer;
-}
-
-.cancel:hover {
-  background: #e2e2e2;
-}
-
-.confirmLogout {
-  flex: 1;
-  padding: 8px 0;
-  border-radius: 6px;
-  border: none;
-  background: #e74c3c;
+.button {
+  background: var(--primary);
   color: white;
-  cursor: pointer;
-}
-
-.confirmLogout:hover {
-  background: #c0392b;
+  padding: 8px 14px;
+  border-radius: var(--radius);
+  font-size: 14px;
 }

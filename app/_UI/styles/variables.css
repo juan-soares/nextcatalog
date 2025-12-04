@@ -1,4 +1,14 @@
 :root {
-  --color-background: #f9fafb;
-  --color-text: #111827;
+  --bg: #ffffff;
+  --bg-alt: #f6f6f6;
+
+  --text: #1a1a1a;
+  --text-light: #666;
+
+  --primary: #2563eb;
+
+  --border: #e5e5e5;
+
+  --radius: 6px;
+  --shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
 }

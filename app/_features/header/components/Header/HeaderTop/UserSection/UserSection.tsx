@@ -8,7 +8,11 @@ export async function UserSection() {
   const user = await getUserSection();
 
   if (!user) {
-    return <Link href="/login">Entrar</Link>;
+    return (
+      <Link className={styles.button} href="/login">
+        Entrar
+      </Link>
+    );
   }
 
   const { avatar, nickname } = user;
