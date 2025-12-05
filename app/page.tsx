@@ -1,3 +1,5 @@
+import { HomeSections } from "./_features/home/components";
+
 export default async function HomePage() {
-  return <div></div>;
+  return <HomeSections />;
 }
