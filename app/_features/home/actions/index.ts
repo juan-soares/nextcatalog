@@ -1,1 +1,2 @@
-export * from "./getCategorySection";
+export * from "./getCategories";
+export * from "./getCategoryRecentRecords";

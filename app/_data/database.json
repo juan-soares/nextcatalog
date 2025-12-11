@@ -34,5 +34,13 @@
 
   "franchises": [],
 
-  "animes": []
+  "animes": [
+    {
+      "_id": "cat001",
+      "title": "Teste 1",
+      "cover": "/teste",
+      "slug": "/animes/teste-1",
+      "release": "2025-01-1"
+    }
+  ]
 }

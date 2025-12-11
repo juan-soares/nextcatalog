@@ -1,1 +1,1 @@
-export * from "./categoryInfo";
+export * from "./categoryRecentRecords";
