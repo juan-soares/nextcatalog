@@ -5,6 +5,7 @@ import "@/app/_UI/styles/global.css";
 import { inter } from "@/app/_UI/fonts";
 import { siteConfig } from "@/app/_lib/config/const";
 import { Header } from "@/app/_features/header/components";
+import { Footer } from "./_features/footer/components";
 
 export const metadata = {
   title: siteConfig.name,
@@ -21,6 +22,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
