@@ -15,8 +15,72 @@
     {
       "_id": "cat001",
       "title": "Animes",
-      "slug": "animes",
+      "slug": "/animes",
       "collection": "animes",
+      "createdAt": "2025-11-13T12:00:00Z",
+      "updatedAt": "2025-11-13T12:00:00Z"
+    },
+    {
+      "_id": "cat002",
+      "title": "Séries",
+      "slug": "/series",
+      "collection": "series",
+      "createdAt": "2025-11-13T12:00:00Z",
+      "updatedAt": "2025-11-13T12:00:00Z"
+    },
+    {
+      "_id": "cat003",
+      "title": "Video-Games",
+      "slug": "/video-games",
+      "collection": "videoGames",
+      "createdAt": "2025-11-13T12:00:00Z",
+      "updatedAt": "2025-11-13T12:00:00Z"
+    },
+    {
+      "_id": "cat004",
+      "title": "Jogos de Tabuleiro",
+      "slug": "/jogos-de-tabuleiro",
+      "collection": "boardGames",
+      "createdAt": "2025-11-13T12:00:00Z",
+      "updatedAt": "2025-11-13T12:00:00Z"
+    },
+    {
+      "_id": "cat005",
+      "title": "Filmes: Live-Action",
+      "slug": "/filmes-live-action",
+      "collection": "filmsLiveAction",
+      "createdAt": "2025-11-13T12:00:00Z",
+      "updatedAt": "2025-11-13T12:00:00Z"
+    },
+    {
+      "_id": "cat006",
+      "title": "Filmes: Animações",
+      "slug": "/filmes-animacoes",
+      "collection": "filmsAnimation",
+      "createdAt": "2025-11-13T12:00:00Z",
+      "updatedAt": "2025-11-13T12:00:00Z"
+    },
+    {
+      "_id": "cat007",
+      "title": "HQs",
+      "slug": "/hqs",
+      "collection": "hqs",
+      "createdAt": "2025-11-13T12:00:00Z",
+      "updatedAt": "2025-11-13T12:00:00Z"
+    },
+    {
+      "_id": "cat008",
+      "title": "Livros",
+      "slug": "/livros",
+      "collection": "books",
+      "createdAt": "2025-11-13T12:00:00Z",
+      "updatedAt": "2025-11-13T12:00:00Z"
+    },
+    {
+      "_id": "cat009",
+      "title": "Músicas",
+      "slug": "/musicas",
+      "collection": "music",
       "createdAt": "2025-11-13T12:00:00Z",
       "updatedAt": "2025-11-13T12:00:00Z"
     }
@@ -34,13 +98,13 @@
 
   "franchises": [],
 
-  "animes": [
-    {
-      "_id": "cat001",
-      "title": "Teste 1",
-      "cover": "/teste",
-      "slug": "/animes/teste-1",
-      "release": "2025-01-1"
-    }
-  ]
+  "animes": [],
+  "series": [],
+  "videoGames": [],
+  "boardGames": [],
+  "filmsLiveAction": [],
+  "filmsAnimation": [],
+  "hqs": [],
+  "books": [],
+  "music": []
 }

@@ -49,6 +49,7 @@
   max-width: 200px;
   flex-shrink: 0;
   transition: transform 0.3s;
+  color: black;
 }
 
 .item strong {
