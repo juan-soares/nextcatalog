@@ -21,26 +21,33 @@ export async function CategorySection({
   return (
     <section className={styles.section}>
       <h2 className={styles.title}>{categoryTitle}</h2>
-      <ul className={styles.list}>
-        {categoryRecentRecords.map(
-          ({ _id, slug, cover, title, releaseYear }) => (
-            <li key={_id} className={styles.item}>
-              <Link href={slug}>
-                <img
-                  src={cover}
-                  alt={`Capa do título ${title}.`}
-                  className={styles.cover}
-                />
-                <strong>{title}</strong>
-                <span>{releaseYear}</span>
-              </Link>
-              <Link href={categorySlug} className={styles.showAll}>
-                Mostar todos.
-              </Link>
-            </li>
-          )
-        )}
-      </ul>
+      {categoryRecentRecords.length === 0 && (
+        <section>
+          <p>Sem itens na lista.</p>
+        </section>
+      )}
+      {categoryRecentRecords.length > 0 && (
+        <ul className={styles.list}>
+          {categoryRecentRecords.map(
+            ({ _id, slug, cover, title, releaseYear }) => (
+              <li key={_id} className={styles.item}>
+                <Link href={slug}>
+                  <img
+                    src={cover}
+                    alt={`Capa do título ${title}.`}
+                    className={styles.cover}
+                  />
+                  <strong>{title}</strong>
+                  <span>{releaseYear}</span>
+                </Link>
+                <Link href={categorySlug} className={styles.showAll}>
+                  Mostar todos.
+                </Link>
+              </li>
+            )
+          )}
+        </ul>
+      )}
     </section>
   );
 }

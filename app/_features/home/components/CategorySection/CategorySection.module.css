@@ -20,6 +20,7 @@
   font-size: 1rem;
   color: #aaa;
   transition: color 0.2s;
+  display: block;
 }
 
 .showAll:hover {
