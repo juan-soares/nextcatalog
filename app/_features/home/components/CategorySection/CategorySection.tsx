@@ -23,7 +23,10 @@ export async function CategorySection({
       <h2 className={styles.title}>{categoryTitle}</h2>
       {categoryRecentRecords.length === 0 && (
         <section>
-          <p className={styles.item}>Sem itens na lista.</p>
+          <p className={styles.item}>
+            Sem itens na lista.
+            <Link href={`${categorySlug}/novo`}>Adicionar?</Link>
+          </p>
         </section>
       )}
       {categoryRecentRecords.length > 0 && (

@@ -1,10 +1,17 @@
 import Link from "next/link";
 import styles from "./HeaderBottom.module.css";
+import { getCategories } from "@/app/_features/home/actions";
 
-export function HeaderBottom() {
+export async function HeaderBottom() {
+  const categories = await getCategories();
+
   return (
     <nav className={styles.headerBottom}>
-      <Link href={"/temp"}>Page 2</Link>
+      {categories.map(({ _id, title, slug }) => (
+        <Link key={_id} href={slug}>
+          {title}
+        </Link>
+      ))}
     </nav>
   );
 }

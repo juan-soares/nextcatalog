@@ -30,8 +30,8 @@
     },
     {
       "_id": "cat003",
-      "title": "Video-Games",
-      "slug": "/video-games",
+      "title": "Jogos Eletrônicos",
+      "slug": "/jogos-eletronicos",
       "collection": "videoGames",
       "createdAt": "2025-11-13T12:00:00Z",
       "updatedAt": "2025-11-13T12:00:00Z"
