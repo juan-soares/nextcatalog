@@ -25,12 +25,39 @@ export function NewAnimeForm() {
 
       <fieldset>
         <legend>Tags</legend>
-        <label htmlFor="genres">Gêneros:</label>
+        <label htmlFor="themes">Temáticas:</label>
 
-        <input type="checkbox" id="genero1" name="genres" value="1" />
-        <label htmlFor="genero1">Genero 1</label>
-        <input type="checkbox" id="genero2" name="genres" value="2" />
-        <label htmlFor="genero2">Genero 2</label>
+        <input type="checkbox" id="theme1" name="themes" value="1" />
+        <label htmlFor="theme1">Tema 1</label>
+        <input type="checkbox" id="theme2" name="themes" value="2" />
+        <label htmlFor="theme2">Tema 2</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Temporadas</legend>
+        <label htmlFor="seasonNumber">N</label>
+        <input type="number" id="seasonNumber" value={1} disabled />
+        <label htmlFor="seasonTitle">Título:</label>
+        <input type="text" id="seasonTitle" required />
+        <label htmlFor="seasonTranslatedTitle">Título Traduzido:</label>
+        <input type="text" id="seasonTranslatedTitle" />
+        <label htmlFor="seasonReleaseDate">Lançamento:</label>
+        <input
+          id="seasonReleaseDate"
+          name="seasonReleaseDate"
+          type="date"
+          required
+        />
+        <label htmlFor="seasonIsAquired">Adquirido:</label>
+        <input type="radio" name="seasonIsAquired" id="seasonIsAquiredTrue" />
+        <label htmlFor="seasonIsAquiredTrue">Sim</label>
+        <input
+          type="radio"
+          name="seasonIsAquired"
+          id="seasonIsAquiredFalse"
+          defaultValue="true"
+        />
+        <label htmlFor="seasonIsAquiredFalse">Não</label>
       </fieldset>
 
       <button>Enviar</button>
