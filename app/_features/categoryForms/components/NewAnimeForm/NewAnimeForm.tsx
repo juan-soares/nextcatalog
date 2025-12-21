@@ -8,7 +8,7 @@ export function NewAnimeForm() {
         <label htmlFor="translatedTitle">Título Traduzido:</label>
         <input id="translatedTitle" name="translatedTitle" type="text" />
         <label htmlFor="releaseDate">Lançamento:</label>
-        <input id="releaseDate" name="releaseDate" type="date" />
+        <input id="releaseDate" name="releaseDate" type="date" required />
 
         <label htmlFor="synopses">Sinopse:</label>
         <textarea id="synopses" required />
@@ -49,15 +49,38 @@ export function NewAnimeForm() {
           required
         />
         <label htmlFor="seasonIsAquired">Adquirido:</label>
-        <input type="radio" name="seasonIsAquired" id="seasonIsAquiredTrue" />
+        <input
+          type="radio"
+          name="seasonIsAquired"
+          id="seasonIsAquiredTrue"
+          required
+        />
         <label htmlFor="seasonIsAquiredTrue">Sim</label>
         <input
           type="radio"
           name="seasonIsAquired"
           id="seasonIsAquiredFalse"
-          defaultValue="true"
+          value="true"
         />
         <label htmlFor="seasonIsAquiredFalse">Não</label>
+
+        <label htmlFor="seasonIsCompleted">Completo:</label>
+        <input
+          type="radio"
+          name="seasonIsCompleted"
+          id="seasonIsCompletedTrue"
+          value="true"
+          required
+        />
+        <label htmlFor="seasonIsCompletedTrue">Sim</label>
+
+        <input
+          type="radio"
+          name="seasonIsCompleted"
+          id="seasonIsCompletedFalse"
+          value="false"
+        />
+        <label htmlFor="seasonIsCompletedFalse">Não</label>
       </fieldset>
 
       <button>Enviar</button>
