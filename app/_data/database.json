@@ -96,13 +96,8 @@
     }
   ],
 
-  "franchises": [
-    {
-      "_id": "fra001",
-      "title": "F",
-      "logo": "/franchises/l"
-    }
-  ],
+  "themes": [],
+  "franchises": [],
 
   "animes": [],
   "series": [],

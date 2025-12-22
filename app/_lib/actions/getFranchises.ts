@@ -1,5 +1,5 @@
 import { db } from "@/app/_data/db";
-import { IFranchise } from "../types/franchise";
+import { IFranchise } from "../types/global";
 
 export async function getFranchises(): Promise<IFranchise[]> {
   try {

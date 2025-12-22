@@ -1,3 +1,5 @@
+import { ITheme } from "../_lib/types/theme";
+
 export interface IFindParameters {
   query?: { fieldsToSearch: string[]; termsToSearch: string[] };
   limit?: number;
@@ -9,6 +11,7 @@ export interface IDatabase {
   sessions: ISession[];
   categories: ICategory[];
   animes: IAnime[];
+  themes: ITheme[];
   franchises: IFranchise[];
 }
 

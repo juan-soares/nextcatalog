@@ -1,7 +1,9 @@
+import Link from "next/link";
 import styles from "./NewAnimeForm.module.css";
-import { getFranchises } from "@/app/_lib/actions/getFranchises";
+import { getFranchises, getThemes } from "@/app/_lib/actions/global";
 
 export async function NewAnimeForm() {
+  const themes = await getThemes();
   const franchises = await getFranchises();
 
   return (
@@ -49,6 +51,7 @@ export async function NewAnimeForm() {
 
       <fieldset className={styles.formFieldset}>
         <legend className={styles.formLegend}>Arquivos</legend>
+
         <label className={styles.formLabel} htmlFor="cover">
           Capa:
         </label>
@@ -74,37 +77,29 @@ export async function NewAnimeForm() {
 
       <fieldset className={styles.formFieldset}>
         <legend className={styles.formLegend}>Tags</legend>
+
         <label className={styles.formLabel} htmlFor="themes">
           Temáticas:
         </label>
-
         <div className={styles.checkboxGroup}>
-          <div>
-            <input
-              className={styles.formCheckbox}
-              type="checkbox"
-              id="theme1"
-              name="themes"
-              value="1"
-            />
-            <label htmlFor="theme1">Tema 1</label>
-          </div>
-          <div>
-            <input
-              className={styles.formCheckbox}
-              type="checkbox"
-              id="theme2"
-              name="themes"
-              value="2"
-            />
-            <label htmlFor="theme2">Tema 2</label>
-          </div>
+          {themes.map(({ _id, title }) => (
+            <div key={_id}>
+              <input
+                className={styles.formCheckbox}
+                type="checkbox"
+                id={_id}
+                name="themes"
+                value={_id}
+              />
+              <label htmlFor={_id}>{title}</label>
+            </div>
+          ))}
+          <Link href="/temas/novo">Adicionar</Link>
         </div>
 
         <label className={styles.formLabel} htmlFor="franchises">
           Franquias:
         </label>
-
         <div className={styles.checkboxGroup}>
           {franchises.map(({ _id, logo, title }) => (
             <div key={_id}>
@@ -120,11 +115,13 @@ export async function NewAnimeForm() {
               </label>
             </div>
           ))}
+          <Link href="/franquias/novo">Adicionar</Link>
         </div>
       </fieldset>
 
       <fieldset className={styles.formFieldset}>
         <legend className={styles.formLegend}>Temporadas</legend>
+
         <label className={styles.formLabel} htmlFor="seasonNumber">
           N
         </label>
