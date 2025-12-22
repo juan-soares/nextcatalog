@@ -1,0 +1,21 @@
+.pageContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  background-color: #f0f2f5;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.pageTitle {
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  color: #333;
+  text-align: center;
+}
+
+.formWrapper {
+  width: 100%;
+  max-width: 700px;
+}

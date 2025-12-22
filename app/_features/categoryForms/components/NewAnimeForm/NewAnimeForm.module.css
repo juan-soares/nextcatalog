@@ -1,0 +1,69 @@
+.form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+.formFieldset {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.formLegend {
+  font-weight: bold;
+  padding: 0 0.5rem;
+}
+
+.formLabel {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-weight: 500;
+}
+
+.formInput,
+.formTextarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.95rem;
+}
+
+.formTextarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.formCheckbox,
+.formRadio {
+  margin-right: 0.5rem;
+}
+
+.checkboxGroup,
+.radioGroup {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.formButton {
+  padding: 0.6rem 1.2rem;
+  background-color: #4f46e5;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s ease;
+}
+
+.formButton:hover {
+  background-color: #4338ca;
+}
