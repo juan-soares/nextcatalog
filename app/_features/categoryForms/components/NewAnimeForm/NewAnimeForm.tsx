@@ -1,6 +1,9 @@
 import styles from "./NewAnimeForm.module.css";
+import { getFranchises } from "@/app/_lib/actions/getFranchises";
 
-export function NewAnimeForm() {
+export async function NewAnimeForm() {
+  const franchises = await getFranchises();
+
   return (
     <form className={styles.form}>
       <fieldset className={styles.formFieldset}>
@@ -74,6 +77,7 @@ export function NewAnimeForm() {
         <label className={styles.formLabel} htmlFor="themes">
           Temáticas:
         </label>
+
         <div className={styles.checkboxGroup}>
           <div>
             <input
@@ -95,6 +99,27 @@ export function NewAnimeForm() {
             />
             <label htmlFor="theme2">Tema 2</label>
           </div>
+        </div>
+
+        <label className={styles.formLabel} htmlFor="franchises">
+          Franquias:
+        </label>
+
+        <div className={styles.checkboxGroup}>
+          {franchises.map(({ _id, logo, title }) => (
+            <div key={_id}>
+              <input
+                className={styles.formCheckbox}
+                type="checkbox"
+                id={_id}
+                name="franchises"
+                value={_id}
+              />
+              <label htmlFor={_id}>
+                <img src={logo} alt={`Logotipo do título ${title}.`} />
+              </label>
+            </div>
+          ))}
         </div>
       </fieldset>
 
