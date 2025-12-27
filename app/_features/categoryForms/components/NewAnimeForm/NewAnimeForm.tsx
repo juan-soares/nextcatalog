@@ -232,7 +232,6 @@ export async function NewAnimeForm() {
           </label>
         </div>
       </fieldset>
-
       <SubmitButton />
     </form>
   );
