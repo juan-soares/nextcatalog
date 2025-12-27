@@ -73,6 +73,17 @@ export async function NewAnimeForm() {
           type="file"
           required
         />
+
+        <label className={styles.formLabel} htmlFor="files">
+          Anexos:
+        </label>
+        <input
+          className={styles.formInput}
+          id="anexos"
+          name="anexos"
+          type="file"
+          multiple
+        />
       </fieldset>
 
       <fieldset className={styles.formFieldset}>
@@ -123,7 +134,7 @@ export async function NewAnimeForm() {
         <legend className={styles.formLegend}>Temporadas</legend>
 
         <label className={styles.formLabel} htmlFor="seasonNumber">
-          N
+          Nº:
         </label>
         <input
           className={styles.formInput}
@@ -151,18 +162,6 @@ export async function NewAnimeForm() {
           type="text"
           id="seasonTranslatedTitle"
         />
-
-        <label className={styles.formLabel} htmlFor="seasonReleaseDate">
-          Lançamento:
-        </label>
-        <input
-          className={styles.formInput}
-          id="seasonReleaseDate"
-          name="seasonReleaseDate"
-          type="date"
-          required
-        />
-
         <label className={styles.formLabel}>Adquirido:</label>
         <div className={styles.radioGroup}>
           <label>
