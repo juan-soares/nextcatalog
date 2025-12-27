@@ -1,5 +1,3 @@
-import { ITheme } from "../_lib/types/theme";
-
 export interface IFindParameters {
   query?: { fieldsToSearch: string[]; termsToSearch: string[] };
   limit?: number;
@@ -49,6 +47,8 @@ export interface ICategory extends IRecord {
 }
 
 export interface ISubcategory extends IRecord {}
+
+export interface ITheme extends IRecord {}
 
 export interface IAnime extends IRecord {
   slug: string;

@@ -1,5 +1,4 @@
-import { NewAnimeForm } from "../NewAnimeForm";
-import { NewSubcategoryForm } from "../NewSubcategory";
+import { NewAnimeForm, NewSubcategoryForm, NewThemeForm } from "../";
 
 interface IProps {
   category: string;
@@ -12,6 +11,9 @@ export function CategoryForm({ category }: IProps) {
 
     case "subcategorias":
       return <NewSubcategoryForm />;
+
+    case "tematicas":
+      return <NewThemeForm />;
 
     default:
       return null;

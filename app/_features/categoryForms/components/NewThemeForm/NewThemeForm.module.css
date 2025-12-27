@@ -81,3 +81,17 @@
   border: 1px solid #ccc;
 }
 
+.formButton {
+  padding: 0.6rem 1.2rem;
+  background-color: #4f46e5;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s ease;
+}
+
+.formButton:hover {
+  background-color: #4338ca;
+}

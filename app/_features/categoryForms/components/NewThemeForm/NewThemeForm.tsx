@@ -1,10 +1,10 @@
 import { SubmitButton } from "../SubmitButton";
-import styles from "./NewSubcategory.module.css";
-import { postNewSubCategory } from "@/app/_lib/actions/postNewSubcategory";
+import styles from "./NewThemeForm.module.css";
+import { postNewTheme } from "@/app/_lib/actions/postNewTheme";
 
-export async function NewSubcategoryForm() {
+export async function NewThemeForm() {
   return (
-    <form className={styles.form} action={postNewSubCategory}>
+    <form className={styles.form} action={postNewTheme}>
       <fieldset className={styles.formFieldset}>
         <legend className={styles.formLegend}>Ficha Técnica</legend>
 

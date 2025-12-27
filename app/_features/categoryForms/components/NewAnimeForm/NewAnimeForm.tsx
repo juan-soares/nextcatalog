@@ -5,6 +5,7 @@ import {
   getSubcategories,
   getThemes,
 } from "@/app/_lib/actions/global";
+import { SubmitButton } from "../SubmitButton";
 
 export async function NewAnimeForm() {
   const themes = await getThemes();
@@ -110,7 +111,7 @@ export async function NewAnimeForm() {
               <label htmlFor={_id}>{title}</label>
             </div>
           ))}
-          <Link href="/temas/novo">Adicionar</Link>
+          <Link href="/tematicas/novo">Adicionar</Link>
         </div>
 
         <label className={styles.formLabel} htmlFor="franchises">
@@ -232,7 +233,7 @@ export async function NewAnimeForm() {
         </div>
       </fieldset>
 
-      <button className={styles.formButton}>Enviar</button>
+      <SubmitButton />
     </form>
   );
 }
