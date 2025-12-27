@@ -1,10 +1,15 @@
 import Link from "next/link";
 import styles from "./NewAnimeForm.module.css";
-import { getFranchises, getThemes } from "@/app/_lib/actions/global";
+import {
+  getFranchises,
+  getSubcategories,
+  getThemes,
+} from "@/app/_lib/actions/global";
 
 export async function NewAnimeForm() {
   const themes = await getThemes();
   const franchises = await getFranchises();
+  const subcategories = await getSubcategories();
 
   return (
     <form className={styles.form}>
@@ -162,6 +167,24 @@ export async function NewAnimeForm() {
           type="text"
           id="seasonTranslatedTitle"
         />
+
+        <div className={styles.checkboxGroup}>
+          <label className={styles.formLabel} htmlFor="seasonSubcategory">
+            Subcategoria:
+          </label>
+          <select className={styles.formInput} id="seasonSubcategory">
+            <option value="" hidden>
+              Selecione...
+            </option>
+            {subcategories.map(({ _id, title }) => (
+              <option key={_id} value={_id}>
+                {title}
+              </option>
+            ))}
+          </select>
+          <Link href="/subcategorias/novo">Adicionar</Link>
+        </div>
+
         <label className={styles.formLabel}>Adquirido:</label>
         <div className={styles.radioGroup}>
           <label>

@@ -10,7 +10,6 @@
       "updatedAt": "2025-11-13T12:00:00Z"
     }
   ],
-
   "categories": [
     {
       "_id": "cat001",
@@ -85,7 +84,6 @@
       "updatedAt": "2025-11-13T12:00:00Z"
     }
   ],
-
   "sessions": [
     {
       "_id": "ses001",
@@ -95,10 +93,17 @@
       "updatedAt": "2025-11-13T12:00:00Z"
     }
   ],
-
+  "subcategories": [
+    {
+      "_id": "sub1",
+      "title": "TV-Show",
+      "translatedTitle": "",
+      "createdAt": "2025-12-27T05:07:18.874Z",
+      "updatedAt": "2025-12-27T05:07:18.874Z"
+    }
+  ],
   "themes": [],
   "franchises": [],
-
   "animes": [],
   "series": [],
   "videoGames": [],

@@ -18,7 +18,7 @@ export async function readDB(): Promise<IDatabase> {
   }
 }
 
-async function writeDB(data: IDatabase) {
+export async function writeDB(data: IDatabase) {
   if (!DB_PATH) {
     throw new Error("Caminho definido em .env incorreto.");
   }

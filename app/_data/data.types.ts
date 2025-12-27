@@ -10,6 +10,7 @@ export interface IDatabase {
   users: IUser[];
   sessions: ISession[];
   categories: ICategory[];
+  subcategories: ISubcategory[];
   animes: IAnime[];
   themes: ITheme[];
   franchises: IFranchise[];
@@ -46,6 +47,8 @@ export interface ICategory extends IRecord {
   slug: string;
   collection: keyof IDatabase;
 }
+
+export interface ISubcategory extends IRecord {}
 
 export interface IAnime extends IRecord {
   slug: string;

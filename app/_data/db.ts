@@ -1,4 +1,4 @@
-import { readDB } from "./connection";
+import { readDB, writeDB } from "./connection";
 import { IDatabase, IFindParameters } from "./data.types";
 
 function collection<T extends keyof IDatabase>(collectionTitle: T) {
@@ -53,7 +53,21 @@ function collection<T extends keyof IDatabase>(collectionTitle: T) {
     }
   };
 
-  return { find };
+  const post = async (newRecord) => {
+    try {
+      let data = await readDB();
+      console.log(newRecord);
+      data[collectionTitle].push(newRecord);
+      await writeDB(data);
+
+      console.log("Novo registro salvo com sucesso!");
+    } catch (error) {
+      console.error("Erro ao salvar na collection:" + error);
+      return null;
+    }
+  };
+
+  return { find, post };
 }
 
 export const db = {
