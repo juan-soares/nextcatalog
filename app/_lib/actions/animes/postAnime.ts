@@ -1,5 +1,5 @@
 "use server";
-
+import { join } from "path";
 import { IAnime, ISeason } from "@/app/_data/data.types";
 import { getBoolean, getString, getStringArray, slugfy } from "../../utils";
 import { db } from "@/app/_data/db";
@@ -27,8 +27,6 @@ export async function postAnime(formData: FormData) {
   const alreadyExists = await db
     .collection("animes")
     .find({ query: { fieldsToSearch: ["title"], termsToSearch: [title] } });
-
-  console.log(alreadyExists);
 
   if (alreadyExists.length) throw new Error("Registro já existente.");
 
@@ -72,9 +70,16 @@ export async function postAnime(formData: FormData) {
   try {
     await db.collection("animes").post(newAnime);
 
-    const basePath = `/public/animes/${newAnime.slug}`;
-    await fs.mkdir(basePath + "images", { recursive: true });
-    await fs.mkdir(basePath + "files", { recursive: true });
+    const basePath = join(
+      process.cwd(),
+      "public",
+      "database",
+      "animes",
+      newAnime.slug
+    );
+
+    await fs.mkdir(join(basePath, "images"), { recursive: true });
+    await fs.mkdir(join(basePath, "files"), { recursive: true });
   } catch (error) {
     console.error("Erro ao salvar novo anime:" + error);
   }
