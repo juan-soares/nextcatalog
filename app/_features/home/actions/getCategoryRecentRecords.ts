@@ -9,5 +9,10 @@ export async function getCategoryRecentRecords(
     .collection(collection)
     .find({ sortBy: "recent", limit: 5 });
 
-  return recentRecords;
+  const recentRecordsWithReleaseYear = recentRecords.map((recent) => ({
+    ...recent,
+    releaseYear: recent.releaseDate.toString().slice(0, 4),
+  }));
+
+  return recentRecordsWithReleaseYear;
 }

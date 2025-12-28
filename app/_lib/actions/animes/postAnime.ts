@@ -39,7 +39,7 @@ export async function postAnime(formData: FormData) {
   if (!cover) throw new Error("Imagem de capa é obrigatória.");
   if (!trailer) throw new Error("Trailer é obrigatório.");
 
-  const path = `/public/database/animes/${slugfy(title)}`;
+  const path = `/database/animes/${slugfy(title)}`;
 
   const filesNames = files.map((file) => {
     const extension = file.name.split(".").pop();

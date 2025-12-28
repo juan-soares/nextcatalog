@@ -32,8 +32,8 @@ export async function CategorySection({
       {categoryRecentRecords.length > 0 && (
         <ul className={styles.list}>
           {categoryRecentRecords.map(
-            ({ _id, slug, cover, title, releaseYear }) => (
-              <li key={_id} className={styles.item}>
+            ({ _id, slug, cover, title, releaseYear, synopsis }) => (
+              <li key={_id} className={styles.item} title={synopsis}>
                 <Link href={slug}>
                   <img
                     src={cover}

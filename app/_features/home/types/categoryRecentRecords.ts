@@ -3,5 +3,6 @@ export interface ICategoryRecentRecord {
   slug: string;
   cover: string;
   title: string;
+  synopsis: string;
   releaseYear: string;
 }
