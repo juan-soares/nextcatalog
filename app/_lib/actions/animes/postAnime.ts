@@ -18,7 +18,7 @@ export async function postAnime(formData: FormData) {
   const releaseDateRaw = getString(formData, "releaseDate");
   const synopsis = getString(formData, "synopsis");
   const cover = getFile(formData, "cover");
-  const trailer = getString(formData, "trailer");
+  const trailer = getFile(formData, "trailer");
   const images = getStringArray(formData, "images");
   const files = getStringArray(formData, "files");
   const themesId = getStringArray(formData, "themesId");
@@ -36,6 +36,7 @@ export async function postAnime(formData: FormData) {
 
   if (alreadyExists.length) throw new Error("Registro já existente.");
   if (!cover) throw new Error("Imagem de capa é obrigatória.");
+  if (!trailer) throw new Error("Trailer é obrigatório.");
 
   const path = `/public/database/animes/${slugfy(title)}`;
 
@@ -46,7 +47,7 @@ export async function postAnime(formData: FormData) {
     translatedTitle: seasonTranslatedTitle,
     releaseDate: new Date(releaseDateRaw),
     synopsis,
-    cover: `${path}/images/cover.png`,
+    cover: `${path}/images/cover.jpg`,
     trailer: `${path}/images/trailer.mp4`,
     subcategoryId: seasonSubcategoryId,
     episodes: [],
@@ -81,7 +82,6 @@ export async function postAnime(formData: FormData) {
       process.cwd(),
       "public",
       "database",
-      "animes",
       newAnime.slug
     );
 
@@ -91,6 +91,7 @@ export async function postAnime(formData: FormData) {
     const arrayBuffer = await cover.arrayBuffer();
     const uint8Array = new Uint8Array(arrayBuffer);
     await fs.writeFile(join(basePath, "images", "cover.jpg"), uint8Array);
+    await fs.writeFile(join(basePath, "images", "trailer.mp4"), uint8Array);
   } catch (error) {
     console.error("Erro ao salvar novo anime:" + error);
   }
