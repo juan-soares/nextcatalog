@@ -112,47 +112,43 @@
   "franchises": [],
   "animes": [
     {
-      "_id": "2025-12-28T20:09:15.462Z",
-      "title": "asasa",
+      "_id": "2025-12-28T20:15:35.144Z",
+      "title": "sassa",
       "translatedTitle": "",
-      "releaseDate": "2025-12-08T00:00:00.000Z",
-      "slug": "/animes/asasa",
+      "releaseDate": "2025-12-04T00:00:00.000Z",
+      "slug": "/animes/sassa",
       "synopsis": "aa",
-      "cover": "/public/database/animes/asasa/images/cover.jpg",
-      "trailer": "/public/database/animes/asasa/images/trailer.mp4",
+      "cover": "/public/database/animes/sassa/images/cover.jpg",
+      "trailer": "/public/database/animes/sassa/images/trailer.mp4",
       "images": [
-        "/public/database/animes/asasa/images/img-1.jpg",
-        "/public/database/animes/asasa/images/img-2.jpg",
-        "/public/database/animes/asasa/images/img-3.jpg"
+        "/public/database/animes/sassa/images/img-1.jpg",
+        "/public/database/animes/sassa/images/img-2.jpg",
+        "/public/database/animes/sassa/images/img-3.jpg"
       ],
-      "files": [
-        "/public/database/animes/asasa/files/aumids.txt"
-      ],
+      "files": ["/public/database/animes/sassa/files/aumids.txt"],
       "categoryId": "cat001",
-      "themesId": [
-        "the1"
-      ],
+      "themesId": ["the1"],
       "franchisesId": [],
       "acquired": false,
       "finished": false,
       "seasons": [
         {
-          "_id": "2025-12-28T20:09:15.462Z",
+          "_id": "2025-12-28T20:15:35.144Z",
           "number": 1,
           "title": "",
           "translatedTitle": "",
-          "releaseDate": "2025-12-08T00:00:00.000Z",
+          "releaseDate": "2025-12-04T00:00:00.000Z",
           "synopsis": "aa",
-          "cover": "/public/database/animes/asasa/images/cover.jpg",
-          "trailer": "/public/database/animes/asasa/images/trailer.mp4",
+          "cover": "/public/database/animes/sassa/images/cover-season1.jpg",
+          "trailer": "/public/database/animes/sassa/images/trailer.mp4",
           "subcategoryId": "sub1",
           "episodes": [],
-          "createdAt": "2025-12-28T20:09:15.462Z",
-          "updatedAt": "2025-12-28T20:09:15.462Z"
+          "createdAt": "2025-12-28T20:15:35.144Z",
+          "updatedAt": "2025-12-28T20:15:35.144Z"
         }
       ],
-      "createdAt": "2025-12-28T20:09:15.462Z",
-      "updatedAt": "2025-12-28T20:09:15.462Z"
+      "createdAt": "2025-12-28T20:15:35.144Z",
+      "updatedAt": "2025-12-28T20:15:35.144Z"
     }
   ],
   "series": [],
