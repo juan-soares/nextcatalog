@@ -12,3 +12,13 @@ export function getStringArray(formData: FormData, key: string): string[] {
 export function getBoolean(formData: FormData, key: string): boolean {
   return formData.get(key) === "true";
 }
+
+export function getFile(formData: FormData, key: string): File | null {
+  const value = formData.get(key);
+
+  if (!value) return null;
+  if (!(value instanceof File)) return null;
+  if (value.size === 0) return null;
+
+  return value;
+}

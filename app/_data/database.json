@@ -112,14 +112,14 @@
   "franchises": [],
   "animes": [
     {
-      "_id": "2025-12-28T18:46:09.921Z",
-      "title": "a",
+      "_id": "2025-12-28T19:07:08.737Z",
+      "title": "teste",
       "translatedTitle": "",
-      "releaseDate": "2025-12-03T00:00:00.000Z",
-      "slug": "/animes/a",
-      "synopsis": "a",
-      "cover": "/public/database/animes/a/images/cover.png",
-      "trailer": "/public/database/animes/a/images/trailer.mp4",
+      "releaseDate": "2025-12-21T00:00:00.000Z",
+      "slug": "/animes/teste",
+      "synopsis": "sasa",
+      "cover": "/public/database/animes/teste/images/cover.png",
+      "trailer": "/public/database/animes/teste/images/trailer.mp4",
       "images": [],
       "categoryId": "cat001",
       "themesId": [
@@ -130,22 +130,22 @@
       "finished": false,
       "seasons": [
         {
-          "_id": "2025-12-28T18:46:09.921Z",
+          "_id": "2025-12-28T19:07:08.737Z",
           "number": 1,
           "title": "",
           "translatedTitle": "",
-          "releaseDate": "2025-12-03T00:00:00.000Z",
-          "synopsis": "a",
-          "cover": "/public/database/animes/a/images/cover.png",
-          "trailer": "/public/database/animes/a/images/trailer.mp4",
+          "releaseDate": "2025-12-21T00:00:00.000Z",
+          "synopsis": "sasa",
+          "cover": "/public/database/animes/teste/images/cover.png",
+          "trailer": "/public/database/animes/teste/images/trailer.mp4",
           "subcategoryId": "sub1",
           "episodes": [],
-          "createdAt": "2025-12-28T18:46:09.921Z",
-          "updatedAt": "2025-12-28T18:46:09.921Z"
+          "createdAt": "2025-12-28T19:07:08.737Z",
+          "updatedAt": "2025-12-28T19:07:08.737Z"
         }
       ],
-      "createdAt": "2025-12-28T18:46:09.921Z",
-      "updatedAt": "2025-12-28T18:46:09.921Z"
+      "createdAt": "2025-12-28T19:07:08.737Z",
+      "updatedAt": "2025-12-28T19:07:08.737Z"
     }
   ],
   "series": [],

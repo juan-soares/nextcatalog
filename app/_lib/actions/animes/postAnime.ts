@@ -1,7 +1,13 @@
 "use server";
 import { join } from "path";
 import { IAnime, ISeason } from "@/app/_data/data.types";
-import { getBoolean, getString, getStringArray, slugfy } from "../../utils";
+import {
+  getBoolean,
+  getFile,
+  getString,
+  getStringArray,
+  slugfy,
+} from "../../utils";
 import { db } from "@/app/_data/db";
 import { redirect } from "next/navigation";
 import fs from "fs/promises";
@@ -11,7 +17,7 @@ export async function postAnime(formData: FormData) {
   const translatedTitle = getString(formData, "translatedTitle");
   const releaseDateRaw = getString(formData, "releaseDate");
   const synopsis = getString(formData, "synopsis");
-  const cover = getString(formData, "cover");
+  const cover = getFile(formData, "cover");
   const trailer = getString(formData, "trailer");
   const images = getStringArray(formData, "images");
   const files = getStringArray(formData, "files");
@@ -29,6 +35,7 @@ export async function postAnime(formData: FormData) {
     .find({ query: { fieldsToSearch: ["title"], termsToSearch: [title] } });
 
   if (alreadyExists.length) throw new Error("Registro já existente.");
+  if (!cover) throw new Error("Imagem de capa é obrigatória.");
 
   const path = `/public/database/animes/${slugfy(title)}`;
 
@@ -80,6 +87,10 @@ export async function postAnime(formData: FormData) {
 
     await fs.mkdir(join(basePath, "images"), { recursive: true });
     await fs.mkdir(join(basePath, "files"), { recursive: true });
+
+    const arrayBuffer = await cover.arrayBuffer();
+    const uint8Array = new Uint8Array(arrayBuffer);
+    await fs.writeFile(join(basePath, "images", "cover.jpg"), uint8Array);
   } catch (error) {
     console.error("Erro ao salvar novo anime:" + error);
   }
