@@ -1,9 +1,10 @@
 "use server";
 
 import { redirect } from "next/navigation";
-import { getAnimes } from "./global";
+
 import { IAnime } from "@/app/_data/data.types";
 import { db } from "@/app/_data/db";
+import { getAnimes } from "./animes";
 
 export async function postNewAnime(formData: FormData) {
   const formTitle = formData.get("title");

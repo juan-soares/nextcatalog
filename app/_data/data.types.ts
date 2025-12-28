@@ -6,51 +6,104 @@ export interface IFindParameters {
 
 export interface IDatabase {
   users: IUser[];
-  sessions: ISession[];
   categories: ICategory[];
   subcategories: ISubcategory[];
+
   animes: IAnime[];
+  series: [];
+  boardGames: [];
+  videoGames: [];
+  filmsLiveActions: [];
+  filmsAnimations: [];
+  books: [];
+  hqs: [];
+  music: [];
+
   themes: ITheme[];
   franchises: IFranchise[];
 }
 
 export interface IDoc {
   _id: string;
-  title: string;
-  createdAt: string;
-  updatedAt: string;
+  createdAt: Date;
+  updatedAt: Date;
 }
 
-export interface ISession extends IDoc {
+export interface IUser extends IDoc {
+  email: string;
+  password: string;
+  avatar: string;
+  nickname: string;
+  privilege: "admin" | "standard";
+}
+
+export type CategoryCollectionType =
+  | "animes"
+  | "series"
+  | "boardGames"
+  | "videoGames"
+  | "filmsLiveActions"
+  | "filmsAnimations"
+  | "books"
+  | "hqs"
+  | "music";
+
+export interface ICategory extends IDoc {
+  title: string;
+  translatedTitle: string;
+  collection: CategoryCollectionType;
   slug: string;
+}
+
+export interface ISubcategory extends IDoc {
+  title: string;
 }
 
 export interface IRecord extends IDoc {
+  title: string;
   translatedTitle: string;
+  releaseDate: Date;
+  slug: string;
+  synopsis: string;
+  cover: string;
+  trailer: string;
+  images: string[];
+  files?: string[];
+  categoryId: ICategory["_id"];
+  themesId: ITheme["_id"][];
+  franchisesId: IFranchise["_id"][];
+  acquired: boolean;
+  finished: boolean;
 }
 
-export interface IUser extends IRecord {
-  avatar: string;
-  nickname: string;
-  password: string;
-  email: string;
+export interface IEpisode {
+  number: number;
+  title: string;
+  aquired: boolean;
+  finished: boolean;
+}
+
+export interface ISeason extends IDoc {
+  number: number;
+  title: string;
+  translatedTitle: string;
+  cover: string;
+  trailer: string;
+  synopsis: string;
+  subcategoryId: ISubcategory["_id"];
+  episodes: IEpisode[];
+}
+
+export interface IAnime extends IRecord {
+  seasons: ISeason[];
+}
+
+export interface ITheme extends IDoc {
+  title: string;
 }
 
 export interface IFranchise extends IDoc {
+  title: string;
+  translatedTitle: string;
   logo: string;
-  slug: string;
-}
-
-export interface ICategory extends IRecord {
-  slug: string;
-  collection: keyof IDatabase;
-}
-
-export interface ISubcategory extends IRecord {}
-
-export interface ITheme extends IRecord {}
-
-export interface IAnime extends IRecord {
-  slug: string;
-  collection: keyof IDatabase;
 }

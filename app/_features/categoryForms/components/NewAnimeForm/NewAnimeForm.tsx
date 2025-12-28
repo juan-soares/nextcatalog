@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import styles from "./NewAnimeForm.module.css";
 import {
@@ -6,6 +8,7 @@ import {
   getThemes,
 } from "@/app/_lib/actions/global";
 import { SubmitButton } from "../SubmitButton";
+import { postAnime } from "@/app/_lib/actions/animes";
 
 export async function NewAnimeForm() {
   const themes = await getThemes();
@@ -13,7 +16,7 @@ export async function NewAnimeForm() {
   const subcategories = await getSubcategories();
 
   return (
-    <form className={styles.form}>
+    <form className={styles.form} action={postAnime}>
       <fieldset className={styles.formFieldset}>
         <legend className={styles.formLegend}>Ficha Técnica</legend>
 
@@ -79,14 +82,23 @@ export async function NewAnimeForm() {
           type="file"
           required
         />
-
+        <label className={styles.formLabel} htmlFor="files">
+          Imagens:
+        </label>
+        <input
+          className={styles.formInput}
+          id="images"
+          name="images"
+          type="file"
+          multiple
+        />
         <label className={styles.formLabel} htmlFor="files">
           Anexos:
         </label>
         <input
           className={styles.formInput}
-          id="anexos"
-          name="anexos"
+          id="files"
+          name="files"
           type="file"
           multiple
         />
@@ -105,7 +117,7 @@ export async function NewAnimeForm() {
                 className={styles.formCheckbox}
                 type="checkbox"
                 id={_id}
-                name="themes"
+                name="themesId"
                 value={_id}
               />
               <label htmlFor={_id}>{title}</label>
@@ -124,7 +136,7 @@ export async function NewAnimeForm() {
                 className={styles.formCheckbox}
                 type="checkbox"
                 id={_id}
-                name="franchises"
+                name="franchisesId"
                 value={_id}
               />
               <label htmlFor={_id}>
@@ -170,10 +182,10 @@ export async function NewAnimeForm() {
         />
 
         <div className={styles.checkboxGroup}>
-          <label className={styles.formLabel} htmlFor="seasonSubcategory">
+          <label className={styles.formLabel} htmlFor="seasonSubcategoryId">
             Subcategoria:
           </label>
-          <select className={styles.formInput} id="seasonSubcategory">
+          <select className={styles.formInput} id="seasonSubcategoryId">
             <option value="" hidden>
               Selecione...
             </option>
@@ -224,7 +236,7 @@ export async function NewAnimeForm() {
             <input
               className={styles.formRadio}
               type="radio"
-              name="seasonIsCompleted"
+              name="seasonIsFinished"
               value="false"
               defaultChecked
             />
