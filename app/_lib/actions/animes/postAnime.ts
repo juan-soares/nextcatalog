@@ -41,6 +41,20 @@ export async function postAnime(formData: FormData) {
 
   const path = `/public/database/animes/${slugfy(title)}`;
 
+  const filesNames = files.map((file) => {
+    const extension = file.name.split(".").pop();
+    const nameWithoutExt = file.name
+      .replace(/\.[^/.]+$/, "") // remove extensão
+      .trim() // remove espaços no início/fim
+      .toLowerCase()
+      .normalize("NFD") // remove acentos
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/[^a-z0-9]+/g, "-") // substitui caracteres inválidos por '-'
+      .replace(/(^-|-$)/g, ""); // remove hífens extras no começo/fim
+
+    return `${path}/files/${nameWithoutExt}.${extension}`;
+  });
+
   let newSeason: ISeason = {
     _id: new Date().toISOString(),
     number: 1,
@@ -66,6 +80,7 @@ export async function postAnime(formData: FormData) {
     cover: newSeason.cover,
     trailer: newSeason.trailer,
     images: images.map((img, index) => `${path}/images/img-${index + 1}.jpg`),
+    files: filesNames,
     categoryId: "cat001",
     themesId: themesId.map((themeId) => themeId),
     franchisesId: franchisesId.map((franchiseId) => franchiseId),
@@ -97,6 +112,28 @@ export async function postAnime(formData: FormData) {
 
       await fs.writeFile(
         join(basePath, "images", `img-${i + 1}.jpg`),
+        uint8Array
+      );
+    }
+
+    for (let i = 0; i < files.length; i++) {
+      const file = files[i];
+
+      const arrayBuffer = await file.arrayBuffer();
+      const uint8Array = new Uint8Array(arrayBuffer);
+
+      const extension = file.name.split(".").pop();
+      const nameWithoutExt = file.name
+        .replace(/\.[^/.]+$/, "") // remove extensão
+        .trim() // remove espaços no início/fim
+        .toLowerCase()
+        .normalize("NFD") // remove acentos
+        .replace(/[\u0300-\u036f]/g, "")
+        .replace(/[^a-z0-9]+/g, "-") // substitui caracteres inválidos por '-'
+        .replace(/(^-|-$)/g, ""); // remove hífens extras no começo/fim
+
+      await fs.writeFile(
+        join(basePath, "files", `${nameWithoutExt}.${extension}`),
         uint8Array
       );
     }
