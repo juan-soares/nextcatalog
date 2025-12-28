@@ -3,6 +3,8 @@
 import { IAnime, ISeason } from "@/app/_data/data.types";
 import { getBoolean, getString, getStringArray, slugfy } from "../../utils";
 import { db } from "@/app/_data/db";
+import { redirect } from "next/navigation";
+import fs from "fs/promises";
 
 export async function postAnime(formData: FormData) {
   const title = getString(formData, "title");
@@ -22,13 +24,22 @@ export async function postAnime(formData: FormData) {
   const seasonTitle = getString(formData, "seasonTitle");
   const seasonTranslatedTitle = getString(formData, "seasonTranslatedTitle");
 
+  const alreadyExists = await db
+    .collection("animes")
+    .find({ query: { fieldsToSearch: ["title"], termsToSearch: [title] } });
+
+  console.log(alreadyExists);
+
+  if (alreadyExists.length) throw new Error("Registro já existente.");
+
   const path = `/public/database/animes/${slugfy(title)}`;
 
   let newSeason: ISeason = {
-    _id: new Date().toString(),
+    _id: new Date().toISOString(),
     number: 1,
     title: seasonTitle,
     translatedTitle: seasonTranslatedTitle,
+    releaseDate: new Date(releaseDateRaw),
     synopsis,
     cover: `${path}/images/cover.png`,
     trailer: `${path}/images/trailer.mp4`,
@@ -39,11 +50,11 @@ export async function postAnime(formData: FormData) {
   };
 
   let newAnime: IAnime = {
-    _id: new Date().toString(),
+    _id: new Date().toISOString(),
     title,
     translatedTitle,
-    releaseDate: new Date(releaseDateRaw),
-    slug: slugfy("/animes/" + title),
+    releaseDate: newSeason.releaseDate,
+    slug: "/animes/" + slugfy(title),
     synopsis,
     cover: newSeason.cover,
     trailer: newSeason.trailer,
@@ -60,8 +71,13 @@ export async function postAnime(formData: FormData) {
 
   try {
     await db.collection("animes").post(newAnime);
+
+    const basePath = `/public/animes/${newAnime.slug}`;
+    await fs.mkdir(basePath + "images", { recursive: true });
+    await fs.mkdir(basePath + "files", { recursive: true });
   } catch (error) {
     console.error("Erro ao salvar novo anime:" + error);
-    return { error: "Erro desconhecido." };
   }
+
+  redirect(newAnime.slug);
 }

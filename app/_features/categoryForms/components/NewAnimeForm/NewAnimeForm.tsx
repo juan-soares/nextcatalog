@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import styles from "./NewAnimeForm.module.css";
 import {
@@ -52,10 +50,15 @@ export async function NewAnimeForm() {
           required
         />
 
-        <label className={styles.formLabel} htmlFor="synopses">
+        <label className={styles.formLabel} htmlFor="synopsis">
           Sinopse:
         </label>
-        <textarea className={styles.formTextarea} id="synopses" required />
+        <textarea
+          className={styles.formTextarea}
+          id="synopsis"
+          name="synopsis"
+          required
+        />
       </fieldset>
 
       <fieldset className={styles.formFieldset}>
@@ -185,7 +188,12 @@ export async function NewAnimeForm() {
           <label className={styles.formLabel} htmlFor="seasonSubcategoryId">
             Subcategoria:
           </label>
-          <select className={styles.formInput} id="seasonSubcategoryId">
+          <select
+            className={styles.formInput}
+            id="seasonSubcategoryId"
+            name="seasonSubcategoryId"
+            required
+          >
             <option value="" hidden>
               Selecione...
             </option>

@@ -87,6 +87,7 @@ export interface ISeason extends IDoc {
   number: number;
   title: string;
   translatedTitle: string;
+  releaseDate: Date;
   cover: string;
   trailer: string;
   synopsis: string;

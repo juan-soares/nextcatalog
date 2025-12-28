@@ -84,15 +84,6 @@
       "updatedAt": "2025-11-13T12:00:00Z"
     }
   ],
-  "sessions": [
-    {
-      "_id": "ses001",
-      "title": "Franquias",
-      "slug": "franquias",
-      "createdAt": "2025-11-13T12:00:00Z",
-      "updatedAt": "2025-11-13T12:00:00Z"
-    }
-  ],
   "subcategories": [
     {
       "_id": "sub1",
@@ -119,7 +110,42 @@
     }
   ],
   "franchises": [],
-  "animes": [],
+  "animes": [
+    {
+      "_id": "2025-12-28T18:38:35.460Z",
+      "title": "X-Men: Evolution",
+      "translatedTitle": "",
+      "releaseDate": "2025-12-21T00:00:00.000Z",
+      "slug": "/animes/x-men-evolution",
+      "synopsis": "item => item.title.toLowerCase() === title.toLowerCase()",
+      "cover": "/public/database/animes/x-men-evolution/images/cover.png",
+      "trailer": "/public/database/animes/x-men-evolution/images/trailer.mp4",
+      "images": [],
+      "categoryId": "cat001",
+      "themesId": ["the1"],
+      "franchisesId": [],
+      "acquired": false,
+      "finished": false,
+      "seasons": [
+        {
+          "_id": "2025-12-28T18:38:35.460Z",
+          "number": 1,
+          "title": "",
+          "translatedTitle": "",
+          "releaseDate": "2025-12-21T00:00:00.000Z",
+          "synopsis": "item => item.title.toLowerCase() === title.toLowerCase()",
+          "cover": "/public/database/animes/x-men-evolution/images/cover.png",
+          "trailer": "/public/database/animes/x-men-evolution/images/trailer.mp4",
+          "subcategoryId": "sub1",
+          "episodes": [],
+          "createdAt": "2025-12-28T18:38:35.460Z",
+          "updatedAt": "2025-12-28T18:38:35.460Z"
+        }
+      ],
+      "createdAt": "2025-12-28T18:38:35.460Z",
+      "updatedAt": "2025-12-28T18:38:35.460Z"
+    }
+  ],
   "series": [],
   "videoGames": [],
   "boardGames": [],
