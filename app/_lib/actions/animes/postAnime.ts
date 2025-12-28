@@ -4,6 +4,7 @@ import { IAnime, ISeason } from "@/app/_data/data.types";
 import {
   getBoolean,
   getFile,
+  getFileArray,
   getString,
   getStringArray,
   slugfy,
@@ -19,8 +20,8 @@ export async function postAnime(formData: FormData) {
   const synopsis = getString(formData, "synopsis");
   const cover = getFile(formData, "cover");
   const trailer = getFile(formData, "trailer");
-  const images = getStringArray(formData, "images");
-  const files = getStringArray(formData, "files");
+  const images = getFileArray(formData, "images");
+  const files = getFileArray(formData, "files");
   const themesId = getStringArray(formData, "themesId");
   const franchisesId = getStringArray(formData, "franchisesId");
   const seasonIsAcquired = getBoolean(formData, "seasonIsAquired");
@@ -64,7 +65,7 @@ export async function postAnime(formData: FormData) {
     synopsis,
     cover: newSeason.cover,
     trailer: newSeason.trailer,
-    images: images.map((index) => `${path}/files/img-${index}`),
+    images: images.map((img, index) => `${path}/images/img-${index + 1}.jpg`),
     categoryId: "cat001",
     themesId: themesId.map((themeId) => themeId),
     franchisesId: franchisesId.map((franchiseId) => franchiseId),
@@ -78,12 +79,7 @@ export async function postAnime(formData: FormData) {
   try {
     await db.collection("animes").post(newAnime);
 
-    const basePath = join(
-      process.cwd(),
-      "public",
-      "database",
-      newAnime.slug
-    );
+    const basePath = join(process.cwd(), "public", "database", newAnime.slug);
 
     await fs.mkdir(join(basePath, "images"), { recursive: true });
     await fs.mkdir(join(basePath, "files"), { recursive: true });
@@ -92,6 +88,18 @@ export async function postAnime(formData: FormData) {
     const uint8Array = new Uint8Array(arrayBuffer);
     await fs.writeFile(join(basePath, "images", "cover.jpg"), uint8Array);
     await fs.writeFile(join(basePath, "images", "trailer.mp4"), uint8Array);
+
+    for (let i = 0; i < images.length; i++) {
+      const img = images[i];
+
+      const arrayBuffer = await img.arrayBuffer();
+      const uint8Array = new Uint8Array(arrayBuffer);
+
+      await fs.writeFile(
+        join(basePath, "images", `img-${i + 1}.jpg`),
+        uint8Array
+      );
+    }
   } catch (error) {
     console.error("Erro ao salvar novo anime:" + error);
   }

@@ -22,3 +22,12 @@ export function getFile(formData: FormData, key: string): File | null {
 
   return value;
 }
+
+export function getFileArray(formData: FormData, key: string): File[] {
+  const values = formData.getAll(key);
+  const files = values.filter(
+    (v): v is File => v instanceof File && v.size > 0
+  );
+
+  return files;
+}
