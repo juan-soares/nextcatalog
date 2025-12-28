@@ -110,47 +110,7 @@
     }
   ],
   "franchises": [],
-  "animes": [
-    {
-      "_id": "2025-12-28T20:15:35.144Z",
-      "title": "sassa",
-      "translatedTitle": "",
-      "releaseDate": "2025-12-04T00:00:00.000Z",
-      "slug": "/animes/sassa",
-      "synopsis": "aa",
-      "cover": "/database/animes/sassa/images/cover.jpg",
-      "trailer": "/database/animes/sassa/images/trailer.mp4",
-      "images": [
-        "/database/animes/sassa/images/img-1.jpg",
-        "/database/animes/sassa/images/img-2.jpg",
-        "/database/animes/sassa/images/img-3.jpg"
-      ],
-      "files": ["/database/animes/sassa/files/aumids.txt"],
-      "categoryId": "cat001",
-      "themesId": ["the1"],
-      "franchisesId": [],
-      "acquired": false,
-      "finished": false,
-      "seasons": [
-        {
-          "_id": "2025-12-28T20:15:35.144Z",
-          "number": 1,
-          "title": "",
-          "translatedTitle": "",
-          "releaseDate": "2025-12-04T00:00:00.000Z",
-          "synopsis": "aa",
-          "cover": "/database/animes/sassa/images/cover-season1.jpg",
-          "trailer": "/database/animes/sassa/images/trailer.mp4",
-          "subcategoryId": "sub1",
-          "episodes": [],
-          "createdAt": "2025-12-28T20:15:35.144Z",
-          "updatedAt": "2025-12-28T20:15:35.144Z"
-        }
-      ],
-      "createdAt": "2025-12-28T20:15:35.144Z",
-      "updatedAt": "2025-12-28T20:15:35.144Z"
-    }
-  ],
+  "animes": [],
   "series": [],
   "videoGames": [],
   "boardGames": [],
