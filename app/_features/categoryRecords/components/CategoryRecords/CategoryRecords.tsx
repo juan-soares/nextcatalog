@@ -41,22 +41,14 @@ export async function CategoryRecords({
             {filters.map(({ _id, title, property, values }) => (
               <fieldset key={_id}>
                 <legend>{title}</legend>
-                {values.map(({ _id: valueId, title: valueTitle }) => (
-                  <label key={valueId}>
-                    <input type="checkbox" name={property} value={valueId} />
-                    {valueTitle}
-                    Opção 1
+                {values.map(({_id}) => (
+                  <label key={_id}>
+                    <input type="checkbox" name={property} value={_id} />
+                    {_id}
                   </label>
                 ))}
               </fieldset>
             ))}
-
-            <fieldset>
-              <legend>Filtro 2</legend>
-              <label>
-                <input type="checkbox" /> Opção 1
-              </label>
-            </fieldset>
 
             <fieldset>
               <legend>Temáticas</legend>

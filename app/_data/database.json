@@ -100,7 +100,21 @@
       "updatedAt": "2025-12-27T19:48:42.255Z"
     }
   ],
-  "filters": [],
+  "languages": [
+    {
+      "_id": "2025-12-29T00:39:22.223Z",
+      "title": "LEG-ENG"
+    }
+  ],
+  "filters": [
+    {
+      "_id": "2025-12-29T00:39:22.223Z",
+      "title": "Idiomas",
+      "property": "language",
+      "categoriesCollection": ["animes"],
+      "values": ["2025-12-29T00:39:22.223Z"]
+    }
+  ],
   "themes": [
     {
       "_id": "the1",

@@ -8,17 +8,35 @@ export async function getCategoryRecordsByCollection(
   return records;
 }
 
-export async function getCategoryFilters(collection: CategoryCollectionType) {
+export async function getCategoryFilters(category: CategoryCollectionType) {
   const filters = await db.collection("filters").find({
-    query: { termsToSearch: [collection], fieldsToSearch: ["collection"] },
+    query: {
+      termsToSearch: [category],
+      fieldsToSearch: ["categoriesCollection"],
+    },
     sortBy: "alph",
   });
 
-  const filtersPopulated = filters.map((filter) => {
-   const valuesPopulated = filter.values.map(value => {
-    const populated = db.collection("")
-   })
-  })
+  const populatedFilters = await Promise.all(
+    filters.map(async (filter) => {
+      const propertyItems = db.collection(filter.propertyCollection).find({});
 
-  return filters;
+      const itemsById = new Map(
+        propertyItems.map((item: { _id: string }) => [item._id, item])
+      );
+
+      const populatedValues = filter.values
+        .map((id: string) => itemsById.get(id))
+        .filter(
+          (item): item is (typeof propertyItems)[number] => item !== undefined
+        );
+
+      return {
+        ...filter,
+        values: populatedValues,
+      };
+    })
+  );
+
+  return populatedFilters;
 }

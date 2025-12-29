@@ -79,7 +79,8 @@ export interface IMode extends IDoc {
 export interface IFilter extends IDoc {
   title: string;
   property: string;
-  collections: CategoryCollectionType[];
+  propertyCollection: keyof IDatabase;
+  categoriesCollection: CategoryCollectionType[];
   values:
     | ISubcategory["_id"][]
     | ILanguage["_id"][]
