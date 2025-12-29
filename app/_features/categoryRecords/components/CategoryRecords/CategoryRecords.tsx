@@ -1,12 +1,15 @@
 import styles from "./CategoryRecords.module.css";
-import { IDatabase } from "@/app/_data/data.types";
-import { getCategoryRecordsByCollection } from "./CategoryRecords.actions";
+import { CategoryCollectionType, IDatabase } from "@/app/_data/data.types";
+import {
+  getCategoryFilters,
+  getCategoryRecordsByCollection,
+} from "./CategoryRecords.actions";
 import Link from "next/link";
 import { getFranchises } from "@/app/_lib/actions/getFranchises";
 import { getThemes } from "@/app/_lib/actions/getThemes";
 
 interface IProps {
-  collection: keyof IDatabase;
+  collection: CategoryCollectionType;
   categoryTitle: string;
   categorySlug: string;
 }
@@ -17,6 +20,7 @@ export async function CategoryRecords({
   categorySlug,
 }: IProps) {
   const categoryRecords = await getCategoryRecordsByCollection(collection);
+  const filters = await getCategoryFilters(collection);
   const themes = await getThemes();
   const franchises = await getFranchises();
 
@@ -34,12 +38,18 @@ export async function CategoryRecords({
             </Link>
           </form>
           <form className={styles.filters}>
-            <fieldset>
-              <legend>Filtro 1</legend>
-              <label>
-                <input type="checkbox" /> Opção 1
-              </label>
-            </fieldset>
+            {filters.map(({ _id, title, property, values }) => (
+              <fieldset key={_id}>
+                <legend>{title}</legend>
+                {values.map(({ _id: valueId, title: valueTitle }) => (
+                  <label key={valueId}>
+                    <input type="checkbox" name={property} value={valueId} />
+                    {valueTitle}
+                    Opção 1
+                  </label>
+                ))}
+              </fieldset>
+            ))}
 
             <fieldset>
               <legend>Filtro 2</legend>

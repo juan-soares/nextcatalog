@@ -7,7 +7,12 @@ export interface IFindParameters {
 export interface IDatabase {
   users: IUser[];
   categories: ICategory[];
+
+  filters: IFilter[];
   subcategories: ISubcategory[];
+  languages: ILanguage[];
+  resolutions: IResolution[];
+  modes: IMode[];
 
   animes: IAnime[];
   series: [];
@@ -57,6 +62,29 @@ export interface ICategory extends IDoc {
 
 export interface ISubcategory extends IDoc {
   title: string;
+}
+
+export interface ILanguage extends IDoc {
+  title: string;
+}
+
+export interface IResolution extends IDoc {
+  title: string;
+}
+
+export interface IMode extends IDoc {
+  title: string;
+}
+
+export interface IFilter extends IDoc {
+  title: string;
+  property: string;
+  collections: CategoryCollectionType[];
+  values:
+    | ISubcategory["_id"][]
+    | ILanguage["_id"][]
+    | IResolution["_id"][]
+    | IMode["_id"][];
 }
 
 export interface IRecord extends IDoc {
