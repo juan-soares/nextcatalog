@@ -2,6 +2,8 @@ import styles from "./CategoryRecords.module.css";
 import { IDatabase } from "@/app/_data/data.types";
 import { getCategoryRecordsByCollection } from "./CategoryRecords.actions";
 import Link from "next/link";
+import { getFranchises } from "@/app/_lib/actions/getFranchises";
+import { getThemes } from "@/app/_lib/actions/getThemes";
 
 interface IProps {
   collection: keyof IDatabase;
@@ -15,6 +17,8 @@ export async function CategoryRecords({
   categorySlug,
 }: IProps) {
   const categoryRecords = await getCategoryRecordsByCollection(collection);
+  const themes = await getThemes();
+  const franchises = await getFranchises();
 
   return (
     <div className={styles.container}>
@@ -45,9 +49,32 @@ export async function CategoryRecords({
             </fieldset>
 
             <fieldset>
-              <legend>Filtro 3</legend>
+              <legend>Temáticas</legend>
+              {themes.map(({ _id, title }) => (
+                <label key={_id}>
+                  <input type="checkbox" value={_id} name="themesId" />
+                  {title}
+                </label>
+              ))}
+            </fieldset>
+
+            <fieldset>
+              <legend>Franquias</legend>
+              {franchises.map(({ _id, logo, title }) => (
+                <label key={_id}>
+                  <input type="checkbox" value={_id} name="franchisesId" />
+                  <img src={logo} alt={`Logotipo da franquia ${title}.`} />
+                </label>
+              ))}
+            </fieldset>
+
+            <fieldset>
+              <legend>Adquirido</legend>
               <label>
-                <input type="checkbox" /> Opção 1
+                <input type="checkbox" value={"true"} name="acquired" /> Sim
+              </label>
+              <label>
+                <input type="checkbox" value={"false"} name="acquired" /> Não
               </label>
             </fieldset>
           </form>
