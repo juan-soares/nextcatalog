@@ -110,7 +110,47 @@
     }
   ],
   "franchises": [],
-  "animes": [],
+  "animes": [
+    {
+      "_id": "2025-12-29T00:39:22.223Z",
+      "title": "Naruto Shippuden",
+      "translatedTitle": "",
+      "releaseDate": "2025-12-03T00:00:00.000Z",
+      "slug": "/animes/naruto-shippuden",
+      "synopsis": "Uzumaki Naruto quer ser o melhor ninja de todos. Ele está indo muito bem, mas com o perigo iminente imposto pela misteriosa Akatsuki, Naruto percebe que ele deve treinar mais que nunca e deixa sua vila para um intenso treinamento que o pressiona contra seus limites.",
+      "cover": "/database/animes/naruto-shippuden/images/cover.jpg",
+      "trailer": "/database/animes/naruto-shippuden/images/trailer.mp4",
+      "images": [
+        "/database/animes/naruto-shippuden/images/img-1.jpg",
+        "/database/animes/naruto-shippuden/images/img-2.jpg",
+        "/database/animes/naruto-shippuden/images/img-3.jpg"
+      ],
+      "files": ["/database/animes/naruto-shippuden/files/aumids.txt"],
+      "categoryId": "cat001",
+      "themesId": ["the1"],
+      "franchisesId": [],
+      "acquired": false,
+      "finished": false,
+      "seasons": [
+        {
+          "_id": "2025-12-29T00:39:22.223Z",
+          "number": 1,
+          "title": "",
+          "translatedTitle": "",
+          "releaseDate": "2025-12-03T00:00:00.000Z",
+          "synopsis": "Uzumaki Naruto quer ser o melhor ninja de todos. Ele está indo muito bem, mas com o perigo iminente imposto pela misteriosa Akatsuki, Naruto percebe que ele deve treinar mais que nunca e deixa sua vila para um intenso treinamento que o pressiona contra seus limites.",
+          "cover": "/database/animes/naruto-shippuden/images/cover.jpg",
+          "trailer": "/database/animes/naruto-shippuden/images/trailer.mp4",
+          "subcategoryId": "sub1",
+          "episodes": [],
+          "createdAt": "2025-12-29T00:39:22.223Z",
+          "updatedAt": "2025-12-29T00:39:22.223Z"
+        }
+      ],
+      "createdAt": "2025-12-29T00:39:22.224Z",
+      "updatedAt": "2025-12-29T00:39:22.224Z"
+    }
+  ],
   "series": [],
   "videoGames": [],
   "boardGames": [],
