@@ -106,6 +106,7 @@ export interface IRecord extends IDoc {
 }
 
 export interface IEpisode {
+  _id: string;
   number: number;
   title: string;
   aquired: boolean;
@@ -126,6 +127,11 @@ export interface ISeason extends IDoc {
 
 export interface IAnime extends IRecord {
   seasons: ISeason[];
+}
+
+export interface IAnimePopulated extends IAnime {
+  themes: ITheme[];
+  franchises: IFranchise[];
 }
 
 export interface ITheme extends IDoc {

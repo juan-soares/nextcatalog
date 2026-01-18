@@ -157,7 +157,15 @@
           "cover": "/database/animes/naruto-shippuden/images/cover.jpg",
           "trailer": "/database/animes/naruto-shippuden/images/trailer.mp4",
           "subcategoryId": "sub1",
-          "episodes": [],
+          "episodes": [
+            {
+              "_id": "2025-12-29T00:39:22.223Z",
+              "number": "1",
+              "title": "Era uma vez.",
+              "aquired": false,
+              "finished": false
+            }
+          ],
           "createdAt": "2025-12-29T00:39:22.223Z",
           "updatedAt": "2025-12-29T00:39:22.223Z"
         }

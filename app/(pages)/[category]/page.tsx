@@ -9,7 +9,7 @@ export default async function CategoryPage({
   const categorySlug = (await params).category;
 
   const category = (await getCategories()).find(
-    (c) => c.slug === "/" + categorySlug
+    (c) => c.slug === "/" + categorySlug,
   );
   if (!category) return <p>Categoria não identificada.</p>;
 
