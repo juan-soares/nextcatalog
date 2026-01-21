@@ -25,16 +25,24 @@ export async function getTitle(
 
     const seasonsPopulated = await Promise.all(
       record.seasons.map(async (season) => {
-        const result = await db.collection("subcategories").find({
+        const subcategoryPopulated = await db.collection("subcategories").find({
           query: {
             fieldsToSearch: ["_id"],
             termsToSearch: [season.subcategoryId],
           },
         });
 
+        const languagePopulated = await db.collection("languages").find({
+          query: {
+            fieldsToSearch: ["_id"],
+            termsToSearch: [season.languageId],
+          },
+        });
+
         return {
           ...season,
-          subcategory: result?.[0] ?? null,
+          subcategory: subcategoryPopulated?.[0].title ?? null,
+          language: languagePopulated?.[0].title ?? null,
         };
       }),
     );

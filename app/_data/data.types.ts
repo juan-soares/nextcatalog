@@ -121,8 +121,14 @@ export interface ISeason extends IDoc {
   cover: string;
   trailer: string;
   synopsis: string;
+  languageId: ILanguage["_id"];
   subcategoryId: ISubcategory["_id"];
   episodes: IEpisode[];
+}
+
+export interface ISeasonPopulated extends ISeason {
+  language: ILanguage["title"];
+  subcategory: ISubcategory["title"];
 }
 
 export interface IAnime extends IRecord {
@@ -130,6 +136,7 @@ export interface IAnime extends IRecord {
 }
 
 export interface IAnimePopulated extends IAnime {
+  seasons: ISeasonPopulated[];
   themes: ITheme[];
   franchises: IFranchise[];
 }

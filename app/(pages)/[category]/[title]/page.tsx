@@ -60,27 +60,35 @@ export default async function CategoryTitlePage({
         </nav>
       </div>
 
-      <div>
-        <select>
-          {seasons.map(({ _id, number }) => (
-            <option key={_id}>{number}</option>
-          ))}
-        </select>
-      </div>
+      <ul>
+        {seasons.map(
+          ({ _id, number, title, releaseDate, episodes, language }) => (
+            <li key={_id}>
+              <h3>{`Temporada ${number} - ${title && "Sem título."} (${releaseDate.toString().slice(0, 4)}) [${language}]`}</h3>
 
-      <div>
-        <ul>
-          {seasons[actualSeason - 1].episodes.map(
-            ({ _id, number, title, aquired, finished }) => (
-              <li key={_id}>
-                <p>{`${actualSeason}x${number} - ${title}`}</p>
-                <span>{aquired}</span>
-                <span>{finished}</span>
-              </li>
-            ),
-          )}
-        </ul>
-      </div>
+              <ul>
+                {episodes.map(
+                  ({
+                    _id,
+                    number: episodeNumber,
+                    title: episodeTitle,
+                    aquired,
+                    finished,
+                  }) => (
+                    <li key={_id}>
+                      <p>
+                        {`${number} x ${episodeNumber} - ${episodeTitle}`}
+                        <span>{aquired}</span>
+                        <span>{finished}</span>
+                      </p>
+                    </li>
+                  ),
+                )}
+              </ul>
+            </li>
+          ),
+        )}
+      </ul>
     </div>
   );
 }
