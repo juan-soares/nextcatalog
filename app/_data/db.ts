@@ -22,23 +22,23 @@ function collection<T extends keyof IDatabase>(collectionTitle: T) {
             ([key, value]) =>
               fieldsToSearch.includes(key) &&
               termsToSearch.some((term) =>
-                String(value).toLowerCase().includes(term.toLowerCase())
-              )
-          )
+                String(value).toLowerCase().includes(term.toLowerCase()),
+              ),
+          ),
         );
       }
 
       if (sortBy === "alph") {
         collectionDocs = collectionDocs.sort((a: any, b: any) =>
-          a.title.localeCompare(b.title, "pt", { sensitivity: "base" })
+          a.title.localeCompare(b.title, "pt", { sensitivity: "base" }),
         );
       } else if (sortBy === "recent") {
         collectionDocs = collectionDocs.sort(
-          (a: any, b: any) => a.release - b.release
+          (a: any, b: any) => a.release - b.release,
         );
       } else {
         collectionDocs = collectionDocs.sort(
-          (a: any, b: any) => a.updatedAt - b.updatedAt
+          (a: any, b: any) => a.updatedAt - b.updatedAt,
         );
       }
 

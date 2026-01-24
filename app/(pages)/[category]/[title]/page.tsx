@@ -1,6 +1,17 @@
 import { CategoryCollectionType } from "@/app/_data/data.types";
 import { getTitle } from "@/app/_lib/actions/getTite";
 
+import styles from "./page.module.css";
+import { TabsSeasons } from "@/app/_features/TabsSeasons";
+
+/* TIPOS */
+export type SubCategory = "season" | "ova" | "extra";
+
+/* TYPE GUARD */
+const isSubCategory = (value: string): value is SubCategory => {
+  return value === "season" || value === "ova" || value === "extra";
+};
+
 export default async function CategoryTitlePage({
   params,
 }: {
@@ -8,87 +19,69 @@ export default async function CategoryTitlePage({
 }) {
   const actualSeason = 1;
 
-  const categorySlug = (await params).category;
-  const categoryRecordSlug = (await params).title;
+  const { category, title: recordTitle } = await params;
+
   const categoryTitle = await getTitle(
-    categorySlug as CategoryCollectionType,
-    categoryRecordSlug,
+    category as CategoryCollectionType,
+    recordTitle,
   );
 
-  if (!categoryTitle) return;
+  if (!categoryTitle) return null;
 
   const { title, translatedTitle, seasons, releaseDate, themes, franchises } =
     categoryTitle;
 
+  const currentSeason = seasons[actualSeason - 1];
+
+  const initialTab: SubCategory = isSubCategory(currentSeason.subcategory)
+    ? currentSeason.subcategory
+    : "season";
+
   return (
-    <div>
-      <div>
+    <main className={styles.page}>
+      {/* HERO */}
+      <section className={styles.hero}>
         <video
+          className={styles.backgroundVideo}
           autoPlay
           muted
           loop
           playsInline
           preload="metadata"
-          poster={seasons[actualSeason - 1].cover}
-          aria-hidden="true"
+          poster={currentSeason.cover}
+          aria-hidden
         >
-          <source src={seasons[actualSeason - 1].trailer} type="video/mp4" />
+          <source src={currentSeason.trailer} type="video/mp4" />
         </video>
-        <h1>{title}</h1>
-        <h2>{translatedTitle}</h2>
-        <p>{seasons[actualSeason - 1].synopsis}</p>
-        <strong>{releaseDate.toString().slice(0, 4)}</strong>
-        <ul>
-          {themes.map(({ _id, title }) => (
-            <li key={_id}>{title}</li>
-          ))}
-        </ul>
-        <ul>
-          {franchises.map(({ _id, logo, title }) => (
-            <li key={_id}>
-              <img src={logo} alt={`Logotipo da franquia ${title}`} />
-            </li>
-          ))}
-        </ul>
-      </div>
 
-      <div>
-        <nav>
-          <button>Temporadas</button>
-          <button>OVA</button>
-          <button>Extras</button>
-        </nav>
-      </div>
+        <div className={styles.heroContent}>
+          <h1 className={styles.title}>{title}</h1>
+          <h2 className={styles.subtitle}>{translatedTitle}</h2>
 
-      <ul>
-        {seasons.map(
-          ({ _id, number, title, releaseDate, episodes, language }) => (
-            <li key={_id}>
-              <h3>{`Temporada ${number} - ${title && "Sem título."} (${releaseDate.toString().slice(0, 4)}) [${language}]`}</h3>
+          <p className={styles.synopsis}>{currentSeason.synopsis}</p>
 
-              <ul>
-                {episodes.map(
-                  ({
-                    _id,
-                    number: episodeNumber,
-                    title: episodeTitle,
-                    aquired,
-                    finished,
-                  }) => (
-                    <li key={_id}>
-                      <p>
-                        {`${number} x ${episodeNumber} - ${episodeTitle}`}
-                        <span>{aquired}</span>
-                        <span>{finished}</span>
-                      </p>
-                    </li>
-                  ),
-                )}
-              </ul>
-            </li>
-          ),
-        )}
-      </ul>
-    </div>
+          <strong className={styles.year}>
+            {releaseDate.toString().slice(0, 4)}
+          </strong>
+
+          <ul className={styles.themes}>
+            {themes.map(({ _id, title }) => (
+              <li key={_id}>{title}</li>
+            ))}
+          </ul>
+
+          <ul className={styles.franchises}>
+            {franchises.map(({ _id, logo, title }) => (
+              <li key={_id}>
+                <img src={logo} alt={`Logo ${title}`} />
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* TABS + CONTEÚDO */}
+      <TabsSeasons seasons={seasons} initialTab={initialTab} />
+    </main>
   );
 }
