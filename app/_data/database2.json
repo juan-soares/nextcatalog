@@ -1,0 +1,247 @@
+{
+  "categories": [
+    {
+      "_id": "cat1",
+      "slug": "animes",
+      "label": "Animes",
+      "description": "Séries animadas japonesas com temporadas, OVAs e especiais."
+    },
+    {
+      "_id": "cat2",
+      "slug": "desenhos-animados",
+      "label": "Desenhos Animados"
+    },
+    { "_id": "cat3", "slug": "series", "label": "Séries" },
+    { "_id": "cat4", "slug": "filmes-animados", "label": "Filmes Animados" },
+    {
+      "_id": "cat5",
+      "slug": "filmes-live-action",
+      "label": "Filmes Live-Action"
+    },
+    {
+      "_id": "cat6",
+      "slug": "jogos-de-tabuleiro",
+      "label": "Jogos de Tabuleiro"
+    },
+    {
+      "_id": "cat7",
+      "slug": "jogos-eletronicos",
+      "label": "Jogos Eletrônicos"
+    },
+    { "_id": "cat8", "slug": "livros", "label": "Livros" },
+    { "_id": "cat9", "slug": "musicas", "label": "Músicas" },
+    { "_id": "cat10", "slug": "hqs", "label": "HQs" }
+  ],
+  "languages": [
+    { "_id": "lang1", "code": "JP", "languageName": "Japonês" },
+    { "_id": "lang2", "code": "EN", "languageName": "Inglês" },
+    { "_id": "lang3", "code": "PT", "languageName": "Português" }
+  ],
+  "franchises": [
+    {
+      "_id": "f1",
+      "title": "Naruto",
+      "slug": "naruto",
+      "logo": "naruto-logo.jpg",
+      "subFranchises": [
+        {
+          "_id": "sf1",
+          "title": "Boruto",
+          "slug": "boruto",
+          "logo": "boruto-logo.jpg",
+          "subFranchises": []
+        }
+      ]
+    },
+    {
+      "_id": "f2",
+      "title": "Marvel",
+      "slug": "marvel",
+      "logo": "marvel-logo.png",
+      "subFranchises": [
+        {
+          "_id": "sf2",
+          "title": "Avengers",
+          "slug": "avengers",
+          "logo": "avengers-logo.png",
+          "subFranchises": [
+            {
+              "_id": "sf3",
+              "title": "Avengers Ultimate",
+              "slug": "avengers-ultimate",
+              "logo": "avengers-ultimate-logo.png",
+              "subFranchises": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "galleries": [
+    { "_id": "gallery1", "images": ["naruto1.jpg", "naruto2.jpg"] },
+    { "_id": "gallery2", "images": ["ts1.jpg", "ts2.jpg"] },
+    { "_id": "gallery3", "images": ["catan1.jpg", "catan2.jpg"] }
+  ],
+  "files": [
+    {
+      "_id": "file1",
+      "name": "naruto-episode1.mp4",
+      "url": "/downloads/naruto-episode1.mp4"
+    },
+    {
+      "_id": "file2",
+      "name": "naruto-episode2.mp4",
+      "url": "/downloads/naruto-episode2.mp4"
+    },
+    {
+      "_id": "file3",
+      "name": "thriller-song1.mp3",
+      "url": "/downloads/thriller-song1.mp3"
+    }
+  ],
+  "titles": [
+    {
+      "_id": "t1",
+      "categoryId": "cat1",
+      "title": "Naruto",
+      "translatedTitle": "",
+      "synopsis": "Um ninja adolescente busca reconhecimento e proteção para sua vila.",
+      "cover": "naruto-cover.jpg",
+      "galleryId": "gallery1",
+      "fileIds": ["file1", "file2"],
+      "trailer": "naruto-trailer.mp4",
+      "franchiseId": "f1",
+      "seasons": [
+        {
+          "number": 1,
+          "languageId": "lang1",
+          "releaseDate": "2002-10-03",
+          "subcategory": "TV-Show",
+          "cover": "season1.jpg",
+          "episodes": [
+            {
+              "number": 1,
+              "title": "Uzumaki Naruto",
+              "releaseDate": "2002-10-03",
+              "acquired": true,
+              "finished": true
+            },
+            {
+              "number": 2,
+              "title": "O Primeiro Treinamento",
+              "releaseDate": "2002-10-10",
+              "acquired": true,
+              "finished": false
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "languageId": "lang1",
+          "releaseDate": "2003-11-01",
+          "subcategory": "TV-Show",
+          "cover": "season2.jpg",
+          "episodes": [
+            {
+              "number": 1,
+              "title": "A Batalha Começa",
+              "releaseDate": "2003-11-01",
+              "acquired": false,
+              "finished": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_id": "t2",
+      "categoryId": "cat2",
+      "title": "Tom & Jerry",
+      "translatedTitle": "",
+      "synopsis": "As aventuras do gato e do rato mais famosos do mundo.",
+      "cover": "tom-jerry.jpg",
+      "galleryId": "gallery1",
+      "fileIds": [],
+      "trailer": "tj-trailer.mp4",
+      "seasons": [
+        {
+          "number": 1,
+          "languageId": "lang2",
+          "releaseDate": "1940-02-10",
+          "subcategory": "TV-Show",
+          "cover": "tj-season1.jpg",
+          "episodes": [
+            {
+              "number": 1,
+              "title": "Pipoca e Queijo",
+              "releaseDate": "1940-02-10",
+              "acquired": true,
+              "finished": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_id": "t3",
+      "categoryId": "cat4",
+      "title": "Toy Story",
+      "translatedTitle": "",
+      "synopsis": "Brinquedos ganham vida quando os humanos não estão olhando.",
+      "cover": "toy-story.jpg",
+      "galleryId": "gallery2",
+      "fileIds": [],
+      "trailer": "ts-trailer.mp4",
+      "releaseDate": "1995-11-22",
+      "languageId": "lang2"
+    },
+    {
+      "_id": "t5",
+      "categoryId": "cat7",
+      "title": "Super Mario Bros",
+      "translatedTitle": "",
+      "synopsis": "Mario deve salvar a princesa do Reino dos Cogumelos.",
+      "cover": "super-mario.jpg",
+      "galleryId": "gallery2",
+      "fileIds": ["file3"],
+      "trailer": "sm-trailer.mp4",
+      "platform": ["NES", "Switch"],
+      "gameType": "base",
+      "genre": ["Plataforma", "Aventura"],
+      "modes": ["Single Player", "Multiplayer Co-Op"],
+      "movement": ["Linear", "2D"],
+      "releaseDate": "1985-09-13",
+      "acquired": true
+    },
+    {
+      "_id": "t6",
+      "categoryId": "cat6",
+      "title": "Catan",
+      "translatedTitle": "",
+      "synopsis": "Um jogo de negociação e estratégia para 3-4 jogadores.",
+      "cover": "catan.jpg",
+      "galleryId": "gallery3",
+      "fileIds": [],
+      "trailer": "",
+      "boardGameType": "base",
+      "expansions": [{ "titleId": "t7", "type": "expansion" }],
+      "releaseDate": "1995-01-01",
+      "acquired": true
+    },
+    {
+      "_id": "t7",
+      "categoryId": "cat6",
+      "title": "Catan: Expansão Maravilhas do Mundo",
+      "translatedTitle": "",
+      "synopsis": "Expansão com novos cenários e recursos.",
+      "cover": "catan-exp.jpg",
+      "galleryId": "gallery3",
+      "fileIds": [],
+      "trailer": "",
+      "boardGameType": "expansion",
+      "baseGameId": "t6",
+      "releaseDate": "2000-01-01",
+      "acquired": false
+    }
+  ]
+}
