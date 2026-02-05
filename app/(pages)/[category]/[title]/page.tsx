@@ -5,7 +5,14 @@ import styles from "./page.module.css";
 import { TabsSeasons } from "@/app/_features/TabsSeasons";
 
 /* TIPOS */
-export type SubCategory = "season" | "ova" | "extra";
+export type SubCategory =
+  | "TV-Show"
+  | "ova"
+  | "extra"
+  | "files"
+  | "chronology"
+  | "images"
+  | "trailer";
 
 /* TYPE GUARD */
 const isSubCategory = (value: string): value is SubCategory => {
@@ -63,6 +70,11 @@ export default async function CategoryTitlePage({
           <strong className={styles.year}>
             {releaseDate.toString().slice(0, 4)}
           </strong>
+
+          <ul className={styles.themes}>
+            <li>Leg</li>
+            <li>1080p</li>
+          </ul>
 
           <ul className={styles.themes}>
             {themes.map(({ _id, title }) => (

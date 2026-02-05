@@ -26,9 +26,13 @@ interface TabsSeasonsProps {
 }
 
 const TABS: { key: SubCategory; label: string }[] = [
-  { key: "season", label: "Temporadas" },
+  { key: "TV-Show", label: "Temporadas" },
   { key: "ova", label: "OVA" },
   { key: "extra", label: "Extras" },
+  { key: "chronology", label: "Cronologia" },
+  { key: "trailer", label: "Trailer" },
+  { key: "images", label: "Galeria" },
+  { key: "files", label: "Arquivos" },
 ];
 
 export function TabsSeasons({ seasons, initialTab }: TabsSeasonsProps) {
@@ -70,6 +74,7 @@ export function TabsSeasons({ seasons, initialTab }: TabsSeasonsProps) {
                   {episodes.map(
                     ({
                       _id,
+                      releaseDate,
                       number: episodeNumber,
                       title: episodeTitle,
                       aquired,
@@ -77,7 +82,7 @@ export function TabsSeasons({ seasons, initialTab }: TabsSeasonsProps) {
                     }) => (
                       <li key={_id} className={styles.episode}>
                         <p>
-                          {`${number} x ${episodeNumber} - ${episodeTitle}`}
+                          {`(${releaseDate}) T${number} x E${episodeNumber} - ${episodeTitle}`}
                         </p>
 
                         <div className={styles.episodeStatus}>
