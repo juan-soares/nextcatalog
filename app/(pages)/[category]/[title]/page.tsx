@@ -10,9 +10,12 @@ export type SubCategory =
   | "ova"
   | "extra"
   | "files"
-  | "chronology"
+  | "sequel"
   | "images"
-  | "trailer";
+  | "trailer"
+  | "base"
+  | "expansions"
+  | "pack";
 
 /* TYPE GUARD */
 const isSubCategory = (value: string): value is SubCategory => {
@@ -76,6 +79,10 @@ export default async function CategoryTitlePage({
             <li>1080p</li>
             <li>PC</li>
 
+            <li>Base</li>
+            <li>Expansão</li>
+            <li>Pack</li>
+
             <li>Single Player</li>
             <li>Multiplayer Co-Op</li>
             <li>Multiplayer Vs.</li>
@@ -84,6 +91,9 @@ export default async function CategoryTitlePage({
             <li>Hack´Slash</li>
 
             <li>Mundo Aberto</li>
+
+            <li>Adquirido</li>
+            <li>Finalizado</li>
           </ul>
 
           <ul className={styles.themes}>

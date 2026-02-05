@@ -29,10 +29,13 @@ const TABS: { key: SubCategory; label: string }[] = [
   { key: "TV-Show", label: "Temporadas" },
   { key: "ova", label: "OVA" },
   { key: "extra", label: "Extras" },
-  { key: "chronology", label: "Cronologia" },
+  { key: "sequel", label: "Sequência" },
   { key: "trailer", label: "Trailer" },
   { key: "images", label: "Galeria" },
   { key: "files", label: "Arquivos" },
+  { key: "base", label: "Base" },
+  { key: "expansions", label: "Expansões" },
+  { key: "pack", label: "Pack" },
 ];
 
 export function TabsSeasons({ seasons, initialTab }: TabsSeasonsProps) {
