@@ -74,6 +74,16 @@ export default async function CategoryTitlePage({
           <ul className={styles.themes}>
             <li>Leg</li>
             <li>1080p</li>
+            <li>PC</li>
+
+            <li>Single Player</li>
+            <li>Multiplayer Co-Op</li>
+            <li>Multiplayer Vs.</li>
+            <li>Multiplayer Semi Co-Op</li>
+
+            <li>Hack´Slash</li>
+
+            <li>Mundo Aberto</li>
           </ul>
 
           <ul className={styles.themes}>
