@@ -1,7 +1,7 @@
 import styles from "./Searchbar.module.css";
 import { FaSearch } from "react-icons/fa";
 
-export function SearchBar() {
+export function Searchbar() {
   return (
     <div className={styles.searchBar}>
       <input

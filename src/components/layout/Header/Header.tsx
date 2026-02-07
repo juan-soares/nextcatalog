@@ -1,11 +1,12 @@
 import styles from "./Header.module.css";
-import { Logo, SearchBar } from "../../ui";
+import { Logo } from "../../ui";
+import { Searchbar } from "./Searchbar";
 
 export function Header() {
   return (
     <header className={styles.header}>
       <Logo />
-      <SearchBar />
+      <Searchbar />
     </header>
   );
 }
