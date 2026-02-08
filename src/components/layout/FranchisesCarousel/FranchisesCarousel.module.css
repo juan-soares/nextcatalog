@@ -1,0 +1,40 @@
+.franchisesCarouselContainer {
+  overflow: hidden;
+  background-color: #141414;
+  padding: 10px 0;
+  position: sticky;
+  top: 60px;
+  z-index: 10;
+}
+
+.franchisesCarouselInner {
+  display: flex;
+  gap: 20px;
+  animation: scroll 50s linear infinite;
+}
+
+.franchisesCarouselItem {
+  flex: 0 0 auto;
+  text-align: center;
+}
+
+.franchisesCarouselItem img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.franchisesCarouselItem h3 {
+  color: #fff;
+  margin-top: 5px;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
