@@ -1,16 +1,15 @@
 .franchisesCarouselContainer {
   overflow: hidden;
+  width: 100%;
   background-color: #141414;
-  padding: 10px 0;
-  position: sticky;
-  top: 60px;
-  z-index: 10;
 }
 
 .franchisesCarouselInner {
   display: flex;
-  gap: 20px;
-  animation: scroll 50s linear infinite;
+  gap: 50px;
+  flex-wrap: nowrap;
+  transform: translateX(100%);
+  animation: scroll 40s linear infinite;
 }
 
 .franchisesCarouselItem {
@@ -21,13 +20,15 @@
 .franchisesCarouselItem img {
   width: 100px;
   height: 100px;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 5px;
+  background-color: #141414;
 }
 
 .franchisesCarouselItem h3 {
   color: #fff;
-  margin-top: 5px;
+  margin-bottom: 10px;
+  font-size: 14px;
 }
 
 @keyframes scroll {

@@ -7,8 +7,8 @@ export async function FranchisesCarousel() {
   return (
     <div className={styles.franchisesCarouselContainer}>
       <div className={styles.franchisesCarouselInner}>
-        {franchises.map(({ _id, logo, title }) => (
-          <div key={_id} className={styles.franchisesCarouselItem}>
+        {franchises.map(({ logo, title }, index) => (
+          <div key={index} className={styles.franchisesCarouselItem}>
             <img src={logo} alt={`Logotipo da franquia ${title}`} />
             <h3>{title}</h3>
           </div>
