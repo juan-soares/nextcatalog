@@ -1,0 +1,1 @@
+export { getFranchises } from "./get";

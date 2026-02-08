@@ -12,5 +12,5 @@ export interface FranchisePopulated extends Omit<
   Franchise,
   "parentFranchiseId"
 > {
-  subfranchises: Franchise[];
+  subfranchises: FranchisePopulated[];
 }
