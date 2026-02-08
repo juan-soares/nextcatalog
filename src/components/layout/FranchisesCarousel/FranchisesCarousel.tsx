@@ -2,7 +2,7 @@ import styles from "./FranchisesCarousel.module.css";
 import { getFranchises } from "@/src/lib/services";
 
 export async function FranchisesCarousel() {
-  const franchises = await getFranchises();
+  const franchises = await getFranchises("alph");
 
   return (
     <div className={styles.franchisesCarouselContainer}>

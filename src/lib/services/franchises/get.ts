@@ -1,5 +1,6 @@
-import { Franchise, FranchisePopulated } from "@/src/types";
+import { Franchise, FranchisePopulated, SortBy } from "@/src/types";
 import { getDocsByCollection } from "../../database/connectDB";
+import { sortBy } from "../../utils";
 
 function populateFranchiseTree(
   franchiseToPopulate: Franchise,
@@ -16,7 +17,9 @@ function populateFranchiseTree(
   return { ...franchiseWithoutParentId, subfranchises };
 }
 
-export async function getFranchises(): Promise<FranchisePopulated[]> {
+export async function getFranchises(
+  order: SortBy,
+): Promise<FranchisePopulated[]> {
   const allFranchises = getDocsByCollection<Franchise>("franchises");
 
   const franchisesWithoutParent = allFranchises.filter(
@@ -27,5 +30,5 @@ export async function getFranchises(): Promise<FranchisePopulated[]> {
     populateFranchiseTree(franchise, allFranchises),
   );
 
-  return franchisesPopulated;
+  return sortBy(franchisesPopulated, order);
 }

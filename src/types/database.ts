@@ -1,5 +1,5 @@
 export interface Doc {
   _id: string;
-  createdAt: Date;
-  lastUpdateAt: Date;
+  createdAt: string;
+  lastUpdateAt: string;
 }
