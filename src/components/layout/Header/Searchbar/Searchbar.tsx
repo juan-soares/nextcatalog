@@ -5,7 +5,9 @@ export function Searchbar() {
   return (
     <div className={styles.searchBar}>
       <input type="text" placeholder="Pesquisar..." className={styles.input} />
-      <FaSearch className={styles.icon} />
+      <button className={styles.iconButton}>
+        <FaSearch />
+      </button>
     </div>
   );
 }
