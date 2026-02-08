@@ -2,7 +2,7 @@ import styles from "./Loginbar.module.css";
 import { UserInfo, LoginButton } from "./";
 
 export function Loginbar() {
-  const isAuthenticated = false;
+  const isAuthenticated = true;
 
   return (
     <div className={styles.loginBar}>
