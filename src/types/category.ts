@@ -1,5 +1,6 @@
-export interface Category {
-  _id: string;
+import { Doc } from "./database";
+
+export interface Category extends Doc {
   slug: string;
   label: string;
   description?: string;
