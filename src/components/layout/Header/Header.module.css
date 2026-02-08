@@ -2,7 +2,25 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 32px;
-  background-color: #000;
-  gap: 16px;
+  padding: 0 24px;
+  height: 60px;
+  background-color: var(--color-background-header);
+  color: var(--color-text);
+}
+
+.left {
+  flex: 1;
+}
+
+.center {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+}
+
+.right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }

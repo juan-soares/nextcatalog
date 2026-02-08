@@ -1,3 +1,4 @@
+import "../styles/variables.css";
 import { Header } from "../components/layout";
 
 export const metadata = {

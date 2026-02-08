@@ -1,0 +1,9 @@
+:root {
+  --color-primary: #e50914;
+  --color-primary-hover: #f40612;
+  --color-background-header: #141414;
+  --color-background-search: #222;
+  --color-background-search-hover: #333;
+  --color-text: #ffffff;
+  --color-text-muted: #b3b3b3;
+}

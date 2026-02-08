@@ -5,9 +5,17 @@ import { Loginbar, Searchbar } from ".";
 export function Header() {
   return (
     <header className={styles.header}>
-      <Logo />
-      <Searchbar />
-      <Loginbar />
+      <div className={styles.left}>
+        <Logo />
+      </div>
+
+      <div className={styles.center}>
+        <Searchbar />
+      </div>
+
+      <div className={styles.right}>
+        <Loginbar />
+      </div>
     </header>
   );
 }
