@@ -1,5 +1,5 @@
 import styles from "./Loginbar.module.css";
-import { UserInfo, LoginButton } from "./";
+import { UserInfo, LoginButton } from ".";
 
 export function Loginbar() {
   const isAuthenticated = false;

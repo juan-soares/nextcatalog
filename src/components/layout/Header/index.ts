@@ -1,4 +1,3 @@
 export { Header } from "./Header";
-export { Searchbar } from "./Searchbar";
-export { Loginbar } from "./Loginbar";
-export { Navbar } from "./Navbar";
+export { HeaderTop } from "./HeaderTop";
+export { HeaderNav } from "./HeaderNav";

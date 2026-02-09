@@ -1,6 +1,6 @@
 import "../styles/variables.css";
 import "../styles/global.css";
-import { Header, FranchisesCarousel } from "../components/layout";
+import { StickyContainer } from "../components/layout";
 
 export const metadata = {
   title: "Next.js",
@@ -15,8 +15,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Header />
-        <FranchisesCarousel />
+        <StickyContainer />
         {children}
       </body>
     </html>
