@@ -3,7 +3,7 @@
     {
       "_id": "cat1",
       "slug": "animes",
-      "label": "Animes",
+      "title": "Animes",
       "description": "Séries animadas japonesas com temporadas, OVAs e especiais.",
       "createdAt": "2026-02-08T12:00:00Z",
       "lastUpdateAt": "2026-02-08T12:00:00Z"
@@ -11,63 +11,63 @@
     {
       "_id": "cat2",
       "slug": "desenhos-animados",
-      "label": "Desenhos Animados",
+      "title": "Desenhos Animados",
       "createdAt": "2026-02-08T12:00:00Z",
       "lastUpdateAt": "2026-02-08T12:00:00Z"
     },
     {
       "_id": "cat3",
       "slug": "series",
-      "label": "Séries",
+      "title": "Séries",
       "createdAt": "2026-02-08T12:00:00Z",
       "lastUpdateAt": "2026-02-08T12:00:00Z"
     },
     {
       "_id": "cat4",
       "slug": "filmes-animados",
-      "label": "Filmes Animados",
+      "title": "Filmes Animados",
       "createdAt": "2026-02-08T12:00:00Z",
       "lastUpdateAt": "2026-02-08T12:00:00Z"
     },
     {
       "_id": "cat5",
       "slug": "filmes-live-action",
-      "label": "Filmes Live-Action",
+      "title": "Filmes Live-Action",
       "createdAt": "2026-02-08T12:00:00Z",
       "lastUpdateAt": "2026-02-08T12:00:00Z"
     },
     {
       "_id": "cat6",
       "slug": "jogos-de-tabuleiro",
-      "label": "Jogos de Tabuleiro",
+      "title": "Jogos de Tabuleiro",
       "createdAt": "2026-02-08T12:00:00Z",
       "lastUpdateAt": "2026-02-08T12:00:00Z"
     },
     {
       "_id": "cat7",
       "slug": "jogos-eletronicos",
-      "label": "Jogos Eletrônicos",
+      "title": "Jogos Eletrônicos",
       "createdAt": "2026-02-08T12:00:00Z",
       "lastUpdateAt": "2026-02-08T12:00:00Z"
     },
     {
       "_id": "cat8",
       "slug": "livros",
-      "label": "Livros",
+      "title": "Livros",
       "createdAt": "2026-02-08T12:00:00Z",
       "lastUpdateAt": "2026-02-08T12:00:00Z"
     },
     {
       "_id": "cat9",
       "slug": "musicas",
-      "label": "Músicas",
+      "title": "Músicas",
       "createdAt": "2026-02-08T12:00:00Z",
       "lastUpdateAt": "2026-02-08T12:00:00Z"
     },
     {
       "_id": "cat10",
       "slug": "hqs",
-      "label": "HQs",
+      "title": "HQs",
       "createdAt": "2026-02-08T12:00:00Z",
       "lastUpdateAt": "2026-02-08T12:00:00Z"
     }

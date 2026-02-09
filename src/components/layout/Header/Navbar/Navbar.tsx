@@ -1,8 +1,9 @@
 import Link from "next/link";
 import styles from "./Navbar.module.css";
+import { getCategories } from "@/src/lib/services/categories";
 
 export async function Navbar() {
-  const categories = [{ _id: "oi", title: "teste", slug: "teste" }];
+  const categories = await getCategories("alph");
 
   return (
     <nav className={styles.navbar}>
