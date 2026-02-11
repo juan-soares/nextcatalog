@@ -1,39 +1,38 @@
 .searchBar {
+  flex: 1 1 auto;
   display: flex;
+  justify-content: center;
   align-items: center;
-  width: 400px;
-  max-width: 100%;
-  background-color: #333;
-  border-radius: 4px;
-  overflow: hidden;
+  gap: var(--spacing-sm);
 }
 
 .input {
-  flex: 1;
-  padding: 6px 12px;
+  width: 300px;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--border-radius-sm);
   border: none;
-  outline: none;
-  background: transparent;
-  color: var(--color-text);
+  font-size: var(--font-size-md);
+  background-color: var(--color-bg-light);
+  color: var(--color-text-dark);
 }
 
 .input::placeholder {
-  color: #aaa;
+  color: var(--color-text-light);
 }
 
 .iconButton {
-  padding: 6px 12px;
-  background-color: var(--color-primary);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background-color: var(--color-accent);
+  color: var(--color-text-light);
   border: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  border-radius: var(--border-radius-sm);
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  font-size: var(--font-size-md);
+  transition: background-color 0.2s;
 }
 
 .iconButton:hover {
-  background-color: var(--color-primary-hover);
+  background-color: var(--color-accent-dark);
 }
 
 .iconButton svg {

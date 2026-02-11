@@ -1,5 +1,11 @@
 .header {
   display: flex;
   flex-direction: column;
-  background-color: #141414;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-light);
+  height: 60px;
+  gap: var(--spacing-md);
 }
