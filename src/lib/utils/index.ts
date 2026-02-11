@@ -1,1 +1,1 @@
-export * from "./sortBy";
+export * from "./sort.util";

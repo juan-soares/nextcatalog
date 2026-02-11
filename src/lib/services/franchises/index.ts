@@ -1,1 +1,0 @@
-export { getFranchises } from "./get";

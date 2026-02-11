@@ -1,5 +1,4 @@
-import "../styles/variables.css";
-import "../styles/global.css";
+import "./global.css";
 import { StickyContainer } from "../components/layout";
 
 export const metadata = {

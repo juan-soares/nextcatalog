@@ -6,7 +6,6 @@ export function StickyContainer() {
   return (
     <div className={styles.stickyContainer}>
       <Header />
-      <FranchisesCarousel />
     </div>
   );
 }

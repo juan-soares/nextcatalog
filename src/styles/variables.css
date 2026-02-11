@@ -1,9 +1,31 @@
 :root {
+  /* Cores principais */
+  --color-background: #141414;
+  --color-surface: #1f1f1f;
   --color-primary: #e50914;
-  --color-primary-hover: #f40612;
-  --color-background-header: #141414;
-  --color-background-search: #222;
-  --color-background-search-hover: #333;
-  --color-text: #ffffff;
-  --color-text-muted: #b3b3b3;
+
+  /* Texto */
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #b3b3b3;
+  --color-text-muted: #777777;
+
+  /* Estados */
+  --color-hover: rgba(255, 255, 255, 0.1);
+  --color-border: rgba(255, 255, 255, 0.15);
+
+  /* Espaçamentos (escala) */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+
+  /* Bordas */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  /* Transições */
+  --transition-fast: 0.2s ease;
+  --transition-default: 0.3s ease;
 }
