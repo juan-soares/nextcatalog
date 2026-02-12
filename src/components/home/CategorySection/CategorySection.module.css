@@ -1,0 +1,26 @@
+.categorySection {
+  margin-bottom: var(--spacing-xl);
+  padding: 0 var(--spacing-xl);
+}
+
+.title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: var(--spacing-md);
+}
+
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: var(--spacing-sm);
+}
+
+.moreLink {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  transition: var(--transition-fast);
+}
+
+.moreLink:hover {
+  color: var(--color-primary);
+}
