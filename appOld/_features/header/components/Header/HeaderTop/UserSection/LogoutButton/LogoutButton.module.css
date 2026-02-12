@@ -1,9 +1,0 @@
-.logoutButton {
-  background: var(--primary);
-  color: white;
-  padding: 8px 14px;
-  border-radius: var(--radius);
-  font-size: 14px;
-  border: none;
-  cursor: pointer;
-}
