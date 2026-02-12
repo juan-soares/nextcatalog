@@ -1,28 +1,23 @@
 .carouselWrapper {
-  overflow-x: auto;
-  white-space: nowrap;
-  padding: var(--spacing-md) 0;
+  overflow: hidden;
   background-color: var(--color-background);
+  padding: var(--spacing-md) 0;
+  position: relative;
 }
 
 .carousel {
   display: flex;
   gap: var(--spacing-lg);
-  padding-left: var(--spacing-md);
+  animation: scrollLeft 15s linear infinite;
 }
 
 .carouselItem {
   display: flex;
   flex-direction: column;
   align-items: center;
-  flex: 0 0 auto; /* força todos os itens a ficarem lado a lado e do mesmo tamanho */
-  width: 100px; /* largura fixa para todos */
+  flex: 0 0 auto;
+  width: 100px;
   cursor: pointer;
-  transition: transform var(--transition-fast);
-}
-
-.carouselItem:hover {
-  transform: scale(1.1);
 }
 
 .logo {
@@ -35,5 +30,14 @@
   color: var(--color-text-primary);
   font-size: 0.875rem;
   text-align: center;
-  white-space: normal; /* permite quebrar linha se o título for longo */
+  white-space: normal;
+}
+
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }

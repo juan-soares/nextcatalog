@@ -8,11 +8,18 @@ export async function FranchisesCarousel() {
     sortDirection: "asc",
   });
 
+  const minItemsToFill = 20; // ajuste conforme a largura da tela
+  const repeatTimes = Math.ceil(minItemsToFill / franchises.length);
+
+  const duplicatedFranchises = Array.from({ length: repeatTimes }).flatMap(
+    () => franchises,
+  );
+
   return (
     <div className={styles.carouselWrapper}>
       <div className={styles.carousel}>
-        {franchises.map(({ _id, logo, title }) => (
-          <div key={_id} className={styles.carouselItem}>
+        {duplicatedFranchises.map(({ logo, title }, index) => (
+          <div key={index} className={styles.carouselItem}>
             <Image
               src={logo}
               alt={title}
