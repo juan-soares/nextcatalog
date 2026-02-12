@@ -8,6 +8,10 @@ interface Props {
 }
 
 export function MediaList({ medias, categorySlug }: Props) {
+  if (!medias || medias.length === 0) {
+    return <p className={styles.emptyMessage}>Sem itens na lista.</p>;
+  }
+
   const mediasCardInfo: MediaItemCard[] = medias.map(
     ({
       _id,

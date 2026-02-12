@@ -9,3 +9,10 @@
 
   scroll-behavior: smooth;
 }
+
+.emptyMessage {
+  color: var(--color-text-secondary);
+  font-size: 1rem;
+  padding: var(--spacing-md) 0;
+  text-align: left;
+}
