@@ -9,13 +9,14 @@ interface Props {
 
 export function MediaListItem({
   categorySlug,
-  media: { slug, cover, title, releaseYear },
+  media: { slug, cover, synopsis, title, releaseYear },
 }: Props) {
   return (
     <li className={styles.mediaListItem}>
       <Link href={`/${categorySlug}/${slug}`} className={styles.link}>
         <div className={styles.imageWrapper}>
           <img src={cover} alt={title} className={styles.image} />
+          <div className={styles.tooltip}>{synopsis}</div>
         </div>
 
         <h3 className={styles.title}>{title}</h3>

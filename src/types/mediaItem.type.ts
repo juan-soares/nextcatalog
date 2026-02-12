@@ -1,3 +1,4 @@
+import { Category } from "./category.type";
 import { Doc } from "./database";
 import { Season } from "./season";
 
@@ -10,6 +11,7 @@ export interface MediaItemCard extends Doc {
 }
 
 export interface MediaItem extends Omit<MediaItemCard, "releaseYear"> {
+  categoryId: Category["_id"];
   translatedTitle?: string;
   galleryId?: string;
   releaseDate: string;
