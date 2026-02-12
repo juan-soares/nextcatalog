@@ -33,7 +33,11 @@ export function MediaList({ medias, categorySlug }: Props) {
   return (
     <ul className={styles.mediaList}>
       {mediasCardInfo.map((mediaInfo) => (
-        <MediaListItem categorySlug={categorySlug} media={mediaInfo} />
+        <MediaListItem
+          key={mediaInfo._id}
+          categorySlug={categorySlug}
+          media={mediaInfo}
+        />
       ))}
     </ul>
   );
