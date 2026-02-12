@@ -99,7 +99,7 @@
     {
       "_id": "f1",
       "title": "Naruto",
-      "slug": "naruto",
+      "slug": "/franquias/naruto",
       "logo": "/database/franchises/naruto.png",
       "createdAt": "2026-02-08T12:00:00Z",
       "lastUpdateAt": "2026-02-08T12:00:00Z",
@@ -107,7 +107,7 @@
         {
           "_id": "sf1",
           "title": "Boruto",
-          "slug": "boruto",
+          "slug": "/franquias/boruto",
           "logo": "boruto-logo.jpg",
           "createdAt": "2026-02-08T12:00:00Z",
           "lastUpdateAt": "2026-02-08T12:00:00Z",
@@ -118,7 +118,7 @@
     {
       "_id": "f2",
       "title": "Marvel",
-      "slug": "marvel",
+      "slug": "/franquias/marvel",
       "logo": "/database/franchises/marvel.png",
       "createdAt": "2026-02-08T12:00:00Z",
       "lastUpdateAt": "2026-02-08T12:00:00Z",

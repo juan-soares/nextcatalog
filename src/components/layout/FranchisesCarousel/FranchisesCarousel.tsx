@@ -1,6 +1,7 @@
 import styles from "./FranchisesCarousel.module.css";
 import { listBaseFranchises } from "@/src/lib/services";
 import Image from "next/image";
+import Link from "next/link";
 
 export async function FranchisesCarousel() {
   const franchises = await listBaseFranchises({
@@ -18,8 +19,8 @@ export async function FranchisesCarousel() {
   return (
     <div className={styles.carouselWrapper}>
       <div className={styles.carousel}>
-        {duplicatedFranchises.map(({ logo, title }, index) => (
-          <div key={index} className={styles.carouselItem}>
+        {duplicatedFranchises.map(({ logo, title, slug }, index) => (
+          <Link key={index} className={styles.carouselItem} href={slug}>
             <Image
               src={logo}
               alt={title}
@@ -28,7 +29,7 @@ export async function FranchisesCarousel() {
               className={styles.logo}
             />
             <span className={styles.title}>{title}</span>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
