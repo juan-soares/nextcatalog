@@ -1,36 +1,41 @@
 .userInfo {
   display: flex;
   align-items: center;
-  gap: 12px;
-  height: 100%;
+  gap: var(--spacing-md);
 }
 
 .avatar {
-  width: 36px;
-  height: 36px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid var(--color-primary);
+  border: 2px solid var(--color-border);
+  transition: var(--transition-fast);
 }
 
-.name {
-  font-size: 14px;
-  color: var(--color-text);
+.avatar:hover {
+  border-color: var(--color-primary);
+}
+
+.userName {
+  font-size: 0.95rem;
   font-weight: 500;
-  white-space: nowrap;
+  color: var(--color-text-primary);
 }
 
 .logoutButton {
-  padding: 6px 12px;
-  font-size: 12px;
-  border: none;
-  border-radius: 4px;
-  background-color: var(--color-primary);
-  color: var(--color-text);
+  padding: var(--spacing-xs) var(--spacing-md);
+
+  background-color: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+
+  color: var(--color-text-secondary);
   cursor: pointer;
-  transition: background-color 0.2s ease;
+
+  transition: var(--transition-fast);
 }
 
 .logoutButton:hover {
-  background-color: var(--color-primary-hover);
+  background-color: var(--color-hover);
+  color: var(--color-text-primary);
+  border-color: var(--color-primary);
 }

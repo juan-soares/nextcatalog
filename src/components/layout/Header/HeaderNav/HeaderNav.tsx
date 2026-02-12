@@ -11,11 +11,9 @@ export async function HeaderNav() {
   return (
     <nav className={styles.nav}>
       <ul className={styles.list}>
-        {categories.map(({ _id, slug, title }) => (
-          <li key={_id}>
-            <Link href={`/${slug}`} className={styles.link}>
-              {title}
-            </Link>
+        {categories.map(({_id, slug, title}) => (
+          <li key={_id} className={styles.item}>
+            <Link href={`/${slug}`}>{title}</Link>
           </li>
         ))}
       </ul>

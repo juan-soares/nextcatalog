@@ -1,11 +1,6 @@
 .header {
+  width: 100%;
+  background-color: var(--color-background);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: var(--spacing-sm) var(--spacing-md);
-  background-color: var(--color-bg-dark);
-  color: var(--color-text-light);
-  height: 60px;
-  gap: var(--spacing-md);
 }

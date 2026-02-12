@@ -1,7 +1,8 @@
 .logo {
-  font-size: 20px;
-  font-weight: bold;
-  text-decoration: none;
-  color: white;
-  flex: 0 0 auto;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.logo:hover {
+  opacity: 0.8;
 }

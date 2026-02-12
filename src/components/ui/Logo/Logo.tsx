@@ -9,7 +9,7 @@ export function Logo() {
         src="/img/icons/logo.png"
         alt="Logotipo da página Catalogeek."
         width={120}
-        height={32}
+        height={70}
         priority
       />
     </Link>

@@ -1,18 +1,10 @@
 .headerTop {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
+  height: 70px;
+  display: flex;
   align-items: center;
-  padding: 16px 20px;
-}
+  justify-content: space-between;
 
-@media (max-width: 768px) {
-  .searchInput {
-    width: 180px;
-    font-size: var(--font-size-sm);
-  }
+  padding: 0 var(--spacing-xl);
 
-  .topBar {
-    padding: var(--spacing-xs) var(--spacing-sm);
-    gap: var(--spacing-xs);
-  }
+  background-color: var(--color-background);
 }
