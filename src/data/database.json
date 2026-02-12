@@ -101,48 +101,45 @@
       "title": "Naruto",
       "slug": "/franquias/naruto",
       "logo": "/database/franchises/naruto.png",
+      "parentFranchiseId": null,
       "createdAt": "2026-02-08T12:00:00Z",
-      "lastUpdateAt": "2026-02-08T12:00:00Z",
-      "subFranchises": [
-        {
-          "_id": "sf1",
-          "title": "Boruto",
-          "slug": "/franquias/boruto",
-          "logo": "boruto-logo.jpg",
-          "createdAt": "2026-02-08T12:00:00Z",
-          "lastUpdateAt": "2026-02-08T12:00:00Z",
-          "subFranchises": []
-        }
-      ]
+      "lastUpdateAt": "2026-02-08T12:00:00Z"
+    },
+    {
+      "_id": "sf1",
+      "title": "Boruto",
+      "slug": "/franquias/boruto",
+      "logo": "boruto-logo.jpg",
+      "parentFranchiseId": "f1",
+      "createdAt": "2026-02-08T12:00:00Z",
+      "lastUpdateAt": "2026-02-08T12:00:00Z"
     },
     {
       "_id": "f2",
       "title": "Marvel",
       "slug": "/franquias/marvel",
       "logo": "/database/franchises/marvel.png",
+      "parentFranchiseId": null,
       "createdAt": "2026-02-08T12:00:00Z",
-      "lastUpdateAt": "2026-02-08T12:00:00Z",
-      "subFranchises": [
-        {
-          "_id": "sf2",
-          "title": "Avengers",
-          "slug": "avengers",
-          "logo": "avengers-logo.png",
-          "createdAt": "2026-02-08T12:00:00Z",
-          "lastUpdateAt": "2026-02-08T12:00:00Z",
-          "subFranchises": [
-            {
-              "_id": "sf3",
-              "title": "Avengers Ultimate",
-              "slug": "avengers-ultimate",
-              "logo": "avengers-ultimate-logo.png",
-              "createdAt": "2026-02-08T12:00:00Z",
-              "lastUpdateAt": "2026-02-08T12:00:00Z",
-              "subFranchises": []
-            }
-          ]
-        }
-      ]
+      "lastUpdateAt": "2026-02-08T12:00:00Z"
+    },
+    {
+      "_id": "sf2",
+      "title": "Avengers",
+      "slug": "avengers",
+      "logo": "avengers-logo.png",
+      "parentFranchiseId": "f2",
+      "createdAt": "2026-02-08T12:00:00Z",
+      "lastUpdateAt": "2026-02-08T12:00:00Z"
+    },
+    {
+      "_id": "sf3",
+      "title": "Avengers Ultimate",
+      "slug": "avengers-ultimate",
+      "logo": "avengers-ultimate-logo.png",
+      "parentFranchiseId": "sf2",
+      "createdAt": "2026-02-08T12:00:00Z",
+      "lastUpdateAt": "2026-02-08T12:00:00Z"
     }
   ],
   "galleries": [
