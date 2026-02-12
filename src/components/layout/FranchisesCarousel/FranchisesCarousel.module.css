@@ -1,42 +1,39 @@
-.franchisesCarouselContainer {
-  overflow: hidden;
-  display: block;
-  width: 100%;
-  background-color: #141414;
+.carouselWrapper {
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: var(--spacing-md) 0;
+  background-color: var(--color-background);
 }
 
-.franchisesCarouselInner {
+.carousel {
   display: flex;
-  gap: 50px;
-  flex-wrap: nowrap;
-  transform: translateX(100%);
-  animation: scroll 40s linear infinite;
+  gap: var(--spacing-lg);
+  padding-left: var(--spacing-md);
 }
 
-.franchisesCarouselItem {
-  flex: 0 0 auto;
-  text-align: center;
+.carouselItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 0 0 auto; /* força todos os itens a ficarem lado a lado e do mesmo tamanho */
+  width: 100px; /* largura fixa para todos */
+  cursor: pointer;
+  transition: transform var(--transition-fast);
 }
 
-.franchisesCarouselItem img {
-  width: 100px;
-  height: 100px;
+.carouselItem:hover {
+  transform: scale(1.1);
+}
+
+.logo {
+  border-radius: var(--radius-md);
   object-fit: contain;
-  border-radius: 5px;
-  background-color: #141414;
+  margin-bottom: var(--spacing-xs);
 }
 
-.franchisesCarouselItem h3 {
-  color: #fff;
-  margin-bottom: 10px;
-  font-size: 14px;
-}
-
-@keyframes scroll {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
+.title {
+  color: var(--color-text-primary);
+  font-size: 0.875rem;
+  text-align: center;
+  white-space: normal; /* permite quebrar linha se o título for longo */
 }

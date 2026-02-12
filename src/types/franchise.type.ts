@@ -5,7 +5,7 @@ export interface Franchise extends Doc {
   translatedTitle: string;
   slug: string;
   logo: string;
-  parentFranchiseId?: Franchise["_id"];
+  parentFranchiseId: Franchise["_id"] | null;
 }
 
 export interface FranchisePopulated extends Omit<

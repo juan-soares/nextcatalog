@@ -1,16 +1,26 @@
 import styles from "./FranchisesCarousel.module.css";
-import { getFranchises } from "@/src/lib/services";
+import { listBaseFranchises } from "@/src/lib/services";
+import Image from "next/image";
 
 export async function FranchisesCarousel() {
-  const franchises = await getFranchises("alph");
+  const franchises = await listBaseFranchises({
+    sortBy: "alph",
+    sortDirection: "asc",
+  });
 
   return (
-    <div className={styles.franchisesCarouselContainer}>
-      <div className={styles.franchisesCarouselInner}>
-        {franchises.map(({ logo, title }, index) => (
-          <div key={index} className={styles.franchisesCarouselItem}>
-            <img src={logo} alt={`Logotipo da franquia ${title}`} />
-            <h3>{title}</h3>
+    <div className={styles.carouselWrapper}>
+      <div className={styles.carousel}>
+        {franchises.map(({ _id, logo, title }) => (
+          <div key={_id} className={styles.carouselItem}>
+            <Image
+              src={logo}
+              alt={title}
+              width={80}
+              height={80}
+              className={styles.logo}
+            />
+            <span className={styles.title}>{title}</span>
           </div>
         ))}
       </div>
