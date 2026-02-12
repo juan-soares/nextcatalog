@@ -1,0 +1,11 @@
+.mediaList {
+  display: flex;
+  gap: var(--spacing-md);
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  padding-bottom: var(--spacing-sm);
+
+  scroll-behavior: smooth;
+}
