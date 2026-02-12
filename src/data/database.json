@@ -126,7 +126,7 @@
     {
       "_id": "sf2",
       "title": "Avengers",
-      "slug": "avengers",
+      "slug": "/franquias/avengers",
       "logo": "avengers-logo.png",
       "parentFranchiseId": "f2",
       "createdAt": "2026-02-08T12:00:00Z",
@@ -135,7 +135,7 @@
     {
       "_id": "sf3",
       "title": "Avengers Ultimate",
-      "slug": "avengers-ultimate",
+      "slug": "/franquias/avengers-ultimate",
       "logo": "avengers-ultimate-logo.png",
       "parentFranchiseId": "sf2",
       "createdAt": "2026-02-08T12:00:00Z",
