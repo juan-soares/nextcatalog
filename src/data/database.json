@@ -200,6 +200,7 @@
       "franchiseId": "f1",
       "createdAt": "2026-02-08T12:00:00Z",
       "lastUpdateAt": "2026-02-08T12:00:00Z",
+      "releaseDate": "2002-10-03",
       "seasons": [
         {
           "number": 1,
