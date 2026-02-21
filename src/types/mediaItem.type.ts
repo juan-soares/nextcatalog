@@ -1,5 +1,5 @@
 import { Category } from "./category.type";
-import { Doc } from "./database";
+import { Doc } from "./database.type";
 import { Season } from "./season";
 
 export interface MediaItemCard extends Doc {

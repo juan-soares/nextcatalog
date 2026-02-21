@@ -1,4 +1,4 @@
-import { Doc } from "./database";
+import { Doc } from "./database.type";
 
 export interface Franchise extends Doc {
   title: string;

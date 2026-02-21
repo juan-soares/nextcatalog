@@ -7,6 +7,19 @@ async function getAllMediaItems(): Promise<MediaItem[]> {
   return db.mediaItems || [];
 }
 
+async function getMediaItemByCategoryId(
+  categoryIdToFind: string,
+): Promise<MediaItem[]> {
+  const mediaItems = await getAllMediaItems();
+
+  const mediaItemsFiltered = mediaItems.filter(
+    ({ categoryId }) => categoryId === categoryIdToFind,
+  );
+
+  return mediaItemsFiltered;
+}
+
 export const mediaItemRepository = {
   getAllMediaItems,
+  getMediaItemByCategoryId,
 };
