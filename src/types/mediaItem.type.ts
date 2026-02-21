@@ -1,4 +1,4 @@
-import { Category } from "./category.type";
+import { CategoryDoc } from "@/src/types";
 import { Doc } from "./database.type";
 import { Season } from "./season";
 
@@ -10,8 +10,8 @@ export interface MediaItemCard extends Doc {
   slug: string;
 }
 
-export interface MediaItem extends Omit<MediaItemCard, "releaseYear"> {
-  categoryId: Category["_id"];
+export interface MediaItemDoc extends Omit<MediaItemCard, "releaseYear"> {
+  categoryId: CategoryDoc["_id"];
   translatedTitle?: string;
   galleryId?: string;
   releaseDate: string;

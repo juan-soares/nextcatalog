@@ -1,15 +1,15 @@
 import { Doc } from "./database.type";
 
-export interface Franchise extends Doc {
+export interface FranchiseDoc extends Doc {
   title: string;
   translatedTitle: string;
   slug: string;
   logo: string;
-  parentFranchiseId: Franchise["_id"] | null;
+  parentFranchiseId: FranchiseDoc["_id"] | null;
 }
 
 export interface FranchisePopulated extends Omit<
-  Franchise,
+  FranchiseDoc,
   "parentFranchiseId"
 > {
   subfranchises: FranchisePopulated[];

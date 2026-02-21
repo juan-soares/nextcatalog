@@ -1,21 +1,9 @@
 import styles from "./homePage.module.css";
-import {
-  listCategories,
-  listMediaItemsGroupedByCategoryId,
-} from "../lib/services";
-import { Category } from "../types";
+import { homeData } from "../lib/compositions";
 import { CategorySection } from "../components/home";
 
 export default async function HomePage() {
-  const categories: Category[] = await listCategories({
-    sortBy: "alph",
-    sortDirection: "asc",
-  });
-
-  const mediaItemsGroupedByCategory = await listMediaItemsGroupedByCategoryId(
-    { sortBy: "lastUpdateAt", sortDirection: "desc" },
-    5,
-  );
+  const { categories, mediaItemsGroupedByCategory } = await homeData();
 
   return (
     <main className={styles.homePage}>
@@ -24,7 +12,7 @@ export default async function HomePage() {
           key={_id}
           title={title}
           slug={slug}
-          mediaItems={mediaItemsGroupedByCategory[_id] ?? []}
+          mediaItems={mediaItemsGroupedByCategory[_id] || []}
         />
       ))}
     </main>

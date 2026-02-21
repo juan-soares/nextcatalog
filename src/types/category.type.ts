@@ -1,6 +1,6 @@
 import { Doc } from "./database.type";
 
-export interface Category extends Doc {
+export interface CategoryDoc extends Doc {
   slug: string;
   title: string;
   description?: string;

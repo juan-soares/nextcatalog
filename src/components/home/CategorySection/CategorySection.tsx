@@ -1,7 +1,7 @@
 import Link from "next/link";
 import styles from "./CategorySection.module.css";
-import { MediaList } from "../../ui";
 import { MediaItem } from "@/src/types";
+import { MediaList } from "../../ui";
 
 interface Props {
   title: string;

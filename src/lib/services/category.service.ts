@@ -1,16 +1,18 @@
-import { Category, SortOptions } from "@/src/types";
+import { CategoryDoc, SortOptions } from "@/src/types";
 import { categoryRepository } from "@/src/data/repositories";
 import { sort } from "../utils";
 
 export async function listCategories({
   sortBy = "alph",
   sortDirection = "asc",
-}: SortOptions): Promise<Category[]> {
+}: SortOptions): Promise<CategoryDoc[]> {
   const categories = await categoryRepository.getAllCategories();
   return sort(categories, sortBy, sortDirection);
 }
 
-export async function createCategory(category: Category): Promise<Category> {
+export async function createCategory(
+  category: CategoryDoc,
+): Promise<CategoryDoc> {
   const existing = (await categoryRepository.getAllCategories()).find(
     (c) => c.slug === category.slug,
   );
@@ -21,8 +23,8 @@ export async function createCategory(category: Category): Promise<Category> {
 
 export async function updateCategoryById(
   id: string,
-  fields: Partial<Category>,
-): Promise<Category | null> {
+  fields: Partial<CategoryDoc>,
+): Promise<CategoryDoc | null> {
   return categoryRepository.updateCategory(id, fields);
 }
 
