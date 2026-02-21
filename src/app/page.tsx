@@ -1,18 +1,18 @@
 import styles from "./homePage.module.css";
-import { homeData } from "../lib/compositions";
 import { CategorySection } from "../components/home";
+import { listCategoriesWithMediaItemCards } from "../lib/services";
 
 export default async function HomePage() {
-  const { categories, mediaItemsGroupedByCategory } = await homeData();
+  const categorySections = await listCategoriesWithMediaItemCards();
 
   return (
     <main className={styles.homePage}>
-      {categories.map(({ _id, title, slug }) => (
+      {categorySections.map(({ _id, title, slug, mediaItemCards }) => (
         <CategorySection
           key={_id}
           title={title}
           slug={slug}
-          mediaItems={mediaItemsGroupedByCategory[_id] || []}
+          mediaItems={mediaItemCards}
         />
       ))}
     </main>

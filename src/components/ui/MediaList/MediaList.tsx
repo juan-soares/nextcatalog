@@ -1,9 +1,9 @@
 import styles from "./MediaList.module.css";
-import { MediaItem, MediaItemCard } from "@/src/types";
+import { MediaItemCard } from "@/src/types";
 import { MediaListItem } from "./MediaListItem";
 
 interface Props {
-  medias: MediaItem[];
+  medias: MediaItemCard[];
   categorySlug: string;
 }
 
@@ -12,31 +12,9 @@ export function MediaList({ medias, categorySlug }: Props) {
     return <p className={styles.emptyMessage}>Sem itens na lista.</p>;
   }
 
-  const mediasCardInfo: MediaItemCard[] = medias.map(
-    ({
-      _id,
-      title,
-      synopsis,
-      cover,
-      slug,
-      releaseDate,
-      createdAt,
-      lastUpdateAt,
-    }) => ({
-      _id,
-      title,
-      synopsis,
-      cover,
-      slug,
-      releaseYear: new Date(releaseDate).getFullYear().toString(),
-      createdAt,
-      lastUpdateAt,
-    }),
-  );
-
   return (
     <ul className={styles.mediaList}>
-      {mediasCardInfo.map((mediaInfo) => (
+      {medias.map((mediaInfo) => (
         <MediaListItem
           key={mediaInfo._id}
           categorySlug={categorySlug}

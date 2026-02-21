@@ -1,12 +1,12 @@
 import Link from "next/link";
 import styles from "./CategorySection.module.css";
-import { MediaItem } from "@/src/types";
+import { MediaItemCard } from "@/src/types";
 import { MediaList } from "../../ui";
 
 interface Props {
   title: string;
   slug: string;
-  mediaItems: MediaItem[];
+  mediaItems: MediaItemCard[];
 }
 
 export async function CategorySection({ title, slug, mediaItems }: Props) {

@@ -1,9 +1,9 @@
-import { Category, Franchise, MediaItem } from ".";
+import { CategoryDoc, FranchiseDoc, MediaItemDoc } from ".";
 
 export interface Database {
-  categories: Category[];
-  franchises: Franchise[];
-  mediaItems: MediaItem[];
+  categories: CategoryDoc[];
+  franchises: FranchiseDoc[];
+  mediaItems: MediaItemDoc[];
 }
 
 export interface Doc {

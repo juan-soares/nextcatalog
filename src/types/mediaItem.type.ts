@@ -1,23 +1,19 @@
-import { CategoryDoc } from "@/src/types";
+import { CategoryDoc, FranchiseDoc, FranchisePopulated } from "@/src/types";
 import { Doc } from "./database.type";
 import { Season } from "./season";
 
-export interface MediaItemCard extends Doc {
+export interface MediaItemDoc extends Doc {
   title: string;
-  synopsis: string;
-  cover: string;
-  releaseYear: string;
-  slug: string;
-}
-
-export interface MediaItemDoc extends Omit<MediaItemCard, "releaseYear"> {
   categoryId: CategoryDoc["_id"];
   translatedTitle?: string;
-  galleryId?: string;
+  slug: string;
+  cover: string;
+  synopsis: string;
+  //galleryId?: string[];
   releaseDate: string;
-  fileIds?: string[];
+  //filesId?: string[];
   trailer?: string;
-  franchiseId?: string;
+  franchiseId: FranchiseDoc["_id"];
   seasons?: Season[];
   platform?: string[];
   gameType?: string;
@@ -25,4 +21,18 @@ export interface MediaItemDoc extends Omit<MediaItemCard, "releaseYear"> {
   modes?: string[];
   movement?: string[];
   acquired?: boolean;
+}
+
+type mediaItemDocFieldsToOmit = "categoryId" | "franchiseId";
+
+export interface MediaItemPopulated extends Omit<
+  MediaItemDoc,
+  mediaItemDocFieldsToOmit
+> {
+  category: CategoryDoc;
+  franchise: FranchisePopulated;
+}
+
+export interface MediaItemCard extends Omit<MediaItemPopulated, "releaseDate"> {
+  releaseYear: string;
 }

@@ -1,5 +1,6 @@
-import { CategoryDoc, SortOptions } from "@/src/types";
+import { CategoryDoc, CategoryWithMediaCards, SortOptions } from "@/src/types";
 import { categoryRepository } from "@/src/data/repositories";
+import { listMediaItemCards } from "@/src/lib/services";
 import { sort } from "../utils";
 
 export async function listCategories({
@@ -8,6 +9,33 @@ export async function listCategories({
 }: SortOptions): Promise<CategoryDoc[]> {
   const categories = await categoryRepository.getAllCategories();
   return sort(categories, sortBy, sortDirection);
+}
+
+export async function listCategoriesWithMediaItemCards(): Promise<
+  CategoryWithMediaCards[]
+> {
+  const allCategories = await listCategories({
+    sortBy: "alph",
+    sortDirection: "asc",
+  });
+
+  const allMediaItemsCards = await listMediaItemCards(
+    {
+      sortBy: "lastUpdateAt",
+      sortDirection: "desc",
+    },
+    5,
+  );
+
+  const categoryWithMediaItem: CategoryWithMediaCards[] = allCategories.map(
+    (category) => {
+      const mediaItemCards = allMediaItemsCards.filter(
+        ({ category: { _id } }) => _id === category._id,
+      );
+      return { ...category, mediaItemCards };
+    },
+  );
+  return categoryWithMediaItem;
 }
 
 export async function createCategory(
