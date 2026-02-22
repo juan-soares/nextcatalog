@@ -1,20 +1,24 @@
 import { notFound } from "next/navigation";
 import styles from "./CategoryPage.module.css";
 import {
-  listCategoriesWithMediaItemCards,
   listCategoryBySlug,
   listCategoryWithMediaItemCardsByCategoryId,
 } from "@/src/lib/services";
 import { MediaList } from "@/src/components/ui";
+import { Sortbar } from "@/src/components/categoryPage";
 
 interface Props {
   params: {
     category: string;
   };
+  searchParams: {
+    sort?: string;
+  };
 }
 
-export default async function CategoryPage({ params }: Props) {
+export default async function CategoryPage({ params, searchParams }: Props) {
   const { category } = await params;
+  const { sort = "recent" } = await searchParams;
 
   const categoryInfo = await listCategoryBySlug(category);
 
@@ -35,6 +39,7 @@ export default async function CategoryPage({ params }: Props) {
         <aside className={styles.sidebar}>Sidebar</aside>
 
         <section className={styles.main}>
+          <Sortbar currentSort={sort} />
           <MediaList
             medias={categoryWithMediaItemCards?.mediaItemCards ?? []}
             categorySlug={slug}

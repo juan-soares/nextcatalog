@@ -1,5 +1,5 @@
 import styles from "./homePage.module.css";
-import { CategorySection } from "../components/home";
+import { CategorySection } from "../components/homePage";
 import { listCategoriesWithMediaItemCards } from "../lib/services";
 
 export default async function HomePage() {
