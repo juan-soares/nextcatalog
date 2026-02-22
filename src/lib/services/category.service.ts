@@ -1,7 +1,12 @@
-import { CategoryDoc, CategoryWithMediaCards, SortOptions } from "@/src/types";
+import {
+  CategoryDoc,
+  CategoryWithMediaCards,
+  MediaItemCard,
+  SortOptions,
+} from "@/src/types";
 import { categoryRepository } from "@/src/data/repositories";
 import { listMediaItemCards } from "@/src/lib/services";
-import { sort } from "../utils";
+import { sort } from "@/src/lib/utils";
 
 export async function listCategories({
   sortBy = "alph",
@@ -11,30 +16,39 @@ export async function listCategories({
   return sort(categories, sortBy, sortDirection);
 }
 
+export async function listCategoryBySlug(
+  slugToSearch: CategoryDoc["slug"],
+): Promise<CategoryDoc | null> {
+  const allCategories = await categoryRepository.getAllCategories();
+  const category: CategoryDoc | null =
+    allCategories.find(({ slug }) => slug === slugToSearch) ?? null;
+  return category;
+}
+
 export async function listCategoriesWithMediaItemCards(): Promise<
   CategoryWithMediaCards[]
 > {
-  const allCategories = await listCategories({
-    sortBy: "alph",
-    sortDirection: "asc",
+  const groupedByCategory: Record<CategoryDoc["_id"], MediaItemCard[]> = {};
+
+  const allMediaItemsCards = await listMediaItemCards({
+    sortBy: "lastUpdateAt",
+    sortDirection: "desc",
   });
 
-  const allMediaItemsCards = await listMediaItemCards(
-    {
-      sortBy: "lastUpdateAt",
-      sortDirection: "desc",
-    },
-    5,
-  );
+  for (const mediaItemCard of allMediaItemsCards) {
+    const categoryId = mediaItemCard.category._id;
 
-  const categoryWithMediaItem: CategoryWithMediaCards[] = allCategories.map(
-    (category) => {
-      const mediaItemCards = allMediaItemsCards.filter(
-        ({ category: { _id } }) => _id === category._id,
-      );
-      return { ...category, mediaItemCards };
-    },
-  );
+    if (!groupedByCategory[categoryId]) {
+      groupedByCategory[categoryId] = [];
+    }
+
+    groupedByCategory[categoryId].push(mediaItemCard);
+  }
+
+  const categoryWithMediaItem: CategoryWithMediaCards[] = Object.values(
+    groupedByCategory,
+  ).map((cards) => ({ ...cards[0].category, mediaItemCards: cards }));
+
   return categoryWithMediaItem;
 }
 
