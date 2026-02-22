@@ -5,7 +5,11 @@ import {
   listCategoryWithMediaItemCardsByCategoryId,
 } from "@/src/lib/services";
 import { MediaList } from "@/src/components/ui";
-import { Sortbar } from "@/src/components/categoryPage";
+import {
+  Searchbar,
+  Sortbar,
+  NewMediaItemBtn,
+} from "@/src/components/categoryPage";
 
 interface Props {
   params: {
@@ -13,12 +17,13 @@ interface Props {
   };
   searchParams: {
     sort?: string;
+    q?: string;
   };
 }
 
 export default async function CategoryPage({ params, searchParams }: Props) {
   const { category } = await params;
-  const { sort = "recent" } = await searchParams;
+  const { sort = "recent", q = "" } = await searchParams;
 
   const categoryInfo = await listCategoryBySlug(category);
 
@@ -36,7 +41,12 @@ export default async function CategoryPage({ params, searchParams }: Props) {
       <h1 className={styles.title}>{title}</h1>
 
       <div className={styles.content}>
-        <aside className={styles.sidebar}>Sidebar</aside>
+        <aside className={styles.sidebar}>
+          <div className={styles.searchRow}>
+            <Searchbar initialQuery={q} />
+            <NewMediaItemBtn categorySlug={slug} />
+          </div>
+        </aside>
 
         <section className={styles.main}>
           <Sortbar currentSort={sort} />
