@@ -1,6 +1,11 @@
-import styles from "./CategoryPage.module.css";
-import { listCategoryBySlug } from "@/src/lib/services";
 import { notFound } from "next/navigation";
+import styles from "./CategoryPage.module.css";
+import {
+  listCategoriesWithMediaItemCards,
+  listCategoryBySlug,
+  listCategoryWithMediaItemCardsByCategoryId,
+} from "@/src/lib/services";
+import { MediaList } from "@/src/components/ui";
 
 interface Props {
   params: {
@@ -9,15 +14,18 @@ interface Props {
 }
 
 export default async function CategoryPage({ params }: Props) {
-  const { category } = params;
+  const { category } = await params;
 
   const categoryInfo = await listCategoryBySlug(category);
 
-  if (!categoryInfo) {
+  if (!category || !categoryInfo) {
     notFound();
   }
 
-  const { title } = categoryInfo;
+  const categoryWithMediaItemCards =
+    await listCategoryWithMediaItemCardsByCategoryId(categoryInfo._id);
+
+  const { title, slug } = categoryInfo;
 
   return (
     <main className={styles.page}>
@@ -26,7 +34,12 @@ export default async function CategoryPage({ params }: Props) {
       <div className={styles.content}>
         <aside className={styles.sidebar}>Sidebar</aside>
 
-        <section className={styles.main}>Conteúdo principal</section>
+        <section className={styles.main}>
+          <MediaList
+            medias={categoryWithMediaItemCards?.mediaItemCards ?? []}
+            categorySlug={slug}
+          />
+        </section>
       </div>
     </main>
   );

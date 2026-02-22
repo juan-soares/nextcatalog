@@ -52,6 +52,16 @@ export async function listCategoriesWithMediaItemCards(): Promise<
   return categoryWithMediaItem;
 }
 
+export async function listCategoryWithMediaItemCardsByCategoryId(
+  categoryIdToSearch: CategoryDoc["_id"],
+): Promise<CategoryWithMediaCards | null> {
+  const categoriesWithMediaItems = await listCategoriesWithMediaItemCards();
+  const categoryWithMediaItems =
+    categoriesWithMediaItems.find(({ _id }) => _id === categoryIdToSearch) ??
+    null;
+  return categoryWithMediaItems;
+}
+
 export async function createCategory(
   category: CategoryDoc,
 ): Promise<CategoryDoc> {
