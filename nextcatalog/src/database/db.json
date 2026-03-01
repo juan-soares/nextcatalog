@@ -1,0 +1,330 @@
+{
+  "languages": [
+    {
+      "_id": "lang_jp",
+      "code": "JP",
+      "title": "Japonês",
+      "createdAt": "2026-03-01T00:00:00.000Z",
+      "updatedAt": "2026-03-01T00:00:00.000Z"
+    },
+    {
+      "_id": "lang_en",
+      "code": "EN",
+      "title": "Inglês",
+      "createdAt": "2026-03-01T00:00:00.000Z",
+      "updatedAt": "2026-03-01T00:00:00.000Z"
+    },
+    {
+      "_id": "lang_es",
+      "code": "ES",
+      "title": "Espanhol",
+      "createdAt": "2026-03-01T00:00:00.000Z",
+      "updatedAt": "2026-03-01T00:00:00.000Z"
+    }
+  ],
+
+  "resolutions": [
+    {
+      "_id": "res_1080p",
+      "code": "1080p",
+      "description": "HD",
+      "createdAt": "2026-03-01T00:00:00.000Z",
+      "updatedAt": "2026-03-01T00:00:00.000Z"
+    }
+  ],
+
+  "platforms": [
+    {
+      "_id": "plat_ps1",
+      "code": "PS1",
+      "title": "PlayStation 1",
+      "createdAt": "2026-03-01T00:00:00.000Z",
+      "updatedAt": "2026-03-01T00:00:00.000Z"
+    }
+  ],
+
+  "genres": [
+    {
+      "_id": "g_genre",
+      "slug": "survival-horror",
+      "title": "Survival Horror",
+      "createdAt": "2026-03-01T00:00:00.000Z",
+      "updatedAt": "2026-03-01T00:00:00.000Z"
+    }
+  ],
+
+  "movimentations": [
+    {
+      "_id": "m_mov",
+      "title": "Single Player",
+      "description": "Jogo individual",
+      "createdAt": "2026-03-01T00:00:00.000Z",
+      "updatedAt": "2026-03-01T00:00:00.000Z"
+    }
+  ],
+
+  "themes": [
+    {
+      "_id": "t1",
+      "title": "Aventura",
+      "createdAt": "2026-03-01T00:00:00.000Z",
+      "updatedAt": "2026-03-01T00:00:00.000Z"
+    },
+    {
+      "_id": "t2",
+      "title": "Ninja",
+      "createdAt": "2026-03-01T00:00:00.000Z",
+      "updatedAt": "2026-03-01T00:00:00.000Z"
+    },
+    {
+      "_id": "t3",
+      "title": "Terror",
+      "createdAt": "2026-03-01T00:00:00.000Z",
+      "updatedAt": "2026-03-01T00:00:00.000Z"
+    },
+    {
+      "_id": "t4",
+      "title": "Pop",
+      "createdAt": "2026-03-01T00:00:00.000Z",
+      "updatedAt": "2026-03-01T00:00:00.000Z"
+    },
+    {
+      "_id": "t5",
+      "title": "Fantasia",
+      "createdAt": "2026-03-01T00:00:00.000Z",
+      "updatedAt": "2026-03-01T00:00:00.000Z"
+    }
+  ],
+
+  "franchises": [
+    {
+      "_id": "f1",
+      "title": "Naruto",
+      "translatedTitle": "Naruto Azumaki",
+      "slug": "naruto",
+      "logo": "/logos/naruto.png",
+      "createdAt": "2026-03-01T00:00:00.000Z",
+      "updatedAt": "2026-03-01T00:00:00.000Z"
+    },
+    {
+      "_id": "f2",
+      "title": "Resident Evil",
+      "slug": "resident-evil",
+      "logo": "/logos/re.png",
+      "createdAt": "2026-03-01T00:00:00.000Z",
+      "updatedAt": "2026-03-01T00:00:00.000Z"
+    },
+    {
+      "_id": "f3",
+      "title": "Harry Potter",
+      "slug": "harry-potter",
+      "logo": "/logos/hp.png",
+      "createdAt": "2026-03-01T00:00:00.000Z",
+      "updatedAt": "2026-03-01T00:00:00.000Z"
+    }
+  ],
+
+  "mediaItems": [
+    {
+      "_id": "v1",
+      "mediaType": "video",
+      "title": "Naruto",
+      "translatedTitle": "Naruto Azumaki",
+      "slug": "naruto",
+      "releaseDate": "2002-10-03T00:00:00.000Z",
+      "cover": "/covers/naruto.jpg",
+      "trailer": "/trailers/naruto.mp4",
+      "synopsis": "Um jovem ninja busca reconhecimento e sonha se tornar Hokage.",
+      "themeIds": ["t1", "t2"],
+      "franchiseIds": ["f1"],
+      "languageIds": ["lang_jp"],
+      "resolutionIds": ["res_1080p"],
+      "createdAt": "2026-03-01T00:00:00.000Z",
+      "updatedAt": "2026-03-01T00:00:00.000Z"
+    },
+    {
+      "_id": "game1",
+      "mediaType": "game",
+      "title": "Resident Evil",
+      "translatedTitle": "Resident Evil",
+      "slug": "resident-evil",
+      "releaseDate": "1996-03-22T00:00:00.000Z",
+      "cover": "/covers/re1.jpg",
+      "trailer": "/trailers/re1.mp4",
+      "synopsis": "Um jogo de terror de sobrevivência clássico.",
+      "themeIds": ["t3"],
+      "franchiseIds": ["f2"],
+      "languageIds": ["lang_en"],
+      "platformIds": ["plat_ps1"],
+      "genreId": "g_genre",
+      "movimentationId": "m_mov",
+      "createdAt": "2026-03-01T00:00:00.000Z",
+      "updatedAt": "2026-03-01T00:00:00.000Z"
+    },
+    {
+      "_id": "artist1",
+      "mediaType": "artist",
+      "title": "Shakira",
+      "translatedTitle": "Shakira",
+      "slug": "shakira",
+      "releaseDate": "1990-01-01T00:00:00.000Z",
+      "cover": "/covers/shakira.jpg",
+      "trailer": "/trailers/shakira.mp4",
+      "synopsis": "Cantora e compositora colombiana.",
+      "themeIds": ["t4"],
+      "franchiseIds": [],
+      "languageIds": ["lang_es"],
+      "createdAt": "2026-03-01T00:00:00.000Z",
+      "updatedAt": "2026-03-01T00:00:00.000Z"
+    },
+    {
+      "_id": "book1",
+      "mediaType": "book",
+      "title": "Harry Potter",
+      "translatedTitle": "Harry Potter",
+      "slug": "harry-potter",
+      "releaseDate": "1997-06-26T00:00:00.000Z",
+      "cover": "/covers/hp1.jpg",
+      "trailer": "/trailers/hp1.mp4",
+      "synopsis": "O menino que sobreviveu...",
+      "themeIds": ["t5"],
+      "franchiseIds": ["f3"],
+      "languageIds": ["lang_en"],
+      "createdAt": "2026-03-01T00:00:00.000Z",
+      "updatedAt": "2026-03-01T00:00:00.000Z"
+    }
+  ],
+
+  "mediaGroups": [
+    {
+      "_id": "g1",
+      "mediaItemId": "v1",
+      "type": "season",
+      "title": "Temporada 1",
+      "releaseDate": "2002-10-03T00:00:00.000Z",
+      "cover": "/covers/naruto_s1.jpg",
+      "trailer": "/trailers/naruto_s1.mp4",
+      "languageId": "lang_jp",
+      "createdAt": "2026-03-01T00:00:00.000Z",
+      "updatedAt": "2026-03-01T00:00:00.000Z"
+    },
+    {
+      "_id": "g2",
+      "mediaItemId": "v1",
+      "type": "ova",
+      "title": "OVA 1",
+      "releaseDate": "2003-05-01T00:00:00.000Z",
+      "cover": "/covers/naruto_ova1.jpg",
+      "trailer": "/trailers/naruto_ova1.mp4",
+      "languageId": "lang_jp",
+      "createdAt": "2026-03-01T00:00:00.000Z",
+      "updatedAt": "2026-03-01T00:00:00.000Z"
+    },
+    {
+      "_id": "g3",
+      "mediaItemId": "game1",
+      "type": "base",
+      "title": "Resident Evil Base",
+      "releaseDate": "1996-03-22T00:00:00.000Z",
+      "cover": "/covers/re1_base.jpg",
+      "trailer": "/trailers/re1_base.mp4",
+      "languageId": "lang_en",
+      "createdAt": "2026-03-01T00:00:00.000Z",
+      "updatedAt": "2026-03-01T00:00:00.000Z"
+    },
+    {
+      "_id": "g4",
+      "mediaItemId": "artist1",
+      "type": "album",
+      "title": "Laundry Service",
+      "releaseDate": "2001-11-13T00:00:00.000Z",
+      "cover": "/covers/laundry_service.jpg",
+      "trailer": "/trailers/laundry_service.mp4",
+      "languageId": "lang_es",
+      "createdAt": "2026-03-01T00:00:00.000Z",
+      "updatedAt": "2026-03-01T00:00:00.000Z"
+    },
+    {
+      "_id": "g5",
+      "mediaItemId": "book1",
+      "type": "volume",
+      "title": "Volume 1 - Pedra Filosofal",
+      "releaseDate": "1997-06-26T00:00:00.000Z",
+      "cover": "/covers/hp1.jpg",
+      "trailer": "/trailers/hp1.mp4",
+      "languageId": "lang_en",
+      "createdAt": "2026-03-01T00:00:00.000Z",
+      "updatedAt": "2026-03-01T00:00:00.000Z"
+    }
+  ],
+
+  "mediaUnits": [
+    {
+      "_id": "u1",
+      "groupId": "g1",
+      "number": 1,
+      "title": "Enter: Naruto Uzumaki!",
+      "releaseDate": "2002-10-03T00:00:00.000Z",
+      "acquired": true,
+      "finished": true,
+      "languageId": "lang_jp",
+      "resolutionId": "res_1080p",
+      "fileUrl": "/episodes/naruto_s1_e01.mp4",
+      "createdAt": "2026-03-01T00:00:00.000Z",
+      "updatedAt": "2026-03-01T00:00:00.000Z"
+    },
+    {
+      "_id": "u2",
+      "groupId": "g2",
+      "number": 1,
+      "title": "Oni no Kuni",
+      "releaseDate": "2003-05-01T00:00:00.000Z",
+      "acquired": true,
+      "finished": true,
+      "languageId": "lang_jp",
+      "resolutionId": "res_1080p",
+      "fileUrl": "/episodes/naruto_ova1.mp4",
+      "createdAt": "2026-03-01T00:00:00.000Z",
+      "updatedAt": "2026-03-01T00:00:00.000Z"
+    },
+    {
+      "_id": "u3",
+      "groupId": "g3",
+      "number": 1,
+      "title": "Chapter 1",
+      "releaseDate": "1996-03-22T00:00:00.000Z",
+      "acquired": true,
+      "finished": true,
+      "languageId": "lang_en",
+      "fileUrl": "/games/re1/chapter1.zip",
+      "createdAt": "2026-03-01T00:00:00.000Z",
+      "updatedAt": "2026-03-01T00:00:00.000Z"
+    },
+    {
+      "_id": "u4",
+      "groupId": "g4",
+      "number": 1,
+      "title": "Whenever, Wherever",
+      "releaseDate": "2001-11-13T00:00:00.000Z",
+      "acquired": true,
+      "finished": true,
+      "languageId": "lang_es",
+      "fileUrl": "/music/whenever_wherever.mp3",
+      "createdAt": "2026-03-01T00:00:00.000Z",
+      "updatedAt": "2026-03-01T00:00:00.000Z"
+    },
+    {
+      "_id": "u5",
+      "groupId": "g5",
+      "number": 1,
+      "title": "O Menino que Sobreviveu",
+      "releaseDate": "1997-06-26T00:00:00.000Z",
+      "acquired": true,
+      "finished": true,
+      "languageId": "lang_en",
+      "fileUrl": "/books/hp1/chapter1.pdf",
+      "createdAt": "2026-03-01T00:00:00.000Z",
+      "updatedAt": "2026-03-01T00:00:00.000Z"
+    }
+  ]
+}
