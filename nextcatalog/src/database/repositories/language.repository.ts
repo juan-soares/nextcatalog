@@ -44,4 +44,36 @@ async function create(
   return newItem;
 }
 
-export const languageRepository = { findAll, findById, create };
+
+async function update(_idToSearch: LanguageDoc["_id"], newValues:Omit<LanguageDoc, "updatedAt">):Promise<LanguageDoc | null>{
+const db = await database.connect();
+
+const index = db.languages.findIndex(({_id}) => _id === _idToSearch);
+  if (index === -1) return null;
+
+  const now = new Date();
+  const updatedItem: LanguageDoc = {
+    ...db.languages[index],
+    ...newValues,
+    updatedAt: now,
+  };
+
+    db.languages[index] = updatedItem;
+  await database.write(db);
+
+  return updatedItem;
+}
+
+async function remove(_idToSearch: LanguageDoc["_id"]): Promise<LanguageDoc | null> {
+  const db = await database.connect();
+
+  const index = db.languages.findIndex(({ _id }) => _id === _idToSearch);
+  if (index === -1) return null;
+
+  const removedItem = db.languages.splice(index, 1)[0];
+  await database.write(db);
+
+  return removedItem;
+}
+
+export const languageRepository = { findAll, findById, create, update, remove };
