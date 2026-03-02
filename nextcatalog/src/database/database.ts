@@ -1,6 +1,6 @@
 import fs from "fs/promises";
 import path from "path";
-import { Database } from "@/database/types";
+import { Database, MongoDoc } from "@/database/types";
 
 const DB_PATH = path.join(process.cwd(), "src/database/database.json");
 
@@ -15,7 +15,7 @@ async function write(db: Database): Promise<void> {
 
   const dbToWrite = Object.fromEntries(
     Object.entries(db).map(([collectionName, items]) => {
-      const updatedItems = items.map((item) => ({
+      const updatedItems = items.map((item: MongoDoc) => ({
         ...item,
         createdAt: (item as any).createdAt || now,
         updatedAt: now,
