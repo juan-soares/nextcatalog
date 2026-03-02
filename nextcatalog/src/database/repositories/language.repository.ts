@@ -30,7 +30,7 @@ async function create(
   const db = await database.connect();
   const newId = uuid();
 
-  const now = new Date;
+  const now = new Date();
   const newItem: LanguageDoc = {
     _id: newId,
     ...language,
@@ -44,11 +44,13 @@ async function create(
   return newItem;
 }
 
+async function update(
+  _idToSearch: LanguageDoc["_id"],
+  newValues: Omit<LanguageDoc, "updatedAt">,
+): Promise<LanguageDoc | null> {
+  const db = await database.connect();
 
-async function update(_idToSearch: LanguageDoc["_id"], newValues:Omit<LanguageDoc, "updatedAt">):Promise<LanguageDoc | null>{
-const db = await database.connect();
-
-const index = db.languages.findIndex(({_id}) => _id === _idToSearch);
+  const index = db.languages.findIndex(({ _id }) => _id === _idToSearch);
   if (index === -1) return null;
 
   const now = new Date();
@@ -58,13 +60,15 @@ const index = db.languages.findIndex(({_id}) => _id === _idToSearch);
     updatedAt: now,
   };
 
-    db.languages[index] = updatedItem;
+  db.languages[index] = updatedItem;
   await database.write(db);
 
   return updatedItem;
 }
 
-async function remove(_idToSearch: LanguageDoc["_id"]): Promise<LanguageDoc | null> {
+async function remove(
+  _idToSearch: LanguageDoc["_id"],
+): Promise<LanguageDoc | null> {
   const db = await database.connect();
 
   const index = db.languages.findIndex(({ _id }) => _id === _idToSearch);

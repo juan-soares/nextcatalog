@@ -1,7 +1,8 @@
-import { LanguageDoc } from "./language.type";
+import { LanguageDoc, ThemeDoc } from "./";
 
 export interface Database {
   languages: LanguageDoc[];
+  themes: ThemeDoc[];
 }
 
 export interface MongoDoc {
