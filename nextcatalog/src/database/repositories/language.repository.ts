@@ -28,10 +28,11 @@ async function create(
   language: Omit<LanguageDoc, "_id" | "createdAt" | "updatedAt">,
 ): Promise<LanguageDoc> {
   const db = await database.connect();
+  const newId = uuid();
 
-  const now = uuid();
+  const now = new Date;
   const newItem: LanguageDoc = {
-    _id: new Date().toDateString(),
+    _id: newId,
     ...language,
     createdAt: now,
     updatedAt: now,
