@@ -1,6 +1,7 @@
-import { LanguageDoc, ThemeDoc } from "./";
+import { FranchiseDoc, LanguageDoc, ThemeDoc } from "./";
 
 export interface Database {
+  franchises: FranchiseDoc[];
   languages: LanguageDoc[];
   themes: ThemeDoc[];
 }
