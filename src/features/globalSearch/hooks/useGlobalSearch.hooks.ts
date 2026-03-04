@@ -1,3 +1,6 @@
+import { useEffect, useState } from "react";
+import { SearchResult } from "../types";
+
 export function useGlobalSearch() {
   const [query, setQuery] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -5,5 +8,21 @@ export function useGlobalSearch() {
 
   const handleChange = (value: string) => setQuery(value);
 
-  return {};
+  useEffect(() => {
+    if (!query) {
+      setResults([]);
+      return;
+    }
+
+    const updateResults = async () => {
+      setIsLoading(true);
+      const res = [] as any;
+      setResults(res);
+      setIsLoading(false);
+    };
+
+    updateResults();
+  }, [query, setIsLoading]);
+
+  return { query, handleChange, isLoading, results, setIsLoading };
 }

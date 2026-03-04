@@ -6,19 +6,16 @@ import {
   GlobalSearchInput,
   GlobalSearchResults,
 } from "@/features/globalSearch/components";
+import { useGlobalSearch } from "@/features/globalSearch/hooks";
 
 export function GlobalSearch() {
-  const [query, setQuery] = useState<string>("");
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const { query, handleChange, isLoading, results, setIsLoading } =
+    useGlobalSearch();
 
   return (
     <div className={styles.headerSearch}>
-      <GlobalSearchInput query={query} onValueChange={setQuery} />
-      <GlobalSearchResults
-        query={query}
-        isLoading={isLoading}
-        setIsLoading={setIsLoading}
-      />
+      <GlobalSearchInput query={query} onValueChange={handleChange} />
+      <GlobalSearchResults isLoading={isLoading} results={results} />
     </div>
   );
 }
