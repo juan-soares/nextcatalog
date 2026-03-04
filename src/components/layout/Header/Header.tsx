@@ -1,11 +1,14 @@
 import styles from "./Header.module.css";
-import { HeaderTop, HeaderBottom } from "./";
+import { Logo } from "@/components/ui";
+import { HeaderSearch } from "@/components/layout";
+import { HeaderUserInfo } from "./HeaderUserInfo/HeaderUserInfo";
 
 export function Header() {
   return (
     <header className={styles.header}>
-      <HeaderTop />
-      <HeaderBottom />
+      <Logo />
+      <HeaderSearch />
+      <HeaderUserInfo />
     </header>
   );
 }

@@ -1,1 +1,0 @@
-export { HeaderSearchResults } from "./HeaderSearchResults";

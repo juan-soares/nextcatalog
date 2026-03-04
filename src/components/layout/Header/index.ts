@@ -1,3 +1,4 @@
 export { Header } from "./Header";
-export { HeaderTop } from "./HeaderTop";
-export { HeaderBottom } from "./HeaderBottom";
+export { HeaderInput } from "./HeaderInput";
+export { HeaderResults } from "./HeaderResults";
+export { HeaderSearch } from "./HeaderSearch";

@@ -1,0 +1,1 @@
+export { GlobalSearchInput } from "./GlobalSearchInput";
