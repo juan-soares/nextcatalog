@@ -2,7 +2,7 @@ export interface SearchResult {
   id: string;
   href: string;
   title: string;
-  titleOnHover: string;
+  translatedTitle: string;
   cover: string;
   releaseYear: string;
   mediaTypeTitle: string;

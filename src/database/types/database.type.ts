@@ -1,9 +1,11 @@
-import { FranchiseDoc, LanguageDoc, ThemeDoc } from "./";
+import { FranchiseDoc, LanguageDoc, MediaTypeDoc, ThemeDoc } from "./";
 
 export interface Database {
   franchises: FranchiseDoc[];
   languages: LanguageDoc[];
   themes: ThemeDoc[];
+
+  mediaTypes: MediaTypeDoc[];
 }
 
 export interface MongoDoc {

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import styles from "./GlobalSearchResults.module.css";
 import { SearchResult } from "@/features/globalSearch/types";
+import Image from "next/image";
 
 interface Props {
   query: string;
@@ -17,11 +18,32 @@ export function GlobalSearchResults({ query, isLoading, results }: Props) {
       {!isLoading && !results.length && <p>Sem resultados.</p>}
       {!isLoading && results.length > 0 && (
         <ul>
-          {results.map(({ id, href, title }) => (
-            <li key={id}>
-              <Link href={href}>{title}</Link>
-            </li>
-          ))}
+          {results.map(
+            ({
+              id,
+              href,
+              cover,
+              releaseYear,
+              title,
+              translatedTitle,
+              mediaTypeTitle,
+            }) => (
+              <li key={id}>
+                <Link href={href}>
+                  <div>
+                    <Image src={cover} />
+                  </div>
+                  <div>
+                    <p>
+                      <span>{`(${releaseYear}) ${title}`}</span>
+                      <span>{mediaTypeTitle}</span>
+                    </p>
+                    <h3>{translatedTitle}</h3>
+                  </div>
+                </Link>
+              </li>
+            ),
+          )}
         </ul>
       )}
     </div>
