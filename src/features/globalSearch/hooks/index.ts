@@ -1,1 +1,1 @@
-export { useGlobalSearch } from "./useGlobalSearch.hooks.ts";
+export { useGlobalSearch } from "./useGlobalSearch.hook";

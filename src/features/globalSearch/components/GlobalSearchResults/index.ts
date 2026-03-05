@@ -1,1 +1,1 @@
-export { HeaderResults } from "./HeaderResults";
+export { GlobalSearchResults } from "./GlobalSearchResults";

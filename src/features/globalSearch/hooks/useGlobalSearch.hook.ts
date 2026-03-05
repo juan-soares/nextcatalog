@@ -9,20 +9,24 @@ export function useGlobalSearch() {
   const handleChange = (value: string) => setQuery(value);
 
   useEffect(() => {
-    if (!query) {
-      setResults([]);
-      return;
-    }
+    const timeout = setTimeout(() => {
+      if (!query) {
+        setResults([]);
+        return;
+      }
 
-    const updateResults = async () => {
-      setIsLoading(true);
-      const res = [] as any;
-      setResults(res);
-      setIsLoading(false);
-    };
+      const updateResults = async () => {
+        setIsLoading(true);
+        const res: SearchResult[] = [];
+        setResults(res);
+        setIsLoading(false);
+      };
 
-    updateResults();
-  }, [query, setIsLoading]);
+      updateResults();
+    }, 300);
+
+    return () => clearTimeout(timeout);
+  }, [query]);
 
   return { query, handleChange, isLoading, results, setIsLoading };
 }

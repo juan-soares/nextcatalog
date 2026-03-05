@@ -1,6 +1,6 @@
 export interface SearchResult {
   id: string;
-  href: sring;
+  href: string;
   title: string;
   titleOnHover: string;
   cover: string;

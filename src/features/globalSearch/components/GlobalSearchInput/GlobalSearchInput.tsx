@@ -8,7 +8,12 @@ interface Props {
 export function GlobalSearchInput({ query, onValueChange }: Props) {
   return (
     <div className={styles.globalSearchInput}>
-      <input type="search" placeholder="Pesquisar..." value={query} />
+      <input
+        type="search"
+        placeholder="Pesquisar..."
+        value={query}
+        onChange={({ target: { value } }) => onValueChange(value)}
+      />
       <button>0-</button>
     </div>
   );
