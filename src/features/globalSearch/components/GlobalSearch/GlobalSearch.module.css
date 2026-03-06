@@ -1,2 +1,17 @@
 .globalSearch {
+  position: relative;
+
+  width: 100%;
+  max-width: 420px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+/* em telas menores a busca ocupa mais espaço */
+
+@media (max-width: 768px) {
+  .headerSearch {
+    max-width: 100%;
+  }
 }

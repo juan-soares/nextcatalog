@@ -1,2 +1,116 @@
+/* Container dropdown */
 .globalSearchResults {
+  position: absolute;
+  top: 100%;
+  left: 0;
+
+  width: 100%;
+  max-height: 400px;
+  overflow-y: auto;
+
+  background: var(--bg-secondary);
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+
+  margin-top: 4px;
+  z-index: 50;
+
+  padding: var(--spacing-sm);
+}
+
+/* Mensagens de loading ou sem resultados */
+.globalSearchResults p {
+  color: var(--text-secondary);
+  font-size: var(--font-size-md);
+  text-align: center;
+  padding: var(--spacing-md) 0;
+}
+
+/* Lista de resultados */
+.globalSearchResults ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+/* Item individual */
+.globalSearchResults li {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+
+  padding: var(--spacing-xs);
+  border-radius: 4px;
+
+  transition: background 0.2s ease;
+}
+
+.globalSearchResults li:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Link interno */
+.globalSearchResults li > a {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  width: 100%;
+  text-decoration: none;
+  color: var(--text-primary);
+}
+
+/* Imagem da capa */
+.globalSearchResults li img {
+  width: 60px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+/* Texto do item */
+.globalSearchResults li div:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  font-size: var(--font-size-sm);
+}
+
+.globalSearchResults li h3 {
+  font-size: var(--font-size-md);
+  color: var(--text-primary);
+  margin: 0;
+}
+
+/* Ano, título e tipo */
+.globalSearchResults li span {
+  display: block;
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+/* Scroll suave */
+.globalSearchResults::-webkit-scrollbar {
+  width: 6px;
+}
+
+.globalSearchResults::-webkit-scrollbar-thumb {
+  background: var(--accent-gray);
+  border-radius: 3px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .globalSearchResults {
+    max-height: 300px;
+    padding: var(--spacing-xs);
+  }
+
+  .globalSearchResults li img {
+    width: 50px;
+    height: 75px;
+  }
+
+  .globalSearchResults li div:last-child {
+    font-size: var(--font-size-xs);
+  }
 }

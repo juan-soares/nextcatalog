@@ -31,7 +31,7 @@ export function GlobalSearchResults({ query, isLoading, results }: Props) {
               <li key={id}>
                 <Link href={href}>
                   <div>
-                    <Image src={cover} />
+                    <Image src={cover} alt={`Capa do título ${title}.`} />
                   </div>
                   <div>
                     <p>

@@ -1,2 +1,58 @@
+/* Container do UserInfo */
 .userInfo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+/* Avatar do usuário */
+.userInfo img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--bg-secondary);
+}
+
+/* Label do nickname */
+.userInfo label {
+  color: var(--text-primary);
+  font-size: var(--font-size-md);
+}
+
+/* Botões (Entrar / Sair) */
+.userInfo button {
+  background: var(--accent-red);
+  color: var(--text-primary);
+  border: none;
+  border-radius: 4px;
+  padding: var(--spacing-md) var(--spacing-lg);
+  cursor: pointer;
+  font-size: var(--font-size-sm);
+  transition: opacity 0.2s ease;
+}
+
+.userInfo button:hover {
+  opacity: 0.85;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .userInfo {
+    gap: var(--spacing-xs);
+  }
+
+  .userInfo label {
+    display: none; /* esconde o nickname no mobile para economizar espaço */
+  }
+
+  .userInfo img {
+    width: 32px;
+    height: 32px;
+  }
+
+  .userInfo button {
+    padding: var(--spacing-md);
+    font-size: var(--font-size-xs);
+  }
 }

@@ -17,7 +17,12 @@ export function UserInfo() {
 
   return (
     <div className={styles.userInfo}>
-      <Image src="/avatar.png" alt="Avatar do usuário." />
+      <Image
+        src="/avatar.png"
+        alt="Avatar do usuário."
+        width={50}
+        height={50}
+      />
       <label>Nickname</label>
       <button>Sair</button>
     </div>

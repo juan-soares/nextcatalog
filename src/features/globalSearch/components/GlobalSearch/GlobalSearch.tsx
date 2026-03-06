@@ -11,7 +11,7 @@ export function GlobalSearch() {
   const { query, handleChange, isLoading, results } = useGlobalSearch();
 
   return (
-    <div className={styles.headerSearch}>
+    <div className={styles.globalSearch}>
       <GlobalSearchInput query={query} onValueChange={handleChange} />
       <GlobalSearchResults
         query={query}
@@ -21,4 +21,3 @@ export function GlobalSearch() {
     </div>
   );
 }
-
