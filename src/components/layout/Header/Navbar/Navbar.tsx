@@ -4,6 +4,7 @@ import { listNavLinks } from "./Navbar.service";
 
 export async function Navbar() {
   const links = await listNavLinks();
+  console.log(links);
 
   return (
     <nav className={styles.navbar}>

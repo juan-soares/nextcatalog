@@ -7,7 +7,7 @@ async function findAll(
   options?: FindOptions<MediaTypeDoc>,
 ): Promise<MediaTypeDoc[]> {
   const db = await database.connect();
-  let items = db.mediaTypes;
+  let items = db.mediaTypes ?? [];
 
   if (options?.filter) items = applyFilter(items, options.filter);
   if (options?.sortBy) items = applySort(items, options.sortBy, options.order);
