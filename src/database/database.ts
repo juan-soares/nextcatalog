@@ -6,7 +6,7 @@ const DB_PATH = path.join(process.cwd(), "src/database/db.json");
 
 async function connect(): Promise<Database> {
   if (!DB_PATH) throw new Error("Caminho incorreto do banco de dados.");
-  console.log(DB_PATH);
+
   const fileContent = await fs.readFile(DB_PATH, "utf-8");
   return JSON.parse(JSON.stringify(JSON.parse(fileContent))) as Database;
 }
