@@ -1,3 +1,4 @@
+export { createRepository } from "./base.repository";
 export { languageRepository } from "./language.repository";
 export { mediaItemRepository } from "./mediaItem.repository";
 export { mediaTypeRepository } from "./mediaType.repository";
