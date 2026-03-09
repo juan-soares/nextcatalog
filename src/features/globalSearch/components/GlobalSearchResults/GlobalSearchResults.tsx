@@ -31,7 +31,12 @@ export function GlobalSearchResults({ query, isLoading, results }: Props) {
               <li key={id}>
                 <Link href={href}>
                   <div>
-                    <Image src={cover} alt={`Capa do título ${title}.`} />
+                    <Image
+                      src={cover}
+                      alt={`Capa do título ${title}.`}
+                      width={60}
+                      height={90}
+                    />
                   </div>
                   <div>
                     <p>
@@ -44,6 +49,9 @@ export function GlobalSearchResults({ query, isLoading, results }: Props) {
               </li>
             ),
           )}
+          <li className={styles.showAll}>
+            <Link href={`/pesquisar?q=${query}`}>Ver todos...</Link>
+          </li>
         </ul>
       )}
     </div>

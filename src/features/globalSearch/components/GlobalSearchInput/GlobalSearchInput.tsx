@@ -1,4 +1,5 @@
 import styles from "./GlobalSearchInput.module.css";
+import { Search } from "lucide-react";
 
 interface Props {
   query: string;
@@ -14,7 +15,9 @@ export function GlobalSearchInput({ query, onValueChange }: Props) {
         value={query}
         onChange={({ target: { value } }) => onValueChange(value)}
       />
-      <button>0-</button>
+      <button>
+        <Search size={18} strokeWidth={2} />
+      </button>
     </div>
   );
 }

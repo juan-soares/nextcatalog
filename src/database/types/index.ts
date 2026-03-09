@@ -6,3 +6,4 @@ export * from "./language.type";
 export * from "./theme.type";
 
 export * from "./mediaType.type";
+export * from "./mediaItem.type";

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { SearchResult } from "../types";
+import { listSearchResults } from "../services";
 
 export function useGlobalSearch() {
   const [query, setQuery] = useState<string>("");
@@ -17,7 +18,7 @@ export function useGlobalSearch() {
 
       const updateResults = async () => {
         setIsLoading(true);
-        const res: SearchResult[] = [];
+        const res: SearchResult[] = await listSearchResults(query);
         setResults(res);
         setIsLoading(false);
       };

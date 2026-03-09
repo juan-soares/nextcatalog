@@ -98,6 +98,10 @@
   border-radius: 3px;
 }
 
+.globalSearchResults .showAll {
+  text-align: end;
+}
+
 /* Responsividade */
 @media (max-width: 768px) {
   .globalSearchResults {
