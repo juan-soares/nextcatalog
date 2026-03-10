@@ -5,7 +5,7 @@ export type FindOptions<T> = {
   sortBy?: keyof T;
   order?: "asc" | "desc";
   limit?: number;
-  populate?: PopulateOptions[];
+  populate?: boolean;
 };
 
 export type PopulateOptions = {
