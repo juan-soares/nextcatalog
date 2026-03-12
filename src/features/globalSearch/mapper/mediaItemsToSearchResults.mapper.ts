@@ -1,10 +1,10 @@
-import { MediaItemDocPopulated } from "@/database/types";
+import { MediaItemDoc } from "@/database/types";
 import { SearchResult } from "../types";
 
 export function mediaItemsToSearchResults(
-  mediaItemsPopulated: MediaItemDocPopulated[],
+  mediaItemsDoc: MediaItemDoc[],
 ): SearchResult[] {
-  return mediaItemsPopulated.map(
+  return mediaItemsDoc.map(
     ({
       _id,
       slug,
@@ -12,7 +12,7 @@ export function mediaItemsToSearchResults(
       releaseDate,
       title,
       translatedTitle,
-      mediaType: { label: mediaTypeTitle },
+      mediaTypeId,
     }) => ({
       id: _id,
       href: `/${slug}`,
@@ -20,7 +20,7 @@ export function mediaItemsToSearchResults(
       releaseYear: releaseDate.getFullYear().toLocaleString(),
       title,
       translatedTitle,
-      mediaTypeTitle,
+      mediaTypeTitle: typeof mediaTypeId === "string" ? "" : mediaTypeId.label,
     }),
   );
 }

@@ -1,4 +1,4 @@
-import { MongoDoc, MediaTypeDoc } from ".";
+import { MongoDoc, MediaTypeDoc, CollectionRef } from ".";
 
 export interface MediaItemDoc extends MongoDoc {
   title: string;
@@ -6,12 +6,5 @@ export interface MediaItemDoc extends MongoDoc {
   slug: string;
   cover: string;
   releaseDate: Date;
-  mediaTypeId: MediaTypeDoc["_id"];
-}
-
-export interface MediaItemDocPopulated extends Omit<
-  MediaItemDoc,
-  "mediaTypeId"
-> {
-  mediaType: MediaTypeDoc;
+  mediaTypeId: CollectionRef<MediaTypeDoc>;
 }

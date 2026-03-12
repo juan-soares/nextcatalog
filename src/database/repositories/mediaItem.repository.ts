@@ -1,18 +1,18 @@
 import { v4 as uuid } from "uuid";
 import { database } from "../database";
-import { FindOptions, MediaItemDoc, MediaItemDocPopulated } from "../types";
+import { FindOptions, MediaItemDoc } from "../types";
 import { applyFilter, applyLimit, applyPopulate, applySort } from "../utils";
 
 async function findAll(
   options?: FindOptions<MediaItemDoc>,
-): Promise<MediaItemDoc[] | MediaItemDocPopulated[]> {
+): Promise<MediaItemDoc[]> {
   const db = await database.connect();
   let items = db.mediaItems ?? [];
 
   if (options?.filter) items = applyFilter(items, options.filter);
   if (options?.sortBy) items = applySort(items, options.sortBy, options.order);
   if (options?.limit) items = applyLimit(items, options.limit);
-  if (options?.populate) items = applyPopulate("mediaItems", items);
+  if (options?.populate) items = await applyPopulate(items, "mediaTypes");
 
   return items;
 }

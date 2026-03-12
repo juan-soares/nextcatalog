@@ -10,7 +10,7 @@ export async function listSearchResults(
     sortBy: "title",
     order: "asc",
     limit: 5,
-    populate: "mediaTypeId",
+    populate: true,
   });
 
   return mediaItemsToSearchResults(foundMediaItems);

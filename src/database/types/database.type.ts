@@ -20,3 +20,5 @@ export interface MongoDoc {
   createdAt: Date;
   updatedAt: Date;
 }
+
+export type CollectionRef<T extends MongoDoc> = T["_id"] | T;

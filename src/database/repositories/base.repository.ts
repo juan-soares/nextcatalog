@@ -21,7 +21,9 @@ export function createRepository<T extends MongoDoc>(
       result = applySort(result, options.sortBy, options.order);
     }
     if (options?.limit) result = applyLimit(result, options.limit);
-    if (options?.populate) result = applyPopulate<T>(result, collectionName);
+    if (options?.populate) {
+      result = await applyPopulate<T>(result, collectionName);
+    }
 
     return result;
   }
