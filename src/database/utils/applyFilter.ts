@@ -1,19 +1,16 @@
-import { MongoDoc } from "../types";
+import { MediaItemDoc } from "../types";
 
-export function applyFilter<T extends MongoDoc>(
+export function applyFilter<T extends MediaItemDoc>(
   items: T[],
-  filter?: Partial<Record<keyof T, string>>,
+  filter?: string,
 ): T[] {
   if (!filter) return items;
 
-  return items.filter((item) =>
-    Object.entries(filter).every(([key, value]) => {
-      const field = item[key as keyof T];
+  const normalizedFilter = filter.toLocaleLowerCase();
 
-      // só filtra campos que são string
-      if (typeof field !== "string") return false;
-
-      return field.toLowerCase().includes(value.toLowerCase());
-    }),
+  return items.filter(
+    ({ title, translatedTitle }) =>
+      title.toLocaleLowerCase().includes(normalizedFilter) ||
+      translatedTitle?.toLocaleLowerCase().includes(normalizedFilter),
   );
 }

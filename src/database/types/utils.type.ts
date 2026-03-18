@@ -1,7 +1,6 @@
 export type FindOptions<T> = {
-  filter?: Partial<T>;
+  filter?: string;
   sortBy?: keyof T;
   order?: "asc" | "desc";
   limit?: number;
-  populate?: boolean;
 };

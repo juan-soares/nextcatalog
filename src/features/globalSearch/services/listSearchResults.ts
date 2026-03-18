@@ -6,11 +6,10 @@ export async function listSearchResults(
   query: string,
 ): Promise<SearchResult[]> {
   const foundMediaItems = await mediaItemRepository.findAll({
-    filter: { title: query, translatedTitle: query },
+    filter: query,
     sortBy: "title",
     order: "asc",
     limit: 5,
-    populate: true,
   });
 
   return mediaItemsToSearchResults(foundMediaItems);

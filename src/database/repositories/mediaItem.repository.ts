@@ -12,7 +12,11 @@ async function findAll(
   if (options?.filter) items = applyFilter(items, options.filter);
   if (options?.sortBy) items = applySort(items, options.sortBy, options.order);
   if (options?.limit) items = applyLimit(items, options.limit);
-  if (options?.populate) items = await applyPopulate(items, "mediaTypes");
+  if (items.length > 0) {
+    items = await applyPopulate(items, "mediaItems");
+  }
+
+  console.log(items);
 
   return items;
 }
