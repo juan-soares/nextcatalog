@@ -10,7 +10,6 @@ export async function applyPopulate<T extends Database[keyof Database][number]>(
   const mediaTypes = db["mediaTypes"];
 
   if (collectionName === "mediaItems") {
-    console.log(items);
     return items.map((item) => {
       const mediaItem = item as MediaItemDoc;
 
