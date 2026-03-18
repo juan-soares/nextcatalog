@@ -17,7 +17,7 @@ export function mediaItemsToSearchResults(
       id: _id,
       href: `/${slug}`,
       cover,
-      releaseYear: releaseDate.getFullYear().toLocaleString(),
+      releaseYear: new Date(releaseDate).getFullYear().toString(),
       title,
       translatedTitle,
       mediaTypeTitle: typeof mediaTypeId === "string" ? "" : mediaTypeId.label,

@@ -125,9 +125,30 @@
   ],
   "mediaTypes": [
     {
-      "_id": "m1",
+      "_id": "anime",
       "label": "Animes",
       "slug": "animes",
+      "createdAt": "2026-03-01T00:00:00.000Z",
+      "updatedAt": "2026-03-01T00:00:00.000Z"
+    },
+    {
+      "_id": "game",
+      "label": "Jogos Eletrônicos",
+      "slug": "jogos-eletronicos",
+      "createdAt": "2026-03-01T00:00:00.000Z",
+      "updatedAt": "2026-03-01T00:00:00.000Z"
+    },
+    {
+      "_id": "artist",
+      "label": "Músicas",
+      "slug": "musicas",
+      "createdAt": "2026-03-01T00:00:00.000Z",
+      "updatedAt": "2026-03-01T00:00:00.000Z"
+    },
+    {
+      "_id": "book",
+      "label": "Livros",
+      "slug": "livros",
       "createdAt": "2026-03-01T00:00:00.000Z",
       "updatedAt": "2026-03-01T00:00:00.000Z"
     }
@@ -136,7 +157,7 @@
   "mediaItems": [
     {
       "_id": "v1",
-      "mediaType": "video",
+      "mediaTypeId": "anime",
       "title": "Naruto",
       "translatedTitle": "Naruto Azumaki",
       "slug": "naruto",
@@ -153,7 +174,7 @@
     },
     {
       "_id": "game1",
-      "mediaType": "game",
+      "mediaTypeId": "game",
       "title": "Resident Evil",
       "translatedTitle": "Resident Evil",
       "slug": "resident-evil",
@@ -172,7 +193,7 @@
     },
     {
       "_id": "artist1",
-      "mediaType": "artist",
+      "mediaTypeId": "artist",
       "title": "Shakira",
       "translatedTitle": "Shakira",
       "slug": "shakira",
@@ -188,7 +209,7 @@
     },
     {
       "_id": "book1",
-      "mediaType": "book",
+      "mediaTypeId": "book",
       "title": "Harry Potter",
       "translatedTitle": "Harry Potter",
       "slug": "harry-potter",

@@ -14,9 +14,13 @@ export function GlobalSearchResults({ query, isLoading, results }: Props) {
 
   return (
     <div className={styles.globalSearchResults}>
-      {isLoading && <p>Carregando...</p>}
-      {!isLoading && !results.length && <p>Sem resultados.</p>}
-      {!isLoading && results.length > 0 && (
+      {isLoading ? (
+        <p>Carregando...</p>
+      ) : !results.length ? (
+        query.trim() ? (
+          <p>Sem resultados.</p>
+        ) : null
+      ) : (
         <ul>
           {results.map(
             ({
@@ -29,21 +33,27 @@ export function GlobalSearchResults({ query, isLoading, results }: Props) {
               mediaTypeTitle,
             }) => (
               <li key={id}>
-                <Link href={href}>
-                  <div>
+                <Link href={href} className={styles.resultLink}>
+                  <div className={styles.row}>
                     <Image
                       src={cover}
                       alt={`Capa do título ${title}.`}
                       width={60}
                       height={90}
+                      className={styles.cover}
                     />
-                  </div>
-                  <div>
-                    <p>
-                      <span>{`(${releaseYear}) ${title}`}</span>
-                      <span>{mediaTypeTitle}</span>
-                    </p>
-                    <h3>{translatedTitle}</h3>
+
+                    <div className={styles.content}>
+                      <div className={styles.lineTop}>
+                        <span>{`(${releaseYear}) ${title}`}</span>
+                      </div>
+                      <div className={styles.lineMiddle}>
+                        <span>{translatedTitle}</span>
+                      </div>
+                      <div className={styles.lineBottom}>
+                        <span>{mediaTypeTitle}</span>
+                      </div>
+                    </div>
                   </div>
                 </Link>
               </li>

@@ -16,8 +16,6 @@ async function findAll(
     items = await applyPopulate(items, "mediaItems");
   }
 
-  console.log(items);
-
   return items;
 }
 

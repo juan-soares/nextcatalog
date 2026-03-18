@@ -10,20 +10,18 @@ export function useGlobalSearch() {
   const handleChange = (value: string) => setQuery(value);
 
   useEffect(() => {
-    const timeout = setTimeout(() => {
-      if (!query) {
-        setResults([]);
-        return;
-      }
+    if (!query.trim()) {
+      setResults([]);
+      setIsLoading(false);
+      return;
+    }
 
-      const updateResults = async () => {
-        setIsLoading(true);
-        const res: SearchResult[] = await listSearchResults(query);
-        setResults(res);
-        setIsLoading(false);
-      };
+    setIsLoading(true);
 
-      updateResults();
+    const timeout = setTimeout(async () => {
+      const res: SearchResult[] = await listSearchResults(query);
+      setResults(res);
+      setIsLoading(false);
     }, 300);
 
     return () => clearTimeout(timeout);
