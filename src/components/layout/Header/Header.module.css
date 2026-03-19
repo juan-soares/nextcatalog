@@ -1,6 +1,9 @@
 .header {
   background: var(--bg-primary);
   border-bottom: 1px solid var(--bg-secondary);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 
   padding: var(--spacing-md) var(--spacing-lg) 0;
 
