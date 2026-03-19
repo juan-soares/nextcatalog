@@ -1,6 +1,6 @@
-import { MongoDoc } from "./database.type";
+import { Document } from "mongoose";
 
-export interface MediaTypeDoc extends MongoDoc {
+export interface MediaTypeDoc extends Document {
   label: string;
   slug: string;
 }

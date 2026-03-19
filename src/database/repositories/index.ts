@@ -1,4 +1,4 @@
-export { createRepository } from "./base.repository";
+export { createRepository } from "./create.repository";
 export { languageRepository } from "./language.repository";
 export { mediaItemRepository } from "./mediaItem.repository";
 export { mediaTypeRepository } from "./mediaType.repository";

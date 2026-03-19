@@ -1,8 +1,6 @@
-import { MongoDoc } from "./database.type";
+import { Document } from "mongoose";
 
-type LanguaCodeOptions = "JP" | "PT-BR" | "EN" | "ES";
-
-export interface LanguageDoc extends MongoDoc {
-  code: LanguaCodeOptions;
+export interface LanguageDoc extends Document {
+  code: string;
   title: string;
 }

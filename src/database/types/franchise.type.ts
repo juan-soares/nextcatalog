@@ -1,9 +1,9 @@
-import { CollectionRef, MongoDoc } from "./database.type";
+import { Document, Types } from "mongoose";
 
-export interface FranchiseDoc extends MongoDoc {
+export interface FranchiseDoc extends Document {
   title: string;
   translatedTitle?: string;
   slug: string;
   logo: string;
-  parentFranchiseId?: CollectionRef<FranchiseDoc>;
+  parentFranchiseId?: Types.ObjectId | FranchiseDoc;
 }
