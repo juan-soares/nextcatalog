@@ -7,5 +7,6 @@ export interface MediaItemDoc extends Document {
   slug: string;
   cover: string;
   releaseDate: Date;
+  synopsis: string;
   mediaTypeId: Types.ObjectId | MediaTypeDoc;
 }

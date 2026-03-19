@@ -55,8 +55,8 @@
 }
 
 .link img {
-  width: 120px;
-  height: 90px;
+  width: 100px;
+  height: 60px;
   object-fit: contain;
   border: 1px solid var(--bg-secondary);
   border-radius: 10px;
