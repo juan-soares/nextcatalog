@@ -1,4 +1,4 @@
-import { Schema, model } from "mongoose";
+import { Schema, model, models } from "mongoose";
 import { FranchiseDoc } from "../types";
 
 const franchiseSchema = new Schema<FranchiseDoc>(
@@ -14,8 +14,6 @@ const franchiseSchema = new Schema<FranchiseDoc>(
   },
 );
 
-export const FranchiseModel = model<FranchiseDoc>(
-  "Franchise",
-  franchiseSchema,
-  "franchises",
-);
+export const FranchiseModel =
+  models.Franchise ||
+  model<FranchiseDoc>("Franchise", franchiseSchema, "franchises");

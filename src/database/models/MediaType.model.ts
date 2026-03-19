@@ -1,4 +1,4 @@
-import { Schema, model } from "mongoose";
+import { Schema, model, models } from "mongoose";
 import { MediaTypeDoc } from "../types";
 
 const MediaTypeSchema = new Schema<MediaTypeDoc>({
@@ -6,8 +6,6 @@ const MediaTypeSchema = new Schema<MediaTypeDoc>({
   slug: { type: String, required: true },
 });
 
-export const MediaTypeModel = model<MediaTypeDoc>(
-  "MediaType",
-  MediaTypeSchema,
-  "mediaTypes",
-);
+export const MediaTypeModel =
+  models.MediaType ||
+  model<MediaTypeDoc>("MediaType", MediaTypeSchema, "mediaTypes");

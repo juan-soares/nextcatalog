@@ -1,9 +1,13 @@
 import { Model, Document } from "mongoose";
 import { FindOptions } from "../types";
+import { connectMongo } from "../mongodb/connection";
 
-export function createRepository<T extends Document>(model: Model<T>) {
+export async function createRepository<T extends Document>(model: Model<T>) {
+  await connectMongo();
+
   async function findAll(options?: FindOptions<T>): Promise<T[]> {
     let query = model.find();
+
     if (options?.sort) query = query.sort(options.sort);
     if (options?.limit) query = query.limit(options.limit);
     if (options?.populate) {

@@ -1,4 +1,4 @@
-import { Schema, model, Types } from "mongoose";
+import { Schema, model, models, Types } from "mongoose";
 import { MediaItemDoc } from "../types";
 
 const mediaItemSchema = new Schema<MediaItemDoc>(
@@ -15,8 +15,6 @@ const mediaItemSchema = new Schema<MediaItemDoc>(
   },
 );
 
-export const MediaItemModel = model<MediaItemDoc>(
-  "MediaItem",
-  mediaItemSchema,
-  "mediaItems",
-);
+export const MediaItemModel =
+  models.MediaItem ||
+  model<MediaItemDoc>("MediaItem", mediaItemSchema, "mediaItems");

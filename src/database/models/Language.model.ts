@@ -1,4 +1,4 @@
-import { Schema, model } from "mongoose";
+import { Schema, model, models } from "mongoose";
 import { LanguageDoc } from "../types";
 
 const languageSchema = new Schema<LanguageDoc>(
@@ -11,8 +11,6 @@ const languageSchema = new Schema<LanguageDoc>(
   },
 );
 
-export const LanguageModel = model<LanguageDoc>(
-  "Language",
-  languageSchema,
-  "languages",
-);
+export const LanguageModel =
+  models.Language ||
+  model<LanguageDoc>("Language", languageSchema, "languages");

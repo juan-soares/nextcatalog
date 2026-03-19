@@ -3,4 +3,4 @@ import { FranchiseDoc } from "../types";
 import { createRepository } from "./";
 
 export const franchiseRepository =
-  createRepository<FranchiseDoc>(FranchiseModel);
+  await createRepository<FranchiseDoc>(FranchiseModel);

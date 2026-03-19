@@ -1,4 +1,4 @@
-import { Schema, model } from "mongoose";
+import { Schema, model, models } from "mongoose";
 import { ThemeDoc } from "../types";
 
 const themeSchema = new Schema<ThemeDoc>(
@@ -11,4 +11,5 @@ const themeSchema = new Schema<ThemeDoc>(
   },
 );
 
-export const ThemeModel = model<ThemeDoc>("Theme", themeSchema, "themes");
+export const ThemeModel =
+  models.Theme || model<ThemeDoc>("Theme", themeSchema, "themes");

@@ -4,8 +4,7 @@ import { mediaTypesToNavLinks } from "./Navbar.mapper";
 
 export async function listNavLinks(): Promise<NavLink[]> {
   const mediaTypes = await mediaTypeRepository.findAll({
-    sortBy: "label",
-    order: "asc",
+    sort: { label: "asc" },
   });
 
   return mediaTypesToNavLinks(mediaTypes);
