@@ -2,8 +2,9 @@
 .navbar {
   background: var(--bg-primary);
   border-top: 1px solid var(--bg-secondary);
+  border-bottom: 1px solid var(--bg-secondary);
 
-  padding: var(--spacing-md) var(--spacing-lg);
+  padding: var(--spacing-lg) var(--spacing-lg);
 }
 
 /* Lista de links */

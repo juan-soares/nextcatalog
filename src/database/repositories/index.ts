@@ -1,4 +1,5 @@
 export { createRepository } from "./create.repository";
+export { franchiseRepository } from "./franchise.repository";
 export { languageRepository } from "./language.repository";
 export { mediaItemRepository } from "./mediaItem.repository";
 export { mediaTypeRepository } from "./mediaType.repository";
