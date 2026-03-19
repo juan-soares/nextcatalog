@@ -1,6 +1,7 @@
 import { MediaItemCardInfo } from "@/features/mediaItemList/type";
 
-export interface HomeSection{
-    title:string;
-    mediaItems: MediaItemCardInfo[]
+export interface IMediaSection {
+  title: string;
+  href: string;
+  mediaItemCardsInfo: MediaItemCardInfo[];
 }

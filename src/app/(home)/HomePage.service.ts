@@ -1,20 +1,11 @@
-import { mediaItemRepository, mediaTypeRepository } from "@/database/repositories";
+import { mediaTypeRepository } from "@/database/repositories";
+import { IMediaSection } from "./HomePage.type";
 
-export async function listSectionsWithMediaItems(limit = 5) {
+export async function listSectionsWithMediaItems(
+  limit = 5,
+): Promise<IMediaSection[]> {
   const mediaTypes = await mediaTypeRepository.findAll();
-
-  const sections = await Promise.all(
-    mediaTypes.map(async ({ _id, label }) => {
-      let mediaItems = await mediaItemRepository.findAll({
-        query: { mediaTypeId: _id },
-        sort: { updatedAt: -1 },
-        limit,
-      });
-
-      return {
-        title: label,
-        mediaItems,
-      };
-    }),
-  );
+  mediaTypes.map(({ _id, label, slug }) => {
+    return { title: label, href: `/${slug}`, mediaItemCardsInfo: [] };
+  });
 }

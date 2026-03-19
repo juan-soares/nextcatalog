@@ -1,13 +1,15 @@
 import { MediaList } from "@/features/mediaItemList/components";
 import styles from "./MediaSection.module.css";
 import Link from "next/link";
+import { MediaItemCardInfo } from "@/features/mediaItemList/type";
 
 interface Props {
   title: string;
   href: string;
+  mediaItemCardsInfo: MediaItemCardInfo[];
 }
 
-export function MediaSection({ title, href }: Props) {
+export function MediaSection({ title, href, mediaItemCardsInfo }: Props) {
   return (
     <section className={styles.section}>
       <header className={styles.header}>
@@ -15,7 +17,7 @@ export function MediaSection({ title, href }: Props) {
       </header>
 
       <div className={styles.list}>
-        <MediaList mediaItemsList={[]}/>
+        <MediaList mediaItemCardsInfo={mediaItemCardsInfo} />
       </div>
 
       <div className={styles.footer}>

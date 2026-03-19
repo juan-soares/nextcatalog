@@ -1,17 +1,18 @@
 import styles from "./MediaList.module.css";
-import { MediaItemCardInfo } from "../../type";
+
 import { MediaCard } from "../MediaCard";
+import { MediaItemCardInfo } from "../../type";
 
 interface Props {
-  mediaItemsList: MediaItemCardInfo[];
+  mediaItemCardsInfo: MediaItemCardInfo[];
 }
 
-export function MediaList({ mediaItemsList }: Props) {
-  if (!mediaItemsList.length) return <p>Sem itens na lista.</p>;
+export function MediaList({ mediaItemCardsInfo }: Props) {
+  if (!mediaItemCardsInfo.length) return <p>Sem itens na lista.</p>;
 
   return (
     <ul className={styles.mediaList}>
-      {mediaItemsList.map((mediaItem) => (
+      {mediaItemCardsInfo.map((mediaItem) => (
         <MediaCard {...mediaItem} />
       ))}
     </ul>
