@@ -4,10 +4,10 @@ import { MediaCard } from "../MediaCard";
 import { MediaItemCardInfo } from "../../type";
 
 interface Props {
-  mediaItemCardsInfo: MediaItemCardInfo[];
+  mediaTypeId: string;
 }
 
-export function MediaList({ mediaItemCardsInfo }: Props) {
+export function MediaList({ mediaTypeId }: Props) {
   if (!mediaItemCardsInfo.length) return <p>Sem itens na lista.</p>;
 
   return (
