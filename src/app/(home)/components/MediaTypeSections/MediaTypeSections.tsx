@@ -1,6 +1,7 @@
-import styles from "./MediaSection.module.css";
+import styles from "./MediaTypeSections.module.css";
 import Link from "next/link";
 import { listMediaTypes } from "./MediaTypeSections.services";
+import { MediaList } from "@/features/mediaItemList/components";
 
 export async function MediaTypeSections() {
   const mediaTypes = await listMediaTypes();
@@ -14,7 +15,11 @@ export async function MediaTypeSections() {
           </header>
 
           <div className={styles.list}>
-            <MediaList mediaTypeId={mediaTypeId} />
+            <MediaList
+              mediaTypeId={mediaTypeId}
+              order={{ sortBy: "recent", sortOrder: "desc" }}
+              resultsToShow={5}
+            />
           </div>
 
           <div className={styles.footer}>

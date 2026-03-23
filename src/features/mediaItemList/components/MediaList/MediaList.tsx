@@ -1,13 +1,22 @@
 import styles from "./MediaList.module.css";
 
 import { MediaCard } from "../MediaCard";
-import { MediaItemCardInfo } from "../../type";
+import { MediaItemCardInfo, MediaTypeSort } from "../../type";
+import { listMediaItemCards } from "../../services";
 
 interface Props {
   mediaTypeId: string;
+  resultsToShow: number;
+  order: MediaTypeSort;
 }
 
-export function MediaList({ mediaTypeId }: Props) {
+export async function MediaList({ mediaTypeId, resultsToShow, order }: Props) {
+  const mediaItemCardsInfo: MediaItemCardInfo[] = await listMediaItemCards(
+    mediaTypeId,
+    resultsToShow,
+    order,
+  );
+
   if (!mediaItemCardsInfo.length) return <p>Sem itens na lista.</p>;
 
   return (
