@@ -8,5 +8,12 @@ export interface MediaItemDoc extends Document {
   cover: string;
   releaseDate: Date;
   synopsis: string;
-  mediaTypeId: Types.ObjectId | MediaTypeDoc;
+  mediaTypeId: Types.ObjectId;
+}
+
+export interface MediaItemDocPopulated extends Omit<
+  MediaItemDoc,
+  "mediaTypeId"
+> {
+  mediaTypeId: MediaTypeDoc;
 }
