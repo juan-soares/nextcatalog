@@ -18,4 +18,17 @@ export const mediaItemService = {
 
     return results;
   },
+
+  async listByMediaTypeId(
+    mediaTypeIdToSearch: string,
+    limit = 5,
+  ): Promise<MediaItem[]> {
+    const results = await mediaItemRepository.findAll({
+      filter: { mediaTypeId: mediaTypeIdToSearch },
+      sort: { updatedAt: -1 },
+      limit,
+    });
+
+    return results;
+  },
 };
