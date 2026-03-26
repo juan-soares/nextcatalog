@@ -1,12 +1,10 @@
 import styles from "./Navbar.module.css";
 import Link from "next/link";
-import { NavLink } from "./Navbar.types";
+import { listLinks } from "./Navbar.services";
 
-interface Props {
-  links: NavLink[];
-}
+export default async function Navbar() {
+  const links = await listLinks();
 
-export default function Navbar({ links }: Props) {
   return (
     <nav className={styles.navbar}>
       {links.map(({ href, label }) => (

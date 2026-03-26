@@ -1,19 +1,16 @@
 import styles from "./Header.module.css";
-import { NavLink } from "@/shared/types";
 import { Logo } from "@/shared/components/ui";
 import { GlobalSearch } from "@/features";
+import { UserInfo } from "@/features/auth";
 import { Navbar } from "@/shared/components/layout";
 
-interface Props {
-  navLinks: NavLink[];
-}
-
-export default function Header({ navLinks }: Props) {
+export default function Header() {
   return (
     <header className={styles.header}>
       <Logo />
       <GlobalSearch />
-      <Navbar links={navLinks} />
+      <UserInfo />
+      <Navbar />
     </header>
   );
 }

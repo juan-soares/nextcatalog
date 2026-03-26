@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { UserSession } from "@/features/auth/types";
 
-export function UserInfo() {
+export default function UserInfo() {
   const userSession: UserSession | null = null;
 
   if (!userSession)
