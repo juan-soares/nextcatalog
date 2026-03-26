@@ -1,8 +1,8 @@
 import "@/app/globals.css";
 import type { Metadata } from "next";
 import { getMediaLinks } from "./HomePage.service";
-import { Header } from "@/shared/components/layout";
 import { NavLink } from "@/shared/types";
+import { Header } from "@/shared/components/layout";
 
 export const metadata: Metadata = {
   title: "Create Next App",

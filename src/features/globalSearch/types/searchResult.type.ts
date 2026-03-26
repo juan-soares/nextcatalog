@@ -5,5 +5,5 @@ export interface SearchResult {
   translatedTitle: string;
   cover: string;
   releaseYear: string;
-  mediaTypeTitle: string;
+  mediaTypeLabel: string;
 }

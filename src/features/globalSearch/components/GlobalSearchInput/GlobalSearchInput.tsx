@@ -6,7 +6,7 @@ interface Props {
   onValueChange: (value: string) => void;
 }
 
-export function GlobalSearchInput({ query, onValueChange }: Props) {
+export default function GlobalSearchInput({ query, onValueChange }: Props) {
   return (
     <div className={styles.globalSearchInput}>
       <input

@@ -1,7 +1,7 @@
 import Link from "next/link";
+import Image from "next/image";
 import styles from "./GlobalSearchResults.module.css";
 import { SearchResult } from "@/features/globalSearch/types";
-import Image from "next/image";
 
 interface Props {
   query: string;
@@ -9,7 +9,11 @@ interface Props {
   results: SearchResult[];
 }
 
-export function GlobalSearchResults({ query, isLoading, results }: Props) {
+export default function GlobalSearchResults({
+  query,
+  isLoading,
+  results,
+}: Props) {
   if (!query.trim()) return null;
 
   return (

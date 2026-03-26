@@ -1,5 +1,4 @@
-import { mediaItemRepository } from "@/database/repositories";
-import { mediaItemsToSearchResults } from "@/features/globalSearch/mapper";
+import { mediaItemService } from "@/domains/mediaItem";
 
 export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
@@ -9,14 +8,7 @@ export async function GET(req: Request) {
     return Response.json([]);
   }
 
-  const items = await mediaItemRepository.findAll({
-    filter: query,
-    sortBy: "title",
-    order: "asc",
-    limit: 5,
-  });
+  const mediaItems = await mediaItemService.searchByText(query);
 
-  const results = mediaItemsToSearchResults(items);
-
-  return Response.json(results);
+  return Response.json(mediaItems);
 }

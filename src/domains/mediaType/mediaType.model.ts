@@ -1,4 +1,4 @@
-import { Schema, Document, Model, model, models } from "mongoose";
+import { Schema, Model, model, models } from "mongoose";
 import { MediaTypeDocument } from "./mediaType.types";
 
 const MediaTypeSchema = new Schema<MediaTypeDocument>(

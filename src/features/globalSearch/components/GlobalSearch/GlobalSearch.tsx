@@ -7,7 +7,7 @@ import {
 } from "@/features/globalSearch/components";
 import { useGlobalSearch } from "@/features/globalSearch/hooks";
 
-export function GlobalSearch() {
+export default function GlobalSearch() {
   const { query, handleChange, isLoading, results } = useGlobalSearch();
 
   return (

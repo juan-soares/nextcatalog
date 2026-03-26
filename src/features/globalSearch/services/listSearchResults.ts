@@ -1,4 +1,6 @@
-import { SearchResult } from "../types";
+import { SearchResult } from "@/features/globalSearch/types";
+import { globalSearchMapper } from "@/features/globalSearch/mappers";
+import { MediaItem } from "@/domains/mediaItem";
 
 export async function listSearchResults(
   query: string,
@@ -11,5 +13,7 @@ export async function listSearchResults(
     throw new Error("Erro ao buscar resultados");
   }
 
-  return res.json();
+  const mediaItems: MediaItem[] = await res.json();
+
+  return mediaItems.map(globalSearchMapper.toSearchResult);
 }

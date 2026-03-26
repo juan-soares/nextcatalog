@@ -6,6 +6,7 @@ export default function Logo() {
   return (
     <Link className={styles.logo} href="/">
       <Image
+        priority
         width={80}
         height={80}
         alt="Logotipo do site."

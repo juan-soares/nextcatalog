@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { SearchResult } from "../types";
-import { listSearchResults } from "../services";
+import { SearchResult } from "@/features/globalSearch/types";
+import { listSearchResults } from "@/features/globalSearch/services";
 
 export function useGlobalSearch() {
   const [query, setQuery] = useState<string>("");
