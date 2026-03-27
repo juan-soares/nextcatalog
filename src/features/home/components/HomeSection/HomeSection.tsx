@@ -1,18 +1,20 @@
 import Link from "next/link";
+import styles from "./HomeSection.module.css";
 import { HomeSectionInfo } from "../../types";
+import { MediaCardList } from "@/shared/components/layout/MediaCardList";
 
 interface Props {
   section: HomeSectionInfo;
 }
 
 export default function HomeSection({
-  section: { title, href, medias },
+  section: { title, href, mediasInfo },
 }: Props) {
   return (
-    <section>
+    <section className={styles.section}>
       <h2>{title}</h2>
-
-      <Link href={href}>Ver todos...</Link>
+      <MediaCardList mediasInfo={mediasInfo} />
+      <Link href={href}>Ver mais...</Link>
     </section>
   );
 }

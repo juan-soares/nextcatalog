@@ -8,6 +8,7 @@ export interface MediaItem {
   slug: string;
   cover: string;
   releaseDate: Date;
+  synopsis: string;
 
   mediaTypeId: string;
   mediaType?: MediaType;

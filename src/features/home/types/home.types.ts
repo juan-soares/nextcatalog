@@ -1,8 +1,8 @@
-import { MediaItem } from "@/domains/mediaItem";
+import { MediaCardInfo } from "@/shared/components/layout/MediaCardList";
 
 export interface HomeSectionInfo {
   mediaTypeId: string;
   title: string;
   href: string;
-  medias: MediaItem[];
+  mediasInfo: MediaCardInfo[];
 }
