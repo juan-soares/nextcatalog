@@ -1,10 +1,10 @@
-import { listAllMediaTypes } from "@/domains/mediaType";
+import { mediaTypeServices } from "@/domains/mediaType";
 import { HomeSectionInfo } from "../types";
 import { mediaItemService } from "@/domains/mediaItem";
 import { homeMapper } from "../mappers";
 
 export async function listHomeSections(): Promise<HomeSectionInfo[]> {
-  const mediaTypes = await listAllMediaTypes();
+  const mediaTypes = await mediaTypeServices.listAllMediaTypes();
 
   const sections: HomeSectionInfo[] = await Promise.all(
     mediaTypes.map(async ({ id, label, slug }) => {
