@@ -1,4 +1,5 @@
 import { getMediaTypeInfoBySlug } from "../../services";
+import { MediaTypeFilters } from "../MediaTypeFilters";
 import styles from "./mediaTypePage.module.css";
 
 interface Props {
@@ -10,6 +11,7 @@ export default async function MediaTypePage({ mediaTypeSlug }: Props) {
   return (
     <div className={styles.mediaTypePage}>
       <h1>{title}</h1>
+      <MediaTypeFilters mediaTyleSlug={mediaTypeSlug} />
     </div>
   );
 }
