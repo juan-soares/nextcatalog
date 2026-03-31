@@ -14,7 +14,7 @@ export default function NewAnimeForm() {
 
         <div>
           <label htmlFor="language">Idioma</label>
-          <Link href="/idioma/novo">
+          <Link href="/idiomas/novo">
             <button>+</button>
           </Link>
 
