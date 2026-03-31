@@ -1,1 +1,1 @@
-export { default as NewRecordPage } from "./NewRecordForm";
+export { default as NewRecordForm } from "./NewRecordForm";

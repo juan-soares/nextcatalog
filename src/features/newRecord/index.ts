@@ -1,1 +1,1 @@
-
+export { NewRecordPage } from "./components";
