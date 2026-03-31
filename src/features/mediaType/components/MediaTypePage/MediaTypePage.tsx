@@ -1,6 +1,9 @@
 import styles from "./mediaTypePage.module.css";
 import { MediaTypeFilters } from "../MediaTypeFilters";
-import { getMediaTypeInfoBySlug } from "../../services";
+import {
+  getMediaItemsByMediaSlug,
+  getMediaTypeInfoBySlug,
+} from "../../services";
 import { MediaTypeSort } from "../MediaTypeSort";
 import { MediaCardList } from "@/shared/components/layout/MediaCardList";
 import { toString } from "@/shared/utils";
@@ -15,15 +18,17 @@ export default async function MediaTypePage({
   searchParams,
 }: Props) {
   const { title, href } = await getMediaTypeInfoBySlug(mediaTypeSlug);
+  const mediaCardInfo = await getMediaItemsByMediaSlug(mediaTypeSlug);
   const sort = toString(searchParams.sort) || "a-z";
+  
 
   return (
     <div className={styles.mediaTypePage}>
       <h1>{title}</h1>
-      <MediaTypeFilters href={href} filters={[]} />
+      <MediaTypeFilters href={href}/>
       <main>
         <MediaTypeSort currentSort={sort} />
-        <MediaCardList mediasInfo={[]} />
+        <MediaCardList mediasInfo={mediaCardInfo} />
       </main>
     </div>
   );

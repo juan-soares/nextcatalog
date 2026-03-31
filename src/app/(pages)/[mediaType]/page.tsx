@@ -7,8 +7,7 @@ interface Props {
 
 export default async function Page({ params, searchParams }: Props) {
   const { mediaType } = await params;
+  const queryParams = await searchParams;
 
-  return (
-    <MediaTypePage mediaTypeSlug={mediaType} searchParams={searchParams} />
-  );
+  return <MediaTypePage mediaTypeSlug={mediaType} searchParams={queryParams} />;
 }

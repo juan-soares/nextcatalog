@@ -1,7 +1,8 @@
 import { mediaTypeServices } from "@/domains/mediaType";
 import { HomeSectionInfo } from "../types";
 import { mediaItemService } from "@/domains/mediaItem";
-import { homeMapper } from "../mappers";
+import { mediaInfoMapper } from "@/shared/mappers";
+
 
 export async function listHomeSections(): Promise<HomeSectionInfo[]> {
   const mediaTypes = await mediaTypeServices.listAllMediaTypes();
@@ -14,7 +15,7 @@ export async function listHomeSections(): Promise<HomeSectionInfo[]> {
         mediaTypeId: id,
         title: label,
         href: `/${slug}`,
-        mediasInfo: mediaItems.map(homeMapper.toMediaCardInfo),
+        mediasInfo: mediaItems.map(mediaInfoMapper.toMediaCardInfo),
       };
     }),
   );

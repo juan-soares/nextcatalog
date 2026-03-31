@@ -5,10 +5,18 @@ import styles from "./MediaTypeFilters.module.css";
 
 interface Props {
   href: string;
-  filters: any[];
 }
 
-export default async function MediaTypeFilters({ href, filters }: Props) {
+interface Filter {
+  id: string;
+  key:string;
+  label: string;
+  options: [];
+}
+
+export default async function MediaTypeFilters({ href }: Props) {
+  const filters: Filter[] = [];
+
   return (
     <aside className={styles.mediaTypeFilters}>
       <div>
@@ -17,6 +25,17 @@ export default async function MediaTypeFilters({ href, filters }: Props) {
           <button type="button">+</button>
         </Link>
       </div>
+      {filters.map(({ id, label, key, options }) => (
+        <fieldset key={id}>
+          <legend>{label}</legend>
+          {options.map(({ id, value }) => (
+            <div key={id}>
+              <input type="checkbox" id={key} value={value} />
+              <label htmlFor={id}>{value}</label>
+            </div>
+          ))}
+        </fieldset>
+      ))}
     </aside>
   );
 }

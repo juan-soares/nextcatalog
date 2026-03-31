@@ -1,7 +1,7 @@
 import { MediaItem } from "@/domains/mediaItem";
 import { MediaCardInfo } from "@/shared/components/layout/MediaCardList";
 
-export const homeMapper = {
+export const mediaInfoMapper = {
   toMediaCardInfo({
     id,
     slug,
