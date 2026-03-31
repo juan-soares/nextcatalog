@@ -8,5 +8,6 @@ export async function getMediaTypeInfoBySlug(
 
   return {
     title: mediaType.label,
+    href: `/${mediaType.slug}`,
   };
 }
