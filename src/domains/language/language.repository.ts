@@ -1,22 +1,27 @@
 import { connectMongo } from "@/database/mongodb/connection";
-import { FindAllOptions } from "@/database/types";
 import {
   Language,
   LanguageDocument,
   LanguageDTO,
+  LanguageFindOptions,
   languageMappers,
   LanguageModel,
+  LanguageServiceSort,
 } from "@/domains/language";
 
 export const languageRepository = {
-  async findAll(
-    options: FindAllOptions<LanguageDocument> = {},
-  ): Promise<LanguageDTO[]> {
-    const { filter = {}, sort = { label: 1 }, limit = 5 } = options;
+  async findAll(options: LanguageFindOptions = {}): Promise<LanguageDTO[]> {
+    const { filters = {}, sort = {}, limit = 10 } = options;
+
+    const mongoSort: Record<string, 1 | -1> = {};
+    for (const key in sort) {
+      const typedKey = key as LanguageServiceSort;
+      mongoSort[typedKey] = sort[typedKey] === "asc" ? 1 : -1;
+    }
 
     await connectMongo();
-    const doc: LanguageDocument[] = await LanguageModel.find(filter)
-      .sort(sort)
+    const doc: LanguageDocument[] = await LanguageModel.find(filters)
+      .sort(mongoSort)
       .limit(limit)
       .lean()
       .exec();
