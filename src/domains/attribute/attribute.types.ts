@@ -14,3 +14,15 @@ export interface AttributeDTO {
   key: string;
   slug: string;
 }
+
+export interface AttributeServiceFilters {
+  label: string;
+}
+
+export type AttributeServiceSort = "label" | "createdAt" | "updatedAt";
+
+export interface AttributeFindOptions {
+  filters?: Partial<AttributeServiceFilters>;
+  sort?: Partial<Record<AttributeServiceSort, "asc" | "desc">>;
+  limit?: number;
+}
