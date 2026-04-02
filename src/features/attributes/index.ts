@@ -1,2 +1,5 @@
-export { AttributesNav, type AttributeLink } from "./components";
-
+export {
+  AttributesNav,
+  AttributeTable,
+  type AttributeLink,
+} from "./components";

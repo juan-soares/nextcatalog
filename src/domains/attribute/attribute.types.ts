@@ -13,10 +13,12 @@ export interface AttributeDTO {
   label: string;
   key: string;
   slug: string;
+  fields: [label: string, key: string];
 }
 
 export interface AttributeServiceFilters {
   label: string;
+  slug: string;
 }
 
 export type AttributeServiceSort = "label" | "createdAt" | "updatedAt";
