@@ -15,7 +15,9 @@ export const attributeServices = {
     return attributes.map(attributeMappers.toAttributeLink);
   },
 
-  async listAttributeDataBySlug(slug: string): Promise<AttributeRecord[]> {
+  async listAttributeDataBySlug(
+    slug: string,
+  ): Promise<AttributeRecord[] | null> {
     switch (slug) {
       case "idiomas": {
         const languages = await languageRepository.findAll();
@@ -28,7 +30,7 @@ export const attributeServices = {
       }
 
       default:
-        return [];
+        return null;
     }
   },
 };

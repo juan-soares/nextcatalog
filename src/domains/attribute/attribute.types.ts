@@ -11,7 +11,6 @@ export type AttributeDocument = HydratedDocument<Attribute>;
 export interface AttributeDTO {
   id: string;
   label: string;
-  key: string;
   slug: string;
 }
 

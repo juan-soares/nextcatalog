@@ -1,13 +1,16 @@
 import Link from "next/link";
 import styles from "./AttributeTable.module.css";
 import { AttributeRecord } from "./AttributeTable.types";
+import { notFound } from "next/navigation";
 
 interface Props {
   slug: string;
-  attributeRecords: AttributeRecord[];
+  attributeRecords: AttributeRecord[] | null;
 }
 
 export default function AttributeTable({ slug, attributeRecords }: Props) {
+  if (!attributeRecords) return notFound();
+
   return (
     <div>
       <button>
