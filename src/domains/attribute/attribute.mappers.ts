@@ -1,4 +1,4 @@
-import { AttributeLink } from "@/features/attributes";
+import { AttributeLink, AttributeTableInfo } from "@/features/attributes";
 import { AttributeDocument, AttributeDTO } from "./attribute.types";
 
 export const attributeMappers = {
@@ -16,6 +16,16 @@ export const attributeMappers = {
       id: id,
       label,
       href: `/atributos?q=${slug}`,
+    };
+  },
+
+  toAttributeTableInfo({ id, k AttributeDTO): AttributeTableInfo {
+    return {
+      id,
+        key;
+  label: string;
+  columns: { key: string; label: string }[];
+  values: Record<string, string>[];
     };
   },
 };

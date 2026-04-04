@@ -1,5 +1,5 @@
 import { AttributeFindOptions, attributeRepository } from "@/domains/attribute";
-import { AttributeLink } from "@/features/attributes";
+import { AttributeLink, AttributeTableInfo } from "@/features/attributes";
 import { attributeMappers } from "./attribute.mappers";
 
 export const attributeServices = {
@@ -9,5 +9,10 @@ export const attributeServices = {
     };
     const attributes = await attributeRepository.findAll(options);
     return attributes.map(attributeMappers.toAttributeLink);
+  },
+
+  async listAttributesInfoBySlug(slug: string): Promise<AttributeTableInfo> {
+    const attribute = await attributeRepository.finOne(slug);
+    return attributeMappers.toAttributeTableInfo(attribute, );
   },
 };

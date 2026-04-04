@@ -1,4 +1,6 @@
+import { attributeServices } from "@/domains/attribute";
 import { AttributeTable } from "@/features/attributes";
+import { AttributeTableInfo } from "@/features/attributes/components/AttributeTable/AttributeTable.types";
 
 interface Props {
   searchParams: {
@@ -8,12 +10,25 @@ interface Props {
 
 export default async function AttributesPage({ searchParams }: Props) {
   const { q } = await searchParams;
-  const attributes = [];
+  const attributesInfo = await attributeServices.listAttributesInfoBySlug(q);
+
+  const attributes: AttributeTableInfo = {
+    name: "language",
+    label: "Idiomas",
+    columns: [
+      { key: "valor", label: "Idioma" },
+      { key: "codigo", label: "Código" },
+    ],
+    values: [
+      { valor: "Português", codigo: "pt-br" },
+      { valor: "Inglês (EUA)", codigo: "en-us" },
+    ],
+  };
 
   return (
     <div>
       {q}
-      <AttributeTable attributes={q} />
+      <AttributeTable attributeTableInfo={attributes} />
     </div>
   );
 }

@@ -6,19 +6,30 @@ interface Props {
 }
 
 export default function AttributeTable({ attributeTableInfo }: Props) {
-  const { columns, values } = attributeTableInfo;
-
   return (
     <table className={styles.attributeTable}>
       <thead>
-        {columns.map((column) => (
-          <th key={column}>{column}</th>
-        ))}
+        <tr>
+          {attributeTableInfo.columns.map(({ key, label }) => (
+            <th key={key}>{label}</th>
+          ))}
+          <th>Alterar</th>
+          <th>Remover</th>
+        </tr>
       </thead>
+
       <tbody>
-        {values.map((value) => (
-          <tr>
-            <td key={value}>{value}</td>
+        {attributeTableInfo.values.map((item, index) => (
+          <tr key={index}>
+            {attributeTableInfo.columns.map(({ key }) => (
+              <td key={key}>{item[key]}</td>
+            ))}
+            <td>
+              <button>A</button>
+            </td>
+            <td>
+              <button>D</button>
+            </td>
           </tr>
         ))}
       </tbody>

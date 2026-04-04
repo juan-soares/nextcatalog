@@ -1,4 +1,7 @@
 export interface AttributeTableInfo {
-  columns: string[];
-  values: string[];
+  id: string;
+  key: string;
+  label: string;
+  columns: { key: string; label: string }[];
+  values: Record<string, string>[];
 }
