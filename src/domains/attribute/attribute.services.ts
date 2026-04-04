@@ -1,6 +1,10 @@
-import { AttributeFindOptions, attributeRepository } from "@/domains/attribute";
-import { AttributeLink, AttributeTableInfo } from "@/features/attributes";
-import { attributeMappers } from "./attribute.mappers";
+import {
+  AttributeFindOptions,
+  attributeRepository,
+  attributeMappers,
+} from "@/domains/attribute";
+import { AttributeLink, AttributeRecord } from "@/features/attributes";
+import { languageRepository } from "../language";
 
 export const attributeServices = {
   async listAttributeLinks(): Promise<AttributeLink[]> {
@@ -11,8 +15,20 @@ export const attributeServices = {
     return attributes.map(attributeMappers.toAttributeLink);
   },
 
-  async listAttributesInfoBySlug(slug: string): Promise<AttributeTableInfo> {
-    const attribute = await attributeRepository.finOne(slug);
-    return attributeMappers.toAttributeTableInfo(attribute, );
+  async listAttributeDataBySlug(slug: string): Promise<AttributeRecord[]> {
+    switch (slug) {
+      case "idiomas": {
+        const languages = await languageRepository.findAll();
+
+        return languages.map(({ id, label, code }) => ({
+          id,
+          value: label,
+          code: code || "",
+        }));
+      }
+
+      default:
+        return [];
+    }
   },
 };

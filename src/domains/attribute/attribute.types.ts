@@ -13,7 +13,12 @@ export interface AttributeDTO {
   label: string;
   key: string;
   slug: string;
-  fields: [label: string, key: string];
+}
+
+export interface AttributeData {
+  id: string;
+  value: string;
+  code?: string;
 }
 
 export interface AttributeServiceFilters {

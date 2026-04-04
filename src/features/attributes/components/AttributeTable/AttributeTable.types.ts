@@ -1,7 +1,5 @@
-export interface AttributeTableInfo {
+export interface AttributeRecord {
   id: string;
-  key: string;
-  label: string;
-  columns: { key: string; label: string }[];
-  values: Record<string, string>[];
+  value: string;
+  code: string;
 }

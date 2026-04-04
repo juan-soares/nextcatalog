@@ -25,6 +25,7 @@ export const languageRepository = {
       .limit(limit)
       .lean()
       .exec();
+
     return doc.map(languageMappers.toDTO);
   },
 

@@ -2,5 +2,5 @@ export {
   AttributesNav,
   AttributeTable,
   type AttributeLink,
-  type AttributeTableInfo,
+  type AttributeRecord,
 } from "./components";
