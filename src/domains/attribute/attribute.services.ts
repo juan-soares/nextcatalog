@@ -15,6 +15,13 @@ export const attributeServices = {
     return attributes.map(attributeMappers.toAttributeLink);
   },
 
+  async getAttributeTitleBySlug(slugToSearch: string): Promise<string | null> {
+    const attribute = await attributeRepository.findOne({ slug: slugToSearch });
+    if (!attribute) return null;
+
+    return attribute.label;
+  },
+
   async listAttributeDataBySlug(
     slug: string,
   ): Promise<AttributeRecord[] | null> {

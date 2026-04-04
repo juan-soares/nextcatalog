@@ -27,4 +27,9 @@ export const attributeRepository = {
 
     return docs.map(attributeMappers.toDTO);
   },
+
+  async findOne(field: Partial<AttributeDTO>): Promise<AttributeDTO | null> {
+    const attribue = await AttributeModel.findOne(field);
+    return attribue;
+  },
 };

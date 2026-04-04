@@ -20,7 +20,7 @@ export const attributeMappers = {
     return {
       id: id,
       label,
-      href: `/atributos?q=${slug}`,
+      href: `/atributos/${slug}`,
     };
   },
 

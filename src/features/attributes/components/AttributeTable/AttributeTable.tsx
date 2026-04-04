@@ -1,7 +1,6 @@
 import Link from "next/link";
 import styles from "./AttributeTable.module.css";
 import { AttributeRecord } from "./AttributeTable.types";
-import { notFound } from "next/navigation";
 
 interface Props {
   slug: string;
@@ -9,13 +8,17 @@ interface Props {
 }
 
 export default function AttributeTable({ slug, attributeRecords }: Props) {
-  if (!attributeRecords) return notFound();
+  if (!attributeRecords)
+    return (
+      <div>
+        <p>
+          O atributo que você está procurando ainda não existe internamente.
+        </p>
+      </div>
+    );
 
   return (
     <div>
-      <button>
-        <Link href={`/${slug}/novo`}>Adicionar</Link>
-      </button>
       <table className={styles.attributeTable}>
         <thead>
           <tr>
@@ -40,6 +43,10 @@ export default function AttributeTable({ slug, attributeRecords }: Props) {
           ))}
         </tbody>
       </table>
+
+      <button>
+        <Link href={`/atributos/${slug}/novo`}>Adicionar</Link>
+      </button>
     </div>
   );
 }
