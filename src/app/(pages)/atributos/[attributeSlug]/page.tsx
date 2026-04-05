@@ -1,5 +1,4 @@
-import { attributeServices } from "@/domains/attribute";
-import { AttributeTable } from "@/features/attributes";
+import { LanguageTable } from "@/features/language";
 
 interface Props {
   params: { attributeSlug: string };
@@ -8,20 +7,11 @@ interface Props {
 export default async function AttributePage({ params }: Props) {
   const { attributeSlug } = await params;
 
-  if (!attributeSlug)
-    return (
-      <div>
-        <p>O atributo que está procurando não existe.</p>
-      </div>
-    );
+  switch (attributeSlug) {
+    case "idiomas":
+      return <LanguageTable />;
 
-  const title = await attributeServices.getAttributeTitleBySlug(attributeSlug);
-  const data = await attributeServices.listAttributeDataBySlug(attributeSlug);
-
-  return (
-    <div>
-      <h1>{title}</h1>
-      <AttributeTable slug={attributeSlug} attributeRecords={data} />
-    </div>
-  );
+    default:
+      return <p>Atributo inexistente.</p>;
+  }
 }
