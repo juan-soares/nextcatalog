@@ -1,4 +1,3 @@
-import { connectMongo } from "@/database/mongodb/connection";
 import {
   Language,
   LanguageDTO,
@@ -21,15 +20,15 @@ export const languageServices = {
   },
 
   async create(newLanguage: Language): Promise<void> {
-    await connectMongo();
-
     const language = new LanguageModel({
       label: newLanguage.label,
       code: newLanguage.code,
     });
 
     await language.save();
+  },
 
-    console.log("Salvo com sucesso!");
+  async remove(languageId: string): Promise<void> {
+    await languageRepository.findByIdAndDelete(languageId);
   },
 };

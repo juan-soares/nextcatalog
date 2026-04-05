@@ -1,6 +1,7 @@
-import { languageServices } from "@/domains/language";
-import { AttributeTable } from "@/shared/components/layout";
 import Link from "next/link";
+import { languageServices } from "@/domains/language";
+import { deleteAction } from "./LanguageTable.actions";
+import { AttributeTable } from "@/shared/components/layout";
 
 export default async function LanguageTable() {
   const languages = await languageServices.listLanguages();
@@ -14,7 +15,7 @@ export default async function LanguageTable() {
     <div>
       <h1>Idiomas</h1>
 
-      <AttributeTable rows={rows} />
+      <AttributeTable rows={rows} removeAction={deleteAction} />
 
       <Link href="/atributos/idiomas/novo">
         <button>+</button>

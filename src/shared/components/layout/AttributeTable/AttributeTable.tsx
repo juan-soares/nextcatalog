@@ -1,10 +1,12 @@
+import { FormDeleteBtn } from "../../ui";
 import { AttributeRowValues } from "./AttributeTable.types";
 
 interface Props {
   rows: AttributeRowValues[];
+  removeAction: (id: string) => void;
 }
 
-export default function AttributeTable({ rows }: Props) {
+export default function AttributeTable({ rows, removeAction }: Props) {
   return (
     <table>
       <thead>
@@ -22,7 +24,9 @@ export default function AttributeTable({ rows }: Props) {
               <button>Alterar</button>
             </td>
             <td>
-              <button>Remover</button>
+              <form action={removeAction.bind(null, id)}>
+                <FormDeleteBtn />
+              </form>
             </td>
           </tr>
         ))}

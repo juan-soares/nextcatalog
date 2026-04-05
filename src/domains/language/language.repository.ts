@@ -34,4 +34,9 @@ export const languageRepository = {
     const doc = await LanguageModel.create(data);
     return languageMappers.toDTO(doc);
   },
+
+  async findByIdAndDelete(id: string): Promise<void> {
+    await connectMongo();
+    await LanguageModel.findByIdAndDelete(id);
+  },
 };
