@@ -1,34 +1,34 @@
 import {
-  Language,
-  LanguageDTO,
-  LanguageFindOptions,
-  LanguageModel,
-  languageRepository,
-  LanguageServiceFilters,
-} from "@/domains/language";
+  Resolution,
+  ResolutionDTO,
+  ResolutionFindOptions,
+  ResolutionModel,
+  resolutionRepository,
+  ResolutionServiceFilters,
+} from "@/domains/resolution";
 
-export const languageServices = {
-  async listLanguages(
-    filters?: Partial<LanguageServiceFilters>,
-  ): Promise<LanguageDTO[]> {
-    const options: LanguageFindOptions = {
+export const resolutionServices = {
+  async listResolutions(
+    filters?: Partial<ResolutionServiceFilters>,
+  ): Promise<ResolutionDTO[]> {
+    const options: ResolutionFindOptions = {
       filters,
       sort: { label: "asc" },
     };
 
-    return await languageRepository.findAll(options);
+    return await resolutionRepository.findAll(options);
   },
 
-  async create(newLanguage: Language): Promise<void> {
-    const language = new LanguageModel({
-      label: newLanguage.label,
-      code: newLanguage.code,
+  async create(newResolution: Resolution): Promise<void> {
+    const resolution = new ResolutionModel({
+      label: newResolution.label,
+      code: newResolution.code,
     });
 
-    await language.save();
+    await resolution.save();
   },
 
-  async remove(languageId: string): Promise<void> {
-    await languageRepository.findByIdAndDelete(languageId);
+  async remove(repositoryId: string): Promise<void> {
+    await resolutionRepository.findByIdAndDelete(repositoryId);
   },
 };

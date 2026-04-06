@@ -9,7 +9,7 @@ import {
   ResolutionServiceSort,
 } from "@/domains/resolution";
 
-export const ResolutionRepository = {
+export const resolutionRepository = {
   async findAll(options: ResolutionFindOptions = {}): Promise<ResolutionDTO[]> {
     const { filters = {}, sort = {}, limit = 10 } = options;
 
