@@ -1,5 +1,6 @@
 import { LanguageTable } from "@/features/language";
 import { ResolutionTable } from "@/features/resolution";
+import { ThemeTable } from "@/features/theme";
 
 interface Props {
   params: { attributeSlug: string };
@@ -14,6 +15,9 @@ export default async function AttributePage({ params }: Props) {
 
     case "resolucoes":
       return <ResolutionTable />;
+
+    case "temas":
+      return <ThemeTable />;
 
     default:
       return <p>Atributo inexistente.</p>;
