@@ -1,4 +1,5 @@
 import { LanguageForm } from "@/features/language";
+import { ModeForm } from "@/features/mode";
 import { PlatformForm } from "@/features/platform";
 import { ResolutionForm } from "@/features/resolution";
 import { ThemeForm } from "@/features/theme";
@@ -19,6 +20,9 @@ export default async function NewAttributePage({ params }: Props) {
 
     case "plataformas":
       return <PlatformForm />;
+
+    case "modos":
+      return <ModeForm />;
 
     case "temas":
       return <ThemeForm />;

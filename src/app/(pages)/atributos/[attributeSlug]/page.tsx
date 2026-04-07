@@ -1,4 +1,5 @@
 import { LanguageTable } from "@/features/language";
+import { ModeTable } from "@/features/mode";
 import { PlatformTable } from "@/features/platform";
 import { ResolutionTable } from "@/features/resolution";
 import { ThemeTable } from "@/features/theme";
@@ -19,6 +20,9 @@ export default async function AttributePage({ params }: Props) {
 
     case "plataformas":
       return <PlatformTable />;
+
+    case "modos":
+      return <ModeTable />;
 
     case "temas":
       return <ThemeTable />;

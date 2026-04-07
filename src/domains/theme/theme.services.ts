@@ -17,15 +17,15 @@ export const themeServices = {
     return await themeRepository.findAll(options);
   },
 
-  async create(newResolution: Theme): Promise<void> {
+  async create(newTheme: Theme): Promise<void> {
     const theme = new ThemeModel({
-      label: newResolution.label,
+      label: newTheme.label,
     });
 
     await theme.save();
   },
 
-  async remove(repositoryId: string): Promise<void> {
-    await themeRepository.findByIdAndDelete(repositoryId);
+  async remove(themeId: string): Promise<void> {
+    await themeRepository.findByIdAndDelete(themeId);
   },
 };
