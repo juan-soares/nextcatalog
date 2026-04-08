@@ -1,3 +1,4 @@
+import { EnvironmentTable } from "@/features/environment";
 import { GenreTable } from "@/features/genre";
 import { LanguageTable } from "@/features/language";
 import { ModeTable } from "@/features/mode";
@@ -27,6 +28,9 @@ export default async function AttributePage({ params }: Props) {
 
     case "generos":
       return <GenreTable />;
+
+    case "ambientacoes":
+      return <EnvironmentTable />;
 
     case "temas":
       return <ThemeTable />;

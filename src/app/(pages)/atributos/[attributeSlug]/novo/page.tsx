@@ -1,3 +1,4 @@
+import { EnvironmentForm } from "@/features/environment";
 import { GenreForm } from "@/features/genre";
 import { LanguageForm } from "@/features/language";
 import { ModeForm } from "@/features/mode";
@@ -27,6 +28,9 @@ export default async function NewAttributePage({ params }: Props) {
 
     case "generos":
       return <GenreForm />;
+
+    case "ambientacoes":
+      return <EnvironmentForm />;
 
     case "temas":
       return <ThemeForm />;
