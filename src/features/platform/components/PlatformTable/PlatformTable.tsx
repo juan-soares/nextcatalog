@@ -5,6 +5,7 @@ import { AttributeTable } from "@/shared/components/layout";
 
 export default async function PlatformTable() {
   const platforms = await platformServices.list();
+  const columns = ["Valores","Código"]
   const rows = platforms.map(({ id, label, code }) => ({
     id,
     value: label,
@@ -15,7 +16,7 @@ export default async function PlatformTable() {
     <div>
       <h1>Plataformas</h1>
 
-      <AttributeTable rows={rows} removeAction={deleteAction} />
+      <AttributeTable rows={rows} columns={columns} removeAction={deleteAction} />
 
       <Link href="/atributos/plataformas/novo">
         <button>+</button>

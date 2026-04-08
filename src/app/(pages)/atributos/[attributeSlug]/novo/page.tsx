@@ -1,3 +1,4 @@
+import { GenreForm } from "@/features/genre";
 import { LanguageForm } from "@/features/language";
 import { ModeForm } from "@/features/mode";
 import { PlatformForm } from "@/features/platform";
@@ -23,6 +24,9 @@ export default async function NewAttributePage({ params }: Props) {
 
     case "modos":
       return <ModeForm />;
+
+    case "generos":
+      return <GenreForm />;
 
     case "temas":
       return <ThemeForm />;

@@ -5,17 +5,22 @@ import { resolutionServices } from "@/domains/resolution";
 
 export default async function ResolutionTable() {
   const resolutions = await resolutionServices.listResolutions();
+  const column = ["Valores", "Códigos"];
   const rows = resolutions.map(({ id, label, code }) => ({
     id,
     value: label,
-    code: code || "",
+    code,
   }));
 
   return (
     <div>
       <h1>Resoluções</h1>
 
-      <AttributeTable rows={rows} removeAction={deleteAction} />
+      <AttributeTable
+        rows={rows}
+        columns={column}
+        removeAction={deleteAction}
+      />
 
       <Link href="/atributos/resolucoes/novo">
         <button>+</button>

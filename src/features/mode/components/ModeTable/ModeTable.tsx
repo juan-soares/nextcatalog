@@ -5,6 +5,7 @@ import { AttributeTable } from "@/shared/components/layout";
 
 export default async function ThemeTable() {
   const modes = await modeServices.listAll();
+  const columns = ["Valores"];
   const rows = modes.map(({ id, label }) => ({
     id,
     value: label,
@@ -14,7 +15,11 @@ export default async function ThemeTable() {
     <div>
       <h1>Modos</h1>
 
-      <AttributeTable rows={rows} removeAction={deleteAction} />
+      <AttributeTable
+        rows={rows}
+        columns={columns}
+        removeAction={deleteAction}
+      />
 
       <Link href="/atributos/modos/novo">
         <button>+</button>

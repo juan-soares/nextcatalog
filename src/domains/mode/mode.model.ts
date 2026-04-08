@@ -9,5 +9,5 @@ const ModeSchema = new Schema<ModeDocument>(
 );
 
 export const ModeModel: Model<ModeDocument> =
-  mongoose.models.Model ||
+  mongoose.models.Mode ||
   mongoose.model<ModeDocument>("Mode", ModeSchema, "modes");

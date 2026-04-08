@@ -5,17 +5,22 @@ import { AttributeTable } from "@/shared/components/layout";
 
 export default async function LanguageTable() {
   const languages = await languageServices.listLanguages();
+  const columns = ["Valor", "Código"];
   const rows = languages.map(({ id, label, code }) => ({
     id,
     value: label,
-    code: code || "",
+    code,
   }));
 
   return (
     <div>
       <h1>Idiomas</h1>
 
-      <AttributeTable rows={rows} removeAction={deleteAction} />
+      <AttributeTable
+        rows={rows}
+        columns={columns}
+        removeAction={deleteAction}
+      />
 
       <Link href="/atributos/idiomas/novo">
         <button>+</button>
