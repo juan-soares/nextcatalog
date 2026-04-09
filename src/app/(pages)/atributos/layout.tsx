@@ -1,5 +1,5 @@
 import { attributeServices } from "@/domains/attribute";
-import { AttributesNav } from "@/features/attributes";
+import { AttributesNav } from "@/features/attribute";
 
 export default async function AttributesLayout({
   children,

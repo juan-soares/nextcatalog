@@ -1,20 +1,19 @@
-import Link from "next/link";
-import styles from "./HomeSection.module.css";
-import { HomeSectionInfo } from "../../types";
-import { MediaCardList } from "@/shared/components/layout/MediaCardList";
+import { MediaItem } from "@/domains/mediaItem";
 
 interface Props {
-  section: HomeSectionInfo;
+  title: string;
+  mediaItems: MediaItem[];
 }
 
-export default function HomeSection({
-  section: { title, href, mediasInfo },
-}: Props) {
+export default function HomeSection({ title, mediaItems }: Props) {
   return (
-    <section className={styles.section}>
-      <h2>{title}</h2>
-      <MediaCardList mediasInfo={mediasInfo} />
-      <Link href={href}>Ver mais...</Link>
+    <section>
+      <h1>{title}</h1>
+      <div>
+        {mediaItems.map((mediaItem) => (
+          <MediaCard key={mediaItem.id} mediaInfo={mediaItem} />
+        ))}
+      </div>
     </section>
   );
 }

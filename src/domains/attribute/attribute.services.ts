@@ -3,7 +3,7 @@ import {
   attributeRepository,
   attributeMappers,
 } from "@/domains/attribute";
-import { AttributeLink, AttributeRecord } from "@/features/attributes";
+import { AttributeLink, AttributeRecord } from "@/features/attribute";
 import { languageRepository } from "../language";
 
 export const attributeServices = {

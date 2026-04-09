@@ -1,10 +1,10 @@
-import { AttributeLink } from "@/features/attributes";
+import { AttributeLink } from "@/features/attribute";
 import {
   AttributeData,
   AttributeDocument,
   AttributeDTO,
 } from "./attribute.types";
-import { AttributeRecord } from "@/features/attributes/components";
+import { AttributeRecord } from "@/features/attribute/components";
 
 export const attributeMappers = {
   toDTO({ _id, label, key, slug }: AttributeDocument): AttributeDTO {
