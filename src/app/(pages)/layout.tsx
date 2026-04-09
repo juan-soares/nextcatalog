@@ -1,4 +1,4 @@
-import "@/app/(pages)/globals.css";
+import "./globals.css";
 import type { Metadata } from "next";
 import { NavLink } from "@/shared/types";
 import { Header } from "@/shared/components/layout";

@@ -1,16 +1,34 @@
-import { MediaType } from "./mediaType.types";
-import { mediaTypeRepository } from "./mediaType.repository";
+import {
+  MediaType,
+  MediaTypeDTO,
+  MediaTypeFindOptions,
+  MediaTypeModel,
+  mediaTypeRepository,
+  MediaTypeServiceFilters,
+} from "@/domains/mediaType";
 
 export const mediaTypeServices = {
-  async listAllMediaTypes(): Promise<MediaType[]> {
-    return await mediaTypeRepository.findAll();
+  async listAll(
+    filters?: Partial<MediaTypeServiceFilters>,
+  ): Promise<MediaTypeDTO[]> {
+    const options: MediaTypeFindOptions = {
+      filters,
+      sort: { label: "asc" },
+    };
+
+    return await mediaTypeRepository.findAll(options);
   },
 
-  async listMediaTypeBySlug(slugToSearch: string): Promise<MediaType> {
-    const results = await mediaTypeRepository.findAll({
-      filter: { slug: slugToSearch },
+  async create(newMediaType: MediaType): Promise<void> {
+    const mediaType = new MediaTypeModel({
+      label: newMediaType.label,
+      slug: newMediaType.slug,
     });
 
-    return results[0];
+    await mediaType.save();
+  },
+
+  async remove(mediaTypeId: string): Promise<void> {
+    await mediaTypeRepository.findByIdAndDelete(mediaTypeId);
   },
 };

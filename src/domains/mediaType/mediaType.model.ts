@@ -1,14 +1,14 @@
-import { Schema, Model, model, models } from "mongoose";
-import { MediaTypeDocument } from "./mediaType.types";
+import mongoose, { Schema, Model } from "mongoose";
+import { MediaTypeDocument } from "@/domains/mediaType";
 
 const MediaTypeSchema = new Schema<MediaTypeDocument>(
   {
-    label: { type: String, required: true },
-    slug: { type: String, required: true },
+    label: { type: String, required: true, unique: true },
+    slug: { type: String, required: false, unique: true },
   },
   { timestamps: true },
 );
 
 export const MediaTypeModel: Model<MediaTypeDocument> =
-  models.MediaType ||
-  model<MediaTypeDocument>("MediaType", MediaTypeSchema, "mediaTypes");
+  mongoose.models.MediaType ||
+  mongoose.model<MediaTypeDocument>("MediaType", MediaTypeSchema, "mediaTypes");

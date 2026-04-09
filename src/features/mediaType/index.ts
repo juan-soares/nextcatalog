@@ -1,1 +1,0 @@
-export { MediaTypePage } from "./components";

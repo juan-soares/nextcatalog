@@ -1,6 +1,6 @@
 import styles from "./Header.module.css";
 import { Logo } from "@/shared/components/ui";
-import { GlobalSearch } from "@/features";
+import { GlobalSearch } from "@/features/globalSearch";
 import { UserInfo } from "@/features/auth";
 import { Navbar } from "@/shared/components/layout";
 
