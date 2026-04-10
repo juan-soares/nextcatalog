@@ -9,6 +9,6 @@ export interface MediaItem {
   title: string;
   cover: string;
   synopsis: string;
-  slug: string;
-  
+  href: string;
+  releaseYear: string;
 }
