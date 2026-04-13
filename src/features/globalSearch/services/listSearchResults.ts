@@ -1,6 +1,6 @@
 import { SearchResult } from "@/features/globalSearch/types";
 import { globalSearchMapper } from "@/features/globalSearch/mappers";
-import { MediaItem } from "@/domains/mediaItem";
+import { MediaItem } from "@/domains/media-item";
 
 export async function listSearchResults(
   query: string,

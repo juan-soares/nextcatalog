@@ -1,4 +1,4 @@
-import { MediaItem } from "@/domains/mediaItem";
+import { MediaItem } from "@/domains/media-item";
 import { MediaCard } from "../MediaCard";
 
 

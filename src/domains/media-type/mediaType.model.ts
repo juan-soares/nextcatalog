@@ -1,5 +1,5 @@
 import mongoose, { Schema, Model } from "mongoose";
-import { MediaTypeDocument } from "@/domains/mediaType";
+import { MediaTypeDocument } from "@/domains/media-type";
 
 const MediaTypeSchema = new Schema<MediaTypeDocument>(
   {

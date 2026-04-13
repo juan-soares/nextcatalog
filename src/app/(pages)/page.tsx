@@ -1,4 +1,4 @@
-import { mediaItem, MediaSection } from "@/domains/mediaItem";
+import { mediaItem, MediaSection } from "@/domains/media-item";
 import { HomePage } from "@/features/home";
 
 export default async function Page() {

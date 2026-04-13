@@ -5,7 +5,7 @@ import {
   MediaTypeModel,
   mediaTypeRepository,
   MediaTypeServiceFilters,
-} from "@/domains/mediaType";
+} from "@/domains/media-type";
 
 export const mediaTypeServices = {
   async listAll(

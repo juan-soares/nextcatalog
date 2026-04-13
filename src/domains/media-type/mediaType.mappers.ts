@@ -1,4 +1,4 @@
-import { MediaTypeDocument, MediaTypeDTO } from "@/domains/mediaType";
+import { MediaTypeDocument, MediaTypeDTO } from "@/domains/media-type";
 
 export const mediaTypeMappers = {
   toDTO({ _id, label, slug }: MediaTypeDocument): MediaTypeDTO {

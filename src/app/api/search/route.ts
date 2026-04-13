@@ -1,4 +1,4 @@
-import { mediaItemService } from "@/domains/mediaItem";
+import { mediaItemService } from "@/domains/media-item";
 
 export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);

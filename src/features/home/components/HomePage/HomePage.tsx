@@ -1,4 +1,4 @@
-import { MediaSection } from "@/domains/mediaItem";
+import { MediaSection } from "@/domains/media-item";
 import { HomeSection } from "../HomeSection";
 
 interface Props {

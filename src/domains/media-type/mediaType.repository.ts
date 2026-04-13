@@ -7,7 +7,7 @@ import {
   MediaTypeModel,
   MediaTypeServiceSort,
   mediaTypeMappers,
-} from "@/domains/mediaType";
+} from "@/domains/media-type";
 
 export const mediaTypeRepository = {
   async findAll(options: MediaTypeFindOptions = {}): Promise<MediaTypeDTO[]> {

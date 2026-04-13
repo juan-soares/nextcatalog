@@ -1,3 +1,5 @@
+import { HydratedDocument } from "mongoose";
+
 export interface MediaSection {
   id: string;
   title: string;
@@ -9,6 +11,8 @@ export interface MediaItem {
   title: string;
   cover: string;
   synopsis: string;
-  href: string;
-  releaseYear: string;
+  slug: string;
+  releaseDate: Date;
 }
+
+export type MediaItemDocument = HydratedDocument<MediaItem>;

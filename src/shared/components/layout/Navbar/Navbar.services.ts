@@ -1,4 +1,4 @@
-import { mediaTypeServices } from "@/domains/mediaType";
+import { mediaTypeServices } from "@/domains/media-type";
 import { NavLink } from "./Navbar.types";
 import { navbarMapper } from "./Navbar.mappers";
 
