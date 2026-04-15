@@ -2,7 +2,7 @@ import styles from "./Header.module.css";
 import { Logo } from "@/shared/components/ui";
 import { GlobalSearch } from "@/features/globalSearch";
 import { UserInfo } from "@/features/auth";
-import { Navbar } from "@/shared/components/layout";
+import { MediaTypeNav } from "@/features/navigation";
 
 export default function Header() {
   return (
@@ -10,7 +10,7 @@ export default function Header() {
       <Logo />
       <GlobalSearch />
       <UserInfo />
-      <Navbar />
+      <MediaTypeNav />
     </header>
   );
 }

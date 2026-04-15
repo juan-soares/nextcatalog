@@ -3,3 +3,5 @@ export * from "./mediaType.model";
 export * from "./mediaType.repository";
 export * from "./mediaType.mappers";
 export * from "./mediaType.services";
+
+export * from "./use-cases";
