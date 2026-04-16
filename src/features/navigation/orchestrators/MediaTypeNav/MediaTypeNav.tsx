@@ -1,11 +1,16 @@
-import { listActiveMediaTypes } from "@/domains/media-type";
-import { toMediaTypeLink } from "../../mappers";
-import Link from "next/link";
-import { Navbar } from "@/shared/components/ui";
+import { mediaTypeToNavLink } from "../../mappers";
+import { getMediaTypesAction } from "@/actions/media-type";
+import { NavLink } from "@/shared/components/ui";
 
 export default async function MediaTypeNav() {
-  const mediaTypes = await listActiveMediaTypes();
-  const mediaLinks = mediaTypes.map(toMediaTypeLink);
+  const mediaTypes = await getMediaTypesAction();
+  const mediaLinks = mediaTypes.map(mediaTypeToNavLink);
 
-  return <Navbar links={mediaLinks} />;
+  return (
+    <nav>
+      {mediaLinks.map((link) => (
+        <NavLink key={link.id} {...link} />
+      ))}
+    </nav>
+  );
 }

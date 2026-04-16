@@ -1,16 +1,14 @@
-import styles from "./Logo.module.css";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Logo() {
   return (
-    <Link className={styles.logo} href="/">
+    <Link href="/">
       <Image
-        priority
-        width={80}
-        height={80}
-        alt="Logotipo do site."
         src="/assets/logo/logo.png"
+        alt="Logotipo do site."
+        width={60}
+        height={60}
       />
     </Link>
   );

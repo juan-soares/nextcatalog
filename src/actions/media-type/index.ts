@@ -1,1 +1,1 @@
-export * from "./create-media-type.action";
+export * from "./list-media-types.action";

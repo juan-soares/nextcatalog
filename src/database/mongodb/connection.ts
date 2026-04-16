@@ -45,6 +45,6 @@ export async function connectMongoDB(): Promise<typeof mongoose> {
     cache.promise = null;
     throw error;
   }
-
+  console.log("Mongodb conectado.");
   return cache.conn;
 }

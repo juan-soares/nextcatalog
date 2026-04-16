@@ -1,15 +1,12 @@
-import styles from "./Header.module.css";
-import { Logo } from "@/shared/components/ui";
-import { GlobalSearch } from "@/features/globalSearch";
-import { UserInfo } from "@/features/auth";
+import { Logo } from "../../ui";
+import { GlobalSearch } from "@/features/global-search";
 import { MediaTypeNav } from "@/features/navigation";
 
 export default function Header() {
   return (
-    <header className={styles.header}>
+    <header>
       <Logo />
       <GlobalSearch />
-      <UserInfo />
       <MediaTypeNav />
     </header>
   );

@@ -1,1 +1,1 @@
-export * from "./navigation.mappers"
+export * from "./media-type-nav.mapper";
