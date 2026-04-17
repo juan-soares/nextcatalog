@@ -27,8 +27,9 @@ export function useGlobalSearch() {
     debounceRef.current = setTimeout(async () => {
       // simula request ao servidor
       await new Promise((resolve) => setTimeout(resolve, 400));
-      const mediaTypes = [];
-      const results = mediaTypes.map(mediaItemToSearchResult);
+      const mediaItems =
+        await searchMediaItemsByTitleOrTranslatedTitleAction(query);
+      const results = mediaItems.map(mediaItemToSearchResult);
 
       setResults(results);
 
