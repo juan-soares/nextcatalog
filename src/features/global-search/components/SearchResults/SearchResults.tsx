@@ -4,12 +4,21 @@ import { SearchResult } from "../../types";
 
 interface Props {
   results: SearchResult[];
+  hasSearched: boolean;
   loading: boolean;
 }
 
-export default function SearchResults({ results, loading }: Props) {
+export default function SearchResults({
+  results,
+  loading,
+  hasSearched,
+}: Props) {
   if (loading) return <p>Carregando...</p>;
-  if (!loading && !results.length) return <p>Sem resultados.</p>;
+  if (hasSearched && !results.length) {
+    return <p>Sem resultados.</p>;
+  }
+
+  if (!hasSearched) return null;
 
   return (
     <ul>

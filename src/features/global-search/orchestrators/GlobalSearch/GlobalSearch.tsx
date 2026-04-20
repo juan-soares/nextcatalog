@@ -4,7 +4,7 @@ import { useGlobalSearch } from "../../hooks";
 import { SearchInput, SearchResults } from "../../components";
 
 export default function GlobalSearch() {
-  const { query, results, loading, handleChange, handleSubmit } =
+  const { query, results, hasSearched, loading, handleChange, handleSubmit } =
     useGlobalSearch();
 
   return (
@@ -14,7 +14,13 @@ export default function GlobalSearch() {
         onChange={handleChange}
         onSubmit={handleSubmit}
       />
-      {query && <SearchResults results={results} loading={loading} />}
+      {query && (
+        <SearchResults
+          results={results}
+          loading={loading}
+          hasSearched={hasSearched}
+        />
+      )}
     </div>
   );
 }

@@ -1,5 +1,8 @@
+"use client";
+
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
+import { searchMediaItemsAction } from "@/actions/media-item";
 import { SearchResult } from "../types";
 import { mediaItemToSearchResult } from "../mappers";
 
@@ -7,33 +10,55 @@ export function useGlobalSearch() {
   const [query, setQuery] = useState<string>("");
   const [results, setResults] = useState<SearchResult[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
+  const [hasSearched, setHasSearched] = useState<boolean>(false);
+
   const router = useRouter();
 
   const debounceRef = useRef<NodeJS.Timeout | null>(null);
+  const requestIdRef = useRef(0);
 
   useEffect(() => {
-    if (!query.trim()) {
+    const trimmedQuery = query.trim();
+
+    // 👉 evita busca desnecessária
+    if (trimmedQuery.length < 2) {
       setResults([]);
       setLoading(false);
+      setHasSearched(false);
       return;
     }
 
-    setLoading(true);
-
+    // limpa debounce anterior
     if (debounceRef.current) {
       clearTimeout(debounceRef.current);
     }
 
     debounceRef.current = setTimeout(async () => {
-      // simula request ao servidor
-      await new Promise((resolve) => setTimeout(resolve, 400));
-      const mediaItems =
-        await searchMediaItemsByTitleOrTranslatedTitleAction(query);
-      const results = mediaItems.map(mediaItemToSearchResult);
+      const currentRequestId = ++requestIdRef.current;
 
-      setResults(results);
+      setLoading(true);
+      setHasSearched(false);
 
-      setLoading(false);
+      try {
+        const mediaItems = await searchMediaItemsAction(trimmedQuery);
+
+        // ignora resposta antiga
+        if (currentRequestId !== requestIdRef.current) return;
+
+        const mapped = mediaItems.map(mediaItemToSearchResult);
+
+        setResults(mapped);
+        setHasSearched(true);
+      } catch (error) {
+        console.error(error);
+        setResults([]);
+        setHasSearched(true);
+      } finally {
+        // evita conflito de requests
+        if (currentRequestId === requestIdRef.current) {
+          setLoading(false);
+        }
+      }
     }, 400);
 
     return () => {
@@ -48,10 +73,19 @@ export function useGlobalSearch() {
   };
 
   const handleSubmit = () => {
-    if (!query.trim()) return;
+    const trimmedQuery = query.trim();
 
-    router.push(`/pesquisa?q=${query}`);
+    if (trimmedQuery.length < 2) return;
+
+    router.push(`/pesquisa?q=${trimmedQuery}`);
   };
 
-  return { query, results, loading, handleChange, handleSubmit };
+  return {
+    query,
+    results,
+    loading,
+    hasSearched,
+    handleChange,
+    handleSubmit,
+  };
 }
