@@ -1,10 +1,18 @@
-import { SearchFilters, SearchHeader, SearchSort } from "../../components";
+import { Suspense } from "react";
+import {
+  SearchFilters,
+  SearchGridResults,
+  SearchHeader,
+  SearchSort,
+} from "../../components";
 
 interface Props {
   q?: string;
+  sort?: "alph" | "recent" | "release";
+  mediaTypes?: string | string[];
 }
 
-export default async function SearchPage({ q }: Props) {
+export default async function SearchPage({ q, sort, mediaTypes }: Props) {
   if (!q) {
     return (
       <p>
@@ -14,6 +22,12 @@ export default async function SearchPage({ q }: Props) {
     );
   }
 
+  const filterMediaTypes = Array.isArray(mediaTypes)
+    ? mediaTypes
+    : mediaTypes
+      ? [mediaTypes]
+      : [];
+
   const numberOfResults = 0;
 
   return (
@@ -22,6 +36,9 @@ export default async function SearchPage({ q }: Props) {
       <SearchFilters />
       <main>
         <SearchSort />
+        <Suspense fallback={<p>Carregando...</p>}>
+          <SearchGridResults />
+        </Suspense>
       </main>
     </div>
   );
