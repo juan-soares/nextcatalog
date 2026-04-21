@@ -1,4 +1,4 @@
-import { SearchHeader, SearchSort } from "../../components";
+import { SearchFilters, SearchHeader, SearchSort } from "../../components";
 
 interface Props {
   query?: string;
@@ -19,6 +19,7 @@ export default function SearchPage({ query }: Props) {
   return (
     <div>
       <SearchHeader query={query.trim()} numberOfResults={numberOfResults} />
+      <SearchFilters />
       <main>
         <SearchSort />
       </main>
