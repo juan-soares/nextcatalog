@@ -1,12 +1,10 @@
-import { getMediaTypesAction } from "@/actions/media-type";
-import { SearchHeader, SearchSort } from "../../components";
+import { SearchFilters, SearchHeader, SearchSort } from "../../components";
 
 interface Props {
   q?: string;
-  sort: "alph" | "recent" | "release";
 }
 
-export default async function SearchPage({ q, sort }: Props) {
+export default async function SearchPage({ q }: Props) {
   if (!q) {
     return (
       <p>
@@ -17,20 +15,11 @@ export default async function SearchPage({ q, sort }: Props) {
   }
 
   const numberOfResults = 0;
-  const mediaTypes = await getMediaTypesAction();
-
-  const filters = [
-    {
-      legend: "Típo de Mídia",
-      name: "mediaTypes",
-      options: mediaTypes,
-    },
-  ];
 
   return (
     <div>
       <SearchHeader term={q.trim()} numberOfResults={numberOfResults} />
-
+      <SearchFilters />
       <main>
         <SearchSort />
       </main>

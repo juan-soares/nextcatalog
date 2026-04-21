@@ -17,8 +17,8 @@ export default function SearchSort() {
             onClick={() => handleClick(value)}
             aria-pressed={isActive}
           >
-            {isActive && <Check size={16} />}
             <span>{label}</span>
+            {isActive && <Check size={16} />}
           </button>
         );
       })}

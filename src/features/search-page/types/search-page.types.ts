@@ -1,5 +1,5 @@
 export interface AsideFilter {
-  legend: string;
+  label: string;
   name: string;
   options: AsideFilterOption[];
 }

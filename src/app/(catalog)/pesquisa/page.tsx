@@ -3,7 +3,6 @@ import { SearchPage } from "@/features/search-page";
 interface Props {
   searchParams: Promise<{
     q?: string;
-    sort: "alph" | "recent" | "release";
   }>;
 }
 
