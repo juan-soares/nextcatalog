@@ -1,23 +1,27 @@
 "use client";
 
-import { useSearchParams, useRouter } from "next/navigation";
+import { Check } from "lucide-react";
+import { useSearchSort } from "../../hooks";
 
 export default function SearchSort() {
-  const searchParams = useSearchParams();
-  const router = useRouter();
-
-  function updateSort(value: string) {
-    const params = new URLSearchParams(searchParams.toString());
-    params.set("sort", value);
-
-    router.push(`/pesquisa?${params.toString()}`);
-  }
+  const { sorts, currentSort, handleClick } = useSearchSort();
 
   return (
     <div>
-      <button onClick={() => updateSort("az")}>A-Z</button>
-      <button onClick={() => updateSort("recent")}>Recente</button>
-      <button onClick={() => updateSort("release")}>Lançamento</button>
+      {sorts.map(({ value, label }) => {
+        const isActive = currentSort === value;
+
+        return (
+          <button
+            key={value}
+            onClick={() => handleClick(value)}
+            aria-pressed={isActive}
+          >
+            {isActive && <Check size={16} />}
+            <span>{label}</span>
+          </button>
+        );
+      })}
     </div>
   );
 }

@@ -1,12 +1,12 @@
 export interface Props {
-  query: string;
+  term: string;
   numberOfResults: number;
 }
 
-export default function SearchHeader({ query, numberOfResults }: Props) {
+export default function SearchHeader({ term, numberOfResults }: Props) {
   return (
     <div>
-      <h1>Resultado da pesquisa: "{query}".</h1>
+      <h1>Resultado da pesquisa: "{term}".</h1>
       <p>{numberOfResults} resultados encontrados.</p>
     </div>
   );
