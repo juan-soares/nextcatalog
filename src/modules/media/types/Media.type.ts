@@ -1,3 +1,5 @@
+import { Franchise } from "@/modules/franchise";
+
 export interface Media {
   title: string;
   translatedtitle?: string;
@@ -9,4 +11,11 @@ export interface Media {
   synopsis: string;
 
   cover: string;
+  trailer?: string;
+
+  franchises: Franchise[];
+  themes: string[];
+
+  acquired: boolean;
+  complete: boolean;
 }
