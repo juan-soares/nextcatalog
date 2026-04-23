@@ -3,6 +3,7 @@ import {
   getMediaBySlugAndCategory,
   mapMediaToDetails,
   MediaHero,
+  MediaTabs,
 } from "@/modules/media";
 
 import { notFound } from "next/navigation";
@@ -14,7 +15,7 @@ interface Props {
   }>;
 }
 
-export default async function MediaPage({ params }: Props) {
+export default async function Page({ params }: Props) {
   const { category: categorySlug, media: mediaSlug } = await params;
 
   const category = CATEGORY_MAP[categorySlug as keyof typeof CATEGORY_MAP];
@@ -30,34 +31,10 @@ export default async function MediaPage({ params }: Props) {
     notFound();
   }
 
-  const {
-    title,
-    translatedTitle,
-    cover,
-    trailer,
-    synopsis,
-    acquired,
-    complete,
-    franchises,
-    releaseYear,
-    themes,
-  } = mediaDetails;
-
   return (
     <div>
-      <MediaHero
-        title={title}
-        translatedTitle={translatedTitle}
-        cover={cover}
-        trailer={trailer}
-        synopsis={synopsis}
-        acquired={acquired}
-        complete={complete}
-        franchises={franchises}
-        releaseYear={releaseYear}
-        category={category}
-        themes={themes}
-      />
+      <MediaHero {...mediaDetails} />
+      <MediaTabs />
     </div>
   );
 }
