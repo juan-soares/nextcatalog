@@ -1,32 +1,29 @@
-"use client";
-
-import { useRouter, useSearchParams } from "next/navigation";
+import Link from "next/link";
 import { MediaTabs as MediaTabsType } from "../../types";
+import { MEDIA_TABS_CONFIG } from "../../config";
 
-export default function MediaTabs() {
-  const searchParams = useSearchParams();
-  const currentTab = (searchParams.get("tab") as MediaTabsType) || "info";
-  const router = useRouter();
+interface Props {
+  currentTab: MediaTabsType;
+}
 
-  function changeTab(newTab: MediaTabsType) {
-    const params = new URLSearchParams(searchParams.toString());
-    params.set("tab", newTab);
-
-    router.push(`?${params.toString()}`);
-  }
-
+export default function MediaTabs({ currentTab = "info" }: Props) {
   return (
-    <div>
-      <div>
-        <button onClick={() => changeTab("info")}> Ficha Técnica</button>
-        <button onClick={() => changeTab("gallery")}>Galeria</button>
-        <button onClick={() => changeTab("files")}>Arquivos</button>
-      </div>
-      <div>
-        {currentTab === "info" && <TechnicalDetails />}
-        {currentTab === "gallery" && <Gallery />}
-        {currentTab === "files" && <Files />}
-      </div>
-    </div>
+    <nav role="tablist">
+      {Object.entries(MEDIA_TABS_CONFIG).map(([tab, label]) => {
+        const isActive = currentTab === tab;
+
+        return (
+          <Link
+            key={tab}
+            href={`?tab=${tab}`}
+            role="tab"
+            aria-selected={isActive}
+            data-active={isActive}
+          >
+            {label}
+          </Link>
+        );
+      })}
+    </nav>
   );
 }

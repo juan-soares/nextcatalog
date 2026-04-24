@@ -1,16 +1,51 @@
 export const CATEGORY_MAP = {
-  "jogos-eletronicos": "videoGames",
-  "jogos-de-tabuleiro": "boardGames",
+  "jogos-eletronicos": {
+    key: "videoGames",
+    label: "Jogos Eletrônicos",
+  },
 
-  "filmes-live-action": "liveActions",
-  "filmes-animacao": "animations",
+  "jogos-de-tabuleiro": {
+    key: "boardGames",
+    label: "Jogos de Tabuleiro",
+  },
 
-  "desenhos-animados": "cartoons",
-  animes: "animes",
-  series: "series",
+  "filmes-live-action": {
+    key: "liveActions",
+    label: "Filmes Live Action",
+  },
 
-  musicas: "music",
+  "filmes-animacao": {
+    key: "animations",
+    label: "Filmes de Animação",
+  },
 
-  livros: "books",
-  hqs: "comics",
+  "desenhos-animados": {
+    key: "cartoons",
+    label: "Desenhos Animados",
+  },
+
+  animes: {
+    key: "animes",
+    label: "Animes",
+  },
+
+  series: {
+    key: "series",
+    label: "Séries",
+  },
+
+  musicas: {
+    key: "music",
+    label: "Músicas",
+  },
+
+  livros: {
+    key: "books",
+    label: "Livros",
+  },
+
+  hqs: {
+    key: "comics",
+    label: "HQs",
+  },
 } as const;

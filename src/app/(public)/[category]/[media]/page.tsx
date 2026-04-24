@@ -3,8 +3,11 @@ import {
   getMediaBySlugAndCategory,
   mapMediaToDetails,
   MediaHero,
+  MediaTabContent,
   MediaTabs,
 } from "@/modules/media";
+
+import { MediaTabs as MediaTabsType } from "@/modules/media/types";
 
 import { notFound } from "next/navigation";
 
@@ -13,10 +16,15 @@ interface Props {
     category: string;
     media: string;
   }>;
+  searchParams: Promise<{
+    tab?: MediaTabsType;
+  }>;
 }
 
-export default async function Page({ params }: Props) {
+export default async function Page({ params, searchParams }: Props) {
   const { category: categorySlug, media: mediaSlug } = await params;
+  const { tab } = await searchParams;
+  const currentTab = tab || "info";
 
   const category = CATEGORY_MAP[categorySlug as keyof typeof CATEGORY_MAP];
 
@@ -34,7 +42,8 @@ export default async function Page({ params }: Props) {
   return (
     <div>
       <MediaHero {...mediaDetails} />
-      <MediaTabs />
+      <MediaTabs currentTab={currentTab} />
+      <MediaTabContent currentTab={currentTab} mediaDetails={mediaDetails}/>
     </div>
   );
 }

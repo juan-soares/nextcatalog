@@ -11,5 +11,5 @@ export interface MediaDetails {
   releaseYear: string;
   franchises: FranchiseLink[];
   themes: string[];
-  category: string;
+  category: Category;
 }
