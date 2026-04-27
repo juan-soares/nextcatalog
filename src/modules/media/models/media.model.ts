@@ -11,12 +11,15 @@ const MediaSchema = new Schema(
     language: { type: String },
     synopsis: { type: String },
     genres: [{ type: String }],
-    franchise: { type: String },
+    themes: [{ type: String }],
+    franchisesId: [{ type: String, required: true }],
     acquired: { type: Boolean, default: false },
     completed: { type: Boolean, default: false },
     releaseDate: { type: Date },
-    createdAt: { type: Date, default: Date.now },
-    updatedAt: { type: Date, default: Date.now },
+    details: {
+      type: Schema.Types.Mixed,
+      default: {},
+    },
   },
   {
     timestamps: true,
