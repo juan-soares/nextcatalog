@@ -1,21 +1,30 @@
-import { Franchise } from "@/modules/franchise";
+import { MediaCategory, MediaDetails } from "@/config/category";
 
-export interface Media {
+export type Media<TCategory extends MediaCategory = MediaCategory> = {
   title: string;
-  translatedtitle?: string;
-
+  translatedTitle?: string;
   slug: string;
-  category: string;
 
-  releaseDate: Date;
-  synopsis: string;
+  category: TCategory;
 
   cover: string;
   trailer?: string;
+  language?: string;
 
-  franchises: Franchise[];
-  themes: string[];
+  synopsis?: string;
+
+  genres?: string[];
+  themes?: string[];
+
+  franchisesId: string[];
 
   acquired: boolean;
-  complete: boolean;
-}
+  completed: boolean;
+
+  releaseDate?: Date;
+
+  details: MediaDetails<TCategory>;
+
+  createdAt?: Date;
+  updatedAt?: Date;
+};

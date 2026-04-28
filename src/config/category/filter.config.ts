@@ -19,4 +19,14 @@ export const FILTER_OPTIONS = {
     { label: "2 jogadores", value: 2 },
     { label: "Multiplayer", value: "multi" },
   ],
+
+  genres: [
+    { label: "Ação", value: "acao" },
+    { label: "Aventura", value: "aventura" },
+  ],
+
+  themes: [
+    { label: "Fantasia", value: "fantasia" },
+    { label: "Ficção Científica", value: "ficcao-cientifica" },
+  ],
 } as const;
