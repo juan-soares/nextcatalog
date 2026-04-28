@@ -1,52 +1,38 @@
-import { connectMongoDB } from "@/infra/database/mongodb";
 import { MediaModel } from "../models/media.model";
 
 //
-// 📌 Buscar todas as mídias
+// 📌 Buscar com query genérica (base de tudo)
 //
-export async function getAllMedia() {
-  await connectMongoDB();
-  return MediaModel.find().sort({ createdAt: -1 }).lean();
+export async function findMedia(query: any) {
+  return MediaModel.find(query).sort({ createdAt: -1 }).lean();
 }
 
 //
-// 📌 Buscar por categoria
+// 📌 Buscar por ID
 //
-export async function getMediaByCategory(category: string) {
-  await connectMongoDB();
-  return MediaModel.find({ category }).sort({ createdAt: -1 }).lean();
-}
-
-//
-// 📌 Buscar por id (detalhe)
-//
-export async function getMediaById(id: string) {
-  await connectMongoDB();
+export async function findMediaById(id: string) {
   return MediaModel.findById(id).lean();
 }
 
 //
-// 📌 Criar mídia (admin)
+// 📌 Criar mídia
 //
-export async function createMedia(data: any) {
-  await connectMongoDB();
+export async function insertMedia(data: any) {
   return MediaModel.create(data);
 }
 
 //
-// 📌 Atualizar mídia (admin)
+// 📌 Atualizar mídia
 //
-export async function updateMedia(id: string, data: any) {
-  await connectMongoDB();
+export async function updateMediaById(id: string, data: any) {
   return MediaModel.findByIdAndUpdate(id, data, {
     new: true,
   }).lean();
 }
 
 //
-// 📌 Deletar mídia (admin)
+// 📌 Deletar mídia
 //
-export async function deleteMedia(id: string) {
-  await connectMongoDB();
+export async function deleteMediaById(id: string) {
   return MediaModel.findByIdAndDelete(id);
 }

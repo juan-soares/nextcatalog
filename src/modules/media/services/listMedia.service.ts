@@ -1,16 +1,32 @@
-//
-// 📌 LISTAR mídias (com filtro opcional por categoria)
+import { MediaCategory } from "@/config/category";
+import { findMedia } from "../repositories/media.repository";
+import { connectMongoDB } from "@/infra/database/mongodb";
 
-import {
-  getAllMedia,
-  getMediaByCategory,
-} from "../repositories/media.repository";
+export type MediaFilters = {
+  languages?: string[];
+  platforms?: string[];
+  players?: (number | string)[];
+  genres?: string[];
+  themes?: string[];
+  resolutions?: string[];
+};
 
-//
-export async function listMedia(category?: string) {
-  if (category) {
-    return getMediaByCategory(category);
+export async function listMedia(
+  categorySlug: MediaCategory,
+  filters?: MediaFilters,
+) {
+  await connectMongoDB();
+  const query: Record<string, any> = {
+    category: categorySlug,
+  };
+
+  if (filters) {
+    for (const [key, value] of Object.entries(filters)) {
+      if (!value || (Array.isArray(value) && value.length === 0)) continue;
+
+      query[`details.${key}`] = Array.isArray(value) ? { $in: value } : value;
+    }
   }
 
-  return getAllMedia();
+  return findMedia(query);
 }
