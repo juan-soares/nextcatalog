@@ -1,29 +1,27 @@
 import Link from "next/link";
-import { MediaTabs as MediaTabsType } from "../../types";
-import { MEDIA_TABS_CONFIG } from "../../config";
+import { MEDIA_TABS } from "@/config";
+import MediaTabInfo from "../MediaTabInfo/MediaTabInfo";
+import { MediaDetails } from "../../types";
 
 interface Props {
-  currentTab: MediaTabsType;
+  activeTab: string;
+  mediaDetails: MediaDetails;
 }
 
-export default function MediaTabs({ currentTab = "info" }: Props) {
-  return (
-    <nav role="tablist">
-      {Object.entries(MEDIA_TABS_CONFIG).map(([tab, label]) => {
-        const isActive = currentTab === tab;
+export default function MediaTabs({ activeTab, mediaDetails }: Props) {
+  const { ...mediaInfo } = mediaDetails;
 
-        return (
-          <Link
-            key={tab}
-            href={`?tab=${tab}`}
-            role="tab"
-            aria-selected={isActive}
-            data-active={isActive}
-          >
-            {label}
+  return (
+    <div>
+      <nav role="tablist">
+        {MEDIA_TABS.map(({ key, label }) => (
+          <Link key={key} href={`?tab=${key}`}>
+            {activeTab === key ? `👉 ${label}` : label}
           </Link>
-        );
-      })}
-    </nav>
+        ))}
+      </nav>
+
+      {activeTab === "info" && <MediaTabInfo {...mediaInfo} />}
+    </div>
   );
 }

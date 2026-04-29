@@ -8,8 +8,8 @@ export interface MediaDetails {
   synopsis: string;
   acquired: boolean;
   complete: boolean;
-  releaseYear: string;
+  releaseDate: string;
   franchises: FranchiseLink[];
   themes: string[];
-  category: Category;
+  category: string;
 }

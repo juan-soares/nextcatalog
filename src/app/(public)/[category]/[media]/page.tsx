@@ -1,42 +1,35 @@
-import { CATEGORY_CONFIG } from "@/config/category";
+import { CATEGORY_CONFIG, MEDIA_TAB_CONFIG } from "@/config";
+
 import {
   getMediaBySlugAndCategory,
   mapMediaToDetails,
   MediaHero,
-  MediaTabContent,
   MediaTabs,
 } from "@/modules/media";
-
-import { MediaTabs as MediaTabsType } from "@/modules/media/types";
 
 import { notFound } from "next/navigation";
 
 interface Props {
-  params: Promise<{ category: string; media: string }>;
-  searchParams: Promise<{ tab?: string }>;
+  params: { category: string; media: string };
+  searchParams?: { tab?: string };
 }
 
 export default async function Page({ params, searchParams }: Props) {
-  const { category: categorySlug, media: mediaSlug } = await params;
-  if (!(categorySlug in CATEGORY_CONFIG)) return notFound();
+  const { category, media: mediaSlug } = params;
 
-  const { tab } = await searchParams;
-  const validTabs = ["info", "gallery", "files", "sequel"] as const;
-  const currentTab: MediaTabsType =
-    tab && validTabs.includes(tab as MediaTabsType)
-      ? (tab as MediaTabsType)
-      : "info";
+  if (!(category in CATEGORY_CONFIG)) return notFound();
 
-  const media = await getMediaBySlugAndCategory(categorySlug, mediaSlug);
+  const media = await getMediaBySlugAndCategory(category, mediaSlug);
   if (!media) return notFound();
-
   const mediaDetails = mapMediaToDetails(media);
+
+  const tab = searchParams?.tab;
+  const activeTab = tab && tab in MEDIA_TAB_CONFIG ? tab : "info";
 
   return (
     <div>
       <MediaHero {...mediaDetails} />
-      <MediaTabs currentTab={currentTab} />
-      <MediaTabContent currentTab={currentTab} mediaDetails={mediaDetails} />
+      <MediaTabs activeTab={activeTab} mediaDetails={mediaDetails} />
     </div>
   );
 }

@@ -1,6 +1,11 @@
 import { notFound } from "next/navigation";
-import { CATEGORY_CONFIG } from "@/config/category";
-import { MediaCard, mapMediaToCard, listMedia } from "@/modules/media";
+import {
+  MediaCard,
+  mapMediaToCard,
+  listMedia,
+  MediaFilters,
+} from "@/modules/media";
+import { CATEGORY_CONFIG, FILTER_CONFIG } from "@/config";
 
 interface Props {
   params: Promise<{ category: string }>;
@@ -13,6 +18,8 @@ export default async function CategoryPage({ params }: Props) {
 
   const validCategory = categorySlug as keyof typeof CATEGORY_CONFIG;
   const categoryConfig = CATEGORY_CONFIG[validCategory];
+  const categoryFilters =
+    FILTER_CONFIG[validCategory as keyof typeof FILTER_CONFIG] || [];
 
   const medias = await listMedia(validCategory);
   const mediasInfo = medias.map(mapMediaToCard);
@@ -20,6 +27,8 @@ export default async function CategoryPage({ params }: Props) {
   return (
     <div>
       <h1>{categoryConfig.label}</h1>
+      <MediaFilters />
+
       {mediasInfo.map((mediaInfo) => (
         <MediaCard key={mediaInfo.href} mediaInfo={mediaInfo} />
       ))}

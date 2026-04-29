@@ -10,7 +10,7 @@ interface Props {
   synopsis: string;
   acquired: boolean;
   complete: boolean;
-  releaseYear: string;
+  releaseDate: string;
   category: string;
   themes: string[];
   franchises: FranchiseLink[];
@@ -24,7 +24,7 @@ export default function MediaHero({
   synopsis,
   acquired,
   complete,
-  releaseYear,
+  releaseDate,
   category,
   themes,
   franchises,
@@ -56,7 +56,7 @@ export default function MediaHero({
         <div>
           <p>{synopsis}</p>
           <MediaTags
-            releaseYear={releaseYear}
+            releaseYear={releaseDate}
             category={category}
             themes={themes}
           />
