@@ -1,13 +1,6 @@
-import { notFound } from "next/navigation";
-import {
-  MediaCard,
-  mapMediaToCard,
-  listMedia,
-  MediaFilters,
-  MediaSort,
-} from "@/modules/media";
+import { listMedia, MediaFilters, MediaSort, MediaList } from "@/modules/media";
 import { CATEGORY_CONFIG, FILTER_CONFIG } from "@/config";
-import { buildMediaQuery } from "@/modules/media/services/query/buildMediaQuery.service";
+import { notFound } from "next/navigation";
 
 interface Props {
   params: { category: string };
@@ -16,6 +9,13 @@ interface Props {
 
 export default async function CategoryPage({ params, searchParams }: Props) {
   const { category } = params;
+  const categoryConfig =
+    CATEGORY_CONFIG[category as keyof typeof CATEGORY_CONFIG];
+
+  if (!categoryConfig) return notFound();
+
+  const categoryFilters =
+    FILTER_CONFIG[categoryConfig.slug as keyof typeof FILTER_CONFIG];
 
   const { mediaList, totalPages } = await listMedia({
     category,
@@ -27,10 +27,7 @@ export default async function CategoryPage({ params, searchParams }: Props) {
       <h1>{categoryConfig.label}</h1>
       <MediaFilters filters={categoryFilters} />
       <MediaSort />
-
-      {mediaList.map((mediaInfo) => (
-        <MediaCard key={mediaInfo.href} mediaInfo={mediaInfo} />
-      ))}
+      <MediaList list={mediaList}/>
     </div>
   );
 }
