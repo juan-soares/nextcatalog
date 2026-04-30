@@ -8,4 +8,3 @@ export const CATEGORIES: {
   href: `/${key as CategoryKey}`,
   label: value.label,
 }));
-

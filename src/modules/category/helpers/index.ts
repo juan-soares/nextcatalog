@@ -1,1 +1,1 @@
-export * from "./isValidCategory";
+export * from "./isCategoryKey";
