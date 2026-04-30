@@ -1,5 +1,7 @@
 import { logoutAction } from "@/auth/logOut";
+
 import { Logo } from "../../ui";
+import { CategoryNav } from "@/modules/category";
 
 export default function Header() {
   return (
@@ -8,6 +10,7 @@ export default function Header() {
       <form action={logoutAction}>
         <button>Sair</button>
       </form>
+      <CategoryNav />
     </header>
   );
 }

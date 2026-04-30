@@ -1,5 +1,9 @@
-import { listMedia, MediaFilters, MediaSort, MediaList } from "@/modules/media";
-import { CATEGORY_CONFIG, FILTER_CONFIG } from "@/config";
+import {
+  CategoryFilters,
+  CATEGORY_CONFIG,
+  FILTER_CONFIG,
+  isValidCategory,
+} from "@/modules/category";
 import { notFound } from "next/navigation";
 
 interface Props {
@@ -7,27 +11,24 @@ interface Props {
   searchParams: Record<string, string | string[] | undefined>;
 }
 
-export default async function CategoryPage({ params, searchParams }: Props) {
-  const { category } = params;
-  const categoryConfig =
-    CATEGORY_CONFIG[category as keyof typeof CATEGORY_CONFIG];
+export default async function CategoryPage({
+  params: { category },
+  searchParams,
+}: Props) {
+  if (!isValidCategory(category)) return notFound();
 
-  if (!categoryConfig) return notFound();
+  const categoryLabel = CATEGORY_CONFIG[category].label;
+  const categoryFilters = FILTER_CONFIG[category];
 
-  const categoryFilters =
-    FILTER_CONFIG[categoryConfig.slug as keyof typeof FILTER_CONFIG];
-
-  const { mediaList, totalPages } = await listMedia({
-    category,
-    searchParams,
-  });
+  //const { mediaList, totalPages } = await listMedia({
+  //   category,
+  // searchParams,
+  // });
 
   return (
     <div>
-      <h1>{categoryConfig.label}</h1>
-      <MediaFilters filters={categoryFilters} />
-      <MediaSort />
-      <MediaList list={mediaList}/>
+      <h1>{categoryLabel}</h1>
+      <CategoryFilters filters={categoryFilters} />
     </div>
   );
 }

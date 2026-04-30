@@ -15,6 +15,7 @@ export const FILTER_CONFIG: Record<CategoryKey, Filter[]> = {
       options: ["RPG", "Shooter", "Aventura"],
     },
   ],
+  "jogos-de-tabuleiro": [],
 
   animes: [
     {
@@ -24,4 +25,14 @@ export const FILTER_CONFIG: Record<CategoryKey, Filter[]> = {
       options: ["SD", "HD", "Full HD", "4K"],
     },
   ],
+  series: [],
+  desenhos: [],
+
+  "filmes-animacao": [],
+  "filmes-live-action": [],
+
+  hqs: [],
+  livros: [],
+
+  musicas: [],
 } as const;

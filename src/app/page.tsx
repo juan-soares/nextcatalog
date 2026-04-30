@@ -1,4 +1,3 @@
-import { CATEGORY_CONFIG } from "@/config";
 import { MediaList } from "@/modules/media";
 import { listMedia } from "@/modules/media/services/listMedia.service";
 
