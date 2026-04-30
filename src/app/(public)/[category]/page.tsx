@@ -27,6 +27,17 @@ function buildFilters(searchParams: Record<string, any>) {
   return filters;
 }
 
+function buildSearch(search?: string) {
+  if (!search) return {};
+
+  return {
+    $or: [
+      { title: { $regex: search, $options: "i" } },
+      { translatedTitle: { $regex: search, $options: "i" } },
+    ],
+  };
+}
+
 function getSort(sort?: string) {
   switch (sort) {
     case "title":
