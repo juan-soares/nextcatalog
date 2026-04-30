@@ -4,30 +4,71 @@ import {
   mapMediaToCard,
   listMedia,
   MediaFilters,
+  MediaSort,
 } from "@/modules/media";
 import { CATEGORY_CONFIG, FILTER_CONFIG } from "@/config";
 
 interface Props {
-  params: Promise<{ category: string }>;
+  params: { category: string };
+  searchParams: Record<string, string | string[] | undefined>;
 }
 
-export default async function CategoryPage({ params }: Props) {
-  const { category: categorySlug } = await params;
+function buildFilters(searchParams: Record<string, any>) {
+  const filters: Record<string, any> = {};
 
-  if (!(categorySlug in CATEGORY_CONFIG)) return notFound();
+  Object.entries(searchParams).forEach(([key, value]) => {
+    if (!value) return;
 
-  const validCategory = categorySlug as keyof typeof CATEGORY_CONFIG;
-  const categoryConfig = CATEGORY_CONFIG[validCategory];
-  const categoryFilters =
-    FILTER_CONFIG[validCategory as keyof typeof FILTER_CONFIG] || [];
+    const values = String(value).split(",");
 
-  const medias = await listMedia(validCategory);
+    filters[key] = { $in: values };
+  });
+
+  return filters;
+}
+
+function getSort(sort?: string) {
+  switch (sort) {
+    case "title":
+      return { title: 1 };
+
+    case "releaseDate":
+      return { releaseDate: -1 };
+
+    case "recent":
+    default:
+      return { updatedAt: -1 };
+  }
+}
+
+export default async function CategoryPage({ params, searchParams }: Props) {
+  const { category } = params;
+
+  const categoryConfig =
+    CATEGORY_CONFIG[category as keyof typeof CATEGORY_CONFIG];
+
+  if (!categoryConfig) return notFound();
+
+  const categoryFilters = FILTER_CONFIG[categoryConfig];
+  const mongoFilters = buildFilters(searchParams);
+
+  const sort = getSort(
+    typeof searchParams.sort === "string" ? searchParams.sort : undefined,
+  );
+
+  const query = {
+    category,
+    ...mongoFilters,
+  };
+
+  const medias = await listMedia(categoryConfig, query, sort);
   const mediasInfo = medias.map(mapMediaToCard);
 
   return (
     <div>
       <h1>{categoryConfig.label}</h1>
-      <MediaFilters />
+      <MediaFilters filters={categoryFilters} />
+      <MediaSort />
 
       {mediasInfo.map((mediaInfo) => (
         <MediaCard key={mediaInfo.href} mediaInfo={mediaInfo} />
