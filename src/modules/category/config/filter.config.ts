@@ -1,4 +1,6 @@
-export const FILTER_CONFIG = {
+import { CategoryKey, Filter } from "../types";
+
+export const FILTER_CONFIG: Record<CategoryKey, Filter[]> = {
   "jogos-eletronicos": [
     {
       key: "platforms",
