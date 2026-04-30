@@ -1,24 +1,8 @@
 import { CATEGORY_CONFIG } from "@/config";
+import { MediaList } from "@/modules/media";
 import { listMedia } from "@/modules/media/services/listMedia.service";
 
-import { connectMongoDB } from "@/infra/database/mongodb";
-import { UserModel } from "@/auth/user.model";
-import bcrypt from "bcryptjs";
-
 export default async function HomePage() {
-  await connectMongoDB();
-
-  const hashedPassword = await bcrypt.hash("123456", 10);
-
-  await UserModel.create({
-    name: "Admin",
-    email: "admin@site.com",
-    password: hashedPassword,
-    role: "admin",
-  });
-
-  console.log("Admin criado");
-
   const categories = Object.keys(CATEGORY_CONFIG);
 
   const sections = await Promise.all(
@@ -48,17 +32,7 @@ export default async function HomePage() {
           <section key={category}>
             <h2>{config.label}</h2>
 
-            <div>
-              {mediaList.map((media) => (
-                <MediaCard
-                  key={media._id}
-                  title={media.title}
-                  slug={media.slug}
-                  cover={media.cover}
-                  category={media.category}
-                />
-              ))}
-            </div>
+            <MediaList list={mediaList} />
           </section>
         );
       })}
