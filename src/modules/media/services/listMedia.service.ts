@@ -1,32 +1,30 @@
-import { MediaCategory } from "@/config/category";
-import { findMedia } from "../repositories/media.repository";
-import { connectMongoDB } from "@/infra/database/mongodb";
+import { findMedia, countMedia } from "../repositories/media.repository";
+import { buildMediaQuery } from "./query/buildMediaQuery.service";
 
-export type MediaFilters = {
-  languages?: string[];
-  platforms?: string[];
-  players?: (number | string)[];
-  genres?: string[];
-  themes?: string[];
-  resolutions?: string[];
+type Params = {
+  category: string;
+  searchParams: Record<string, string | string[] | undefined>;
 };
 
-export async function listMedia(
-  categorySlug: MediaCategory,
-  filters?: MediaFilters,
-) {
-  await connectMongoDB();
-  const query: Record<string, any> = {
-    category: categorySlug,
+export async function listMedia({ category, searchParams }: Params) {
+  const { query, sort, skip, limit, hasSearch } = buildMediaQuery({
+    category,
+    searchParams,
+  });
+
+  const mediaList = await findMedia({
+    query,
+    sort,
+    skip,
+    limit,
+  });
+
+  const total = await countMedia(query);
+
+  const totalPages = Math.ceil(total / limit);
+
+  return {
+    mediaList,
+    totalPages,
   };
-
-  if (filters) {
-    for (const [key, value] of Object.entries(filters)) {
-      if (!value || (Array.isArray(value) && value.length === 0)) continue;
-
-      query[`details.${key}`] = Array.isArray(value) ? { $in: value } : value;
-    }
-  }
-
-  return findMedia(query);
 }
