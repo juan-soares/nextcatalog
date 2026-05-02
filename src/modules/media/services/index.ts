@@ -1,3 +1,1 @@
-export * from "./getMedia.service";
-export * from "./getMediaByCategoryAndSlug";
-export * from "./listMedia.service";
+export { default as getRecentMediaCardsByCategory } from "./getRecentMediaCardsByCategory.service"

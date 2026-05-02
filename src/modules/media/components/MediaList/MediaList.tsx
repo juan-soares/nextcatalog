@@ -1,5 +1,3 @@
-import { Suspense } from "react";
-import MediaListSkeleton from "../MediaListSkeleton/MediaListSkeleton";
 import { MediaCard } from "../../types";
 
 interface Props {
@@ -7,9 +5,5 @@ interface Props {
 }
 
 export default function MediaList({ list }: Props) {
-  return (
-    <Suspense fallback={<MediaListSkeleton />}>
-      Media List renderiza cards
-    </Suspense>
-  );
+  return <ul></ul>;
 }

@@ -1,4 +1,5 @@
 import { findMedia, countMedia } from "../repositories/media.repository";
+
 import { buildMediaQuery } from "./query/buildMediaQuery.service";
 
 type Params = {
@@ -6,7 +7,10 @@ type Params = {
   searchParams: Record<string, string | string[] | undefined>;
 };
 
-export async function listMedia({ category, searchParams }: Params) {
+export async function listMedia({
+  category,
+  searchParams,
+}: Params): Promise<{ mediaList: Media[]; totalPages: number }> {
   const { query, sort, skip, limit, hasSearch } = buildMediaQuery({
     category,
     searchParams,

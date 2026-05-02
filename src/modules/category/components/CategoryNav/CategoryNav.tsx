@@ -2,10 +2,14 @@ import Link from "next/link";
 import { CATEGORIES } from "../../const";
 
 export default function CategoryNav() {
+  const sortedCategories = [...CATEGORIES].sort((a, b) =>
+    a.label.localeCompare(b.label, "pt-BR"),
+  );
+
   return (
     <nav>
-      {CATEGORIES.map(({ href, label }) => (
-        <Link key={href} href={href}>
+      {sortedCategories.map(({ slug, label }) => (
+        <Link key={slug} href={`/${slug}`}>
           {label}
         </Link>
       ))}

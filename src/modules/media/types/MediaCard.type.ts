@@ -1,7 +1,6 @@
 export interface MediaCard {
-  href: string;
-  synopsis: string;
   cover: string;
+  href: string;
   title: string;
   releaseYear: string;
 }

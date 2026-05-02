@@ -1,40 +1,19 @@
+import Link from "next/link";
+import { getCategoriesSection } from "@/modules/category";
 import { MediaList } from "@/modules/media";
-import { listMedia } from "@/modules/media/services/listMedia.service";
 
 export default async function HomePage() {
-  const categories = Object.keys(CATEGORY_CONFIG);
-
-  const sections = await Promise.all(
-    categories.map(async (category) => {
-      const { mediaList } = await listMedia({
-        category,
-        searchParams: {
-          sort: "recent",
-          page: "1",
-        },
-      });
-
-      return {
-        category,
-        mediaList: mediaList.slice(0, 5),
-      };
-    }),
-  );
+  const categoriesSection = await getCategoriesSection();
 
   return (
     <main>
-      {sections.map(({ category, mediaList }) => {
-        const config =
-          CATEGORY_CONFIG[category as keyof typeof CATEGORY_CONFIG];
-
-        return (
-          <section key={category}>
-            <h2>{config.label}</h2>
-
-            <MediaList list={mediaList} />
-          </section>
-        );
-      })}
+      {categoriesSection.map(({ label, medias, href }) => (
+        <section key={href}>
+          <h2>{label}</h2>
+          <MediaList list={medias} />
+          <Link href={href}>Ver mais...</Link>
+        </section>
+      ))}
     </main>
   );
 }

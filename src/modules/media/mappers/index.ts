@@ -1,2 +1,1 @@
-export * from "./mapMediaToCard.mapper";
-export * from "./mapMediaToDetails.mapper";
+export * from "./toMediaCard.mapper";
