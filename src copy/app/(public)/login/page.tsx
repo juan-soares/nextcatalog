@@ -1,7 +1,7 @@
 "use server";
 
-import { signIn } from "@/app/features/auth/utils/next-auth.util";
-import { redirectIfAuthenticated } from "@/app/features/auth/utils/redirectIfAuthenticated.util";
+import { signIn } from "@/features/auth/utils/next-auth.util";
+import { redirectIfAuthenticated } from "@/features/auth/utils/redirectIfAuthenticated.util";
 import { redirect } from "next/navigation";
 
 export async function loginAction(formData: FormData) {

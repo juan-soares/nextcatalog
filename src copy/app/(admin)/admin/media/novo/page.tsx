@@ -1,6 +1,6 @@
 "use server";
 
-import { requireAdmin } from "@/app/features/auth/isAdmin";
+import { requireAdmin } from "@/features/auth/isAdmin";
 import { CATEGORY_CONFIG } from "@/config";
 import { connectMongoDB } from "@/infra/database/mongodb";
 import { MediaModel } from "@/modules/media/models/media.model";

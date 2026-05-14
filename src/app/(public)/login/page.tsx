@@ -1,6 +1,4 @@
-"use server";
-
-import { LoginForm, redirectIfAuthenticated } from "@/app/features/auth";
+import { LoginForm, redirectIfAuthenticated } from "@/features/auth";
 
 export default async function LoginPage() {
   await redirectIfAuthenticated();

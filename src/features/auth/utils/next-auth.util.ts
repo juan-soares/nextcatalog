@@ -3,18 +3,20 @@ import Credentials from "next-auth/providers/credentials";
 
 import bcrypt from "bcryptjs";
 import { UserModel } from "../models";
+import { connectMongoDB } from "@/infra/database/mongodb";
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [
     Credentials({
-      name: "Credentials",
       credentials: {
         email: {},
         password: {},
       },
       async authorize(credentials) {
-        const email = credentials?.email;
-        const password = credentials?.password;
+        await connectMongoDB();
+
+        const email = credentials?.email as string;
+        const password = credentials?.password as string;
 
         const user = await UserModel.findOne({ email });
 
@@ -26,8 +28,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
 
         return {
           id: user._id.toString(),
-          name: user.name,
-          email: user.email,
+          nickname: user.nickname,
+          avatar: user.avatar,
           role: user.role,
         };
       },
@@ -48,7 +50,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
 
     async session({ session, token }) {
       if (session.user) {
-        (session.user as any).role = token.role;
+        session.user.role = token.role as string;
       }
       return session;
     },

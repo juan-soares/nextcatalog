@@ -1,10 +1,10 @@
 import { redirect } from "next/navigation";
 import { auth } from "./next-auth.util";
 
-export default async function redirectIfAuthenticated(path = "/admin/media") {
+export async function redirectIfAuthenticated(path = "/admin/media") {
   const session = await auth();
 
-  if (session) {
+  if (session?.user) {
     redirect(path);
   }
 }

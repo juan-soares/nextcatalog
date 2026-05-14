@@ -15,9 +15,9 @@ export const CATEGORY_CONFIG = {
     label: "Séries",
     slug: "series",
   },
-  desenhos: {
+  "desenhos-animados": {
     label: "Desenhos Animados",
-    slug: "desenhos",
+    slug: "desenhos-animados",
   },
   "filmes-animacao": {
     label: "Filmes - Animação",
