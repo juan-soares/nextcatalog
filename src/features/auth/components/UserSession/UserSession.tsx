@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { auth } from "../../utils";
-import { logoutAction } from "../../logOut";
+import { logoutAction } from "../../actions/logoutAction.action";
 
 export default async function UserSession() {
   const session = await auth();

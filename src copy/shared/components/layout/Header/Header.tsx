@@ -1,4 +1,4 @@
-import { logoutAction } from "@/features/auth/logOut";
+import { logoutAction } from "@/features/auth/actions/logoutAction.action";
 
 import { Logo } from "../../ui";
 import { CategoryNav } from "@/modules/category";
