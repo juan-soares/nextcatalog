@@ -1,29 +1,36 @@
 import Image from "next/image";
 import Link from "next/link";
 import { auth } from "../../utils";
+import { logoutAction } from "../../logOut";
 
 export default async function UserSession() {
   const session = await auth();
 
-  console.log(session);
-
-  if (!session || !session.user)
+  if (!session?.user) {
     return (
       <div>
         <Link href="/login">Entrar</Link>
       </div>
     );
+  }
+
+  const { avatar, nickname } = session.user;
+  const defaultAvatar = "/assets/avatars/default.png";
 
   return (
     <div>
       <Image
-        src={session.user.avatar}
-        alt={`Avatar do usuário ${session.user.nickname}`}
+        src={avatar || defaultAvatar}
+        alt={`Avatar do usuário ${nickname}.`}
         width={60}
         height={60}
       />
-      <p>{session.user.nickname}</p>
-      <button>Sair</button>
+
+      <p>{nickname}</p>
+
+      <form action={logoutAction}>
+        <button type="submit">Sair</button>
+      </form>
     </div>
   );
 }

@@ -33,14 +33,14 @@ export default async function AdminMediaListPage() {
 
       <ul>
         {medias.map((media: any) => (
-          <li key={media._id}>
+          <li key={media._id.toString()}>
             <span>{media.title}</span>
 
             <div>
-              <Link href={`/admin/media/${media._id}`}>Editar</Link>
+              <Link href={`/admin/media/${media._id.toString()}`}>Editar</Link>
 
               <form action={deleteMedia}>
-                <input type="hidden" name="id" value={media._id} />
+                <input type="hidden" name="id" value={media._id.toString()} />
                 <button type="submit">Deletar</button>
               </form>
             </div>
