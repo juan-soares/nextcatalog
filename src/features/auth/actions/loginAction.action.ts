@@ -1,21 +1,34 @@
 "use server";
 
-import { redirect } from "next/navigation";
+import { AuthError } from "next-auth";
 import { signIn } from "../utils";
 
-export async function loginAction(formData: FormData) {
-  const email = formData.get("email") as string;
-  const password = formData.get("password") as string;
+type LoginState = {
+  error?: string;
+};
 
-  const result = await signIn("credentials", {
-    email,
-    password,
-    redirect: false,
-  });
+export async function loginAction(
+  prevState: LoginState,
+  formData: FormData,
+): Promise<LoginState> {
+  try {
+    await signIn("credentials", {
+      email: formData.get("email"),
+      password: formData.get("password"),
+      redirectTo: "/admin/media",
+    });
 
-  if (result?.error) {
-    throw new Error("Email ou senha inválidos");
+    return {};
+  } catch (error) {
+    if (error instanceof AuthError) {
+      return {
+        error:
+          error.type === "CredentialsSignin"
+            ? "Email ou senha inválidos."
+            : "Erro ao autenticar.",
+      };
+    }
+
+    throw error;
   }
-
-  redirect("/admin/media");
 }

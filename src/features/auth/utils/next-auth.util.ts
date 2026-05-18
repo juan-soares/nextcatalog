@@ -15,6 +15,10 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       async authorize(credentials) {
         await connectMongoDB();
 
+        if (!credentials?.email || !credentials?.password) {
+          return null;
+        }
+
         const email = credentials?.email as string;
         const password = credentials?.password as string;
 
@@ -29,6 +33,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         return {
           id: user._id.toString(),
           name: user.nickname,
+          email: user.email,
           image: user.avatar,
 
           nickname: user.nickname,

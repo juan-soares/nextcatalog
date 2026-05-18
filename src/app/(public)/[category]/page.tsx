@@ -7,14 +7,16 @@ import {
 import { notFound } from "next/navigation";
 
 interface Props {
-  params: { category: string };
+  params: Promise<{ category: string }>;
   searchParams: Record<string, string | string[] | undefined>;
 }
 
 export default async function CategoryPage({
-  params: { category },
+  params,
   searchParams,
 }: Props) {
+  const {category} = await params;
+  
   if (!isValidCategory(category)) return notFound();
 
   const categoryLabel = CATEGORY_CONFIG[category].label;
