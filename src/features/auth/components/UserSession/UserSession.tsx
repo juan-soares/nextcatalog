@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { auth } from "../../utils";
-import { logoutAction } from "../../actions/logoutAction.action";
+import { LogoutButton } from "../LogoutButton";
 
 export default async function UserSession() {
   const session = await auth();
@@ -28,9 +28,7 @@ export default async function UserSession() {
 
       <p>{nickname}</p>
 
-      <form action={logoutAction}>
-        <button type="submit">Sair</button>
-      </form>
+      <LogoutButton />
     </div>
   );
 }
