@@ -5,8 +5,7 @@ import Link from "next/link";
 
 import { redirect } from "next/navigation";
 import { connectMongoDB } from "@/infra/database/mongodb";
-import { isAdmin } from "@/features/auth/isAdmin";
-import { requireAdmin } from "@/features/auth/guards";
+import { requireAdmin } from "@/features/auth";
 
 export async function deleteMedia(formData: FormData) {
   await requireAdmin();
@@ -17,7 +16,7 @@ export async function deleteMedia(formData: FormData) {
 
   await MediaModel.findByIdAndDelete(id);
 
-  redirect("/admin/media");
+  redirect("/admin/medias");
 }
 
 export default async function AdminMediaListPage() {
@@ -29,7 +28,7 @@ export default async function AdminMediaListPage() {
     <main>
       <h1>Admin - Mídias</h1>
 
-      <Link href="/admin/media/new">+ Nova mídia</Link>
+      <Link href="/admin/medias/novo">+ Nova mídia</Link>
 
       <ul>
         {medias.map((media: any) => (

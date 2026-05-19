@@ -1,18 +1,14 @@
 "use server";
 
+import { requireAdmin } from "@/features/auth";
 import { connectMongoDB } from "@/infra/database/mongodb";
-import { MediaModel } from "@/modules/media/models/media.model";
-
-import { MediaModel } from "@/modules/media/models/media.model";
-import { connectMongo } from "@/infra/database/mongodb";
+import { MediaModel } from "@/modules/media";
 import { redirect } from "next/navigation";
-import { MediaForm } from "@/modules/media/components/MediaForm/MediaaForm";
-import { isAdmin, requireAdmin } from "@/features/auth/isAdmin";
 
 export async function updateMedia(formData: FormData) {
   await requireAdmin();
 
-  await connectMongo();
+  await connectMongoDB();
 
   const id = formData.get("id") as string;
   const title = formData.get("title") as string;

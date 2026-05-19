@@ -1,9 +1,6 @@
-"use server";
-
-import { requireAdmin } from "@/features/auth/isAdmin";
-import { CATEGORY_CONFIG } from "@/config";
 import { connectMongoDB } from "@/infra/database/mongodb";
-import { MediaModel } from "@/modules/media/models/media.model";
+import { MediaModel } from "../models";
+import { requireAdmin } from "@/features/auth";
 import { redirect } from "next/navigation";
 
 export async function createMedia(formData: FormData) {
@@ -21,15 +18,5 @@ export async function createMedia(formData: FormData) {
     cover,
     slug: title.toLowerCase().replace(/\s+/g, "-"),
   });
-  redirect("/jogos-eletronicos");
-}
-
-export default function NewMediaPage() {
-  return (
-    <main>
-      <h1>Criar mídia</h1>
-
-      <MediaForm action={createMedia} />
-    </main>
-  );
+  redirect("/admin/medias");
 }

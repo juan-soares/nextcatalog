@@ -19,14 +19,16 @@ export default async function UserSession() {
 
   return (
     <div>
-      <Image
-        src={avatar || defaultAvatar}
-        alt={`Avatar do usuário ${nickname}.`}
-        width={60}
-        height={60}
-      />
+      <Link href="/admin/medias">
+        <Image
+          src={avatar || defaultAvatar}
+          alt={`Avatar do usuário ${nickname}.`}
+          width={60}
+          height={60}
+        />
 
-      <p>{nickname}</p>
+        <p>{nickname}</p>
+      </Link>
 
       <LogoutButton />
     </div>

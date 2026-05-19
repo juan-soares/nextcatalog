@@ -7,7 +7,7 @@ import { MediaModel } from "@/modules/media/models/media.model";
 import { connectMongo } from "@/infra/database/mongodb";
 import { redirect } from "next/navigation";
 import { MediaForm } from "@/modules/media/components/MediaForm/MediaaForm";
-import { isAdmin, requireAdmin } from "@/features/auth/isAdmin";
+import { isAdmin, requireAdmin } from "@/features/auth/utils/isAdmin.util";
 
 export async function updateMedia(formData: FormData) {
   await requireAdmin();

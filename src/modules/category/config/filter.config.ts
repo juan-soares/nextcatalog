@@ -26,7 +26,7 @@ export const FILTER_CONFIG: Record<CategoryKey, Filter[]> = {
     },
   ],
   series: [],
-  desenhos: [],
+  "desenhos-animados": [],
 
   "filmes-animacao": [],
   "filmes-live-action": [],

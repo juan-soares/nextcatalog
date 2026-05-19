@@ -5,8 +5,8 @@ import Link from "next/link";
 
 import { redirect } from "next/navigation";
 import { connectMongoDB } from "@/infra/database/mongodb";
-import { isAdmin } from "@/features/auth/isAdmin";
-import { requireAdmin } from "@/features/auth/guards";
+import { isAdmin } from "@/features/auth/utils/isAdmin.util";
+import { requireAdmin } from "@/features/auth/utils/guards.util";
 
 export async function deleteMedia(formData: FormData) {
   await requireAdmin();

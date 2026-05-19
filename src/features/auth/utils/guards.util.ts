@@ -1,4 +1,4 @@
-import { auth } from "./utils/next-auth.util";
+import { auth } from "./next-auth.util";
 
 export async function getSession() {
   return await auth();
@@ -29,6 +29,6 @@ export async function requireAdmin() {
   const ok = await isAdmin();
 
   if (!ok) {
-    throw new Error("Forbidden");
+    throw new Error("Unauthorized");
   }
 }
